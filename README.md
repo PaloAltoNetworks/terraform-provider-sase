@@ -35,9 +35,7 @@ cd terraform-provider-sase
 go build
 ```
 
-5. 4. Specify the `dev_overrides` configuration per the next section below. This tells Terraform where to find the provider you just built. The directory to specify is the full path to the cloned provider repo.
-
-When using the provider, refer to the documentation in the `./docs` directory for all resources and parameters.
+5. Specify the `dev_overrides` configuration per the next section below. This tells Terraform where to find the provider you just built. The directory to specify is the full path to the cloned provider repo.
 
 
 Developing the Provider
@@ -57,7 +55,7 @@ provider_installation {
 }
 ```
 
-Then when referencing the locally built provider, use the local name in the provider block like so:
+Then when referencing the locally built provider, use the local name in the `terraform` configuration block like so:
 
 ```hcl
 terraform {
