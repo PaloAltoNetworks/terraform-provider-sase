@@ -328,7 +328,25 @@ func (d *ipsecTunnelsListDataSource) Read(ctx context.Context, req datasource.Re
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{strconv.FormatInt(*input.Limit, 10), strconv.FormatInt(*input.Offset, 10), *input.Name, input.Folder}, IdSeparator))
+	var idBuilder strings.Builder
+	if input.Limit != nil {
+		idBuilder.WriteString(strconv.FormatInt(*input.Limit, 10))
+	} else {
+		idBuilder.WriteString("0")
+	}
+	idBuilder.WriteString(IdSeparator)
+	if input.Offset != nil {
+		idBuilder.WriteString(strconv.FormatInt(*input.Offset, 10))
+	} else {
+		idBuilder.WriteString("0")
+	}
+	idBuilder.WriteString(IdSeparator)
+	if input.Name != nil {
+		idBuilder.WriteString(*input.Name)
+	}
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
+	state.Id = types.StringValue(idBuilder.String())
 	var var0 []ipsecTunnelsListDsModelConfig
 	if len(ans.Data) != 0 {
 		var0 = make([]ipsecTunnelsListDsModelConfig, 0, len(ans.Data))
@@ -658,7 +676,9 @@ func (d *ipsecTunnelsDataSource) Read(ctx context.Context, req datasource.ReadRe
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{input.ObjectId}, IdSeparator))
+	var idBuilder strings.Builder
+	idBuilder.WriteString(input.ObjectId)
+	state.Id = types.StringValue(idBuilder.String())
 	var var0 ipsecTunnelsDsModelAutoKeyObject
 	var var1 []ipsecTunnelsDsModelIkeGatewayObject
 	if len(ans.AutoKey.IkeGateway) != 0 {
@@ -1128,7 +1148,11 @@ func (r *ipsecTunnelsResource) Create(ctx context.Context, req resource.CreateRe
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{input.Folder, ans.ObjectId}, IdSeparator))
+	var idBuilder strings.Builder
+	idBuilder.WriteString(input.Folder)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(ans.ObjectId)
+	state.Id = types.StringValue(idBuilder.String())
 	var var12 ipsecTunnelsRsModelAutoKeyObject
 	var var13 []ipsecTunnelsRsModelIkeGatewayObject
 	if len(ans.AutoKey.IkeGateway) != 0 {

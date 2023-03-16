@@ -275,7 +275,25 @@ func (d *objectsServicesListDataSource) Read(ctx context.Context, req datasource
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{strconv.FormatInt(*input.Limit, 10), strconv.FormatInt(*input.Offset, 10), *input.Name, input.Folder}, IdSeparator))
+	var idBuilder strings.Builder
+	if input.Limit != nil {
+		idBuilder.WriteString(strconv.FormatInt(*input.Limit, 10))
+	} else {
+		idBuilder.WriteString("0")
+	}
+	idBuilder.WriteString(IdSeparator)
+	if input.Offset != nil {
+		idBuilder.WriteString(strconv.FormatInt(*input.Offset, 10))
+	} else {
+		idBuilder.WriteString("0")
+	}
+	idBuilder.WriteString(IdSeparator)
+	if input.Name != nil {
+		idBuilder.WriteString(*input.Name)
+	}
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
+	state.Id = types.StringValue(idBuilder.String())
 	var var0 []objectsServicesListDsModelConfig
 	if len(ans.Data) != 0 {
 		var0 = make([]objectsServicesListDsModelConfig, 0, len(ans.Data))
@@ -526,7 +544,9 @@ func (d *objectsServicesDataSource) Read(ctx context.Context, req datasource.Rea
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{input.ObjectId}, IdSeparator))
+	var idBuilder strings.Builder
+	idBuilder.WriteString(input.ObjectId)
+	state.Id = types.StringValue(idBuilder.String())
 	var var0 objectsServicesDsModelProtocolObject
 	var var1 *objectsServicesDsModelTcpObject
 	if ans.Protocol.Tcp != nil {
@@ -876,7 +896,11 @@ func (r *objectsServicesResource) Create(ctx context.Context, req resource.Creat
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{input.Folder, ans.ObjectId}, IdSeparator))
+	var idBuilder strings.Builder
+	idBuilder.WriteString(input.Folder)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(ans.ObjectId)
+	state.Id = types.StringValue(idBuilder.String())
 	var var6 objectsServicesRsModelProtocolObject
 	var var7 *objectsServicesRsModelTcpObject
 	if ans.Protocol.Tcp != nil {

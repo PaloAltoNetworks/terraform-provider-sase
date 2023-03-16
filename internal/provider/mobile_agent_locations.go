@@ -154,7 +154,9 @@ func (d *mobileAgentLocationsListDataSource) Read(ctx context.Context, req datas
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{input.Folder}, IdSeparator))
+	var idBuilder strings.Builder
+	idBuilder.WriteString(input.Folder)
+	state.Id = types.StringValue(idBuilder.String())
 	var var0 []mobileAgentLocationsListDsModelConfig
 	if len(ans.Data) != 0 {
 		var0 = make([]mobileAgentLocationsListDsModelConfig, 0, len(ans.Data))

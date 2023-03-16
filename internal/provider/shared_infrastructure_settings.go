@@ -180,7 +180,19 @@ func (d *sharedInfrastructureSettingsListDataSource) Read(ctx context.Context, r
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{strconv.FormatInt(*input.Limit, 10), strconv.FormatInt(*input.Offset, 10)}, IdSeparator))
+	var idBuilder strings.Builder
+	if input.Limit != nil {
+		idBuilder.WriteString(strconv.FormatInt(*input.Limit, 10))
+	} else {
+		idBuilder.WriteString("0")
+	}
+	idBuilder.WriteString(IdSeparator)
+	if input.Offset != nil {
+		idBuilder.WriteString(strconv.FormatInt(*input.Offset, 10))
+	} else {
+		idBuilder.WriteString("0")
+	}
+	state.Id = types.StringValue(idBuilder.String())
 	var var0 []sharedInfrastructureSettingsListDsModelConfig
 	if len(ans.Data) != 0 {
 		var0 = make([]sharedInfrastructureSettingsListDsModelConfig, 0, len(ans.Data))

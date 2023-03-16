@@ -146,7 +146,9 @@ func (d *candidateConfigVersionsDataSource) Read(ctx context.Context, req dataso
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{input.Version}, IdSeparator))
+	var idBuilder strings.Builder
+	idBuilder.WriteString(input.Version)
+	state.Id = types.StringValue(idBuilder.String())
 	state.Admin = types.StringValue(ans.Admin)
 	state.Created = types.Int64Value(ans.Created)
 	state.Date = types.StringValue(ans.Date)

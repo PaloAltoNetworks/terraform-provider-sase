@@ -216,7 +216,25 @@ func (d *tacacsServerProfilesListDataSource) Read(ctx context.Context, req datas
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{strconv.FormatInt(*input.Limit, 10), strconv.FormatInt(*input.Offset, 10), input.Folder, *input.Name}, IdSeparator))
+	var idBuilder strings.Builder
+	if input.Limit != nil {
+		idBuilder.WriteString(strconv.FormatInt(*input.Limit, 10))
+	} else {
+		idBuilder.WriteString("0")
+	}
+	idBuilder.WriteString(IdSeparator)
+	if input.Offset != nil {
+		idBuilder.WriteString(strconv.FormatInt(*input.Offset, 10))
+	} else {
+		idBuilder.WriteString("0")
+	}
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
+	idBuilder.WriteString(IdSeparator)
+	if input.Name != nil {
+		idBuilder.WriteString(*input.Name)
+	}
+	state.Id = types.StringValue(idBuilder.String())
 	var var0 []tacacsServerProfilesListDsModelConfig
 	if len(ans.Data) != 0 {
 		var0 = make([]tacacsServerProfilesListDsModelConfig, 0, len(ans.Data))
@@ -392,7 +410,9 @@ func (d *tacacsServerProfilesDataSource) Read(ctx context.Context, req datasourc
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{input.ObjectId}, IdSeparator))
+	var idBuilder strings.Builder
+	idBuilder.WriteString(input.ObjectId)
+	state.Id = types.StringValue(idBuilder.String())
 	var var0 []tacacsServerProfilesDsModelServerObject
 	if len(ans.Server) != 0 {
 		var0 = make([]tacacsServerProfilesDsModelServerObject, 0, len(ans.Server))
@@ -623,7 +643,11 @@ func (r *tacacsServerProfilesResource) Create(ctx context.Context, req resource.
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{input.Folder, ans.ObjectId}, IdSeparator))
+	var idBuilder strings.Builder
+	idBuilder.WriteString(input.Folder)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(ans.ObjectId)
+	state.Id = types.StringValue(idBuilder.String())
 	var var4 []tacacsServerProfilesRsModelServerObject
 	if len(ans.Server) != 0 {
 		var4 = make([]tacacsServerProfilesRsModelServerObject, 0, len(ans.Server))

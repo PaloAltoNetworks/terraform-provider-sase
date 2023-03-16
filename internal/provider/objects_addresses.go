@@ -209,7 +209,25 @@ func (d *objectsAddressesListDataSource) Read(ctx context.Context, req datasourc
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{strconv.FormatInt(*input.Limit, 10), strconv.FormatInt(*input.Offset, 10), *input.Name, input.Folder}, IdSeparator))
+	var idBuilder strings.Builder
+	if input.Limit != nil {
+		idBuilder.WriteString(strconv.FormatInt(*input.Limit, 10))
+	} else {
+		idBuilder.WriteString("0")
+	}
+	idBuilder.WriteString(IdSeparator)
+	if input.Offset != nil {
+		idBuilder.WriteString(strconv.FormatInt(*input.Offset, 10))
+	} else {
+		idBuilder.WriteString("0")
+	}
+	idBuilder.WriteString(IdSeparator)
+	if input.Name != nil {
+		idBuilder.WriteString(*input.Name)
+	}
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
+	state.Id = types.StringValue(idBuilder.String())
 	var var0 []objectsAddressesListDsModelConfig
 	if len(ans.Data) != 0 {
 		var0 = make([]objectsAddressesListDsModelConfig, 0, len(ans.Data))
@@ -380,7 +398,11 @@ func (d *objectsAddressesDataSource) Read(ctx context.Context, req datasource.Re
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{input.ObjectId, input.Folder}, IdSeparator))
+	var idBuilder strings.Builder
+	idBuilder.WriteString(input.ObjectId)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
+	state.Id = types.StringValue(idBuilder.String())
 	state.Description = types.StringValue(ans.Description)
 	state.Fqdn = types.StringValue(ans.Fqdn)
 	state.ObjectId = types.StringValue(ans.ObjectId)
@@ -608,7 +630,11 @@ func (r *objectsAddressesResource) Create(ctx context.Context, req resource.Crea
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{input.Folder, ans.ObjectId}, IdSeparator))
+	var idBuilder strings.Builder
+	idBuilder.WriteString(input.Folder)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(ans.ObjectId)
+	state.Id = types.StringValue(idBuilder.String())
 	state.Description = types.StringValue(ans.Description)
 	state.Fqdn = types.StringValue(ans.Fqdn)
 	state.ObjectId = types.StringValue(ans.ObjectId)

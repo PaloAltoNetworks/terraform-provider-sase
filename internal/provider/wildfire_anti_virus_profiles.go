@@ -271,7 +271,25 @@ func (d *wildfireAntiVirusProfilesListDataSource) Read(ctx context.Context, req 
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{strconv.FormatInt(*input.Limit, 10), strconv.FormatInt(*input.Offset, 10), *input.Name, input.Folder}, IdSeparator))
+	var idBuilder strings.Builder
+	if input.Limit != nil {
+		idBuilder.WriteString(strconv.FormatInt(*input.Limit, 10))
+	} else {
+		idBuilder.WriteString("0")
+	}
+	idBuilder.WriteString(IdSeparator)
+	if input.Offset != nil {
+		idBuilder.WriteString(strconv.FormatInt(*input.Offset, 10))
+	} else {
+		idBuilder.WriteString("0")
+	}
+	idBuilder.WriteString(IdSeparator)
+	if input.Name != nil {
+		idBuilder.WriteString(*input.Name)
+	}
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
+	state.Id = types.StringValue(idBuilder.String())
 	var var0 []wildfireAntiVirusProfilesListDsModelConfig
 	if len(ans.Data) != 0 {
 		var0 = make([]wildfireAntiVirusProfilesListDsModelConfig, 0, len(ans.Data))
@@ -529,7 +547,9 @@ func (d *wildfireAntiVirusProfilesDataSource) Read(ctx context.Context, req data
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{input.ObjectId}, IdSeparator))
+	var idBuilder strings.Builder
+	idBuilder.WriteString(input.ObjectId)
+	state.Id = types.StringValue(idBuilder.String())
 	var var0 []wildfireAntiVirusProfilesDsModelMlavExceptionObject
 	if len(ans.MlavException) != 0 {
 		var0 = make([]wildfireAntiVirusProfilesDsModelMlavExceptionObject, 0, len(ans.MlavException))
@@ -878,7 +898,11 @@ func (r *wildfireAntiVirusProfilesResource) Create(ctx context.Context, req reso
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{input.Folder, ans.ObjectId}, IdSeparator))
+	var idBuilder strings.Builder
+	idBuilder.WriteString(input.Folder)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(ans.ObjectId)
+	state.Id = types.StringValue(idBuilder.String())
 	var var10 []wildfireAntiVirusProfilesRsModelMlavExceptionObject
 	if len(ans.MlavException) != 0 {
 		var10 = make([]wildfireAntiVirusProfilesRsModelMlavExceptionObject, 0, len(ans.MlavException))

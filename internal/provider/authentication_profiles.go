@@ -391,7 +391,25 @@ func (d *authenticationProfilesListDataSource) Read(ctx context.Context, req dat
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{strconv.FormatInt(*input.Limit, 10), strconv.FormatInt(*input.Offset, 10), input.Folder, *input.Name}, IdSeparator))
+	var idBuilder strings.Builder
+	if input.Limit != nil {
+		idBuilder.WriteString(strconv.FormatInt(*input.Limit, 10))
+	} else {
+		idBuilder.WriteString("0")
+	}
+	idBuilder.WriteString(IdSeparator)
+	if input.Offset != nil {
+		idBuilder.WriteString(strconv.FormatInt(*input.Offset, 10))
+	} else {
+		idBuilder.WriteString("0")
+	}
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
+	idBuilder.WriteString(IdSeparator)
+	if input.Name != nil {
+		idBuilder.WriteString(*input.Name)
+	}
+	state.Id = types.StringValue(idBuilder.String())
 	var var0 []authenticationProfilesListDsModelConfig
 	if len(ans.Data) != 0 {
 		var0 = make([]authenticationProfilesListDsModelConfig, 0, len(ans.Data))
@@ -798,7 +816,9 @@ func (d *authenticationProfilesDataSource) Read(ctx context.Context, req datasou
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{input.ObjectId}, IdSeparator))
+	var idBuilder strings.Builder
+	idBuilder.WriteString(input.ObjectId)
+	state.Id = types.StringValue(idBuilder.String())
 	var var0 *authenticationProfilesDsModelLockoutObject
 	if ans.Lockout != nil {
 		var0 = &authenticationProfilesDsModelLockoutObject{}
@@ -1401,7 +1421,11 @@ func (r *authenticationProfilesResource) Create(ctx context.Context, req resourc
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{input.Folder, ans.ObjectId}, IdSeparator))
+	var idBuilder strings.Builder
+	idBuilder.WriteString(input.Folder)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(ans.ObjectId)
+	state.Id = types.StringValue(idBuilder.String())
 	var var10 *authenticationProfilesRsModelLockoutObject
 	if ans.Lockout != nil {
 		var10 = &authenticationProfilesRsModelLockoutObject{}

@@ -325,7 +325,27 @@ func (d *qosPolicyRulesListDataSource) Read(ctx context.Context, req datasource.
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{strconv.FormatInt(*input.Limit, 10), strconv.FormatInt(*input.Offset, 10), *input.Name, input.Folder, input.Position}, IdSeparator))
+	var idBuilder strings.Builder
+	if input.Limit != nil {
+		idBuilder.WriteString(strconv.FormatInt(*input.Limit, 10))
+	} else {
+		idBuilder.WriteString("0")
+	}
+	idBuilder.WriteString(IdSeparator)
+	if input.Offset != nil {
+		idBuilder.WriteString(strconv.FormatInt(*input.Offset, 10))
+	} else {
+		idBuilder.WriteString("0")
+	}
+	idBuilder.WriteString(IdSeparator)
+	if input.Name != nil {
+		idBuilder.WriteString(*input.Name)
+	}
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Position)
+	state.Id = types.StringValue(idBuilder.String())
 	var var0 []qosPolicyRulesListDsModelConfig
 	if len(ans.Data) != 0 {
 		var0 = make([]qosPolicyRulesListDsModelConfig, 0, len(ans.Data))
@@ -644,7 +664,9 @@ func (d *qosPolicyRulesDataSource) Read(ctx context.Context, req datasource.Read
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{input.ObjectId}, IdSeparator))
+	var idBuilder strings.Builder
+	idBuilder.WriteString(input.ObjectId)
+	state.Id = types.StringValue(idBuilder.String())
 	var var0 qosPolicyRulesDsModelActionObject
 	var0.Class = types.StringValue(ans.Action.Class)
 	var var1 *qosPolicyRulesDsModelDscpTosObject
@@ -1071,7 +1093,13 @@ func (r *qosPolicyRulesResource) Create(ctx context.Context, req resource.Create
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{input.Folder, input.Position, ans.ObjectId}, IdSeparator))
+	var idBuilder strings.Builder
+	idBuilder.WriteString(input.Folder)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Position)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(ans.ObjectId)
+	state.Id = types.StringValue(idBuilder.String())
 	var var12 qosPolicyRulesRsModelActionObject
 	var12.Class = types.StringValue(ans.Action.Class)
 	var var13 *qosPolicyRulesRsModelDscpTosObject

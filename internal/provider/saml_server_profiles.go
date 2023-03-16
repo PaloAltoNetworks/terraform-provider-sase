@@ -209,7 +209,25 @@ func (d *samlServerProfilesListDataSource) Read(ctx context.Context, req datasou
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{strconv.FormatInt(*input.Limit, 10), strconv.FormatInt(*input.Offset, 10), input.Folder, *input.Name}, IdSeparator))
+	var idBuilder strings.Builder
+	if input.Limit != nil {
+		idBuilder.WriteString(strconv.FormatInt(*input.Limit, 10))
+	} else {
+		idBuilder.WriteString("0")
+	}
+	idBuilder.WriteString(IdSeparator)
+	if input.Offset != nil {
+		idBuilder.WriteString(strconv.FormatInt(*input.Offset, 10))
+	} else {
+		idBuilder.WriteString("0")
+	}
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
+	idBuilder.WriteString(IdSeparator)
+	if input.Name != nil {
+		idBuilder.WriteString(*input.Name)
+	}
+	state.Id = types.StringValue(idBuilder.String())
 	var var0 []samlServerProfilesListDsModelConfig
 	if len(ans.Data) != 0 {
 		var0 = make([]samlServerProfilesListDsModelConfig, 0, len(ans.Data))
@@ -369,7 +387,9 @@ func (d *samlServerProfilesDataSource) Read(ctx context.Context, req datasource.
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{input.ObjectId}, IdSeparator))
+	var idBuilder strings.Builder
+	idBuilder.WriteString(input.ObjectId)
+	state.Id = types.StringValue(idBuilder.String())
 	state.Certificate = types.StringValue(ans.Certificate)
 	state.EntityId = types.StringValue(ans.EntityId)
 	state.ObjectId = types.StringValue(ans.ObjectId)
@@ -585,7 +605,11 @@ func (r *samlServerProfilesResource) Create(ctx context.Context, req resource.Cr
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{input.Folder, ans.ObjectId}, IdSeparator))
+	var idBuilder strings.Builder
+	idBuilder.WriteString(input.Folder)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(ans.ObjectId)
+	state.Id = types.StringValue(idBuilder.String())
 	state.Certificate = types.StringValue(ans.Certificate)
 	state.EntityId = types.StringValue(ans.EntityId)
 	state.ObjectId = types.StringValue(ans.ObjectId)

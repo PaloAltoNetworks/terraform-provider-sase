@@ -279,7 +279,9 @@ func (d *mfaServersDataSource) Read(ctx context.Context, req datasource.ReadRequ
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{input.ObjectId}, IdSeparator))
+	var idBuilder strings.Builder
+	idBuilder.WriteString(input.ObjectId)
+	state.Id = types.StringValue(idBuilder.String())
 	var var0 *mfaServersDsModelMfaVendorTypeObject
 	if ans.MfaVendorType != nil {
 		var0 = &mfaServersDsModelMfaVendorTypeObject{}
@@ -762,7 +764,13 @@ func (r *mfaServersResource) Create(ctx context.Context, req resource.CreateRequ
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{input.Position, input.Folder, ans.ObjectId}, IdSeparator))
+	var idBuilder strings.Builder
+	idBuilder.WriteString(input.Position)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(ans.ObjectId)
+	state.Id = types.StringValue(idBuilder.String())
 	var var6 *mfaServersRsModelMfaVendorTypeObject
 	if ans.MfaVendorType != nil {
 		var6 = &mfaServersRsModelMfaVendorTypeObject{}

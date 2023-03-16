@@ -184,7 +184,25 @@ func (d *authenticationSequencesListDataSource) Read(ctx context.Context, req da
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{strconv.FormatInt(*input.Limit, 10), strconv.FormatInt(*input.Offset, 10), input.Folder, *input.Name}, IdSeparator))
+	var idBuilder strings.Builder
+	if input.Limit != nil {
+		idBuilder.WriteString(strconv.FormatInt(*input.Limit, 10))
+	} else {
+		idBuilder.WriteString("0")
+	}
+	idBuilder.WriteString(IdSeparator)
+	if input.Offset != nil {
+		idBuilder.WriteString(strconv.FormatInt(*input.Offset, 10))
+	} else {
+		idBuilder.WriteString("0")
+	}
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
+	idBuilder.WriteString(IdSeparator)
+	if input.Name != nil {
+		idBuilder.WriteString(*input.Name)
+	}
+	state.Id = types.StringValue(idBuilder.String())
 	var var0 []authenticationSequencesListDsModelConfig
 	if len(ans.Data) != 0 {
 		var0 = make([]authenticationSequencesListDsModelConfig, 0, len(ans.Data))
@@ -315,7 +333,9 @@ func (d *authenticationSequencesDataSource) Read(ctx context.Context, req dataso
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{input.ObjectId}, IdSeparator))
+	var idBuilder strings.Builder
+	idBuilder.WriteString(input.ObjectId)
+	state.Id = types.StringValue(idBuilder.String())
 	state.AuthenticationProfiles = EncodeStringSlice(ans.AuthenticationProfiles)
 	state.ObjectId = types.StringValue(ans.ObjectId)
 	state.Name = types.StringValue(ans.Name)
@@ -455,7 +475,11 @@ func (r *authenticationSequencesResource) Create(ctx context.Context, req resour
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{input.Folder, ans.ObjectId}, IdSeparator))
+	var idBuilder strings.Builder
+	idBuilder.WriteString(input.Folder)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(ans.ObjectId)
+	state.Id = types.StringValue(idBuilder.String())
 	state.AuthenticationProfiles = EncodeStringSlice(ans.AuthenticationProfiles)
 	state.ObjectId = types.StringValue(ans.ObjectId)
 	state.Name = types.StringValue(ans.Name)

@@ -764,7 +764,25 @@ func (d *objectsExternalDynamicListsListDataSource) Read(ctx context.Context, re
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{strconv.FormatInt(*input.Limit, 10), strconv.FormatInt(*input.Offset, 10), *input.Name, input.Folder}, IdSeparator))
+	var idBuilder strings.Builder
+	if input.Limit != nil {
+		idBuilder.WriteString(strconv.FormatInt(*input.Limit, 10))
+	} else {
+		idBuilder.WriteString("0")
+	}
+	idBuilder.WriteString(IdSeparator)
+	if input.Offset != nil {
+		idBuilder.WriteString(strconv.FormatInt(*input.Offset, 10))
+	} else {
+		idBuilder.WriteString("0")
+	}
+	idBuilder.WriteString(IdSeparator)
+	if input.Name != nil {
+		idBuilder.WriteString(*input.Name)
+	}
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
+	state.Id = types.StringValue(idBuilder.String())
 	var var0 []objectsExternalDynamicListsListDsModelConfig
 	if len(ans.Data) != 0 {
 		var0 = make([]objectsExternalDynamicListsListDsModelConfig, 0, len(ans.Data))
@@ -1710,7 +1728,9 @@ func (d *objectsExternalDynamicListsDataSource) Read(ctx context.Context, req da
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{input.ObjectId}, IdSeparator))
+	var idBuilder strings.Builder
+	idBuilder.WriteString(input.ObjectId)
+	state.Id = types.StringValue(idBuilder.String())
 	var var0 objectsExternalDynamicListsDsModelTypeObject
 	var var1 *objectsExternalDynamicListsDsModelDomainObject
 	if ans.Type.Domain != nil {
@@ -3300,7 +3320,11 @@ func (r *objectsExternalDynamicListsResource) Create(ctx context.Context, req re
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{input.Folder, ans.ObjectId}, IdSeparator))
+	var idBuilder strings.Builder
+	idBuilder.WriteString(input.Folder)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(ans.ObjectId)
+	state.Id = types.StringValue(idBuilder.String())
 	var var34 objectsExternalDynamicListsRsModelTypeObject
 	var var35 *objectsExternalDynamicListsRsModelDomainObject
 	if ans.Type.Domain != nil {

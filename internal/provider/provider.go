@@ -167,7 +167,7 @@ func (p *SaseProvider) DataSources(_ context.Context) []func() datasource.DataSo
 		NewCandidateConfigVersionsDataSource,
 		NewCertificateProfilesDataSource,
 		NewCertificateProfilesListDataSource,
-		NewCertificatesGetListDataSource,
+		NewCertificatesImportListDataSource,
 		NewDecryptionExclusionsDataSource,
 		NewDecryptionProfilesDataSource,
 		NewDecryptionProfilesListDataSource,

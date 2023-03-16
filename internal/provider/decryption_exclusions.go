@@ -119,7 +119,9 @@ func (d *decryptionExclusionsDataSource) Read(ctx context.Context, req datasourc
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{input.ObjectId}, IdSeparator))
+	var idBuilder strings.Builder
+	idBuilder.WriteString(input.ObjectId)
+	state.Id = types.StringValue(idBuilder.String())
 	state.Description = types.StringValue(ans.Description)
 	state.ObjectId = types.StringValue(ans.ObjectId)
 	state.Name = types.StringValue(ans.Name)
@@ -251,7 +253,11 @@ func (r *decryptionExclusionsResource) Create(ctx context.Context, req resource.
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{input.Folder, ans.ObjectId}, IdSeparator))
+	var idBuilder strings.Builder
+	idBuilder.WriteString(input.Folder)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(ans.ObjectId)
+	state.Id = types.StringValue(idBuilder.String())
 	state.Description = types.StringValue(ans.Description)
 	state.ObjectId = types.StringValue(ans.ObjectId)
 	state.Name = types.StringValue(ans.Name)

@@ -295,7 +295,27 @@ func (d *securityRulesListDataSource) Read(ctx context.Context, req datasource.R
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{strconv.FormatInt(*input.Limit, 10), strconv.FormatInt(*input.Offset, 10), input.Position, input.Folder, *input.Name}, IdSeparator))
+	var idBuilder strings.Builder
+	if input.Limit != nil {
+		idBuilder.WriteString(strconv.FormatInt(*input.Limit, 10))
+	} else {
+		idBuilder.WriteString("0")
+	}
+	idBuilder.WriteString(IdSeparator)
+	if input.Offset != nil {
+		idBuilder.WriteString(strconv.FormatInt(*input.Offset, 10))
+	} else {
+		idBuilder.WriteString("0")
+	}
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Position)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
+	idBuilder.WriteString(IdSeparator)
+	if input.Name != nil {
+		idBuilder.WriteString(*input.Name)
+	}
+	state.Id = types.StringValue(idBuilder.String())
 	var var0 []securityRulesListDsModelConfig
 	if len(ans.Data) != 0 {
 		var0 = make([]securityRulesListDsModelConfig, 0, len(ans.Data))
@@ -548,7 +568,9 @@ func (d *securityRulesDataSource) Read(ctx context.Context, req datasource.ReadR
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{input.ObjectId}, IdSeparator))
+	var idBuilder strings.Builder
+	idBuilder.WriteString(input.ObjectId)
+	state.Id = types.StringValue(idBuilder.String())
 	var var0 *securityRulesDsModelProfileSettingObject
 	if ans.ProfileSetting != nil {
 		var0 = &securityRulesDsModelProfileSettingObject{}
@@ -860,7 +882,13 @@ func (r *securityRulesResource) Create(ctx context.Context, req resource.CreateR
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{input.Position, input.Folder, ans.ObjectId}, IdSeparator))
+	var idBuilder strings.Builder
+	idBuilder.WriteString(input.Position)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(ans.ObjectId)
+	state.Id = types.StringValue(idBuilder.String())
 	var var2 *securityRulesRsModelProfileSettingObject
 	if ans.ProfileSetting != nil {
 		var2 = &securityRulesRsModelProfileSettingObject{}

@@ -229,7 +229,9 @@ func (d *jobsListDataSource) Read(ctx context.Context, req datasource.ReadReques
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue("sase")
+	var idBuilder strings.Builder
+	idBuilder.WriteString("sase")
+	state.Id = types.StringValue(idBuilder.String())
 	var var0 []jobsListDsModelConfig
 	if len(ans.Data) != 0 {
 		var0 = make([]jobsListDsModelConfig, 0, len(ans.Data))
@@ -473,7 +475,9 @@ func (d *jobsDataSource) Read(ctx context.Context, req datasource.ReadRequest, r
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{input.JobId}, IdSeparator))
+	var idBuilder strings.Builder
+	idBuilder.WriteString(input.JobId)
+	state.Id = types.StringValue(idBuilder.String())
 	state.Details = types.StringValue(ans.Details)
 	state.EndTs = types.StringValue(ans.EndTs)
 	state.ObjectId = types.StringValue(ans.ObjectId)

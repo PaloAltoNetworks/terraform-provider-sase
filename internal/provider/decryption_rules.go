@@ -308,7 +308,27 @@ func (d *decryptionRulesListDataSource) Read(ctx context.Context, req datasource
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{strconv.FormatInt(*input.Limit, 10), strconv.FormatInt(*input.Offset, 10), input.Position, input.Folder, *input.Name}, IdSeparator))
+	var idBuilder strings.Builder
+	if input.Limit != nil {
+		idBuilder.WriteString(strconv.FormatInt(*input.Limit, 10))
+	} else {
+		idBuilder.WriteString("0")
+	}
+	idBuilder.WriteString(IdSeparator)
+	if input.Offset != nil {
+		idBuilder.WriteString(strconv.FormatInt(*input.Offset, 10))
+	} else {
+		idBuilder.WriteString("0")
+	}
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Position)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
+	idBuilder.WriteString(IdSeparator)
+	if input.Name != nil {
+		idBuilder.WriteString(*input.Name)
+	}
+	state.Id = types.StringValue(idBuilder.String())
 	var var0 []decryptionRulesListDsModelConfig
 	if len(ans.Data) != 0 {
 		var0 = make([]decryptionRulesListDsModelConfig, 0, len(ans.Data))
@@ -579,7 +599,9 @@ func (d *decryptionRulesDataSource) Read(ctx context.Context, req datasource.Rea
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{input.ObjectId}, IdSeparator))
+	var idBuilder strings.Builder
+	idBuilder.WriteString(input.ObjectId)
+	state.Id = types.StringValue(idBuilder.String())
 	var var0 *decryptionRulesDsModelTypeObject
 	if ans.Type != nil {
 		var0 = &decryptionRulesDsModelTypeObject{}
@@ -936,7 +958,13 @@ func (r *decryptionRulesResource) Create(ctx context.Context, req resource.Creat
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{input.Position, input.Folder, ans.ObjectId}, IdSeparator))
+	var idBuilder strings.Builder
+	idBuilder.WriteString(input.Position)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(ans.ObjectId)
+	state.Id = types.StringValue(idBuilder.String())
 	var var2 *decryptionRulesRsModelTypeObject
 	if ans.Type != nil {
 		var2 = &decryptionRulesRsModelTypeObject{}

@@ -296,7 +296,25 @@ func (d *radiusServerProfilesListDataSource) Read(ctx context.Context, req datas
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{strconv.FormatInt(*input.Limit, 10), strconv.FormatInt(*input.Offset, 10), input.Folder, *input.Name}, IdSeparator))
+	var idBuilder strings.Builder
+	if input.Limit != nil {
+		idBuilder.WriteString(strconv.FormatInt(*input.Limit, 10))
+	} else {
+		idBuilder.WriteString("0")
+	}
+	idBuilder.WriteString(IdSeparator)
+	if input.Offset != nil {
+		idBuilder.WriteString(strconv.FormatInt(*input.Offset, 10))
+	} else {
+		idBuilder.WriteString("0")
+	}
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
+	idBuilder.WriteString(IdSeparator)
+	if input.Name != nil {
+		idBuilder.WriteString(*input.Name)
+	}
+	state.Id = types.StringValue(idBuilder.String())
 	var var0 []radiusServerProfilesListDsModelConfig
 	if len(ans.Data) != 0 {
 		var0 = make([]radiusServerProfilesListDsModelConfig, 0, len(ans.Data))
@@ -584,7 +602,9 @@ func (d *radiusServerProfilesDataSource) Read(ctx context.Context, req datasourc
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{input.ObjectId}, IdSeparator))
+	var idBuilder strings.Builder
+	idBuilder.WriteString(input.ObjectId)
+	state.Id = types.StringValue(idBuilder.String())
 	var var0 *radiusServerProfilesDsModelProtocolObject
 	if ans.Protocol != nil {
 		var0 = &radiusServerProfilesDsModelProtocolObject{}
@@ -984,7 +1004,11 @@ func (r *radiusServerProfilesResource) Create(ctx context.Context, req resource.
 	}
 
 	// Store the answer to state.
-	state.Id = types.StringValue(strings.Join([]string{input.Folder, ans.ObjectId}, IdSeparator))
+	var idBuilder strings.Builder
+	idBuilder.WriteString(input.Folder)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(ans.ObjectId)
+	state.Id = types.StringValue(idBuilder.String())
 	var var8 *radiusServerProfilesRsModelProtocolObject
 	if ans.Protocol != nil {
 		var8 = &radiusServerProfilesRsModelProtocolObject{}
