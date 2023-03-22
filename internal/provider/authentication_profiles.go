@@ -526,6 +526,7 @@ type authenticationProfilesDsModel struct {
 
 	// Input.
 	ObjectId types.String `tfsdk:"object_id"`
+	Folder   types.String `tfsdk:"folder"`
 
 	// Output.
 	// Ref: #/components/schemas/authentication-profiles
@@ -614,6 +615,13 @@ func (d *authenticationProfilesDataSource) Schema(_ context.Context, _ datasourc
 			"object_id": dsschema.StringAttribute{
 				Description: "The uuid of the resource",
 				Required:    true,
+			},
+			"folder": dsschema.StringAttribute{
+				Description: "The folder of the entry",
+				Required:    true,
+				Validators: []validator.String{
+					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
+				},
 			},
 
 			// Output.
@@ -802,12 +810,14 @@ func (d *authenticationProfilesDataSource) Read(ctx context.Context, req datasou
 		"terraform_provider_function": "Read",
 		"data_source_name":            "sase_authentication_profiles",
 		"object_id":                   state.ObjectId.ValueString(),
+		"folder":                      state.Folder.ValueString(),
 	})
 
 	// Prepare to run the command.
 	svc := cUCsSiw.NewClient(d.client)
 	input := cUCsSiw.ReadInput{
 		ObjectId: state.ObjectId.ValueString(),
+		Folder:   state.Folder.ValueString(),
 	}
 
 	// Perform the operation.
@@ -820,6 +830,8 @@ func (d *authenticationProfilesDataSource) Read(ctx context.Context, req datasou
 	// Store the answer to state.
 	var idBuilder strings.Builder
 	idBuilder.WriteString(input.ObjectId)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
 	state.Id = types.StringValue(idBuilder.String())
 	var var0 *authenticationProfilesDsModelLockoutObject
 	if ans.Lockout != nil {
@@ -1536,6 +1548,7 @@ func (r *authenticationProfilesResource) Read(ctx context.Context, req resource.
 	svc := cUCsSiw.NewClient(r.client)
 	input := cUCsSiw.ReadInput{
 		ObjectId: tokens[1],
+		Folder:   tokens[0],
 	}
 
 	// Perform the operation.

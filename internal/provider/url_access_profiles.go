@@ -435,6 +435,7 @@ type urlAccessProfilesDsModel struct {
 
 	// Input.
 	ObjectId types.String `tfsdk:"object_id"`
+	Folder   types.String `tfsdk:"folder"`
 
 	// Output.
 	// Ref: #/components/schemas/url-access-profiles
@@ -496,6 +497,13 @@ func (d *urlAccessProfilesDataSource) Schema(_ context.Context, _ datasource.Sch
 			"object_id": dsschema.StringAttribute{
 				Description: "The uuid of the resource",
 				Required:    true,
+			},
+			"folder": dsschema.StringAttribute{
+				Description: "The folder of the entry",
+				Required:    true,
+				Validators: []validator.String{
+					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
+				},
 			},
 
 			// Output.
@@ -645,12 +653,14 @@ func (d *urlAccessProfilesDataSource) Read(ctx context.Context, req datasource.R
 		"terraform_provider_function": "Read",
 		"data_source_name":            "sase_url_access_profiles",
 		"object_id":                   state.ObjectId.ValueString(),
+		"folder":                      state.Folder.ValueString(),
 	})
 
 	// Prepare to run the command.
 	svc := uyrOkzA.NewClient(d.client)
 	input := uyrOkzA.ReadInput{
 		ObjectId: state.ObjectId.ValueString(),
+		Folder:   state.Folder.ValueString(),
 	}
 
 	// Perform the operation.
@@ -663,6 +673,8 @@ func (d *urlAccessProfilesDataSource) Read(ctx context.Context, req datasource.R
 	// Store the answer to state.
 	var idBuilder strings.Builder
 	idBuilder.WriteString(input.ObjectId)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
 	state.Id = types.StringValue(idBuilder.String())
 	var var0 *urlAccessProfilesDsModelCredentialEnforcementObject
 	if ans.CredentialEnforcement != nil {
@@ -1166,6 +1178,7 @@ func (r *urlAccessProfilesResource) Read(ctx context.Context, req resource.ReadR
 	svc := uyrOkzA.NewClient(r.client)
 	input := uyrOkzA.ReadInput{
 		ObjectId: tokens[1],
+		Folder:   tokens[0],
 	}
 
 	// Perform the operation.

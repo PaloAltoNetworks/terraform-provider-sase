@@ -449,6 +449,7 @@ type qosPolicyRulesDsModel struct {
 
 	// Input.
 	ObjectId types.String `tfsdk:"object_id"`
+	Folder   types.String `tfsdk:"folder"`
 
 	// Output.
 	// Ref: #/components/schemas/qos-policy-rules
@@ -522,6 +523,13 @@ func (d *qosPolicyRulesDataSource) Schema(_ context.Context, _ datasource.Schema
 			"object_id": dsschema.StringAttribute{
 				Description: "The uuid of the resource",
 				Required:    true,
+			},
+			"folder": dsschema.StringAttribute{
+				Description: "The folder of the entry",
+				Required:    true,
+				Validators: []validator.String{
+					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
+				},
 			},
 
 			// Output.
@@ -650,12 +658,14 @@ func (d *qosPolicyRulesDataSource) Read(ctx context.Context, req datasource.Read
 		"terraform_provider_function": "Read",
 		"data_source_name":            "sase_qos_policy_rules",
 		"object_id":                   state.ObjectId.ValueString(),
+		"folder":                      state.Folder.ValueString(),
 	})
 
 	// Prepare to run the command.
 	svc := tzldypq.NewClient(d.client)
 	input := tzldypq.ReadInput{
 		ObjectId: state.ObjectId.ValueString(),
+		Folder:   state.Folder.ValueString(),
 	}
 
 	// Perform the operation.
@@ -668,6 +678,8 @@ func (d *qosPolicyRulesDataSource) Read(ctx context.Context, req datasource.Read
 	// Store the answer to state.
 	var idBuilder strings.Builder
 	idBuilder.WriteString(input.ObjectId)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
 	state.Id = types.StringValue(idBuilder.String())
 	var var0 qosPolicyRulesDsModelActionObject
 	var0.Class = types.StringValue(ans.Action.Class)
@@ -1197,6 +1209,7 @@ func (r *qosPolicyRulesResource) Read(ctx context.Context, req resource.ReadRequ
 	svc := tzldypq.NewClient(r.client)
 	input := tzldypq.ReadInput{
 		ObjectId: tokens[2],
+		Folder:   tokens[0],
 	}
 
 	// Perform the operation.

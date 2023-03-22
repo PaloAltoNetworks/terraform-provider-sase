@@ -376,6 +376,7 @@ type wildfireAntiVirusProfilesDsModel struct {
 
 	// Input.
 	ObjectId types.String `tfsdk:"object_id"`
+	Folder   types.String `tfsdk:"folder"`
 
 	// Output.
 	// Ref: #/components/schemas/wildfire-anti-virus-profiles
@@ -427,6 +428,13 @@ func (d *wildfireAntiVirusProfilesDataSource) Schema(_ context.Context, _ dataso
 			"object_id": dsschema.StringAttribute{
 				Description: "The uuid of the resource",
 				Required:    true,
+			},
+			"folder": dsschema.StringAttribute{
+				Description: "The folder of the entry",
+				Required:    true,
+				Validators: []validator.String{
+					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
+				},
 			},
 
 			// Output.
@@ -533,12 +541,14 @@ func (d *wildfireAntiVirusProfilesDataSource) Read(ctx context.Context, req data
 		"terraform_provider_function": "Read",
 		"data_source_name":            "sase_wildfire_anti_virus_profiles",
 		"object_id":                   state.ObjectId.ValueString(),
+		"folder":                      state.Folder.ValueString(),
 	})
 
 	// Prepare to run the command.
 	svc := crXhgow.NewClient(d.client)
 	input := crXhgow.ReadInput{
 		ObjectId: state.ObjectId.ValueString(),
+		Folder:   state.Folder.ValueString(),
 	}
 
 	// Perform the operation.
@@ -551,6 +561,8 @@ func (d *wildfireAntiVirusProfilesDataSource) Read(ctx context.Context, req data
 	// Store the answer to state.
 	var idBuilder strings.Builder
 	idBuilder.WriteString(input.ObjectId)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
 	state.Id = types.StringValue(idBuilder.String())
 	var var0 []wildfireAntiVirusProfilesDsModelMlavExceptionObject
 	if len(ans.MlavException) != 0 {
@@ -983,6 +995,7 @@ func (r *wildfireAntiVirusProfilesResource) Read(ctx context.Context, req resour
 	svc := crXhgow.NewClient(r.client)
 	input := crXhgow.ReadInput{
 		ObjectId: tokens[1],
+		Folder:   tokens[0],
 	}
 
 	// Perform the operation.

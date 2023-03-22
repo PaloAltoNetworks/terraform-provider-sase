@@ -248,6 +248,7 @@ type objectsHipProfilesDsModel struct {
 
 	// Input.
 	ObjectId types.String `tfsdk:"object_id"`
+	Folder   types.String `tfsdk:"folder"`
 
 	// Output.
 	// Ref: #/components/schemas/objects-hip-profiles
@@ -277,6 +278,13 @@ func (d *objectsHipProfilesDataSource) Schema(_ context.Context, _ datasource.Sc
 			"object_id": dsschema.StringAttribute{
 				Description: "The uuid of the resource",
 				Required:    true,
+			},
+			"folder": dsschema.StringAttribute{
+				Description: "The folder of the entry",
+				Required:    true,
+				Validators: []validator.String{
+					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
+				},
 			},
 
 			// Output.
@@ -317,12 +325,14 @@ func (d *objectsHipProfilesDataSource) Read(ctx context.Context, req datasource.
 		"terraform_provider_function": "Read",
 		"data_source_name":            "sase_objects_hip_profiles",
 		"object_id":                   state.ObjectId.ValueString(),
+		"folder":                      state.Folder.ValueString(),
 	})
 
 	// Prepare to run the command.
 	svc := eDultHQ.NewClient(d.client)
 	input := eDultHQ.ReadInput{
 		ObjectId: state.ObjectId.ValueString(),
+		Folder:   state.Folder.ValueString(),
 	}
 
 	// Perform the operation.
@@ -335,6 +345,8 @@ func (d *objectsHipProfilesDataSource) Read(ctx context.Context, req datasource.
 	// Store the answer to state.
 	var idBuilder strings.Builder
 	idBuilder.WriteString(input.ObjectId)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
 	state.Id = types.StringValue(idBuilder.String())
 	state.Description = types.StringValue(ans.Description)
 	state.ObjectId = types.StringValue(ans.ObjectId)
@@ -529,6 +541,7 @@ func (r *objectsHipProfilesResource) Read(ctx context.Context, req resource.Read
 	svc := eDultHQ.NewClient(r.client)
 	input := eDultHQ.ReadInput{
 		ObjectId: tokens[1],
+		Folder:   tokens[0],
 	}
 
 	// Perform the operation.

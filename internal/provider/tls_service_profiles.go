@@ -338,6 +338,7 @@ type tlsServiceProfilesDsModel struct {
 
 	// Input.
 	ObjectId types.String `tfsdk:"object_id"`
+	Folder   types.String `tfsdk:"folder"`
 
 	// Output.
 	// Ref: #/components/schemas/tls-service-profiles
@@ -384,6 +385,13 @@ func (d *tlsServiceProfilesDataSource) Schema(_ context.Context, _ datasource.Sc
 			"object_id": dsschema.StringAttribute{
 				Description: "The uuid of the resource",
 				Required:    true,
+			},
+			"folder": dsschema.StringAttribute{
+				Description: "The folder of the entry",
+				Required:    true,
+				Validators: []validator.String{
+					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
+				},
 			},
 
 			// Output.
@@ -482,12 +490,14 @@ func (d *tlsServiceProfilesDataSource) Read(ctx context.Context, req datasource.
 		"terraform_provider_function": "Read",
 		"data_source_name":            "sase_tls_service_profiles",
 		"object_id":                   state.ObjectId.ValueString(),
+		"folder":                      state.Folder.ValueString(),
 	})
 
 	// Prepare to run the command.
 	svc := qUVHRkq.NewClient(d.client)
 	input := qUVHRkq.ReadInput{
 		ObjectId: state.ObjectId.ValueString(),
+		Folder:   state.Folder.ValueString(),
 	}
 
 	// Perform the operation.
@@ -500,6 +510,8 @@ func (d *tlsServiceProfilesDataSource) Read(ctx context.Context, req datasource.
 	// Store the answer to state.
 	var idBuilder strings.Builder
 	idBuilder.WriteString(input.ObjectId)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
 	state.Id = types.StringValue(idBuilder.String())
 	var var0 tlsServiceProfilesDsModelProtocolSettingsObject
 	var0.AuthAlgoSha1 = types.BoolValue(ans.ProtocolSettings.AuthAlgoSha1)
@@ -869,6 +881,7 @@ func (r *tlsServiceProfilesResource) Read(ctx context.Context, req resource.Read
 	svc := qUVHRkq.NewClient(r.client)
 	input := qUVHRkq.ReadInput{
 		ObjectId: tokens[1],
+		Folder:   tokens[0],
 	}
 
 	// Perform the operation.

@@ -445,6 +445,7 @@ type dnsSecurityProfilesDsModel struct {
 
 	// Input.
 	ObjectId types.String `tfsdk:"object_id"`
+	Folder   types.String `tfsdk:"folder"`
 
 	// Output.
 	// Ref: #/components/schemas/dns-security-profiles
@@ -511,6 +512,13 @@ func (d *dnsSecurityProfilesDataSource) Schema(_ context.Context, _ datasource.S
 			"object_id": dsschema.StringAttribute{
 				Description: "The uuid of the resource",
 				Required:    true,
+			},
+			"folder": dsschema.StringAttribute{
+				Description: "The folder of the entry",
+				Required:    true,
+				Validators: []validator.String{
+					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
+				},
 			},
 
 			// Output.
@@ -645,12 +653,14 @@ func (d *dnsSecurityProfilesDataSource) Read(ctx context.Context, req datasource
 		"terraform_provider_function": "Read",
 		"data_source_name":            "sase_dns_security_profiles",
 		"object_id":                   state.ObjectId.ValueString(),
+		"folder":                      state.Folder.ValueString(),
 	})
 
 	// Prepare to run the command.
 	svc := uSsfsLd.NewClient(d.client)
 	input := uSsfsLd.ReadInput{
 		ObjectId: state.ObjectId.ValueString(),
+		Folder:   state.Folder.ValueString(),
 	}
 
 	// Perform the operation.
@@ -663,6 +673,8 @@ func (d *dnsSecurityProfilesDataSource) Read(ctx context.Context, req datasource
 	// Store the answer to state.
 	var idBuilder strings.Builder
 	idBuilder.WriteString(input.ObjectId)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
 	state.Id = types.StringValue(idBuilder.String())
 	var var0 *dnsSecurityProfilesDsModelBotnetDomainsObject
 	if ans.BotnetDomains != nil {
@@ -1231,6 +1243,7 @@ func (r *dnsSecurityProfilesResource) Read(ctx context.Context, req resource.Rea
 	svc := uSsfsLd.NewClient(r.client)
 	input := uSsfsLd.ReadInput{
 		ObjectId: tokens[1],
+		Folder:   tokens[0],
 	}
 
 	// Perform the operation.

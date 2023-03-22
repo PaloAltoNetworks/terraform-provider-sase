@@ -303,6 +303,7 @@ type ikeCryptoProfilesDsModel struct {
 
 	// Input.
 	ObjectId types.String `tfsdk:"object_id"`
+	Folder   types.String `tfsdk:"folder"`
 
 	// Output.
 	// Ref: #/components/schemas/ike-crypto-profiles
@@ -342,6 +343,13 @@ func (d *ikeCryptoProfilesDataSource) Schema(_ context.Context, _ datasource.Sch
 			"object_id": dsschema.StringAttribute{
 				Description: "The uuid of the resource",
 				Required:    true,
+			},
+			"folder": dsschema.StringAttribute{
+				Description: "The folder of the entry",
+				Required:    true,
+				Validators: []validator.String{
+					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
+				},
 			},
 
 			// Output.
@@ -415,12 +423,14 @@ func (d *ikeCryptoProfilesDataSource) Read(ctx context.Context, req datasource.R
 		"terraform_provider_function": "Read",
 		"data_source_name":            "sase_ike_crypto_profiles",
 		"object_id":                   state.ObjectId.ValueString(),
+		"folder":                      state.Folder.ValueString(),
 	})
 
 	// Prepare to run the command.
 	svc := aZqXHLP.NewClient(d.client)
 	input := aZqXHLP.ReadInput{
 		ObjectId: state.ObjectId.ValueString(),
+		Folder:   state.Folder.ValueString(),
 	}
 
 	// Perform the operation.
@@ -433,6 +443,8 @@ func (d *ikeCryptoProfilesDataSource) Read(ctx context.Context, req datasource.R
 	// Store the answer to state.
 	var idBuilder strings.Builder
 	idBuilder.WriteString(input.ObjectId)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
 	state.Id = types.StringValue(idBuilder.String())
 	var var0 *ikeCryptoProfilesDsModelLifetimeObject
 	if ans.Lifetime != nil {
@@ -725,6 +737,7 @@ func (r *ikeCryptoProfilesResource) Read(ctx context.Context, req resource.ReadR
 	svc := aZqXHLP.NewClient(r.client)
 	input := aZqXHLP.ReadInput{
 		ObjectId: tokens[1],
+		Folder:   tokens[0],
 	}
 
 	// Perform the operation.

@@ -296,6 +296,7 @@ type fileBlockingProfilesDsModel struct {
 
 	// Input.
 	ObjectId types.String `tfsdk:"object_id"`
+	Folder   types.String `tfsdk:"folder"`
 
 	// Output.
 	// Ref: #/components/schemas/file-blocking-profiles
@@ -333,6 +334,13 @@ func (d *fileBlockingProfilesDataSource) Schema(_ context.Context, _ datasource.
 			"object_id": dsschema.StringAttribute{
 				Description: "The uuid of the resource",
 				Required:    true,
+			},
+			"folder": dsschema.StringAttribute{
+				Description: "The folder of the entry",
+				Required:    true,
+				Validators: []validator.String{
+					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
+				},
 			},
 
 			// Output.
@@ -399,12 +407,14 @@ func (d *fileBlockingProfilesDataSource) Read(ctx context.Context, req datasourc
 		"terraform_provider_function": "Read",
 		"data_source_name":            "sase_file_blocking_profiles",
 		"object_id":                   state.ObjectId.ValueString(),
+		"folder":                      state.Folder.ValueString(),
 	})
 
 	// Prepare to run the command.
 	svc := fEpWCgc.NewClient(d.client)
 	input := fEpWCgc.ReadInput{
 		ObjectId: state.ObjectId.ValueString(),
+		Folder:   state.Folder.ValueString(),
 	}
 
 	// Perform the operation.
@@ -417,6 +427,8 @@ func (d *fileBlockingProfilesDataSource) Read(ctx context.Context, req datasourc
 	// Store the answer to state.
 	var idBuilder strings.Builder
 	idBuilder.WriteString(input.ObjectId)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
 	state.Id = types.StringValue(idBuilder.String())
 	var var0 []fileBlockingProfilesDsModelRulesObject
 	if len(ans.Rules) != 0 {
@@ -690,6 +702,7 @@ func (r *fileBlockingProfilesResource) Read(ctx context.Context, req resource.Re
 	svc := fEpWCgc.NewClient(r.client)
 	input := fEpWCgc.ReadInput{
 		ObjectId: tokens[1],
+		Folder:   tokens[0],
 	}
 
 	// Perform the operation.
