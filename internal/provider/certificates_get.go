@@ -19,19 +19,19 @@ import (
 
 // Data source (listing).
 var (
-	_ datasource.DataSource              = &certificatesImportListDataSource{}
-	_ datasource.DataSourceWithConfigure = &certificatesImportListDataSource{}
+	_ datasource.DataSource              = &certificatesGetListDataSource{}
+	_ datasource.DataSourceWithConfigure = &certificatesGetListDataSource{}
 )
 
-func NewCertificatesImportListDataSource() datasource.DataSource {
-	return &certificatesImportListDataSource{}
+func NewCertificatesGetListDataSource() datasource.DataSource {
+	return &certificatesGetListDataSource{}
 }
 
-type certificatesImportListDataSource struct {
+type certificatesGetListDataSource struct {
 	client *sase.Client
 }
 
-type certificatesImportListDsModel struct {
+type certificatesGetListDsModel struct {
 	Id types.String `tfsdk:"id"`
 
 	// Input.
@@ -41,13 +41,13 @@ type certificatesImportListDsModel struct {
 	Folder types.String `tfsdk:"folder"`
 
 	// Output.
-	Data []certificatesImportListDsModelConfig `tfsdk:"data"`
+	Data []certificatesGetListDsModelConfig `tfsdk:"data"`
 	// input omit: Limit
 	// input omit: Offset
 	Total types.Int64 `tfsdk:"total"`
 }
 
-type certificatesImportListDsModelConfig struct {
+type certificatesGetListDsModelConfig struct {
 	Algorithm      types.String `tfsdk:"algorithm"`
 	Ca             types.Bool   `tfsdk:"ca"`
 	CommonName     types.String `tfsdk:"common_name"`
@@ -65,12 +65,12 @@ type certificatesImportListDsModelConfig struct {
 }
 
 // Metadata returns the data source type name.
-func (d *certificatesImportListDataSource) Metadata(_ context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
-	resp.TypeName = req.ProviderTypeName + "_certificates_import_list"
+func (d *certificatesGetListDataSource) Metadata(_ context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
+	resp.TypeName = req.ProviderTypeName + "_certificates_get_list"
 }
 
 // Schema defines the schema for this listing data source.
-func (d *certificatesImportListDataSource) Schema(_ context.Context, _ datasource.SchemaRequest, resp *datasource.SchemaResponse) {
+func (d *certificatesGetListDataSource) Schema(_ context.Context, _ datasource.SchemaRequest, resp *datasource.SchemaResponse) {
 	resp.Schema = dsschema.Schema{
 		Description: "Retrieves a listing of config items.",
 
@@ -177,7 +177,7 @@ func (d *certificatesImportListDataSource) Schema(_ context.Context, _ datasourc
 }
 
 // Configure prepares the struct.
-func (d *certificatesImportListDataSource) Configure(_ context.Context, req datasource.ConfigureRequest, resp *datasource.ConfigureResponse) {
+func (d *certificatesGetListDataSource) Configure(_ context.Context, req datasource.ConfigureRequest, resp *datasource.ConfigureResponse) {
 	if req.ProviderData == nil {
 		return
 	}
@@ -185,8 +185,8 @@ func (d *certificatesImportListDataSource) Configure(_ context.Context, req data
 	d.client = req.ProviderData.(*sase.Client)
 }
 
-func (d *certificatesImportListDataSource) Read(ctx context.Context, req datasource.ReadRequest, resp *datasource.ReadResponse) {
-	var state certificatesImportListDsModel
+func (d *certificatesGetListDataSource) Read(ctx context.Context, req datasource.ReadRequest, resp *datasource.ReadResponse) {
+	var state certificatesGetListDsModel
 	resp.Diagnostics.Append(req.Config.Get(ctx, &state)...)
 	if resp.Diagnostics.HasError() {
 		return
@@ -194,7 +194,7 @@ func (d *certificatesImportListDataSource) Read(ctx context.Context, req datasou
 
 	// Basic logging.
 	tflog.Info(ctx, "performing data source listing", map[string]any{
-		"data_source_name":            "sase_certificates_import_list",
+		"data_source_name":            "sase_certificates_get_list",
 		"terraform_provider_function": "Read",
 		"limit":                       state.Limit.ValueInt64(),
 		"has_limit":                   !state.Limit.IsNull(),
@@ -247,12 +247,12 @@ func (d *certificatesImportListDataSource) Read(ctx context.Context, req datasou
 	idBuilder.WriteString(IdSeparator)
 	idBuilder.WriteString(input.Folder)
 	state.Id = types.StringValue(idBuilder.String())
-	var var0 []certificatesImportListDsModelConfig
+	var var0 []certificatesGetListDsModelConfig
 	if len(ans.Data) != 0 {
-		var0 = make([]certificatesImportListDsModelConfig, 0, len(ans.Data))
+		var0 = make([]certificatesGetListDsModelConfig, 0, len(ans.Data))
 		for var1Index := range ans.Data {
 			var1 := ans.Data[var1Index]
-			var var2 certificatesImportListDsModelConfig
+			var var2 certificatesGetListDsModelConfig
 			var2.Algorithm = types.StringValue(var1.Algorithm)
 			var2.Ca = types.BoolValue(var1.Ca)
 			var2.CommonName = types.StringValue(var1.CommonName)

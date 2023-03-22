@@ -478,6 +478,7 @@ type remoteNetworksDsModel struct {
 
 	// Input.
 	ObjectId types.String `tfsdk:"object_id"`
+	Folder   types.String `tfsdk:"folder"`
 
 	// Output.
 	// Ref: #/components/schemas/remote-networks
@@ -550,6 +551,13 @@ func (d *remoteNetworksDataSource) Schema(_ context.Context, _ datasource.Schema
 			"object_id": dsschema.StringAttribute{
 				Description: "The uuid of the resource",
 				Required:    true,
+			},
+			"folder": dsschema.StringAttribute{
+				Description: "The folder of the entry",
+				Required:    true,
+				Validators: []validator.String{
+					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
+				},
 			},
 
 			// Output.
@@ -725,12 +733,14 @@ func (d *remoteNetworksDataSource) Read(ctx context.Context, req datasource.Read
 		"terraform_provider_function": "Read",
 		"data_source_name":            "sase_remote_networks",
 		"object_id":                   state.ObjectId.ValueString(),
+		"folder":                      state.Folder.ValueString(),
 	})
 
 	// Prepare to run the command.
 	svc := xsuBWMo.NewClient(d.client)
 	input := xsuBWMo.ReadInput{
 		ObjectId: state.ObjectId.ValueString(),
+		Folder:   state.Folder.ValueString(),
 	}
 
 	// Perform the operation.
@@ -743,6 +753,8 @@ func (d *remoteNetworksDataSource) Read(ctx context.Context, req datasource.Read
 	// Store the answer to state.
 	var idBuilder strings.Builder
 	idBuilder.WriteString(input.ObjectId)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
 	state.Id = types.StringValue(idBuilder.String())
 	var var0 []remoteNetworksDsModelEcmpTunnelsObject
 	if len(ans.EcmpTunnels) != 0 {
@@ -1381,6 +1393,7 @@ func (r *remoteNetworksResource) Read(ctx context.Context, req resource.ReadRequ
 	svc := xsuBWMo.NewClient(r.client)
 	input := xsuBWMo.ReadInput{
 		ObjectId: tokens[1],
+		Folder:   tokens[0],
 	}
 
 	// Perform the operation.
@@ -1476,12 +1489,14 @@ func (r *remoteNetworksResource) Update(ctx context.Context, req resource.Update
 		"terraform_provider_function": "Update",
 		"resource_name":               "sase_remote_networks",
 		"object_id":                   state.ObjectId.ValueString(),
+		"folder":                      state.Folder.ValueString(),
 	})
 
 	// Prepare to create the config.
 	svc := xsuBWMo.NewClient(r.client)
 	input := xsuBWMo.UpdateInput{
 		ObjectId: state.ObjectId.ValueString(),
+		Folder:   state.Folder.ValueString(),
 	}
 	var var0 jhtSIUK.Config
 	var0.EcmpLoadBalancing = plan.EcmpLoadBalancing.ValueString()
@@ -1635,6 +1650,7 @@ func (r *remoteNetworksResource) Delete(ctx context.Context, req resource.Delete
 	svc := xsuBWMo.NewClient(r.client)
 	input := xsuBWMo.DeleteInput{
 		ObjectId: tokens[1],
+		Folder:   tokens[0],
 	}
 
 	// Perform the operation.
