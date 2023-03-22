@@ -225,14 +225,15 @@ func (d *tlsServiceProfilesListDataSource) Read(ctx context.Context, req datasou
 
 	// Basic logging.
 	tflog.Info(ctx, "performing data source listing", map[string]any{
-		"data_source_name": "sase_tls_service_profiles_list",
-		"limit":            state.Limit.ValueInt64(),
-		"has_limit":        !state.Limit.IsNull(),
-		"offset":           state.Offset.ValueInt64(),
-		"has_offset":       !state.Offset.IsNull(),
-		"name":             state.Name.ValueString(),
-		"has_name":         !state.Name.IsNull(),
-		"folder":           state.Folder.ValueString(),
+		"data_source_name":            "sase_tls_service_profiles_list",
+		"terraform_provider_function": "Read",
+		"limit":                       state.Limit.ValueInt64(),
+		"has_limit":                   !state.Limit.IsNull(),
+		"offset":                      state.Offset.ValueInt64(),
+		"has_offset":                  !state.Offset.IsNull(),
+		"name":                        state.Name.ValueString(),
+		"has_name":                    !state.Name.IsNull(),
+		"folder":                      state.Folder.ValueString(),
 	})
 
 	// Prepare to run the command.
@@ -477,9 +478,10 @@ func (d *tlsServiceProfilesDataSource) Read(ctx context.Context, req datasource.
 	}
 
 	// Basic logging.
-	tflog.Info(ctx, "performing data source listing", map[string]any{
-		"data_source_name": "sase_tls_service_profiles",
-		"object_id":        state.ObjectId.ValueString(),
+	tflog.Info(ctx, "performing data source singleton retrieval", map[string]any{
+		"terraform_provider_function": "Read",
+		"data_source_name":            "sase_tls_service_profiles",
+		"object_id":                   state.ObjectId.ValueString(),
 	})
 
 	// Prepare to run the command.
@@ -771,8 +773,9 @@ func (r *tlsServiceProfilesResource) Create(ctx context.Context, req resource.Cr
 
 	// Basic logging.
 	tflog.Info(ctx, "performing resource create", map[string]any{
-		"resource_name": "sase_tls_service_profiles",
-		"folder":        state.Folder.ValueString(),
+		"terraform_provider_function": "Create",
+		"resource_name":               "sase_tls_service_profiles",
+		"folder":                      state.Folder.ValueString(),
 	})
 
 	// Prepare to create the config.
@@ -855,10 +858,11 @@ func (r *tlsServiceProfilesResource) Read(ctx context.Context, req resource.Read
 	var state tlsServiceProfilesRsModel
 
 	// Basic logging.
-	tflog.Info(ctx, "performing resource create", map[string]any{
-		"resource_name": "sase_tls_service_profiles",
-		"locMap":        map[string]int{"Folder": 0, "ObjectId": 1},
-		"tokens":        tokens,
+	tflog.Info(ctx, "performing resource read", map[string]any{
+		"terraform_provider_function": "Read",
+		"resource_name":               "sase_tls_service_profiles",
+		"locMap":                      map[string]int{"Folder": 0, "ObjectId": 1},
+		"tokens":                      tokens,
 	})
 
 	// Prepare to read the config.
@@ -920,8 +924,9 @@ func (r *tlsServiceProfilesResource) Update(ctx context.Context, req resource.Up
 
 	// Basic logging.
 	tflog.Info(ctx, "performing resource update", map[string]any{
-		"resource_name": "sase_tls_service_profiles",
-		"object_id":     state.ObjectId.ValueString(),
+		"terraform_provider_function": "Update",
+		"resource_name":               "sase_tls_service_profiles",
+		"object_id":                   state.ObjectId.ValueString(),
 	})
 
 	// Prepare to create the config.
@@ -998,9 +1003,10 @@ func (r *tlsServiceProfilesResource) Delete(ctx context.Context, req resource.De
 
 	// Basic logging.
 	tflog.Info(ctx, "performing resource delete", map[string]any{
-		"resource_name": "sase_tls_service_profiles",
-		"locMap":        map[string]int{"Folder": 0, "ObjectId": 1},
-		"tokens":        tokens,
+		"terraform_provider_function": "Delete",
+		"resource_name":               "sase_tls_service_profiles",
+		"locMap":                      map[string]int{"Folder": 0, "ObjectId": 1},
+		"tokens":                      tokens,
 	})
 
 	svc := qUVHRkq.NewClient(r.client)

@@ -216,7 +216,8 @@ func (d *jobsListDataSource) Read(ctx context.Context, req datasource.ReadReques
 
 	// Basic logging.
 	tflog.Info(ctx, "performing data source listing", map[string]any{
-		"data_source_name": "sase_jobs_list",
+		"data_source_name":            "sase_jobs_list",
+		"terraform_provider_function": "Read",
 	})
 
 	// Prepare to run the command.
@@ -456,9 +457,10 @@ func (d *jobsDataSource) Read(ctx context.Context, req datasource.ReadRequest, r
 	}
 
 	// Basic logging.
-	tflog.Info(ctx, "performing data source listing", map[string]any{
-		"data_source_name": "sase_jobs",
-		"job_id":           state.JobId.ValueString(),
+	tflog.Info(ctx, "performing data source singleton retrieval", map[string]any{
+		"terraform_provider_function": "Read",
+		"data_source_name":            "sase_jobs",
+		"job_id":                      state.JobId.ValueString(),
 	})
 
 	// Prepare to run the command.

@@ -273,15 +273,16 @@ func (d *decryptionRulesListDataSource) Read(ctx context.Context, req datasource
 
 	// Basic logging.
 	tflog.Info(ctx, "performing data source listing", map[string]any{
-		"data_source_name": "sase_decryption_rules_list",
-		"limit":            state.Limit.ValueInt64(),
-		"has_limit":        !state.Limit.IsNull(),
-		"offset":           state.Offset.ValueInt64(),
-		"has_offset":       !state.Offset.IsNull(),
-		"position":         state.Position.ValueString(),
-		"folder":           state.Folder.ValueString(),
-		"name":             state.Name.ValueString(),
-		"has_name":         !state.Name.IsNull(),
+		"data_source_name":            "sase_decryption_rules_list",
+		"terraform_provider_function": "Read",
+		"limit":                       state.Limit.ValueInt64(),
+		"has_limit":                   !state.Limit.IsNull(),
+		"offset":                      state.Offset.ValueInt64(),
+		"has_offset":                  !state.Offset.IsNull(),
+		"position":                    state.Position.ValueString(),
+		"folder":                      state.Folder.ValueString(),
+		"name":                        state.Name.ValueString(),
+		"has_name":                    !state.Name.IsNull(),
 	})
 
 	// Prepare to run the command.
@@ -580,9 +581,10 @@ func (d *decryptionRulesDataSource) Read(ctx context.Context, req datasource.Rea
 	}
 
 	// Basic logging.
-	tflog.Info(ctx, "performing data source listing", map[string]any{
-		"data_source_name": "sase_decryption_rules",
-		"object_id":        state.ObjectId.ValueString(),
+	tflog.Info(ctx, "performing data source singleton retrieval", map[string]any{
+		"terraform_provider_function": "Read",
+		"data_source_name":            "sase_decryption_rules",
+		"object_id":                   state.ObjectId.ValueString(),
 	})
 
 	// Prepare to run the command.
@@ -907,9 +909,10 @@ func (r *decryptionRulesResource) Create(ctx context.Context, req resource.Creat
 
 	// Basic logging.
 	tflog.Info(ctx, "performing resource create", map[string]any{
-		"resource_name": "sase_decryption_rules",
-		"position":      state.Position.ValueString(),
-		"folder":        state.Folder.ValueString(),
+		"terraform_provider_function": "Create",
+		"resource_name":               "sase_decryption_rules",
+		"position":                    state.Position.ValueString(),
+		"folder":                      state.Folder.ValueString(),
 	})
 
 	// Prepare to create the config.
@@ -1017,10 +1020,11 @@ func (r *decryptionRulesResource) Read(ctx context.Context, req resource.ReadReq
 	var state decryptionRulesRsModel
 
 	// Basic logging.
-	tflog.Info(ctx, "performing resource create", map[string]any{
-		"resource_name": "sase_decryption_rules",
-		"locMap":        map[string]int{"Folder": 1, "ObjectId": 2, "Position": 0},
-		"tokens":        tokens,
+	tflog.Info(ctx, "performing resource read", map[string]any{
+		"terraform_provider_function": "Read",
+		"resource_name":               "sase_decryption_rules",
+		"locMap":                      map[string]int{"Folder": 1, "ObjectId": 2, "Position": 0},
+		"tokens":                      tokens,
 	})
 
 	// Prepare to read the config.
@@ -1094,8 +1098,9 @@ func (r *decryptionRulesResource) Update(ctx context.Context, req resource.Updat
 
 	// Basic logging.
 	tflog.Info(ctx, "performing resource update", map[string]any{
-		"resource_name": "sase_decryption_rules",
-		"object_id":     state.ObjectId.ValueString(),
+		"terraform_provider_function": "Update",
+		"resource_name":               "sase_decryption_rules",
+		"object_id":                   state.ObjectId.ValueString(),
 	})
 
 	// Prepare to create the config.
@@ -1194,9 +1199,10 @@ func (r *decryptionRulesResource) Delete(ctx context.Context, req resource.Delet
 
 	// Basic logging.
 	tflog.Info(ctx, "performing resource delete", map[string]any{
-		"resource_name": "sase_decryption_rules",
-		"locMap":        map[string]int{"Folder": 1, "ObjectId": 2, "Position": 0},
-		"tokens":        tokens,
+		"terraform_provider_function": "Delete",
+		"resource_name":               "sase_decryption_rules",
+		"locMap":                      map[string]int{"Folder": 1, "ObjectId": 2, "Position": 0},
+		"tokens":                      tokens,
 	})
 
 	svc := vWYSjCE.NewClient(r.client)

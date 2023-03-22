@@ -160,11 +160,12 @@ func (d *bandwidthAllocationsListDataSource) Read(ctx context.Context, req datas
 
 	// Basic logging.
 	tflog.Info(ctx, "performing data source listing", map[string]any{
-		"data_source_name": "sase_bandwidth_allocations_list",
-		"limit":            state.Limit.ValueInt64(),
-		"has_limit":        !state.Limit.IsNull(),
-		"offset":           state.Offset.ValueInt64(),
-		"has_offset":       !state.Offset.IsNull(),
+		"data_source_name":            "sase_bandwidth_allocations_list",
+		"terraform_provider_function": "Read",
+		"limit":                       state.Limit.ValueInt64(),
+		"has_limit":                   !state.Limit.IsNull(),
+		"offset":                      state.Offset.ValueInt64(),
+		"has_offset":                  !state.Offset.IsNull(),
 	})
 
 	// Prepare to run the command.

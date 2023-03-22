@@ -155,11 +155,12 @@ func (d *sharedInfrastructureSettingsListDataSource) Read(ctx context.Context, r
 
 	// Basic logging.
 	tflog.Info(ctx, "performing data source listing", map[string]any{
-		"data_source_name": "sase_shared_infrastructure_settings_list",
-		"limit":            state.Limit.ValueInt64(),
-		"has_limit":        !state.Limit.IsNull(),
-		"offset":           state.Offset.ValueInt64(),
-		"has_offset":       !state.Offset.IsNull(),
+		"data_source_name":            "sase_shared_infrastructure_settings_list",
+		"terraform_provider_function": "Read",
+		"limit":                       state.Limit.ValueInt64(),
+		"has_limit":                   !state.Limit.IsNull(),
+		"offset":                      state.Offset.ValueInt64(),
+		"has_offset":                  !state.Offset.IsNull(),
 	})
 
 	// Prepare to run the command.

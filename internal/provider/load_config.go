@@ -15,19 +15,19 @@ import (
 
 // Data source.
 var (
-	_ datasource.DataSource              = &candidateConfigVersionsDataSource{}
-	_ datasource.DataSourceWithConfigure = &candidateConfigVersionsDataSource{}
+	_ datasource.DataSource              = &loadConfigDataSource{}
+	_ datasource.DataSourceWithConfigure = &loadConfigDataSource{}
 )
 
-func NewCandidateConfigVersionsDataSource() datasource.DataSource {
-	return &candidateConfigVersionsDataSource{}
+func NewLoadConfigDataSource() datasource.DataSource {
+	return &loadConfigDataSource{}
 }
 
-type candidateConfigVersionsDataSource struct {
+type loadConfigDataSource struct {
 	client *sase.Client
 }
 
-type candidateConfigVersionsDsModel struct {
+type loadConfigDsModel struct {
 	Id types.String `tfsdk:"id"`
 
 	// Input.
@@ -48,12 +48,12 @@ type candidateConfigVersionsDsModel struct {
 }
 
 // Metadata returns the data source type name.
-func (d *candidateConfigVersionsDataSource) Metadata(_ context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
-	resp.TypeName = req.ProviderTypeName + "_candidate_config_versions"
+func (d *loadConfigDataSource) Metadata(_ context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
+	resp.TypeName = req.ProviderTypeName + "_load_config"
 }
 
 // Schema defines the schema for this listing data source.
-func (d *candidateConfigVersionsDataSource) Schema(_ context.Context, _ datasource.SchemaRequest, resp *datasource.SchemaResponse) {
+func (d *loadConfigDataSource) Schema(_ context.Context, _ datasource.SchemaRequest, resp *datasource.SchemaResponse) {
 	resp.Schema = dsschema.Schema{
 		Description: "Retrieves config for a specific item.",
 
@@ -111,7 +111,7 @@ func (d *candidateConfigVersionsDataSource) Schema(_ context.Context, _ datasour
 }
 
 // Configure prepares the struct.
-func (d *candidateConfigVersionsDataSource) Configure(_ context.Context, req datasource.ConfigureRequest, resp *datasource.ConfigureResponse) {
+func (d *loadConfigDataSource) Configure(_ context.Context, req datasource.ConfigureRequest, resp *datasource.ConfigureResponse) {
 	if req.ProviderData == nil {
 		return
 	}
@@ -119,17 +119,18 @@ func (d *candidateConfigVersionsDataSource) Configure(_ context.Context, req dat
 	d.client = req.ProviderData.(*sase.Client)
 }
 
-func (d *candidateConfigVersionsDataSource) Read(ctx context.Context, req datasource.ReadRequest, resp *datasource.ReadResponse) {
-	var state candidateConfigVersionsDsModel
+func (d *loadConfigDataSource) Read(ctx context.Context, req datasource.ReadRequest, resp *datasource.ReadResponse) {
+	var state loadConfigDsModel
 	resp.Diagnostics.Append(req.Config.Get(ctx, &state)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
 
 	// Basic logging.
-	tflog.Info(ctx, "performing data source listing", map[string]any{
-		"data_source_name": "sase_candidate_config_versions",
-		"version":          state.Version.ValueString(),
+	tflog.Info(ctx, "performing data source singleton retrieval", map[string]any{
+		"terraform_provider_function": "Read",
+		"data_source_name":            "sase_load_config",
+		"version":                     state.Version.ValueString(),
 	})
 
 	// Prepare to run the command.

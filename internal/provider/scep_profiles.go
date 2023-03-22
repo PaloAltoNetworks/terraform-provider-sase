@@ -280,14 +280,15 @@ func (d *scepProfilesListDataSource) Read(ctx context.Context, req datasource.Re
 
 	// Basic logging.
 	tflog.Info(ctx, "performing data source listing", map[string]any{
-		"data_source_name": "sase_scep_profiles_list",
-		"limit":            state.Limit.ValueInt64(),
-		"has_limit":        !state.Limit.IsNull(),
-		"offset":           state.Offset.ValueInt64(),
-		"has_offset":       !state.Offset.IsNull(),
-		"name":             state.Name.ValueString(),
-		"has_name":         !state.Name.IsNull(),
-		"folder":           state.Folder.ValueString(),
+		"data_source_name":            "sase_scep_profiles_list",
+		"terraform_provider_function": "Read",
+		"limit":                       state.Limit.ValueInt64(),
+		"has_limit":                   !state.Limit.IsNull(),
+		"offset":                      state.Offset.ValueInt64(),
+		"has_offset":                  !state.Offset.IsNull(),
+		"name":                        state.Name.ValueString(),
+		"has_name":                    !state.Name.IsNull(),
+		"folder":                      state.Folder.ValueString(),
 	})
 
 	// Prepare to run the command.
@@ -613,9 +614,10 @@ func (d *scepProfilesDataSource) Read(ctx context.Context, req datasource.ReadRe
 	}
 
 	// Basic logging.
-	tflog.Info(ctx, "performing data source listing", map[string]any{
-		"data_source_name": "sase_scep_profiles",
-		"object_id":        state.ObjectId.ValueString(),
+	tflog.Info(ctx, "performing data source singleton retrieval", map[string]any{
+		"terraform_provider_function": "Read",
+		"data_source_name":            "sase_scep_profiles",
+		"object_id":                   state.ObjectId.ValueString(),
 	})
 
 	// Prepare to run the command.
@@ -1004,8 +1006,9 @@ func (r *scepProfilesResource) Create(ctx context.Context, req resource.CreateRe
 
 	// Basic logging.
 	tflog.Info(ctx, "performing resource create", map[string]any{
-		"resource_name": "sase_scep_profiles",
-		"type":          state.Type.ValueString(),
+		"terraform_provider_function": "Create",
+		"resource_name":               "sase_scep_profiles",
+		"type":                        state.Type.ValueString(),
 	})
 
 	// Prepare to create the config.
@@ -1140,10 +1143,11 @@ func (r *scepProfilesResource) Read(ctx context.Context, req resource.ReadReques
 	var state scepProfilesRsModel
 
 	// Basic logging.
-	tflog.Info(ctx, "performing resource create", map[string]any{
-		"resource_name": "sase_scep_profiles",
-		"locMap":        map[string]int{"ObjectId": 1, "Type": 0},
-		"tokens":        tokens,
+	tflog.Info(ctx, "performing resource read", map[string]any{
+		"terraform_provider_function": "Read",
+		"resource_name":               "sase_scep_profiles",
+		"locMap":                      map[string]int{"ObjectId": 1, "Type": 0},
+		"tokens":                      tokens,
 	})
 
 	// Prepare to read the config.
@@ -1231,8 +1235,9 @@ func (r *scepProfilesResource) Update(ctx context.Context, req resource.UpdateRe
 
 	// Basic logging.
 	tflog.Info(ctx, "performing resource update", map[string]any{
-		"resource_name": "sase_scep_profiles",
-		"object_id":     state.ObjectId.ValueString(),
+		"terraform_provider_function": "Update",
+		"resource_name":               "sase_scep_profiles",
+		"object_id":                   state.ObjectId.ValueString(),
 	})
 
 	// Prepare to create the config.
@@ -1361,9 +1366,10 @@ func (r *scepProfilesResource) Delete(ctx context.Context, req resource.DeleteRe
 
 	// Basic logging.
 	tflog.Info(ctx, "performing resource delete", map[string]any{
-		"resource_name": "sase_scep_profiles",
-		"locMap":        map[string]int{"ObjectId": 1, "Type": 0},
-		"tokens":        tokens,
+		"terraform_provider_function": "Delete",
+		"resource_name":               "sase_scep_profiles",
+		"locMap":                      map[string]int{"ObjectId": 1, "Type": 0},
+		"tokens":                      tokens,
 	})
 
 	svc := xlSkOUa.NewClient(r.client)

@@ -260,15 +260,16 @@ func (d *securityRulesListDataSource) Read(ctx context.Context, req datasource.R
 
 	// Basic logging.
 	tflog.Info(ctx, "performing data source listing", map[string]any{
-		"data_source_name": "sase_security_rules_list",
-		"limit":            state.Limit.ValueInt64(),
-		"has_limit":        !state.Limit.IsNull(),
-		"offset":           state.Offset.ValueInt64(),
-		"has_offset":       !state.Offset.IsNull(),
-		"position":         state.Position.ValueString(),
-		"folder":           state.Folder.ValueString(),
-		"name":             state.Name.ValueString(),
-		"has_name":         !state.Name.IsNull(),
+		"data_source_name":            "sase_security_rules_list",
+		"terraform_provider_function": "Read",
+		"limit":                       state.Limit.ValueInt64(),
+		"has_limit":                   !state.Limit.IsNull(),
+		"offset":                      state.Offset.ValueInt64(),
+		"has_offset":                  !state.Offset.IsNull(),
+		"position":                    state.Position.ValueString(),
+		"folder":                      state.Folder.ValueString(),
+		"name":                        state.Name.ValueString(),
+		"has_name":                    !state.Name.IsNull(),
 	})
 
 	// Prepare to run the command.
@@ -549,9 +550,10 @@ func (d *securityRulesDataSource) Read(ctx context.Context, req datasource.ReadR
 	}
 
 	// Basic logging.
-	tflog.Info(ctx, "performing data source listing", map[string]any{
-		"data_source_name": "sase_security_rules",
-		"object_id":        state.ObjectId.ValueString(),
+	tflog.Info(ctx, "performing data source singleton retrieval", map[string]any{
+		"terraform_provider_function": "Read",
+		"data_source_name":            "sase_security_rules",
+		"object_id":                   state.ObjectId.ValueString(),
 	})
 
 	// Prepare to run the command.
@@ -836,9 +838,10 @@ func (r *securityRulesResource) Create(ctx context.Context, req resource.CreateR
 
 	// Basic logging.
 	tflog.Info(ctx, "performing resource create", map[string]any{
-		"resource_name": "sase_security_rules",
-		"position":      state.Position.ValueString(),
-		"folder":        state.Folder.ValueString(),
+		"terraform_provider_function": "Create",
+		"resource_name":               "sase_security_rules",
+		"position":                    state.Position.ValueString(),
+		"folder":                      state.Folder.ValueString(),
 	})
 
 	// Prepare to create the config.
@@ -936,10 +939,11 @@ func (r *securityRulesResource) Read(ctx context.Context, req resource.ReadReque
 	var state securityRulesRsModel
 
 	// Basic logging.
-	tflog.Info(ctx, "performing resource create", map[string]any{
-		"resource_name": "sase_security_rules",
-		"locMap":        map[string]int{"Folder": 1, "ObjectId": 2, "Position": 0},
-		"tokens":        tokens,
+	tflog.Info(ctx, "performing resource read", map[string]any{
+		"terraform_provider_function": "Read",
+		"resource_name":               "sase_security_rules",
+		"locMap":                      map[string]int{"Folder": 1, "ObjectId": 2, "Position": 0},
+		"tokens":                      tokens,
 	})
 
 	// Prepare to read the config.
@@ -1008,8 +1012,9 @@ func (r *securityRulesResource) Update(ctx context.Context, req resource.UpdateR
 
 	// Basic logging.
 	tflog.Info(ctx, "performing resource update", map[string]any{
-		"resource_name": "sase_security_rules",
-		"object_id":     state.ObjectId.ValueString(),
+		"terraform_provider_function": "Update",
+		"resource_name":               "sase_security_rules",
+		"object_id":                   state.ObjectId.ValueString(),
 	})
 
 	// Prepare to create the config.
@@ -1098,9 +1103,10 @@ func (r *securityRulesResource) Delete(ctx context.Context, req resource.DeleteR
 
 	// Basic logging.
 	tflog.Info(ctx, "performing resource delete", map[string]any{
-		"resource_name": "sase_security_rules",
-		"locMap":        map[string]int{"Folder": 1, "ObjectId": 2, "Position": 0},
-		"tokens":        tokens,
+		"terraform_provider_function": "Delete",
+		"resource_name":               "sase_security_rules",
+		"locMap":                      map[string]int{"Folder": 1, "ObjectId": 2, "Position": 0},
+		"tokens":                      tokens,
 	})
 
 	svc := mPRFtcU.NewClient(r.client)

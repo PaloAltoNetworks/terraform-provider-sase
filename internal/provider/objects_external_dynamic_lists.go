@@ -731,14 +731,15 @@ func (d *objectsExternalDynamicListsListDataSource) Read(ctx context.Context, re
 
 	// Basic logging.
 	tflog.Info(ctx, "performing data source listing", map[string]any{
-		"data_source_name": "sase_objects_external_dynamic_lists_list",
-		"limit":            state.Limit.ValueInt64(),
-		"has_limit":        !state.Limit.IsNull(),
-		"offset":           state.Offset.ValueInt64(),
-		"has_offset":       !state.Offset.IsNull(),
-		"name":             state.Name.ValueString(),
-		"has_name":         !state.Name.IsNull(),
-		"folder":           state.Folder.ValueString(),
+		"data_source_name":            "sase_objects_external_dynamic_lists_list",
+		"terraform_provider_function": "Read",
+		"limit":                       state.Limit.ValueInt64(),
+		"has_limit":                   !state.Limit.IsNull(),
+		"offset":                      state.Offset.ValueInt64(),
+		"has_offset":                  !state.Offset.IsNull(),
+		"name":                        state.Name.ValueString(),
+		"has_name":                    !state.Name.IsNull(),
+		"folder":                      state.Folder.ValueString(),
 	})
 
 	// Prepare to run the command.
@@ -1709,9 +1710,10 @@ func (d *objectsExternalDynamicListsDataSource) Read(ctx context.Context, req da
 	}
 
 	// Basic logging.
-	tflog.Info(ctx, "performing data source listing", map[string]any{
-		"data_source_name": "sase_objects_external_dynamic_lists",
-		"object_id":        state.ObjectId.ValueString(),
+	tflog.Info(ctx, "performing data source singleton retrieval", map[string]any{
+		"terraform_provider_function": "Read",
+		"data_source_name":            "sase_objects_external_dynamic_lists",
+		"object_id":                   state.ObjectId.ValueString(),
 	})
 
 	// Prepare to run the command.
@@ -3060,8 +3062,9 @@ func (r *objectsExternalDynamicListsResource) Create(ctx context.Context, req re
 
 	// Basic logging.
 	tflog.Info(ctx, "performing resource create", map[string]any{
-		"resource_name": "sase_objects_external_dynamic_lists",
-		"folder":        state.Folder.ValueString(),
+		"terraform_provider_function": "Create",
+		"resource_name":               "sase_objects_external_dynamic_lists",
+		"folder":                      state.Folder.ValueString(),
 	})
 
 	// Prepare to create the config.
@@ -3588,10 +3591,11 @@ func (r *objectsExternalDynamicListsResource) Read(ctx context.Context, req reso
 	var state objectsExternalDynamicListsRsModel
 
 	// Basic logging.
-	tflog.Info(ctx, "performing resource create", map[string]any{
-		"resource_name": "sase_objects_external_dynamic_lists",
-		"locMap":        map[string]int{"Folder": 0, "ObjectId": 1},
-		"tokens":        tokens,
+	tflog.Info(ctx, "performing resource read", map[string]any{
+		"terraform_provider_function": "Read",
+		"resource_name":               "sase_objects_external_dynamic_lists",
+		"locMap":                      map[string]int{"Folder": 0, "ObjectId": 1},
+		"tokens":                      tokens,
 	})
 
 	// Prepare to read the config.
@@ -3875,8 +3879,9 @@ func (r *objectsExternalDynamicListsResource) Update(ctx context.Context, req re
 
 	// Basic logging.
 	tflog.Info(ctx, "performing resource update", map[string]any{
-		"resource_name": "sase_objects_external_dynamic_lists",
-		"object_id":     state.ObjectId.ValueString(),
+		"terraform_provider_function": "Update",
+		"resource_name":               "sase_objects_external_dynamic_lists",
+		"object_id":                   state.ObjectId.ValueString(),
 	})
 
 	// Prepare to create the config.
@@ -4397,9 +4402,10 @@ func (r *objectsExternalDynamicListsResource) Delete(ctx context.Context, req re
 
 	// Basic logging.
 	tflog.Info(ctx, "performing resource delete", map[string]any{
-		"resource_name": "sase_objects_external_dynamic_lists",
-		"locMap":        map[string]int{"Folder": 0, "ObjectId": 1},
-		"tokens":        tokens,
+		"terraform_provider_function": "Delete",
+		"resource_name":               "sase_objects_external_dynamic_lists",
+		"locMap":                      map[string]int{"Folder": 0, "ObjectId": 1},
+		"tokens":                      tokens,
 	})
 
 	svc := iHJqznH.NewClient(r.client)

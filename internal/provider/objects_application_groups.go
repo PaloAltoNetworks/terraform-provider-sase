@@ -140,14 +140,15 @@ func (d *objectsApplicationGroupsListDataSource) Read(ctx context.Context, req d
 
 	// Basic logging.
 	tflog.Info(ctx, "performing data source listing", map[string]any{
-		"data_source_name": "sase_objects_application_groups_list",
-		"limit":            state.Limit.ValueInt64(),
-		"has_limit":        !state.Limit.IsNull(),
-		"offset":           state.Offset.ValueInt64(),
-		"has_offset":       !state.Offset.IsNull(),
-		"name":             state.Name.ValueString(),
-		"has_name":         !state.Name.IsNull(),
-		"folder":           state.Folder.ValueString(),
+		"data_source_name":            "sase_objects_application_groups_list",
+		"terraform_provider_function": "Read",
+		"limit":                       state.Limit.ValueInt64(),
+		"has_limit":                   !state.Limit.IsNull(),
+		"offset":                      state.Offset.ValueInt64(),
+		"has_offset":                  !state.Offset.IsNull(),
+		"name":                        state.Name.ValueString(),
+		"has_name":                    !state.Name.IsNull(),
+		"folder":                      state.Folder.ValueString(),
 	})
 
 	// Prepare to run the command.
@@ -297,9 +298,10 @@ func (d *objectsApplicationGroupsDataSource) Read(ctx context.Context, req datas
 	}
 
 	// Basic logging.
-	tflog.Info(ctx, "performing data source listing", map[string]any{
-		"data_source_name": "sase_objects_application_groups",
-		"object_id":        state.ObjectId.ValueString(),
+	tflog.Info(ctx, "performing data source singleton retrieval", map[string]any{
+		"terraform_provider_function": "Read",
+		"data_source_name":            "sase_objects_application_groups",
+		"object_id":                   state.ObjectId.ValueString(),
 	})
 
 	// Prepare to run the command.

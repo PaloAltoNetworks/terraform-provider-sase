@@ -217,14 +217,15 @@ func (d *autoTagActionsListDataSource) Read(ctx context.Context, req datasource.
 
 	// Basic logging.
 	tflog.Info(ctx, "performing data source listing", map[string]any{
-		"data_source_name": "sase_auto_tag_actions_list",
-		"limit":            state.Limit.ValueInt64(),
-		"has_limit":        !state.Limit.IsNull(),
-		"offset":           state.Offset.ValueInt64(),
-		"has_offset":       !state.Offset.IsNull(),
-		"name":             state.Name.ValueString(),
-		"has_name":         !state.Name.IsNull(),
-		"folder":           state.Folder.ValueString(),
+		"data_source_name":            "sase_auto_tag_actions_list",
+		"terraform_provider_function": "Read",
+		"limit":                       state.Limit.ValueInt64(),
+		"has_limit":                   !state.Limit.IsNull(),
+		"offset":                      state.Offset.ValueInt64(),
+		"has_offset":                  !state.Offset.IsNull(),
+		"name":                        state.Name.ValueString(),
+		"has_name":                    !state.Name.IsNull(),
+		"folder":                      state.Folder.ValueString(),
 	})
 
 	// Prepare to run the command.

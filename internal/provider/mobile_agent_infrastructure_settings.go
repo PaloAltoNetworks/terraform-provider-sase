@@ -427,8 +427,9 @@ func (d *mobileAgentInfrastructureSettingsListDataSource) Read(ctx context.Conte
 
 	// Basic logging.
 	tflog.Info(ctx, "performing data source listing", map[string]any{
-		"data_source_name": "sase_mobile_agent_infrastructure_settings_list",
-		"folder":           state.Folder.ValueString(),
+		"data_source_name":            "sase_mobile_agent_infrastructure_settings_list",
+		"terraform_provider_function": "Read",
+		"folder":                      state.Folder.ValueString(),
 	})
 
 	// Prepare to run the command.
