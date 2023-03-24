@@ -795,6 +795,7 @@ type objectsApplicationsDsModel struct {
 
 	// Input.
 	ObjectId types.String `tfsdk:"object_id"`
+	Folder   types.String `tfsdk:"folder"`
 
 	// Output.
 	// Ref: #/components/schemas/objects-applications
@@ -921,6 +922,13 @@ func (d *objectsApplicationsDataSource) Schema(_ context.Context, _ datasource.S
 			"object_id": dsschema.StringAttribute{
 				Description: "The uuid of the resource",
 				Required:    true,
+			},
+			"folder": dsschema.StringAttribute{
+				Description: "The folder of the entry",
+				Required:    true,
+				Validators: []validator.String{
+					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
+				},
 			},
 
 			// Output.
@@ -1262,12 +1270,14 @@ func (d *objectsApplicationsDataSource) Read(ctx context.Context, req datasource
 		"terraform_provider_function": "Read",
 		"data_source_name":            "sase_objects_applications",
 		"object_id":                   state.ObjectId.ValueString(),
+		"folder":                      state.Folder.ValueString(),
 	})
 
 	// Prepare to run the command.
 	svc := rrePbcM.NewClient(d.client)
 	input := rrePbcM.ReadInput{
 		ObjectId: state.ObjectId.ValueString(),
+		Folder:   state.Folder.ValueString(),
 	}
 
 	// Perform the operation.
@@ -1280,6 +1290,8 @@ func (d *objectsApplicationsDataSource) Read(ctx context.Context, req datasource
 	// Store the answer to state.
 	var idBuilder strings.Builder
 	idBuilder.WriteString(input.ObjectId)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
 	state.Id = types.StringValue(idBuilder.String())
 	var var0 *objectsApplicationsDsModelDefaultObject
 	if ans.Default != nil {
@@ -1614,9 +1626,6 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 			"category": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 			},
 			"consume_big_bandwidth": rsschema.BoolAttribute{
 				Description: "",
@@ -1653,9 +1662,6 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 							"type": rsschema.StringAttribute{
 								Description: "",
 								Required:    true,
-								PlanModifiers: []planmodifier.String{
-									DefaultString(""),
-								},
 							},
 						},
 					},
@@ -1674,9 +1680,6 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 							"type": rsschema.StringAttribute{
 								Description: "",
 								Required:    true,
-								PlanModifiers: []planmodifier.String{
-									DefaultString(""),
-								},
 							},
 						},
 					},
@@ -1740,9 +1743,6 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 			"name": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(31),
 				},
@@ -1785,9 +1785,6 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 			"risk": rsschema.Int64Attribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.Int64{
-					DefaultInt64(0),
-				},
 				Validators: []validator.Int64{
 					int64validator.Between(1, 5),
 				},
@@ -1805,9 +1802,6 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 									"name": rsschema.StringAttribute{
 										Description: "",
 										Required:    true,
-										PlanModifiers: []planmodifier.String{
-											DefaultString(""),
-										},
 										Validators: []validator.String{
 											stringvalidator.LengthAtMost(31),
 										},
@@ -1820,9 +1814,6 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 												"name": rsschema.StringAttribute{
 													Description: "",
 													Required:    true,
-													PlanModifiers: []planmodifier.String{
-														DefaultString(""),
-													},
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(31),
 													},
@@ -1838,9 +1829,6 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 																"context": rsschema.StringAttribute{
 																	Description: "",
 																	Required:    true,
-																	PlanModifiers: []planmodifier.String{
-																		DefaultString(""),
-																	},
 																},
 																"mask": rsschema.StringAttribute{
 																	Description: "",
@@ -1867,9 +1855,6 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 																"value": rsschema.StringAttribute{
 																	Description: "",
 																	Required:    true,
-																	PlanModifiers: []planmodifier.String{
-																		DefaultString(""),
-																	},
 																	Validators: []validator.String{
 																		stringvalidator.LengthAtMost(10),
 																	},
@@ -1883,9 +1868,6 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 																"context": rsschema.StringAttribute{
 																	Description: "",
 																	Required:    true,
-																	PlanModifiers: []planmodifier.String{
-																		DefaultString(""),
-																	},
 																	Validators: []validator.String{
 																		stringvalidator.LengthAtMost(127),
 																	},
@@ -1898,9 +1880,6 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 																			"name": rsschema.StringAttribute{
 																				Description: "",
 																				Required:    true,
-																				PlanModifiers: []planmodifier.String{
-																					DefaultString(""),
-																				},
 																				Validators: []validator.String{
 																					stringvalidator.LengthAtMost(31),
 																				},
@@ -1908,9 +1887,6 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 																			"value": rsschema.StringAttribute{
 																				Description: "",
 																				Required:    true,
-																				PlanModifiers: []planmodifier.String{
-																					DefaultString(""),
-																				},
 																			},
 																		},
 																	},
@@ -1918,9 +1894,6 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 																"value": rsschema.Int64Attribute{
 																	Description: "",
 																	Required:    true,
-																	PlanModifiers: []planmodifier.Int64{
-																		DefaultInt64(0),
-																	},
 																	Validators: []validator.Int64{
 																		int64validator.Between(0, 4294967295),
 																	},
@@ -1934,9 +1907,6 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 																"context": rsschema.StringAttribute{
 																	Description: "",
 																	Required:    true,
-																	PlanModifiers: []planmodifier.String{
-																		DefaultString(""),
-																	},
 																	Validators: []validator.String{
 																		stringvalidator.LengthAtMost(127),
 																	},
@@ -1949,9 +1919,6 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 																			"name": rsschema.StringAttribute{
 																				Description: "",
 																				Required:    true,
-																				PlanModifiers: []planmodifier.String{
-																					DefaultString(""),
-																				},
 																				Validators: []validator.String{
 																					stringvalidator.LengthAtMost(31),
 																				},
@@ -1959,9 +1926,6 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 																			"value": rsschema.StringAttribute{
 																				Description: "",
 																				Required:    true,
-																				PlanModifiers: []planmodifier.String{
-																					DefaultString(""),
-																				},
 																			},
 																		},
 																	},
@@ -1969,9 +1933,6 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 																"value": rsschema.Int64Attribute{
 																	Description: "",
 																	Required:    true,
-																	PlanModifiers: []planmodifier.Int64{
-																		DefaultInt64(0),
-																	},
 																	Validators: []validator.Int64{
 																		int64validator.Between(0, 4294967295),
 																	},
@@ -1985,9 +1946,6 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 																"context": rsschema.StringAttribute{
 																	Description: "",
 																	Required:    true,
-																	PlanModifiers: []planmodifier.String{
-																		DefaultString(""),
-																	},
 																	Validators: []validator.String{
 																		stringvalidator.LengthAtMost(127),
 																	},
@@ -1995,9 +1953,6 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 																"pattern": rsschema.StringAttribute{
 																	Description: "",
 																	Required:    true,
-																	PlanModifiers: []planmodifier.String{
-																		DefaultString(""),
-																	},
 																	Validators: []validator.String{
 																		stringvalidator.LengthAtMost(127),
 																	},
@@ -2010,9 +1965,6 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 																			"name": rsschema.StringAttribute{
 																				Description: "",
 																				Required:    true,
-																				PlanModifiers: []planmodifier.String{
-																					DefaultString(""),
-																				},
 																				Validators: []validator.String{
 																					stringvalidator.LengthAtMost(31),
 																				},
@@ -2020,9 +1972,6 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 																			"value": rsschema.StringAttribute{
 																				Description: "",
 																				Required:    true,
-																				PlanModifiers: []planmodifier.String{
-																					DefaultString(""),
-																				},
 																			},
 																		},
 																	},
@@ -2051,9 +2000,6 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 						"name": rsschema.StringAttribute{
 							Description: "",
 							Required:    true,
-							PlanModifiers: []planmodifier.String{
-								DefaultString(""),
-							},
 							Validators: []validator.String{
 								stringvalidator.LengthAtMost(31),
 							},
@@ -2083,9 +2029,6 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 			"subcategory": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(63),
 				},
@@ -2126,9 +2069,6 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 			"technology": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(63),
 				},
@@ -2572,6 +2512,7 @@ func (r *objectsApplicationsResource) Read(ctx context.Context, req resource.Rea
 	svc := rrePbcM.NewClient(r.client)
 	input := rrePbcM.ReadInput{
 		ObjectId: tokens[1],
+		Folder:   tokens[0],
 	}
 
 	// Perform the operation.

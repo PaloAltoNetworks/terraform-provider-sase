@@ -237,6 +237,7 @@ type objectsApplicationGroupsDsModel struct {
 
 	// Input.
 	ObjectId types.String `tfsdk:"object_id"`
+	Folder   types.String `tfsdk:"folder"`
 
 	// Output.
 	// Ref: #/components/schemas/objects-application-groups
@@ -265,6 +266,13 @@ func (d *objectsApplicationGroupsDataSource) Schema(_ context.Context, _ datasou
 			"object_id": dsschema.StringAttribute{
 				Description: "The uuid of the resource",
 				Required:    true,
+			},
+			"folder": dsschema.StringAttribute{
+				Description: "The folder of the entry",
+				Required:    true,
+				Validators: []validator.String{
+					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
+				},
 			},
 
 			// Output.
@@ -302,12 +310,14 @@ func (d *objectsApplicationGroupsDataSource) Read(ctx context.Context, req datas
 		"terraform_provider_function": "Read",
 		"data_source_name":            "sase_objects_application_groups",
 		"object_id":                   state.ObjectId.ValueString(),
+		"folder":                      state.Folder.ValueString(),
 	})
 
 	// Prepare to run the command.
 	svc := lmLGEJc.NewClient(d.client)
 	input := lmLGEJc.ReadInput{
 		ObjectId: state.ObjectId.ValueString(),
+		Folder:   state.Folder.ValueString(),
 	}
 
 	// Perform the operation.
@@ -320,6 +330,8 @@ func (d *objectsApplicationGroupsDataSource) Read(ctx context.Context, req datas
 	// Store the answer to state.
 	var idBuilder strings.Builder
 	idBuilder.WriteString(input.ObjectId)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
 	state.Id = types.StringValue(idBuilder.String())
 	state.ObjectId = types.StringValue(ans.ObjectId)
 	state.Members = EncodeStringSlice(ans.Members)

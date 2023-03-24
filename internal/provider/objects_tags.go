@@ -248,6 +248,7 @@ type objectsTagsDsModel struct {
 
 	// Input.
 	ObjectId types.String `tfsdk:"object_id"`
+	Folder   types.String `tfsdk:"folder"`
 
 	// Output.
 	// Ref: #/components/schemas/objects-tags
@@ -277,6 +278,13 @@ func (d *objectsTagsDataSource) Schema(_ context.Context, _ datasource.SchemaReq
 			"object_id": dsschema.StringAttribute{
 				Description: "The uuid of the resource",
 				Required:    true,
+			},
+			"folder": dsschema.StringAttribute{
+				Description: "The folder of the entry",
+				Required:    true,
+				Validators: []validator.String{
+					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
+				},
 			},
 
 			// Output.
@@ -317,12 +325,14 @@ func (d *objectsTagsDataSource) Read(ctx context.Context, req datasource.ReadReq
 		"terraform_provider_function": "Read",
 		"data_source_name":            "sase_objects_tags",
 		"object_id":                   state.ObjectId.ValueString(),
+		"folder":                      state.Folder.ValueString(),
 	})
 
 	// Prepare to run the command.
 	svc := ivVDSwf.NewClient(d.client)
 	input := ivVDSwf.ReadInput{
 		ObjectId: state.ObjectId.ValueString(),
+		Folder:   state.Folder.ValueString(),
 	}
 
 	// Perform the operation.
@@ -335,6 +345,8 @@ func (d *objectsTagsDataSource) Read(ctx context.Context, req datasource.ReadReq
 	// Store the answer to state.
 	var idBuilder strings.Builder
 	idBuilder.WriteString(input.ObjectId)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
 	state.Id = types.StringValue(idBuilder.String())
 	state.Color = types.StringValue(ans.Color)
 	state.Comments = types.StringValue(ans.Comments)
@@ -434,9 +446,6 @@ func (r *objectsTagsResource) Schema(_ context.Context, _ resource.SchemaRequest
 			"name": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(127),
 				},
@@ -530,6 +539,7 @@ func (r *objectsTagsResource) Read(ctx context.Context, req resource.ReadRequest
 	svc := ivVDSwf.NewClient(r.client)
 	input := ivVDSwf.ReadInput{
 		ObjectId: tokens[1],
+		Folder:   tokens[0],
 	}
 
 	// Perform the operation.

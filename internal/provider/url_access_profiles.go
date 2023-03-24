@@ -985,9 +985,6 @@ func (r *urlAccessProfilesResource) Schema(_ context.Context, _ resource.SchemaR
 			"name": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 			},
 			"safe_search_enforcement": rsschema.BoolAttribute{
 				Description: "",

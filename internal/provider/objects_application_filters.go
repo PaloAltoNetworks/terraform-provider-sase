@@ -725,9 +725,6 @@ func (r *objectsApplicationFiltersResource) Schema(_ context.Context, _ resource
 			"name": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(31),
 				},

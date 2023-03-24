@@ -784,9 +784,6 @@ func (r *certificateProfilesResource) Schema(_ context.Context, _ resource.Schem
 			"name": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(63),
 				},

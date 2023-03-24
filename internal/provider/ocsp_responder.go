@@ -392,9 +392,6 @@ func (r *ocspResponderResource) Schema(_ context.Context, _ resource.SchemaReque
 			"host_name": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 				Validators: []validator.String{
 					stringvalidator.LengthBetween(1, 255),
 				},
@@ -409,9 +406,6 @@ func (r *ocspResponderResource) Schema(_ context.Context, _ resource.SchemaReque
 			"name": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(63),
 				},

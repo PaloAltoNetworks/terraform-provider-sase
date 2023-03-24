@@ -536,9 +536,6 @@ func (r *fileBlockingProfilesResource) Schema(_ context.Context, _ resource.Sche
 			"name": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 			},
 			"rules": rsschema.ListNestedAttribute{
 				Description: "",
@@ -548,9 +545,6 @@ func (r *fileBlockingProfilesResource) Schema(_ context.Context, _ resource.Sche
 						"action": rsschema.StringAttribute{
 							Description: "",
 							Required:    true,
-							PlanModifiers: []planmodifier.String{
-								DefaultString("alert"),
-							},
 							Validators: []validator.String{
 								stringvalidator.OneOf("alert", "block", "continue"),
 							},
@@ -563,9 +557,6 @@ func (r *fileBlockingProfilesResource) Schema(_ context.Context, _ resource.Sche
 						"direction": rsschema.StringAttribute{
 							Description: "",
 							Required:    true,
-							PlanModifiers: []planmodifier.String{
-								DefaultString("both"),
-							},
 							Validators: []validator.String{
 								stringvalidator.OneOf("download", "upload", "both"),
 							},
@@ -578,9 +569,6 @@ func (r *fileBlockingProfilesResource) Schema(_ context.Context, _ resource.Sche
 						"name": rsschema.StringAttribute{
 							Description: "",
 							Required:    true,
-							PlanModifiers: []planmodifier.String{
-								DefaultString(""),
-							},
 						},
 					},
 				},

@@ -990,9 +990,6 @@ func (r *qosPolicyRulesResource) Schema(_ context.Context, _ resource.SchemaRequ
 			"name": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 			},
 			"schedule": rsschema.StringAttribute{
 				Description: "",

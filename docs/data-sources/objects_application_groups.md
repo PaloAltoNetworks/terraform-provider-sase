@@ -17,6 +17,7 @@ Retrieves config for a specific item.
 
 ### Required
 
+- `folder` (String) The folder of the entry
 - `object_id` (String) The uuid of the resource
 
 ### Read-Only

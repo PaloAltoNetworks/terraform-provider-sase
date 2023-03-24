@@ -928,9 +928,6 @@ func (r *dnsSecurityProfilesResource) Schema(_ context.Context, _ resource.Schem
 								"name": rsschema.StringAttribute{
 									Description: "",
 									Required:    true,
-									PlanModifiers: []planmodifier.String{
-										DefaultString(""),
-									},
 								},
 								"packet_capture": rsschema.StringAttribute{
 									Description: "",
@@ -990,9 +987,6 @@ func (r *dnsSecurityProfilesResource) Schema(_ context.Context, _ resource.Schem
 								"name": rsschema.StringAttribute{
 									Description: "",
 									Required:    true,
-									PlanModifiers: []planmodifier.String{
-										DefaultString(""),
-									},
 								},
 							},
 						},

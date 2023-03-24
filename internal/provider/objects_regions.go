@@ -464,9 +464,6 @@ func (r *objectsRegionsResource) Schema(_ context.Context, _ resource.SchemaRequ
 					"latitude": rsschema.Float64Attribute{
 						Description: "",
 						Required:    true,
-						PlanModifiers: []planmodifier.Float64{
-							DefaultFloat64(0),
-						},
 						Validators: []validator.Float64{
 							float64validator.Between(-90.000000, 90.000000),
 						},
@@ -474,9 +471,6 @@ func (r *objectsRegionsResource) Schema(_ context.Context, _ resource.SchemaRequ
 					"longitude": rsschema.Float64Attribute{
 						Description: "",
 						Required:    true,
-						PlanModifiers: []planmodifier.Float64{
-							DefaultFloat64(0),
-						},
 						Validators: []validator.Float64{
 							float64validator.Between(-180.000000, 180.000000),
 						},
@@ -493,9 +487,6 @@ func (r *objectsRegionsResource) Schema(_ context.Context, _ resource.SchemaRequ
 			"name": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(31),
 				},

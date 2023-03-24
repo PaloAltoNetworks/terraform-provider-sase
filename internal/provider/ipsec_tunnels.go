@@ -449,6 +449,7 @@ type ipsecTunnelsDsModel struct {
 
 	// Input.
 	ObjectId types.String `tfsdk:"object_id"`
+	Folder   types.String `tfsdk:"folder"`
 
 	// Output.
 	// Ref: #/components/schemas/ipsec-tunnels
@@ -520,6 +521,13 @@ func (d *ipsecTunnelsDataSource) Schema(_ context.Context, _ datasource.SchemaRe
 			"object_id": dsschema.StringAttribute{
 				Description: "The uuid of the resource",
 				Required:    true,
+			},
+			"folder": dsschema.StringAttribute{
+				Description: "The folder of the entry",
+				Required:    true,
+				Validators: []validator.String{
+					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
+				},
 			},
 
 			// Output.
@@ -662,12 +670,14 @@ func (d *ipsecTunnelsDataSource) Read(ctx context.Context, req datasource.ReadRe
 		"terraform_provider_function": "Read",
 		"data_source_name":            "sase_ipsec_tunnels",
 		"object_id":                   state.ObjectId.ValueString(),
+		"folder":                      state.Folder.ValueString(),
 	})
 
 	// Prepare to run the command.
 	svc := fVAkWHS.NewClient(d.client)
 	input := fVAkWHS.ReadInput{
 		ObjectId: state.ObjectId.ValueString(),
+		Folder:   state.Folder.ValueString(),
 	}
 
 	// Perform the operation.
@@ -680,6 +690,8 @@ func (d *ipsecTunnelsDataSource) Read(ctx context.Context, req datasource.ReadRe
 	// Store the answer to state.
 	var idBuilder strings.Builder
 	idBuilder.WriteString(input.ObjectId)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
 	state.Id = types.StringValue(idBuilder.String())
 	var var0 ipsecTunnelsDsModelAutoKeyObject
 	var var1 []ipsecTunnelsDsModelIkeGatewayObject
@@ -876,9 +888,6 @@ func (r *ipsecTunnelsResource) Schema(_ context.Context, _ resource.SchemaReques
 					"ipsec_crypto_profile": rsschema.StringAttribute{
 						Description: "",
 						Required:    true,
-						PlanModifiers: []planmodifier.String{
-							DefaultString(""),
-						},
 					},
 					"proxy_id": rsschema.ListNestedAttribute{
 						Description: "",
@@ -896,9 +905,6 @@ func (r *ipsecTunnelsResource) Schema(_ context.Context, _ resource.SchemaReques
 								"name": rsschema.StringAttribute{
 									Description: "",
 									Required:    true,
-									PlanModifiers: []planmodifier.String{
-										DefaultString(""),
-									},
 								},
 								"protocol": rsschema.SingleNestedAttribute{
 									Description: "",
@@ -1012,9 +1018,6 @@ func (r *ipsecTunnelsResource) Schema(_ context.Context, _ resource.SchemaReques
 			"name": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(63),
 				},
@@ -1026,9 +1029,6 @@ func (r *ipsecTunnelsResource) Schema(_ context.Context, _ resource.SchemaReques
 					"destination_ip": rsschema.StringAttribute{
 						Description: "",
 						Required:    true,
-						PlanModifiers: []planmodifier.String{
-							DefaultString(""),
-						},
 					},
 					"enable": rsschema.BoolAttribute{
 						Description: "",
@@ -1249,6 +1249,7 @@ func (r *ipsecTunnelsResource) Read(ctx context.Context, req resource.ReadReques
 	svc := fVAkWHS.NewClient(r.client)
 	input := fVAkWHS.ReadInput{
 		ObjectId: tokens[1],
+		Folder:   tokens[0],
 	}
 
 	// Perform the operation.

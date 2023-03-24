@@ -419,9 +419,6 @@ func (r *authenticationSequencesResource) Schema(_ context.Context, _ resource.S
 			"name": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 			},
 			"use_domain_find_profile": rsschema.BoolAttribute{
 				Description: "",

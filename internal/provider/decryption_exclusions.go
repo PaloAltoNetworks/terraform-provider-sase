@@ -40,6 +40,7 @@ type decryptionExclusionsDsModel struct {
 
 	// Input.
 	ObjectId types.String `tfsdk:"object_id"`
+	Folder   types.String `tfsdk:"folder"`
 
 	// Output.
 	// Ref: #/components/schemas/decryption-exclusions
@@ -68,6 +69,13 @@ func (d *decryptionExclusionsDataSource) Schema(_ context.Context, _ datasource.
 			"object_id": dsschema.StringAttribute{
 				Description: "The uuid of the resource",
 				Required:    true,
+			},
+			"folder": dsschema.StringAttribute{
+				Description: "The folder of the entry",
+				Required:    true,
+				Validators: []validator.String{
+					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
+				},
 			},
 
 			// Output.
@@ -104,12 +112,14 @@ func (d *decryptionExclusionsDataSource) Read(ctx context.Context, req datasourc
 		"terraform_provider_function": "Read",
 		"data_source_name":            "sase_decryption_exclusions",
 		"object_id":                   state.ObjectId.ValueString(),
+		"folder":                      state.Folder.ValueString(),
 	})
 
 	// Prepare to run the command.
 	svc := zMcbmzn.NewClient(d.client)
 	input := zMcbmzn.ReadInput{
 		ObjectId: state.ObjectId.ValueString(),
+		Folder:   state.Folder.ValueString(),
 	}
 
 	// Perform the operation.
@@ -122,6 +132,8 @@ func (d *decryptionExclusionsDataSource) Read(ctx context.Context, req datasourc
 	// Store the answer to state.
 	var idBuilder strings.Builder
 	idBuilder.WriteString(input.ObjectId)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
 	state.Id = types.StringValue(idBuilder.String())
 	state.Description = types.StringValue(ans.Description)
 	state.ObjectId = types.StringValue(ans.ObjectId)
@@ -205,9 +217,6 @@ func (r *decryptionExclusionsResource) Schema(_ context.Context, _ resource.Sche
 			"name": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 			},
 		},
 	}
@@ -296,6 +305,7 @@ func (r *decryptionExclusionsResource) Read(ctx context.Context, req resource.Re
 	svc := zMcbmzn.NewClient(r.client)
 	input := zMcbmzn.ReadInput{
 		ObjectId: tokens[1],
+		Folder:   tokens[0],
 	}
 
 	// Perform the operation.

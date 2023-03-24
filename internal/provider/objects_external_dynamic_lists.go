@@ -1066,6 +1066,7 @@ type objectsExternalDynamicListsDsModel struct {
 
 	// Input.
 	ObjectId types.String `tfsdk:"object_id"`
+	Folder   types.String `tfsdk:"folder"`
 
 	// Output.
 	// Ref: #/components/schemas/objects-external-dynamic-lists
@@ -1189,6 +1190,13 @@ func (d *objectsExternalDynamicListsDataSource) Schema(_ context.Context, _ data
 			"object_id": dsschema.StringAttribute{
 				Description: "The uuid of the resource",
 				Required:    true,
+			},
+			"folder": dsschema.StringAttribute{
+				Description: "The folder of the entry",
+				Required:    true,
+				Validators: []validator.String{
+					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
+				},
 			},
 
 			// Output.
@@ -1714,12 +1722,14 @@ func (d *objectsExternalDynamicListsDataSource) Read(ctx context.Context, req da
 		"terraform_provider_function": "Read",
 		"data_source_name":            "sase_objects_external_dynamic_lists",
 		"object_id":                   state.ObjectId.ValueString(),
+		"folder":                      state.Folder.ValueString(),
 	})
 
 	// Prepare to run the command.
 	svc := iHJqznH.NewClient(d.client)
 	input := iHJqznH.ReadInput{
 		ObjectId: state.ObjectId.ValueString(),
+		Folder:   state.Folder.ValueString(),
 	}
 
 	// Perform the operation.
@@ -1732,6 +1742,8 @@ func (d *objectsExternalDynamicListsDataSource) Read(ctx context.Context, req da
 	// Store the answer to state.
 	var idBuilder strings.Builder
 	idBuilder.WriteString(input.ObjectId)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
 	state.Id = types.StringValue(idBuilder.String())
 	var var0 objectsExternalDynamicListsDsModelTypeObject
 	var var1 *objectsExternalDynamicListsDsModelDomainObject
@@ -2140,9 +2152,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 			"name": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(63),
 				},
@@ -2162,9 +2171,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 									"password": rsschema.StringAttribute{
 										Description: "",
 										Required:    true,
-										PlanModifiers: []planmodifier.String{
-											DefaultString(""),
-										},
 										Validators: []validator.String{
 											stringvalidator.LengthAtMost(255),
 										},
@@ -2172,9 +2178,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 									"username": rsschema.StringAttribute{
 										Description: "",
 										Required:    true,
-										PlanModifiers: []planmodifier.String{
-											DefaultString(""),
-										},
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(1, 255),
 										},
@@ -2224,9 +2227,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 											"at": rsschema.StringAttribute{
 												Description: "",
 												Required:    true,
-												PlanModifiers: []planmodifier.String{
-													DefaultString("00"),
-												},
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
@@ -2264,9 +2264,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 											"at": rsschema.StringAttribute{
 												Description: "",
 												Required:    true,
-												PlanModifiers: []planmodifier.String{
-													DefaultString("00"),
-												},
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
@@ -2274,9 +2271,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 											"day_of_month": rsschema.Int64Attribute{
 												Description: "",
 												Required:    true,
-												PlanModifiers: []planmodifier.Int64{
-													DefaultInt64(0),
-												},
 												Validators: []validator.Int64{
 													int64validator.Between(1, 31),
 												},
@@ -2290,9 +2284,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 											"at": rsschema.StringAttribute{
 												Description: "",
 												Required:    true,
-												PlanModifiers: []planmodifier.String{
-													DefaultString("00"),
-												},
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
@@ -2300,9 +2291,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 											"day_of_week": rsschema.StringAttribute{
 												Description: "",
 												Required:    true,
-												PlanModifiers: []planmodifier.String{
-													DefaultString(""),
-												},
 												Validators: []validator.String{
 													stringvalidator.OneOf("sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"),
 												},
@@ -2314,9 +2302,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 							"url": rsschema.StringAttribute{
 								Description: "",
 								Required:    true,
-								PlanModifiers: []planmodifier.String{
-									DefaultString("http://"),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthBetween(0, 255),
 								},
@@ -2334,9 +2319,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 									"password": rsschema.StringAttribute{
 										Description: "",
 										Required:    true,
-										PlanModifiers: []planmodifier.String{
-											DefaultString(""),
-										},
 										Validators: []validator.String{
 											stringvalidator.LengthAtMost(255),
 										},
@@ -2344,9 +2326,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 									"username": rsschema.StringAttribute{
 										Description: "",
 										Required:    true,
-										PlanModifiers: []planmodifier.String{
-											DefaultString(""),
-										},
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(1, 255),
 										},
@@ -2388,9 +2367,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 											"at": rsschema.StringAttribute{
 												Description: "",
 												Required:    true,
-												PlanModifiers: []planmodifier.String{
-													DefaultString("00"),
-												},
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
@@ -2428,9 +2404,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 											"at": rsschema.StringAttribute{
 												Description: "",
 												Required:    true,
-												PlanModifiers: []planmodifier.String{
-													DefaultString("00"),
-												},
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
@@ -2438,9 +2411,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 											"day_of_month": rsschema.Int64Attribute{
 												Description: "",
 												Required:    true,
-												PlanModifiers: []planmodifier.Int64{
-													DefaultInt64(0),
-												},
 												Validators: []validator.Int64{
 													int64validator.Between(1, 31),
 												},
@@ -2454,9 +2424,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 											"at": rsschema.StringAttribute{
 												Description: "",
 												Required:    true,
-												PlanModifiers: []planmodifier.String{
-													DefaultString("00"),
-												},
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
@@ -2464,9 +2431,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 											"day_of_week": rsschema.StringAttribute{
 												Description: "",
 												Required:    true,
-												PlanModifiers: []planmodifier.String{
-													DefaultString(""),
-												},
 												Validators: []validator.String{
 													stringvalidator.OneOf("sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"),
 												},
@@ -2478,9 +2442,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 							"url": rsschema.StringAttribute{
 								Description: "",
 								Required:    true,
-								PlanModifiers: []planmodifier.String{
-									DefaultString("http://"),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthBetween(0, 255),
 								},
@@ -2498,9 +2459,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 									"password": rsschema.StringAttribute{
 										Description: "",
 										Required:    true,
-										PlanModifiers: []planmodifier.String{
-											DefaultString(""),
-										},
 										Validators: []validator.String{
 											stringvalidator.LengthAtMost(255),
 										},
@@ -2508,9 +2466,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 									"username": rsschema.StringAttribute{
 										Description: "",
 										Required:    true,
-										PlanModifiers: []planmodifier.String{
-											DefaultString(""),
-										},
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(1, 255),
 										},
@@ -2552,9 +2507,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 											"at": rsschema.StringAttribute{
 												Description: "",
 												Required:    true,
-												PlanModifiers: []planmodifier.String{
-													DefaultString("00"),
-												},
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
@@ -2592,9 +2544,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 											"at": rsschema.StringAttribute{
 												Description: "",
 												Required:    true,
-												PlanModifiers: []planmodifier.String{
-													DefaultString("00"),
-												},
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
@@ -2602,9 +2551,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 											"day_of_month": rsschema.Int64Attribute{
 												Description: "",
 												Required:    true,
-												PlanModifiers: []planmodifier.Int64{
-													DefaultInt64(0),
-												},
 												Validators: []validator.Int64{
 													int64validator.Between(1, 31),
 												},
@@ -2618,9 +2564,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 											"at": rsschema.StringAttribute{
 												Description: "",
 												Required:    true,
-												PlanModifiers: []planmodifier.String{
-													DefaultString("00"),
-												},
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
@@ -2628,9 +2571,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 											"day_of_week": rsschema.StringAttribute{
 												Description: "",
 												Required:    true,
-												PlanModifiers: []planmodifier.String{
-													DefaultString(""),
-												},
 												Validators: []validator.String{
 													stringvalidator.OneOf("sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"),
 												},
@@ -2642,9 +2582,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 							"url": rsschema.StringAttribute{
 								Description: "",
 								Required:    true,
-								PlanModifiers: []planmodifier.String{
-									DefaultString("http://"),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthBetween(0, 255),
 								},
@@ -2662,9 +2599,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 									"password": rsschema.StringAttribute{
 										Description: "",
 										Required:    true,
-										PlanModifiers: []planmodifier.String{
-											DefaultString(""),
-										},
 										Validators: []validator.String{
 											stringvalidator.LengthAtMost(255),
 										},
@@ -2672,9 +2606,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 									"username": rsschema.StringAttribute{
 										Description: "",
 										Required:    true,
-										PlanModifiers: []planmodifier.String{
-											DefaultString(""),
-										},
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(1, 255),
 										},
@@ -2716,9 +2647,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 											"at": rsschema.StringAttribute{
 												Description: "",
 												Required:    true,
-												PlanModifiers: []planmodifier.String{
-													DefaultString("00"),
-												},
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
@@ -2756,9 +2684,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 											"at": rsschema.StringAttribute{
 												Description: "",
 												Required:    true,
-												PlanModifiers: []planmodifier.String{
-													DefaultString("00"),
-												},
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
@@ -2766,9 +2691,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 											"day_of_month": rsschema.Int64Attribute{
 												Description: "",
 												Required:    true,
-												PlanModifiers: []planmodifier.Int64{
-													DefaultInt64(0),
-												},
 												Validators: []validator.Int64{
 													int64validator.Between(1, 31),
 												},
@@ -2782,9 +2704,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 											"at": rsschema.StringAttribute{
 												Description: "",
 												Required:    true,
-												PlanModifiers: []planmodifier.String{
-													DefaultString("00"),
-												},
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
@@ -2792,9 +2711,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 											"day_of_week": rsschema.StringAttribute{
 												Description: "",
 												Required:    true,
-												PlanModifiers: []planmodifier.String{
-													DefaultString(""),
-												},
 												Validators: []validator.String{
 													stringvalidator.OneOf("sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"),
 												},
@@ -2806,9 +2722,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 							"url": rsschema.StringAttribute{
 								Description: "",
 								Required:    true,
-								PlanModifiers: []planmodifier.String{
-									DefaultString("http://"),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthBetween(0, 255),
 								},
@@ -2838,9 +2751,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 							"url": rsschema.StringAttribute{
 								Description: "",
 								Required:    true,
-								PlanModifiers: []planmodifier.String{
-									DefaultString(""),
-								},
 							},
 						},
 					},
@@ -2867,9 +2777,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 							"url": rsschema.StringAttribute{
 								Description: "",
 								Required:    true,
-								PlanModifiers: []planmodifier.String{
-									DefaultString(""),
-								},
 							},
 						},
 					},
@@ -2884,9 +2791,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 									"password": rsschema.StringAttribute{
 										Description: "",
 										Required:    true,
-										PlanModifiers: []planmodifier.String{
-											DefaultString(""),
-										},
 										Validators: []validator.String{
 											stringvalidator.LengthAtMost(255),
 										},
@@ -2894,9 +2798,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 									"username": rsschema.StringAttribute{
 										Description: "",
 										Required:    true,
-										PlanModifiers: []planmodifier.String{
-											DefaultString(""),
-										},
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(1, 255),
 										},
@@ -2938,9 +2839,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 											"at": rsschema.StringAttribute{
 												Description: "",
 												Required:    true,
-												PlanModifiers: []planmodifier.String{
-													DefaultString("00"),
-												},
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
@@ -2978,9 +2876,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 											"at": rsschema.StringAttribute{
 												Description: "",
 												Required:    true,
-												PlanModifiers: []planmodifier.String{
-													DefaultString("00"),
-												},
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
@@ -2988,9 +2883,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 											"day_of_month": rsschema.Int64Attribute{
 												Description: "",
 												Required:    true,
-												PlanModifiers: []planmodifier.Int64{
-													DefaultInt64(0),
-												},
 												Validators: []validator.Int64{
 													int64validator.Between(1, 31),
 												},
@@ -3004,9 +2896,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 											"at": rsschema.StringAttribute{
 												Description: "",
 												Required:    true,
-												PlanModifiers: []planmodifier.String{
-													DefaultString("00"),
-												},
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
@@ -3014,9 +2903,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 											"day_of_week": rsschema.StringAttribute{
 												Description: "",
 												Required:    true,
-												PlanModifiers: []planmodifier.String{
-													DefaultString(""),
-												},
 												Validators: []validator.String{
 													stringvalidator.OneOf("sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"),
 												},
@@ -3028,9 +2914,6 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 							"url": rsschema.StringAttribute{
 								Description: "",
 								Required:    true,
-								PlanModifiers: []planmodifier.String{
-									DefaultString("http://"),
-								},
 								Validators: []validator.String{
 									stringvalidator.LengthBetween(0, 255),
 								},
@@ -3602,6 +3485,7 @@ func (r *objectsExternalDynamicListsResource) Read(ctx context.Context, req reso
 	svc := iHJqznH.NewClient(r.client)
 	input := iHJqznH.ReadInput{
 		ObjectId: tokens[1],
+		Folder:   tokens[0],
 	}
 
 	// Perform the operation.

@@ -483,9 +483,6 @@ func (r *samlServerProfilesResource) Schema(_ context.Context, _ resource.Schema
 			"certificate": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(63),
 				},

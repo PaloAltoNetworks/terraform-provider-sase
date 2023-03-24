@@ -1265,9 +1265,6 @@ func (r *authenticationProfilesResource) Schema(_ context.Context, _ resource.Sc
 			"name": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 			},
 			"single_sign_on": rsschema.SingleNestedAttribute{
 				Description: "",

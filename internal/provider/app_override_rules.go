@@ -332,6 +332,7 @@ type appOverrideRulesDsModel struct {
 
 	// Input.
 	ObjectId types.String `tfsdk:"object_id"`
+	Folder   types.String `tfsdk:"folder"`
 
 	// Output.
 	// Ref: #/components/schemas/app-override-rules
@@ -372,6 +373,13 @@ func (d *appOverrideRulesDataSource) Schema(_ context.Context, _ datasource.Sche
 			"object_id": dsschema.StringAttribute{
 				Description: "The uuid of the resource",
 				Required:    true,
+			},
+			"folder": dsschema.StringAttribute{
+				Description: "The folder of the entry",
+				Required:    true,
+				Validators: []validator.String{
+					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
+				},
 			},
 
 			// Output.
@@ -461,12 +469,14 @@ func (d *appOverrideRulesDataSource) Read(ctx context.Context, req datasource.Re
 		"terraform_provider_function": "Read",
 		"data_source_name":            "sase_app_override_rules",
 		"object_id":                   state.ObjectId.ValueString(),
+		"folder":                      state.Folder.ValueString(),
 	})
 
 	// Prepare to run the command.
 	svc := pTgTBIe.NewClient(d.client)
 	input := pTgTBIe.ReadInput{
 		ObjectId: state.ObjectId.ValueString(),
+		Folder:   state.Folder.ValueString(),
 	}
 
 	// Perform the operation.
@@ -479,6 +489,8 @@ func (d *appOverrideRulesDataSource) Read(ctx context.Context, req datasource.Re
 	// Store the answer to state.
 	var idBuilder strings.Builder
 	idBuilder.WriteString(input.ObjectId)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
 	state.Id = types.StringValue(idBuilder.String())
 	state.Application = types.StringValue(ans.Application)
 	state.Description = types.StringValue(ans.Description)
@@ -579,9 +591,6 @@ func (r *appOverrideRulesResource) Schema(_ context.Context, _ resource.SchemaRe
 			"application": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 			},
 			"description": rsschema.StringAttribute{
 				Description: "",
@@ -630,9 +639,6 @@ func (r *appOverrideRulesResource) Schema(_ context.Context, _ resource.SchemaRe
 			"name": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(63),
 				},
@@ -656,9 +662,6 @@ func (r *appOverrideRulesResource) Schema(_ context.Context, _ resource.SchemaRe
 			"port": rsschema.Int64Attribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.Int64{
-					DefaultInt64(0),
-				},
 				Validators: []validator.Int64{
 					int64validator.Between(0, 65535),
 				},
@@ -666,9 +669,6 @@ func (r *appOverrideRulesResource) Schema(_ context.Context, _ resource.SchemaRe
 			"protocol": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 				Validators: []validator.String{
 					stringvalidator.OneOf("tcp", "udp"),
 				},
@@ -803,6 +803,7 @@ func (r *appOverrideRulesResource) Read(ctx context.Context, req resource.ReadRe
 	svc := pTgTBIe.NewClient(r.client)
 	input := pTgTBIe.ReadInput{
 		ObjectId: tokens[2],
+		Folder:   tokens[1],
 	}
 
 	// Perform the operation.

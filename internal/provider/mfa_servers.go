@@ -40,6 +40,7 @@ type mfaServersDsModel struct {
 
 	// Input.
 	ObjectId types.String `tfsdk:"object_id"`
+	Folder   types.String `tfsdk:"folder"`
 
 	// Output.
 	// Ref: #/components/schemas/mfa-servers
@@ -110,6 +111,13 @@ func (d *mfaServersDataSource) Schema(_ context.Context, _ datasource.SchemaRequ
 			"object_id": dsschema.StringAttribute{
 				Description: "The uuid of the resource",
 				Required:    true,
+			},
+			"folder": dsschema.StringAttribute{
+				Description: "The folder of the entry",
+				Required:    true,
+				Validators: []validator.String{
+					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
+				},
 			},
 
 			// Output.
@@ -264,12 +272,14 @@ func (d *mfaServersDataSource) Read(ctx context.Context, req datasource.ReadRequ
 		"terraform_provider_function": "Read",
 		"data_source_name":            "sase_mfa_servers",
 		"object_id":                   state.ObjectId.ValueString(),
+		"folder":                      state.Folder.ValueString(),
 	})
 
 	// Prepare to run the command.
 	svc := wArkOsV.NewClient(d.client)
 	input := wArkOsV.ReadInput{
 		ObjectId: state.ObjectId.ValueString(),
+		Folder:   state.Folder.ValueString(),
 	}
 
 	// Perform the operation.
@@ -282,6 +292,8 @@ func (d *mfaServersDataSource) Read(ctx context.Context, req datasource.ReadRequ
 	// Store the answer to state.
 	var idBuilder strings.Builder
 	idBuilder.WriteString(input.ObjectId)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
 	state.Id = types.StringValue(idBuilder.String())
 	var var0 *mfaServersDsModelMfaVendorTypeObject
 	if ans.MfaVendorType != nil {
@@ -454,9 +466,6 @@ func (r *mfaServersResource) Schema(_ context.Context, _ resource.SchemaRequest,
 			"mfa_cert_profile": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 			},
 			"mfa_vendor_type": rsschema.SingleNestedAttribute{
 				Description: "",
@@ -667,9 +676,6 @@ func (r *mfaServersResource) Schema(_ context.Context, _ resource.SchemaRequest,
 			"name": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 			},
 		},
 	}
@@ -856,6 +862,7 @@ func (r *mfaServersResource) Read(ctx context.Context, req resource.ReadRequest,
 	svc := wArkOsV.NewClient(r.client)
 	input := wArkOsV.ReadInput{
 		ObjectId: tokens[2],
+		Folder:   tokens[1],
 	}
 
 	// Perform the operation.

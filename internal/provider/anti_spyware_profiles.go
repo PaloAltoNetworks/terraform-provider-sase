@@ -1077,9 +1077,6 @@ func (r *antiSpywareProfilesResource) Schema(_ context.Context, _ resource.Schem
 			"name": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 			},
 			"rules": rsschema.ListNestedAttribute{
 				Description: "",
@@ -1268,9 +1265,6 @@ func (r *antiSpywareProfilesResource) Schema(_ context.Context, _ resource.Schem
 									"name": rsschema.StringAttribute{
 										Description: "",
 										Required:    true,
-										PlanModifiers: []planmodifier.String{
-											DefaultString(""),
-										},
 									},
 								},
 							},

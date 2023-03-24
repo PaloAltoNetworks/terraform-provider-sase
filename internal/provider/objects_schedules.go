@@ -341,6 +341,7 @@ type objectsSchedulesDsModel struct {
 
 	// Input.
 	ObjectId types.String `tfsdk:"object_id"`
+	Folder   types.String `tfsdk:"folder"`
 
 	// Output.
 	// Ref: #/components/schemas/objects-schedules
@@ -389,6 +390,13 @@ func (d *objectsSchedulesDataSource) Schema(_ context.Context, _ datasource.Sche
 			"object_id": dsschema.StringAttribute{
 				Description: "The uuid of the resource",
 				Required:    true,
+			},
+			"folder": dsschema.StringAttribute{
+				Description: "The folder of the entry",
+				Required:    true,
+				Validators: []validator.String{
+					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
+				},
 			},
 
 			// Output.
@@ -484,12 +492,14 @@ func (d *objectsSchedulesDataSource) Read(ctx context.Context, req datasource.Re
 		"terraform_provider_function": "Read",
 		"data_source_name":            "sase_objects_schedules",
 		"object_id":                   state.ObjectId.ValueString(),
+		"folder":                      state.Folder.ValueString(),
 	})
 
 	// Prepare to run the command.
 	svc := lNTtdgX.NewClient(d.client)
 	input := lNTtdgX.ReadInput{
 		ObjectId: state.ObjectId.ValueString(),
+		Folder:   state.Folder.ValueString(),
 	}
 
 	// Perform the operation.
@@ -502,6 +512,8 @@ func (d *objectsSchedulesDataSource) Read(ctx context.Context, req datasource.Re
 	// Store the answer to state.
 	var idBuilder strings.Builder
 	idBuilder.WriteString(input.ObjectId)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
 	state.Id = types.StringValue(idBuilder.String())
 	var var0 objectsSchedulesDsModelScheduleTypeObject
 	var var1 *objectsSchedulesDsModelRecurringObject
@@ -617,9 +629,6 @@ func (r *objectsSchedulesResource) Schema(_ context.Context, _ resource.SchemaRe
 			"name": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(31),
 				},
@@ -814,6 +823,7 @@ func (r *objectsSchedulesResource) Read(ctx context.Context, req resource.ReadRe
 	svc := lNTtdgX.NewClient(r.client)
 	input := lNTtdgX.ReadInput{
 		ObjectId: tokens[1],
+		Folder:   tokens[0],
 	}
 
 	// Perform the operation.

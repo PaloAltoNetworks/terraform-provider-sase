@@ -431,9 +431,6 @@ func (r *objectsDynamicUserGroupsResource) Schema(_ context.Context, _ resource.
 			"filter": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(2047),
 				},
@@ -448,9 +445,6 @@ func (r *objectsDynamicUserGroupsResource) Schema(_ context.Context, _ resource.
 			"name": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(63),
 				},

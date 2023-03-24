@@ -614,9 +614,6 @@ func (r *tlsServiceProfilesResource) Schema(_ context.Context, _ resource.Schema
 			"certificate": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(255),
 				},
@@ -631,9 +628,6 @@ func (r *tlsServiceProfilesResource) Schema(_ context.Context, _ resource.Schema
 			"name": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(127),
 				},

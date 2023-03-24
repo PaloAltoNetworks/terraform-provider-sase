@@ -654,9 +654,6 @@ func (r *httpHeaderProfilesResource) Schema(_ context.Context, _ resource.Schema
 						"name": rsschema.StringAttribute{
 							Description: "",
 							Required:    true,
-							PlanModifiers: []planmodifier.String{
-								DefaultString(""),
-							},
 						},
 						"type": rsschema.ListNestedAttribute{
 							Description: "",
@@ -676,9 +673,6 @@ func (r *httpHeaderProfilesResource) Schema(_ context.Context, _ resource.Schema
 												"header": rsschema.StringAttribute{
 													Description: "",
 													Required:    true,
-													PlanModifiers: []planmodifier.String{
-														DefaultString(""),
-													},
 												},
 												"log": rsschema.BoolAttribute{
 													Description: "",
@@ -691,16 +685,10 @@ func (r *httpHeaderProfilesResource) Schema(_ context.Context, _ resource.Schema
 												"name": rsschema.StringAttribute{
 													Description: "",
 													Required:    true,
-													PlanModifiers: []planmodifier.String{
-														DefaultString(""),
-													},
 												},
 												"value": rsschema.StringAttribute{
 													Description: "",
 													Required:    true,
-													PlanModifiers: []planmodifier.String{
-														DefaultString(""),
-													},
 												},
 											},
 										},
@@ -708,9 +696,6 @@ func (r *httpHeaderProfilesResource) Schema(_ context.Context, _ resource.Schema
 									"name": rsschema.StringAttribute{
 										Description: "",
 										Required:    true,
-										PlanModifiers: []planmodifier.String{
-											DefaultString(""),
-										},
 									},
 								},
 							},
@@ -728,9 +713,6 @@ func (r *httpHeaderProfilesResource) Schema(_ context.Context, _ resource.Schema
 			"name": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 			},
 		},
 	}

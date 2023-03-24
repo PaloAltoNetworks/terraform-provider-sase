@@ -803,9 +803,6 @@ func (r *scepProfilesResource) Schema(_ context.Context, _ resource.SchemaReques
 			"ca_identity_name": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 			},
 			"certificate_attributes": rsschema.SingleNestedAttribute{
 				Description: "",
@@ -840,9 +837,6 @@ func (r *scepProfilesResource) Schema(_ context.Context, _ resource.SchemaReques
 			"digest": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 			},
 			"fingerprint": rsschema.StringAttribute{
 				Description: "",
@@ -862,9 +856,6 @@ func (r *scepProfilesResource) Schema(_ context.Context, _ resource.SchemaReques
 			"name": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(31),
 				},
@@ -955,9 +946,6 @@ func (r *scepProfilesResource) Schema(_ context.Context, _ resource.SchemaReques
 			"scep_url": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 			},
 			"subject": rsschema.StringAttribute{
 				Description: "",

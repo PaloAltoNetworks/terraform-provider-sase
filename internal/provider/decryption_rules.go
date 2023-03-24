@@ -401,6 +401,7 @@ type decryptionRulesDsModel struct {
 
 	// Input.
 	ObjectId types.String `tfsdk:"object_id"`
+	Folder   types.String `tfsdk:"folder"`
 
 	// Output.
 	// Ref: #/components/schemas/decryption-rules
@@ -453,6 +454,13 @@ func (d *decryptionRulesDataSource) Schema(_ context.Context, _ datasource.Schem
 			"object_id": dsschema.StringAttribute{
 				Description: "The uuid of the resource",
 				Required:    true,
+			},
+			"folder": dsschema.StringAttribute{
+				Description: "The folder of the entry",
+				Required:    true,
+				Validators: []validator.String{
+					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
+				},
 			},
 
 			// Output.
@@ -585,12 +593,14 @@ func (d *decryptionRulesDataSource) Read(ctx context.Context, req datasource.Rea
 		"terraform_provider_function": "Read",
 		"data_source_name":            "sase_decryption_rules",
 		"object_id":                   state.ObjectId.ValueString(),
+		"folder":                      state.Folder.ValueString(),
 	})
 
 	// Prepare to run the command.
 	svc := vWYSjCE.NewClient(d.client)
 	input := vWYSjCE.ReadInput{
 		ObjectId: state.ObjectId.ValueString(),
+		Folder:   state.Folder.ValueString(),
 	}
 
 	// Perform the operation.
@@ -603,6 +613,8 @@ func (d *decryptionRulesDataSource) Read(ctx context.Context, req datasource.Rea
 	// Store the answer to state.
 	var idBuilder strings.Builder
 	idBuilder.WriteString(input.ObjectId)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
 	state.Id = types.StringValue(idBuilder.String())
 	var var0 *decryptionRulesDsModelTypeObject
 	if ans.Type != nil {
@@ -730,9 +742,6 @@ func (r *decryptionRulesResource) Schema(_ context.Context, _ resource.SchemaReq
 			"action": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 				Validators: []validator.String{
 					stringvalidator.OneOf("decrypt", "no-decrypt"),
 				},
@@ -807,9 +816,6 @@ func (r *decryptionRulesResource) Schema(_ context.Context, _ resource.SchemaReq
 			"name": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 			},
 			"negate_destination": rsschema.BoolAttribute{
 				Description: "",
@@ -1031,6 +1037,7 @@ func (r *decryptionRulesResource) Read(ctx context.Context, req resource.ReadReq
 	svc := vWYSjCE.NewClient(r.client)
 	input := vWYSjCE.ReadInput{
 		ObjectId: tokens[2],
+		Folder:   tokens[1],
 	}
 
 	// Perform the operation.

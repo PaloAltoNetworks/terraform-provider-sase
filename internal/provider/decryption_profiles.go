@@ -963,9 +963,6 @@ func (r *decryptionProfilesResource) Schema(_ context.Context, _ resource.Schema
 			"name": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 			},
 			"ssl_forward_proxy": rsschema.SingleNestedAttribute{
 				Description: "",

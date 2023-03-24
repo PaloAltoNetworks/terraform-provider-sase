@@ -5043,9 +5043,6 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 											"versions": rsschema.Int64Attribute{
 												Description: "",
 												Required:    true,
-												PlanModifiers: []planmodifier.Int64{
-													DefaultInt64(1),
-												},
 												Validators: []validator.Int64{
 													int64validator.Between(1, 65535),
 												},
@@ -5059,9 +5056,6 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 											"versions": rsschema.Int64Attribute{
 												Description: "",
 												Required:    true,
-												PlanModifiers: []planmodifier.Int64{
-													DefaultInt64(1),
-												},
 												Validators: []validator.Int64{
 													int64validator.Between(1, 65535),
 												},
@@ -5161,9 +5155,6 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								"name": rsschema.StringAttribute{
 									Description: "",
 									Required:    true,
-									PlanModifiers: []planmodifier.String{
-										DefaultString(""),
-									},
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(103),
 									},
@@ -5194,9 +5185,6 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										"name": rsschema.StringAttribute{
 											Description: "",
 											Required:    true,
-											PlanModifiers: []planmodifier.String{
-												DefaultString(""),
-											},
 										},
 										"value": rsschema.StringAttribute{
 											Description: "",
@@ -5245,9 +5233,6 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 													"name": rsschema.StringAttribute{
 														Description: "",
 														Required:    true,
-														PlanModifiers: []planmodifier.String{
-															DefaultString(""),
-														},
 														Validators: []validator.String{
 															stringvalidator.LengthAtMost(1023),
 														},
@@ -5277,9 +5262,6 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										"name": rsschema.StringAttribute{
 											Description: "",
 											Required:    true,
-											PlanModifiers: []planmodifier.String{
-												DefaultString(""),
-											},
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(1023),
 											},
@@ -5303,9 +5285,6 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										"name": rsschema.StringAttribute{
 											Description: "",
 											Required:    true,
-											PlanModifiers: []planmodifier.String{
-												DefaultString(""),
-											},
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(1023),
 											},
@@ -5340,9 +5319,6 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										"name": rsschema.StringAttribute{
 											Description: "",
 											Required:    true,
-											PlanModifiers: []planmodifier.String{
-												DefaultString(""),
-											},
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(1023),
 											},
@@ -5363,9 +5339,6 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 													"name": rsschema.StringAttribute{
 														Description: "",
 														Required:    true,
-														PlanModifiers: []planmodifier.String{
-															DefaultString(""),
-														},
 														Validators: []validator.String{
 															stringvalidator.LengthAtMost(1023),
 														},
@@ -5444,9 +5417,6 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								"name": rsschema.StringAttribute{
 									Description: "",
 									Required:    true,
-									PlanModifiers: []planmodifier.String{
-										DefaultString(""),
-									},
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(103),
 									},
@@ -5578,9 +5548,6 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								"name": rsschema.StringAttribute{
 									Description: "",
 									Required:    true,
-									PlanModifiers: []planmodifier.String{
-										DefaultString(""),
-									},
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(103),
 									},
@@ -5639,9 +5606,6 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										"name": rsschema.StringAttribute{
 											Description: "",
 											Required:    true,
-											PlanModifiers: []planmodifier.String{
-												DefaultString(""),
-											},
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(1023),
 											},
@@ -5675,9 +5639,6 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								"name": rsschema.StringAttribute{
 									Description: "",
 									Required:    true,
-									PlanModifiers: []planmodifier.String{
-										DefaultString(""),
-									},
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(103),
 									},
@@ -5737,9 +5698,6 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								"name": rsschema.StringAttribute{
 									Description: "",
 									Required:    true,
-									PlanModifiers: []planmodifier.String{
-										DefaultString(""),
-									},
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(103),
 									},
@@ -6176,9 +6134,6 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 																"name": rsschema.StringAttribute{
 																	Description: "",
 																	Required:    true,
-																	PlanModifiers: []planmodifier.String{
-																		DefaultString(""),
-																	},
 																	Validators: []validator.String{
 																		stringvalidator.LengthAtMost(31),
 																	},
@@ -6228,9 +6183,6 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												"name": rsschema.StringAttribute{
 													Description: "",
 													Required:    true,
-													PlanModifiers: []planmodifier.String{
-														DefaultString(""),
-													},
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(31),
 													},
@@ -6329,9 +6281,6 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 											"days": rsschema.Int64Attribute{
 												Description: "",
 												Required:    true,
-												PlanModifiers: []planmodifier.Int64{
-													DefaultInt64(30),
-												},
 												Validators: []validator.Int64{
 													int64validator.Between(1, 365),
 												},
@@ -6345,9 +6294,6 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 											"days": rsschema.Int64Attribute{
 												Description: "",
 												Required:    true,
-												PlanModifiers: []planmodifier.Int64{
-													DefaultInt64(30),
-												},
 												Validators: []validator.Int64{
 													int64validator.Between(1, 365),
 												},
@@ -6524,9 +6470,6 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 			"name": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(31),
 				},
@@ -6675,9 +6618,6 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 									"check": rsschema.StringAttribute{
 										Description: "",
 										Required:    true,
-										PlanModifiers: []planmodifier.String{
-											DefaultString("has-any"),
-										},
 										Validators: []validator.String{
 											stringvalidator.OneOf("has-any", "has-none", "has-all"),
 										},
@@ -6821,9 +6761,6 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								"name": rsschema.StringAttribute{
 									Description: "",
 									Required:    true,
-									PlanModifiers: []planmodifier.String{
-										DefaultString(""),
-									},
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(103),
 									},

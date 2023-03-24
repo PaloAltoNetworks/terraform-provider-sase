@@ -619,9 +619,6 @@ func (r *ikeCryptoProfilesResource) Schema(_ context.Context, _ resource.SchemaR
 			"name": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(31),
 				},

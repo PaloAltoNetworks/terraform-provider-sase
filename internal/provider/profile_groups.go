@@ -513,9 +513,6 @@ func (r *profileGroupsResource) Schema(_ context.Context, _ resource.SchemaReque
 			"name": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 			},
 			"saas_security": rsschema.ListAttribute{
 				Description: "",

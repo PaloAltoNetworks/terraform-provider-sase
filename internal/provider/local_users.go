@@ -242,6 +242,7 @@ type localUsersDsModel struct {
 
 	// Input.
 	ObjectId types.String `tfsdk:"object_id"`
+	Folder   types.String `tfsdk:"folder"`
 
 	// Output.
 	// Ref: #/components/schemas/local-users
@@ -270,6 +271,13 @@ func (d *localUsersDataSource) Schema(_ context.Context, _ datasource.SchemaRequ
 			"object_id": dsschema.StringAttribute{
 				Description: "The uuid of the resource",
 				Required:    true,
+			},
+			"folder": dsschema.StringAttribute{
+				Description: "The folder of the entry",
+				Required:    true,
+				Validators: []validator.String{
+					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
+				},
 			},
 
 			// Output.
@@ -306,12 +314,14 @@ func (d *localUsersDataSource) Read(ctx context.Context, req datasource.ReadRequ
 		"terraform_provider_function": "Read",
 		"data_source_name":            "sase_local_users",
 		"object_id":                   state.ObjectId.ValueString(),
+		"folder":                      state.Folder.ValueString(),
 	})
 
 	// Prepare to run the command.
 	svc := lPYoCFo.NewClient(d.client)
 	input := lPYoCFo.ReadInput{
 		ObjectId: state.ObjectId.ValueString(),
+		Folder:   state.Folder.ValueString(),
 	}
 
 	// Perform the operation.
@@ -324,6 +334,8 @@ func (d *localUsersDataSource) Read(ctx context.Context, req datasource.ReadRequ
 	// Store the answer to state.
 	var idBuilder strings.Builder
 	idBuilder.WriteString(input.ObjectId)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
 	state.Id = types.StringValue(idBuilder.String())
 	state.ObjectId = types.StringValue(ans.ObjectId)
 	state.Name = types.StringValue(ans.Name)
@@ -399,9 +411,6 @@ func (r *localUsersResource) Schema(_ context.Context, _ resource.SchemaRequest,
 			"name": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(31),
 				},
@@ -409,9 +418,6 @@ func (r *localUsersResource) Schema(_ context.Context, _ resource.SchemaRequest,
 			"password": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(63),
 				},
@@ -503,6 +509,7 @@ func (r *localUsersResource) Read(ctx context.Context, req resource.ReadRequest,
 	svc := lPYoCFo.NewClient(r.client)
 	input := lPYoCFo.ReadInput{
 		ObjectId: tokens[1],
+		Folder:   tokens[0],
 	}
 
 	// Perform the operation.

@@ -525,9 +525,6 @@ func (r *tacacsServerProfilesResource) Schema(_ context.Context, _ resource.Sche
 			"protocol": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 				Validators: []validator.String{
 					stringvalidator.OneOf("CHAP", "PAP"),
 				},

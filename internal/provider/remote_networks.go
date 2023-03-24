@@ -944,9 +944,6 @@ func (r *remoteNetworksResource) Schema(_ context.Context, _ resource.SchemaRequ
 						"ipsec_tunnel": rsschema.StringAttribute{
 							Description: "",
 							Required:    true,
-							PlanModifiers: []planmodifier.String{
-								DefaultString(""),
-							},
 						},
 						"local_ip_address": rsschema.StringAttribute{
 							Description: "",
@@ -959,9 +956,6 @@ func (r *remoteNetworksResource) Schema(_ context.Context, _ resource.SchemaRequ
 						"name": rsschema.StringAttribute{
 							Description: "",
 							Required:    true,
-							PlanModifiers: []planmodifier.String{
-								DefaultString(""),
-							},
 						},
 						"originate_default_route": rsschema.BoolAttribute{
 							Description: "",
@@ -1035,9 +1029,6 @@ func (r *remoteNetworksResource) Schema(_ context.Context, _ resource.SchemaRequ
 			"license_type": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString("FWAAS-AGGREGATE"),
-				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtLeast(1),
 				},
@@ -1045,9 +1036,6 @@ func (r *remoteNetworksResource) Schema(_ context.Context, _ resource.SchemaRequ
 			"name": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(63),
 				},
@@ -1172,9 +1160,6 @@ func (r *remoteNetworksResource) Schema(_ context.Context, _ resource.SchemaRequ
 			"region": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtLeast(1),
 				},

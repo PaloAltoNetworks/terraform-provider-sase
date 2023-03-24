@@ -435,9 +435,6 @@ func (r *objectsHipProfilesResource) Schema(_ context.Context, _ resource.Schema
 			"match": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(2048),
 				},
@@ -445,9 +442,6 @@ func (r *objectsHipProfilesResource) Schema(_ context.Context, _ resource.Schema
 			"name": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(31),
 				},

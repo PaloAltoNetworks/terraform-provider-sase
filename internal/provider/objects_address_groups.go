@@ -484,9 +484,6 @@ func (r *objectsAddressGroupsResource) Schema(_ context.Context, _ resource.Sche
 					"filter": rsschema.StringAttribute{
 						Description: "",
 						Required:    true,
-						PlanModifiers: []planmodifier.String{
-							DefaultString(""),
-						},
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(2047),
 						},
@@ -503,9 +500,6 @@ func (r *objectsAddressGroupsResource) Schema(_ context.Context, _ resource.Sche
 			"name": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(63),
 				},

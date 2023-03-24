@@ -250,6 +250,7 @@ type objectsServiceGroupsDsModel struct {
 
 	// Input.
 	ObjectId types.String `tfsdk:"object_id"`
+	Folder   types.String `tfsdk:"folder"`
 
 	// Output.
 	// Ref: #/components/schemas/objects-service-groups
@@ -279,6 +280,13 @@ func (d *objectsServiceGroupsDataSource) Schema(_ context.Context, _ datasource.
 			"object_id": dsschema.StringAttribute{
 				Description: "The uuid of the resource",
 				Required:    true,
+			},
+			"folder": dsschema.StringAttribute{
+				Description: "The folder of the entry",
+				Required:    true,
+				Validators: []validator.String{
+					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
+				},
 			},
 
 			// Output.
@@ -321,12 +329,14 @@ func (d *objectsServiceGroupsDataSource) Read(ctx context.Context, req datasourc
 		"terraform_provider_function": "Read",
 		"data_source_name":            "sase_objects_service_groups",
 		"object_id":                   state.ObjectId.ValueString(),
+		"folder":                      state.Folder.ValueString(),
 	})
 
 	// Prepare to run the command.
 	svc := hpVYZVy.NewClient(d.client)
 	input := hpVYZVy.ReadInput{
 		ObjectId: state.ObjectId.ValueString(),
+		Folder:   state.Folder.ValueString(),
 	}
 
 	// Perform the operation.
@@ -339,6 +349,8 @@ func (d *objectsServiceGroupsDataSource) Read(ctx context.Context, req datasourc
 	// Store the answer to state.
 	var idBuilder strings.Builder
 	idBuilder.WriteString(input.ObjectId)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
 	state.Id = types.StringValue(idBuilder.String())
 	state.ObjectId = types.StringValue(ans.ObjectId)
 	state.Members = EncodeStringSlice(ans.Members)
@@ -421,9 +433,6 @@ func (r *objectsServiceGroupsResource) Schema(_ context.Context, _ resource.Sche
 			"name": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(63),
 				},
@@ -522,6 +531,7 @@ func (r *objectsServiceGroupsResource) Read(ctx context.Context, req resource.Re
 	svc := hpVYZVy.NewClient(r.client)
 	input := hpVYZVy.ReadInput{
 		ObjectId: tokens[1],
+		Folder:   tokens[0],
 	}
 
 	// Perform the operation.

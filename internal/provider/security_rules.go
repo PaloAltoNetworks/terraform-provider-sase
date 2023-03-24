@@ -383,6 +383,7 @@ type securityRulesDsModel struct {
 
 	// Input.
 	ObjectId types.String `tfsdk:"object_id"`
+	Folder   types.String `tfsdk:"folder"`
 
 	// Output.
 	// Ref: #/components/schemas/security-rules
@@ -432,6 +433,13 @@ func (d *securityRulesDataSource) Schema(_ context.Context, _ datasource.SchemaR
 			"object_id": dsschema.StringAttribute{
 				Description: "The uuid of the resource",
 				Required:    true,
+			},
+			"folder": dsschema.StringAttribute{
+				Description: "The folder of the entry",
+				Required:    true,
+				Validators: []validator.String{
+					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
+				},
 			},
 
 			// Output.
@@ -554,12 +562,14 @@ func (d *securityRulesDataSource) Read(ctx context.Context, req datasource.ReadR
 		"terraform_provider_function": "Read",
 		"data_source_name":            "sase_security_rules",
 		"object_id":                   state.ObjectId.ValueString(),
+		"folder":                      state.Folder.ValueString(),
 	})
 
 	// Prepare to run the command.
 	svc := mPRFtcU.NewClient(d.client)
 	input := mPRFtcU.ReadInput{
 		ObjectId: state.ObjectId.ValueString(),
+		Folder:   state.Folder.ValueString(),
 	}
 
 	// Perform the operation.
@@ -572,6 +582,8 @@ func (d *securityRulesDataSource) Read(ctx context.Context, req datasource.ReadR
 	// Store the answer to state.
 	var idBuilder strings.Builder
 	idBuilder.WriteString(input.ObjectId)
+	idBuilder.WriteString(IdSeparator)
+	idBuilder.WriteString(input.Folder)
 	state.Id = types.StringValue(idBuilder.String())
 	var var0 *securityRulesDsModelProfileSettingObject
 	if ans.ProfileSetting != nil {
@@ -691,9 +703,6 @@ func (r *securityRulesResource) Schema(_ context.Context, _ resource.SchemaReque
 			"action": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 			},
 			"application": rsschema.ListAttribute{
 				Description: "",
@@ -754,9 +763,6 @@ func (r *securityRulesResource) Schema(_ context.Context, _ resource.SchemaReque
 			"name": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 			},
 			"negate_destination": rsschema.BoolAttribute{
 				Description: "",
@@ -950,6 +956,7 @@ func (r *securityRulesResource) Read(ctx context.Context, req resource.ReadReque
 	svc := mPRFtcU.NewClient(r.client)
 	input := mPRFtcU.ReadInput{
 		ObjectId: tokens[2],
+		Folder:   tokens[1],
 	}
 
 	// Perform the operation.

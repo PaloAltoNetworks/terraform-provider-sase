@@ -1212,9 +1212,6 @@ func (r *ikeGatewaysResource) Schema(_ context.Context, _ resource.SchemaRequest
 			"name": rsschema.StringAttribute{
 				Description: "",
 				Required:    true,
-				PlanModifiers: []planmodifier.String{
-					DefaultString(""),
-				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(63),
 				},
