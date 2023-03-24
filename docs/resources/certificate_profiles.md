@@ -17,38 +17,38 @@ Retrieves config for a specific item.
 
 ### Required
 
-- `ca_certificates` (Attributes List) (see [below for nested schema](#nestedatt--ca_certificates))
+- `ca_certificates` (Attributes List) The `ca_certificates` parameter. (see [below for nested schema](#nestedatt--ca_certificates))
 - `folder` (String) The folder of the entry
-- `name` (String)
+- `name` (String) The `name` parameter.
 
 ### Optional
 
-- `block_expired_cert` (Boolean)
-- `block_timeout_cert` (Boolean)
-- `block_unauthenticated_cert` (Boolean)
-- `block_unknown_cert` (Boolean)
-- `cert_status_timeout` (String)
-- `crl_receive_timeout` (String)
-- `domain` (String)
-- `ocsp_receive_timeout` (String)
-- `use_crl` (Boolean)
-- `use_ocsp` (Boolean)
-- `username_field` (Attributes) (see [below for nested schema](#nestedatt--username_field))
+- `block_expired_cert` (Boolean) The `block_expired_cert` parameter.
+- `block_timeout_cert` (Boolean) The `block_timeout_cert` parameter.
+- `block_unauthenticated_cert` (Boolean) The `block_unauthenticated_cert` parameter.
+- `block_unknown_cert` (Boolean) The `block_unknown_cert` parameter.
+- `cert_status_timeout` (String) The `cert_status_timeout` parameter.
+- `crl_receive_timeout` (String) The `crl_receive_timeout` parameter.
+- `domain` (String) The `domain` parameter.
+- `ocsp_receive_timeout` (String) The `ocsp_receive_timeout` parameter.
+- `use_crl` (Boolean) The `use_crl` parameter.
+- `use_ocsp` (Boolean) The `use_ocsp` parameter.
+- `username_field` (Attributes) The `username_field` parameter. (see [below for nested schema](#nestedatt--username_field))
 
 ### Read-Only
 
 - `id` (String) The object ID.
-- `object_id` (String)
+- `object_id` (String) The `object_id` parameter.
 
 <a id="nestedatt--ca_certificates"></a>
 ### Nested Schema for `ca_certificates`
 
 Optional:
 
-- `default_ocsp_url` (String)
-- `name` (String)
-- `ocsp_verify_cert` (String)
-- `template_name` (String)
+- `default_ocsp_url` (String) The `default_ocsp_url` parameter.
+- `name` (String) The `name` parameter.
+- `ocsp_verify_cert` (String) The `ocsp_verify_cert` parameter.
+- `template_name` (String) The `template_name` parameter.
 
 
 <a id="nestedatt--username_field"></a>
@@ -56,7 +56,7 @@ Optional:
 
 Optional:
 
-- `subject` (String)
-- `subject_alt` (String)
+- `subject` (String) The `subject` parameter.
+- `subject_alt` (String) The `subject_alt` parameter.
 
 

@@ -78,28 +78,33 @@ func (d *objectsRegionsListDataSource) Schema(_ context.Context, _ datasource.Sc
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description: "The max count in result entry (count per page)",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The max count in result entry (count per page)",
+				MarkdownDescription: "The max count in result entry (count per page)",
+				Optional:            true,
+				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description: "The offset of the result entry",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The offset of the result entry",
+				MarkdownDescription: "The offset of the result entry",
+				Optional:            true,
+				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description: "The name of the entry",
-				Optional:    true,
+				Description:         "The name of the entry",
+				MarkdownDescription: "The name of the entry",
+				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -107,43 +112,51 @@ func (d *objectsRegionsListDataSource) Schema(_ context.Context, _ datasource.Sc
 
 			// Output.
 			"data": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `data` parameter.",
+				MarkdownDescription: "The `data` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"address": dsschema.ListAttribute{
-							Description: "",
-							Computed:    true,
-							ElementType: types.StringType,
+							Description:         "The `address` parameter.",
+							MarkdownDescription: "The `address` parameter.",
+							Computed:            true,
+							ElementType:         types.StringType,
 						},
 						"geo_location": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `geo_location` parameter.",
+							MarkdownDescription: "The `geo_location` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"latitude": dsschema.Float64Attribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `latitude` parameter.",
+									MarkdownDescription: "The `latitude` parameter.",
+									Computed:            true,
 								},
 								"longitude": dsschema.Float64Attribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `longitude` parameter.",
+									MarkdownDescription: "The `longitude` parameter.",
+									Computed:            true,
 								},
 							},
 						},
 						"object_id": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `object_id` parameter.",
+							MarkdownDescription: "The `object_id` parameter.",
+							Computed:            true,
 						},
 						"name": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `name` parameter.",
+							MarkdownDescription: "The `name` parameter.",
+							Computed:            true,
 						},
 					},
 				},
 			},
 			"total": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `total` parameter.",
+				MarkdownDescription: "The `total` parameter.",
+				Computed:            true,
 			},
 		},
 	}
@@ -297,39 +310,46 @@ func (d *objectsRegionsDataSource) Schema(_ context.Context, _ datasource.Schema
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description: "The uuid of the resource",
-				Required:    true,
+				Description:         "The uuid of the resource",
+				MarkdownDescription: "The uuid of the resource",
+				Required:            true,
 			},
 
 			// Output.
 			"address": dsschema.ListAttribute{
-				Description: "",
-				Computed:    true,
-				ElementType: types.StringType,
+				Description:         "The `address` parameter.",
+				MarkdownDescription: "The `address` parameter.",
+				Computed:            true,
+				ElementType:         types.StringType,
 			},
 			"geo_location": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `geo_location` parameter.",
+				MarkdownDescription: "The `geo_location` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"latitude": dsschema.Float64Attribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `latitude` parameter.",
+						MarkdownDescription: "The `latitude` parameter.",
+						Computed:            true,
 					},
 					"longitude": dsschema.Float64Attribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `longitude` parameter.",
+						MarkdownDescription: "The `longitude` parameter.",
+						Computed:            true,
 					},
 				},
 			},
 			"name": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `name` parameter.",
+				MarkdownDescription: "The `name` parameter.",
+				Computed:            true,
 			},
 		},
 	}
@@ -436,8 +456,9 @@ func (r *objectsRegionsResource) Schema(_ context.Context, _ resource.SchemaRequ
 
 		Attributes: map[string]rsschema.Attribute{
 			"id": rsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
@@ -445,32 +466,37 @@ func (r *objectsRegionsResource) Schema(_ context.Context, _ resource.SchemaRequ
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
 			},
 
 			"address": rsschema.ListAttribute{
-				Description: "",
-				Optional:    true,
-				ElementType: types.StringType,
+				Description:         "The `address` parameter.",
+				MarkdownDescription: "The `address` parameter.",
+				Optional:            true,
+				ElementType:         types.StringType,
 			},
 			"geo_location": rsschema.SingleNestedAttribute{
-				Description: "",
-				Optional:    true,
+				Description:         "The `geo_location` parameter.",
+				MarkdownDescription: "The `geo_location` parameter.",
+				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"latitude": rsschema.Float64Attribute{
-						Description: "",
-						Required:    true,
+						Description:         "The `latitude` parameter.",
+						MarkdownDescription: "The `latitude` parameter.",
+						Required:            true,
 						Validators: []validator.Float64{
 							float64validator.Between(-90.000000, 90.000000),
 						},
 					},
 					"longitude": rsschema.Float64Attribute{
-						Description: "",
-						Required:    true,
+						Description:         "The `longitude` parameter.",
+						MarkdownDescription: "The `longitude` parameter.",
+						Required:            true,
 						Validators: []validator.Float64{
 							float64validator.Between(-180.000000, 180.000000),
 						},
@@ -478,15 +504,17 @@ func (r *objectsRegionsResource) Schema(_ context.Context, _ resource.SchemaRequ
 				},
 			},
 			"object_id": rsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `object_id` parameter.",
+				MarkdownDescription: "The `object_id` parameter.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
 			},
 			"name": rsschema.StringAttribute{
-				Description: "",
-				Required:    true,
+				Description:         "The `name` parameter.",
+				MarkdownDescription: "The `name` parameter.",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(31),
 				},

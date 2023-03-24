@@ -27,40 +27,40 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `backup_s_c` (String)
-- `bgp_peer` (Attributes) (see [below for nested schema](#nestedatt--data--bgp_peer))
-- `ipsec_tunnel` (String)
-- `name` (String)
-- `nat_pool` (String)
-- `no_export_community` (String)
-- `onboarding_type` (String)
-- `protocol` (Attributes) (see [below for nested schema](#nestedatt--data--protocol))
-- `qos` (Attributes) (see [below for nested schema](#nestedatt--data--qos))
-- `region` (String)
-- `secondary_ipsec_tunnel` (String)
-- `source_nat` (Boolean)
-- `subnets` (List of String)
+- `backup_s_c` (String) The `backup_s_c` parameter.
+- `bgp_peer` (Attributes) The `bgp_peer` parameter. (see [below for nested schema](#nestedatt--data--bgp_peer))
+- `ipsec_tunnel` (String) The `ipsec_tunnel` parameter.
+- `name` (String) The `name` parameter.
+- `nat_pool` (String) The `nat_pool` parameter.
+- `no_export_community` (String) The `no_export_community` parameter.
+- `onboarding_type` (String) The `onboarding_type` parameter.
+- `protocol` (Attributes) The `protocol` parameter. (see [below for nested schema](#nestedatt--data--protocol))
+- `qos` (Attributes) The `qos` parameter. (see [below for nested schema](#nestedatt--data--qos))
+- `region` (String) The `region` parameter.
+- `secondary_ipsec_tunnel` (String) The `secondary_ipsec_tunnel` parameter.
+- `source_nat` (Boolean) The `source_nat` parameter.
+- `subnets` (List of String) The `subnets` parameter.
 
 <a id="nestedatt--data--bgp_peer"></a>
 ### Nested Schema for `data.bgp_peer`
 
 Read-Only:
 
-- `local_ip_address` (String)
-- `local_ipv6_address` (String)
-- `peer_ip_address` (String)
-- `peer_ipv6_address` (String)
-- `same_as_primary` (Boolean)
-- `secret` (String)
+- `local_ip_address` (String) The `local_ip_address` parameter.
+- `local_ipv6_address` (String) The `local_ipv6_address` parameter.
+- `peer_ip_address` (String) The `peer_ip_address` parameter.
+- `peer_ipv6_address` (String) The `peer_ipv6_address` parameter.
+- `same_as_primary` (Boolean) The `same_as_primary` parameter.
+- `secret` (String) The `secret` parameter.
 
 
 <a id="nestedatt--data--protocol"></a>
@@ -68,22 +68,22 @@ Read-Only:
 
 Read-Only:
 
-- `bgp` (Attributes) (see [below for nested schema](#nestedatt--data--protocol--bgp))
+- `bgp` (Attributes) The `bgp` parameter. (see [below for nested schema](#nestedatt--data--protocol--bgp))
 
 <a id="nestedatt--data--protocol--bgp"></a>
 ### Nested Schema for `data.protocol.bgp`
 
 Read-Only:
 
-- `do_not_export_routes` (Boolean)
-- `enable` (Boolean)
-- `fast_failover` (Boolean)
-- `local_ip_address` (String)
-- `originate_default_route` (Boolean)
-- `peer_as` (String)
-- `peer_ip_address` (String)
-- `secret` (String)
-- `summarize_mobile_user_routes` (Boolean)
+- `do_not_export_routes` (Boolean) The `do_not_export_routes` parameter.
+- `enable` (Boolean) The `enable` parameter.
+- `fast_failover` (Boolean) The `fast_failover` parameter.
+- `local_ip_address` (String) The `local_ip_address` parameter.
+- `originate_default_route` (Boolean) The `originate_default_route` parameter.
+- `peer_as` (String) The `peer_as` parameter.
+- `peer_ip_address` (String) The `peer_ip_address` parameter.
+- `secret` (String) The `secret` parameter.
+- `summarize_mobile_user_routes` (Boolean) The `summarize_mobile_user_routes` parameter.
 
 
 
@@ -92,7 +92,7 @@ Read-Only:
 
 Read-Only:
 
-- `enable` (Boolean)
-- `qos_profile` (String)
+- `enable` (Boolean) The `enable` parameter.
+- `qos_profile` (String) The `qos_profile` parameter.
 
 

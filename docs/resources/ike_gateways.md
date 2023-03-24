@@ -17,41 +17,41 @@ Retrieves config for a specific item.
 
 ### Required
 
-- `authentication` (Attributes) (see [below for nested schema](#nestedatt--authentication))
+- `authentication` (Attributes) The `authentication` parameter. (see [below for nested schema](#nestedatt--authentication))
 - `folder` (String) The folder of the entry
-- `name` (String)
-- `peer_address` (Attributes) (see [below for nested schema](#nestedatt--peer_address))
-- `protocol` (Attributes) (see [below for nested schema](#nestedatt--protocol))
+- `name` (String) The `name` parameter.
+- `peer_address` (Attributes) The `peer_address` parameter. (see [below for nested schema](#nestedatt--peer_address))
+- `protocol` (Attributes) The `protocol` parameter. (see [below for nested schema](#nestedatt--protocol))
 
 ### Optional
 
-- `local_id` (Attributes) (see [below for nested schema](#nestedatt--local_id))
-- `peer_id` (Attributes) (see [below for nested schema](#nestedatt--peer_id))
-- `protocol_common` (Attributes) (see [below for nested schema](#nestedatt--protocol_common))
+- `local_id` (Attributes) The `local_id` parameter. (see [below for nested schema](#nestedatt--local_id))
+- `peer_id` (Attributes) The `peer_id` parameter. (see [below for nested schema](#nestedatt--peer_id))
+- `protocol_common` (Attributes) The `protocol_common` parameter. (see [below for nested schema](#nestedatt--protocol_common))
 
 ### Read-Only
 
 - `id` (String) The object ID.
-- `object_id` (String)
+- `object_id` (String) The `object_id` parameter.
 
 <a id="nestedatt--authentication"></a>
 ### Nested Schema for `authentication`
 
 Optional:
 
-- `allow_id_payload_mismatch` (Boolean)
-- `certificate_profile` (String)
-- `local_certificate` (Attributes) (see [below for nested schema](#nestedatt--authentication--local_certificate))
-- `pre_shared_key` (Attributes) (see [below for nested schema](#nestedatt--authentication--pre_shared_key))
-- `strict_validation_revocation` (Boolean)
-- `use_management_as_source` (Boolean)
+- `allow_id_payload_mismatch` (Boolean) The `allow_id_payload_mismatch` parameter.
+- `certificate_profile` (String) The `certificate_profile` parameter.
+- `local_certificate` (Attributes) The `local_certificate` parameter. (see [below for nested schema](#nestedatt--authentication--local_certificate))
+- `pre_shared_key` (Attributes) The `pre_shared_key` parameter. (see [below for nested schema](#nestedatt--authentication--pre_shared_key))
+- `strict_validation_revocation` (Boolean) The `strict_validation_revocation` parameter.
+- `use_management_as_source` (Boolean) The `use_management_as_source` parameter.
 
 <a id="nestedatt--authentication--local_certificate"></a>
 ### Nested Schema for `authentication.local_certificate`
 
 Optional:
 
-- `local_certificate_name` (String)
+- `local_certificate_name` (String) The `local_certificate_name` parameter.
 
 
 <a id="nestedatt--authentication--pre_shared_key"></a>
@@ -59,7 +59,7 @@ Optional:
 
 Optional:
 
-- `key` (String)
+- `key` (String) The `key` parameter.
 
 
 
@@ -68,9 +68,9 @@ Optional:
 
 Optional:
 
-- `dynamic_value` (Boolean)
-- `fqdn` (String)
-- `ip` (String)
+- `dynamic_value` (Boolean) The `dynamic_value` parameter.
+- `fqdn` (String) The `fqdn` parameter.
+- `ip` (String) The `ip` parameter.
 
 
 <a id="nestedatt--protocol"></a>
@@ -78,24 +78,24 @@ Optional:
 
 Optional:
 
-- `ikev1` (Attributes) (see [below for nested schema](#nestedatt--protocol--ikev1))
-- `ikev2` (Attributes) (see [below for nested schema](#nestedatt--protocol--ikev2))
-- `version` (String)
+- `ikev1` (Attributes) The `ikev1` parameter. (see [below for nested schema](#nestedatt--protocol--ikev1))
+- `ikev2` (Attributes) The `ikev2` parameter. (see [below for nested schema](#nestedatt--protocol--ikev2))
+- `version` (String) The `version` parameter.
 
 <a id="nestedatt--protocol--ikev1"></a>
 ### Nested Schema for `protocol.ikev1`
 
 Optional:
 
-- `dpd` (Attributes) (see [below for nested schema](#nestedatt--protocol--ikev1--dpd))
-- `ike_crypto_profile` (String)
+- `dpd` (Attributes) The `dpd` parameter. (see [below for nested schema](#nestedatt--protocol--ikev1--dpd))
+- `ike_crypto_profile` (String) The `ike_crypto_profile` parameter.
 
 <a id="nestedatt--protocol--ikev1--dpd"></a>
 ### Nested Schema for `protocol.ikev1.dpd`
 
 Optional:
 
-- `enable` (Boolean)
+- `enable` (Boolean) The `enable` parameter.
 
 
 
@@ -104,15 +104,15 @@ Optional:
 
 Optional:
 
-- `dpd` (Attributes) (see [below for nested schema](#nestedatt--protocol--ikev2--dpd))
-- `ike_crypto_profile` (String)
+- `dpd` (Attributes) The `dpd` parameter. (see [below for nested schema](#nestedatt--protocol--ikev2--dpd))
+- `ike_crypto_profile` (String) The `ike_crypto_profile` parameter.
 
 <a id="nestedatt--protocol--ikev2--dpd"></a>
 ### Nested Schema for `protocol.ikev2.dpd`
 
 Optional:
 
-- `enable` (Boolean)
+- `enable` (Boolean) The `enable` parameter.
 
 
 
@@ -122,8 +122,8 @@ Optional:
 
 Optional:
 
-- `object_id` (String)
-- `type` (String)
+- `object_id` (String) The `object_id` parameter.
+- `type` (String) The `type` parameter.
 
 
 <a id="nestedatt--peer_id"></a>
@@ -131,8 +131,8 @@ Optional:
 
 Optional:
 
-- `object_id` (String)
-- `type` (String)
+- `object_id` (String) The `object_id` parameter.
+- `type` (String) The `type` parameter.
 
 
 <a id="nestedatt--protocol_common"></a>
@@ -140,16 +140,16 @@ Optional:
 
 Optional:
 
-- `fragmentation` (Attributes) (see [below for nested schema](#nestedatt--protocol_common--fragmentation))
-- `nat_traversal` (Attributes) (see [below for nested schema](#nestedatt--protocol_common--nat_traversal))
-- `passive_mode` (Boolean)
+- `fragmentation` (Attributes) The `fragmentation` parameter. (see [below for nested schema](#nestedatt--protocol_common--fragmentation))
+- `nat_traversal` (Attributes) The `nat_traversal` parameter. (see [below for nested schema](#nestedatt--protocol_common--nat_traversal))
+- `passive_mode` (Boolean) The `passive_mode` parameter.
 
 <a id="nestedatt--protocol_common--fragmentation"></a>
 ### Nested Schema for `protocol_common.fragmentation`
 
 Optional:
 
-- `enable` (Boolean)
+- `enable` (Boolean) The `enable` parameter.
 
 
 <a id="nestedatt--protocol_common--nat_traversal"></a>
@@ -157,6 +157,6 @@ Optional:
 
 Optional:
 
-- `enable` (Boolean)
+- `enable` (Boolean) The `enable` parameter.
 
 

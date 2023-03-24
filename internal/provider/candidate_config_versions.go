@@ -59,52 +59,63 @@ func (d *candidateConfigVersionsDataSource) Schema(_ context.Context, _ datasour
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"version": dsschema.StringAttribute{
-				Description: "The version of the running config",
-				Required:    true,
+				Description:         "The version of the running config",
+				MarkdownDescription: "The version of the running config",
+				Required:            true,
 			},
 
 			// Output.
 			"admin": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `admin` parameter.",
+				MarkdownDescription: "The `admin` parameter.",
+				Computed:            true,
 			},
 			"created": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `created` parameter.",
+				MarkdownDescription: "The `created` parameter.",
+				Computed:            true,
 			},
 			"date": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `date` parameter.",
+				MarkdownDescription: "The `date` parameter.",
+				Computed:            true,
 			},
 			"deleted": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `deleted` parameter.",
+				MarkdownDescription: "The `deleted` parameter.",
+				Computed:            true,
 			},
 			"description": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `description` parameter.",
+				MarkdownDescription: "The `description` parameter.",
+				Computed:            true,
 			},
 			"object_id": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `object_id` parameter.",
+				MarkdownDescription: "The `object_id` parameter.",
+				Computed:            true,
 			},
 			"scope": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `scope` parameter.",
+				MarkdownDescription: "The `scope` parameter.",
+				Computed:            true,
 			},
 			"swg_config": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `swg_config` parameter.",
+				MarkdownDescription: "The `swg_config` parameter.",
+				Computed:            true,
 			},
 			"updated": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `updated` parameter.",
+				MarkdownDescription: "The `updated` parameter.",
+				Computed:            true,
 			},
 		},
 	}

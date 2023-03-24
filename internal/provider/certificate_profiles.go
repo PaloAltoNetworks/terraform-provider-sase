@@ -94,28 +94,33 @@ func (d *certificateProfilesListDataSource) Schema(_ context.Context, _ datasour
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description: "The max count in result entry (count per page)",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The max count in result entry (count per page)",
+				MarkdownDescription: "The max count in result entry (count per page)",
+				Optional:            true,
+				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description: "The offset of the result entry",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The offset of the result entry",
+				MarkdownDescription: "The offset of the result entry",
+				Optional:            true,
+				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description: "The name of the entry",
-				Optional:    true,
+				Description:         "The name of the entry",
+				MarkdownDescription: "The name of the entry",
+				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -123,93 +128,114 @@ func (d *certificateProfilesListDataSource) Schema(_ context.Context, _ datasour
 
 			// Output.
 			"data": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `data` parameter.",
+				MarkdownDescription: "The `data` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"block_expired_cert": dsschema.BoolAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `block_expired_cert` parameter.",
+							MarkdownDescription: "The `block_expired_cert` parameter.",
+							Computed:            true,
 						},
 						"block_timeout_cert": dsschema.BoolAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `block_timeout_cert` parameter.",
+							MarkdownDescription: "The `block_timeout_cert` parameter.",
+							Computed:            true,
 						},
 						"block_unauthenticated_cert": dsschema.BoolAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `block_unauthenticated_cert` parameter.",
+							MarkdownDescription: "The `block_unauthenticated_cert` parameter.",
+							Computed:            true,
 						},
 						"block_unknown_cert": dsschema.BoolAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `block_unknown_cert` parameter.",
+							MarkdownDescription: "The `block_unknown_cert` parameter.",
+							Computed:            true,
 						},
 						"ca_certificates": dsschema.ListNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `ca_certificates` parameter.",
+							MarkdownDescription: "The `ca_certificates` parameter.",
+							Computed:            true,
 							NestedObject: dsschema.NestedAttributeObject{
 								Attributes: map[string]dsschema.Attribute{
 									"default_ocsp_url": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `default_ocsp_url` parameter.",
+										MarkdownDescription: "The `default_ocsp_url` parameter.",
+										Computed:            true,
 									},
 									"name": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `name` parameter.",
+										MarkdownDescription: "The `name` parameter.",
+										Computed:            true,
 									},
 									"ocsp_verify_cert": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `ocsp_verify_cert` parameter.",
+										MarkdownDescription: "The `ocsp_verify_cert` parameter.",
+										Computed:            true,
 									},
 									"template_name": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `template_name` parameter.",
+										MarkdownDescription: "The `template_name` parameter.",
+										Computed:            true,
 									},
 								},
 							},
 						},
 						"cert_status_timeout": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `cert_status_timeout` parameter.",
+							MarkdownDescription: "The `cert_status_timeout` parameter.",
+							Computed:            true,
 						},
 						"crl_receive_timeout": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `crl_receive_timeout` parameter.",
+							MarkdownDescription: "The `crl_receive_timeout` parameter.",
+							Computed:            true,
 						},
 						"domain": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `domain` parameter.",
+							MarkdownDescription: "The `domain` parameter.",
+							Computed:            true,
 						},
 						"object_id": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `object_id` parameter.",
+							MarkdownDescription: "The `object_id` parameter.",
+							Computed:            true,
 						},
 						"name": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `name` parameter.",
+							MarkdownDescription: "The `name` parameter.",
+							Computed:            true,
 						},
 						"ocsp_receive_timeout": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `ocsp_receive_timeout` parameter.",
+							MarkdownDescription: "The `ocsp_receive_timeout` parameter.",
+							Computed:            true,
 						},
 						"use_crl": dsschema.BoolAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `use_crl` parameter.",
+							MarkdownDescription: "The `use_crl` parameter.",
+							Computed:            true,
 						},
 						"use_ocsp": dsschema.BoolAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `use_ocsp` parameter.",
+							MarkdownDescription: "The `use_ocsp` parameter.",
+							Computed:            true,
 						},
 						"username_field": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `username_field` parameter.",
+							MarkdownDescription: "The `username_field` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"subject": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `subject` parameter.",
+									MarkdownDescription: "The `subject` parameter.",
+									Computed:            true,
 								},
 								"subject_alt": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `subject_alt` parameter.",
+									MarkdownDescription: "The `subject_alt` parameter.",
+									Computed:            true,
 								},
 							},
 						},
@@ -217,8 +243,9 @@ func (d *certificateProfilesListDataSource) Schema(_ context.Context, _ datasour
 				},
 			},
 			"total": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `total` parameter.",
+				MarkdownDescription: "The `total` parameter.",
+				Computed:            true,
 			},
 		},
 	}
@@ -413,18 +440,21 @@ func (d *certificateProfilesDataSource) Schema(_ context.Context, _ datasource.S
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description: "The uuid of the resource",
-				Required:    true,
+				Description:         "The uuid of the resource",
+				MarkdownDescription: "The uuid of the resource",
+				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -432,84 +462,103 @@ func (d *certificateProfilesDataSource) Schema(_ context.Context, _ datasource.S
 
 			// Output.
 			"block_expired_cert": dsschema.BoolAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `block_expired_cert` parameter.",
+				MarkdownDescription: "The `block_expired_cert` parameter.",
+				Computed:            true,
 			},
 			"block_timeout_cert": dsschema.BoolAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `block_timeout_cert` parameter.",
+				MarkdownDescription: "The `block_timeout_cert` parameter.",
+				Computed:            true,
 			},
 			"block_unauthenticated_cert": dsschema.BoolAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `block_unauthenticated_cert` parameter.",
+				MarkdownDescription: "The `block_unauthenticated_cert` parameter.",
+				Computed:            true,
 			},
 			"block_unknown_cert": dsschema.BoolAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `block_unknown_cert` parameter.",
+				MarkdownDescription: "The `block_unknown_cert` parameter.",
+				Computed:            true,
 			},
 			"ca_certificates": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `ca_certificates` parameter.",
+				MarkdownDescription: "The `ca_certificates` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"default_ocsp_url": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `default_ocsp_url` parameter.",
+							MarkdownDescription: "The `default_ocsp_url` parameter.",
+							Computed:            true,
 						},
 						"name": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `name` parameter.",
+							MarkdownDescription: "The `name` parameter.",
+							Computed:            true,
 						},
 						"ocsp_verify_cert": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `ocsp_verify_cert` parameter.",
+							MarkdownDescription: "The `ocsp_verify_cert` parameter.",
+							Computed:            true,
 						},
 						"template_name": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `template_name` parameter.",
+							MarkdownDescription: "The `template_name` parameter.",
+							Computed:            true,
 						},
 					},
 				},
 			},
 			"cert_status_timeout": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `cert_status_timeout` parameter.",
+				MarkdownDescription: "The `cert_status_timeout` parameter.",
+				Computed:            true,
 			},
 			"crl_receive_timeout": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `crl_receive_timeout` parameter.",
+				MarkdownDescription: "The `crl_receive_timeout` parameter.",
+				Computed:            true,
 			},
 			"domain": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `domain` parameter.",
+				MarkdownDescription: "The `domain` parameter.",
+				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `name` parameter.",
+				MarkdownDescription: "The `name` parameter.",
+				Computed:            true,
 			},
 			"ocsp_receive_timeout": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `ocsp_receive_timeout` parameter.",
+				MarkdownDescription: "The `ocsp_receive_timeout` parameter.",
+				Computed:            true,
 			},
 			"use_crl": dsschema.BoolAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `use_crl` parameter.",
+				MarkdownDescription: "The `use_crl` parameter.",
+				Computed:            true,
 			},
 			"use_ocsp": dsschema.BoolAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `use_ocsp` parameter.",
+				MarkdownDescription: "The `use_ocsp` parameter.",
+				Computed:            true,
 			},
 			"username_field": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `username_field` parameter.",
+				MarkdownDescription: "The `username_field` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"subject": dsschema.StringAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `subject` parameter.",
+						MarkdownDescription: "The `subject` parameter.",
+						Computed:            true,
 					},
 					"subject_alt": dsschema.StringAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `subject_alt` parameter.",
+						MarkdownDescription: "The `subject_alt` parameter.",
+						Computed:            true,
 					},
 				},
 			},
@@ -662,8 +711,9 @@ func (r *certificateProfilesResource) Schema(_ context.Context, _ resource.Schem
 
 		Attributes: map[string]rsschema.Attribute{
 			"id": rsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
@@ -671,78 +721,88 @@ func (r *certificateProfilesResource) Schema(_ context.Context, _ resource.Schem
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
 			},
 
 			"block_expired_cert": rsschema.BoolAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `block_expired_cert` parameter.",
+				MarkdownDescription: "The `block_expired_cert` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.Bool{
 					DefaultBool(false),
 				},
 			},
 			"block_timeout_cert": rsschema.BoolAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `block_timeout_cert` parameter.",
+				MarkdownDescription: "The `block_timeout_cert` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.Bool{
 					DefaultBool(false),
 				},
 			},
 			"block_unauthenticated_cert": rsschema.BoolAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `block_unauthenticated_cert` parameter.",
+				MarkdownDescription: "The `block_unauthenticated_cert` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.Bool{
 					DefaultBool(false),
 				},
 			},
 			"block_unknown_cert": rsschema.BoolAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `block_unknown_cert` parameter.",
+				MarkdownDescription: "The `block_unknown_cert` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.Bool{
 					DefaultBool(false),
 				},
 			},
 			"ca_certificates": rsschema.ListNestedAttribute{
-				Description: "",
-				Required:    true,
+				Description:         "The `ca_certificates` parameter.",
+				MarkdownDescription: "The `ca_certificates` parameter.",
+				Required:            true,
 				NestedObject: rsschema.NestedAttributeObject{
 					Attributes: map[string]rsschema.Attribute{
 						"default_ocsp_url": rsschema.StringAttribute{
-							Description: "",
-							Optional:    true,
-							Computed:    true,
+							Description:         "The `default_ocsp_url` parameter.",
+							MarkdownDescription: "The `default_ocsp_url` parameter.",
+							Optional:            true,
+							Computed:            true,
 							PlanModifiers: []planmodifier.String{
 								DefaultString(""),
 							},
 						},
 						"name": rsschema.StringAttribute{
-							Description: "",
-							Optional:    true,
-							Computed:    true,
+							Description:         "The `name` parameter.",
+							MarkdownDescription: "The `name` parameter.",
+							Optional:            true,
+							Computed:            true,
 							PlanModifiers: []planmodifier.String{
 								DefaultString(""),
 							},
 						},
 						"ocsp_verify_cert": rsschema.StringAttribute{
-							Description: "",
-							Optional:    true,
-							Computed:    true,
+							Description:         "The `ocsp_verify_cert` parameter.",
+							MarkdownDescription: "The `ocsp_verify_cert` parameter.",
+							Optional:            true,
+							Computed:            true,
 							PlanModifiers: []planmodifier.String{
 								DefaultString(""),
 							},
 						},
 						"template_name": rsschema.StringAttribute{
-							Description: "",
-							Optional:    true,
-							Computed:    true,
+							Description:         "The `template_name` parameter.",
+							MarkdownDescription: "The `template_name` parameter.",
+							Optional:            true,
+							Computed:            true,
 							PlanModifiers: []planmodifier.String{
 								DefaultString(""),
 							},
@@ -751,75 +811,85 @@ func (r *certificateProfilesResource) Schema(_ context.Context, _ resource.Schem
 				},
 			},
 			"cert_status_timeout": rsschema.StringAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `cert_status_timeout` parameter.",
+				MarkdownDescription: "The `cert_status_timeout` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					DefaultString(""),
 				},
 			},
 			"crl_receive_timeout": rsschema.StringAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `crl_receive_timeout` parameter.",
+				MarkdownDescription: "The `crl_receive_timeout` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					DefaultString(""),
 				},
 			},
 			"domain": rsschema.StringAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `domain` parameter.",
+				MarkdownDescription: "The `domain` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					DefaultString(""),
 				},
 			},
 			"object_id": rsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `object_id` parameter.",
+				MarkdownDescription: "The `object_id` parameter.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
 			},
 			"name": rsschema.StringAttribute{
-				Description: "",
-				Required:    true,
+				Description:         "The `name` parameter.",
+				MarkdownDescription: "The `name` parameter.",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(63),
 				},
 			},
 			"ocsp_receive_timeout": rsschema.StringAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `ocsp_receive_timeout` parameter.",
+				MarkdownDescription: "The `ocsp_receive_timeout` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					DefaultString(""),
 				},
 			},
 			"use_crl": rsschema.BoolAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `use_crl` parameter.",
+				MarkdownDescription: "The `use_crl` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.Bool{
 					DefaultBool(false),
 				},
 			},
 			"use_ocsp": rsschema.BoolAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `use_ocsp` parameter.",
+				MarkdownDescription: "The `use_ocsp` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.Bool{
 					DefaultBool(false),
 				},
 			},
 			"username_field": rsschema.SingleNestedAttribute{
-				Description: "",
-				Optional:    true,
+				Description:         "The `username_field` parameter.",
+				MarkdownDescription: "The `username_field` parameter.",
+				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"subject": rsschema.StringAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `subject` parameter.",
+						MarkdownDescription: "The `subject` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.String{
 							DefaultString(""),
 						},
@@ -828,9 +898,10 @@ func (r *certificateProfilesResource) Schema(_ context.Context, _ resource.Schem
 						},
 					},
 					"subject_alt": rsschema.StringAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `subject_alt` parameter.",
+						MarkdownDescription: "The `subject_alt` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.String{
 							DefaultString(""),
 						},

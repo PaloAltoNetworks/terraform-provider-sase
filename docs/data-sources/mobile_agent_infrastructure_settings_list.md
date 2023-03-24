@@ -17,58 +17,58 @@ Retrieves a listing of config items.
 
 ### Required
 
-- `folder` (String)
+- `folder` (String) The `folder` parameter.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `limit` (Number)
-- `offset` (Number)
-- `total` (Number)
+- `limit` (Number) The `limit` parameter.
+- `offset` (Number) The `offset` parameter.
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `dns_servers` (Attributes List) (see [below for nested schema](#nestedatt--data--dns_servers))
-- `enable_wins` (Attributes) (see [below for nested schema](#nestedatt--data--enable_wins))
-- `ip_pools` (Attributes List) (see [below for nested schema](#nestedatt--data--ip_pools))
-- `ipv6` (Boolean)
-- `name` (String)
-- `portal_hostname` (Attributes) (see [below for nested schema](#nestedatt--data--portal_hostname))
-- `region_ipv6` (Attributes) (see [below for nested schema](#nestedatt--data--region_ipv6))
-- `udp_queries` (Attributes) (see [below for nested schema](#nestedatt--data--udp_queries))
+- `dns_servers` (Attributes List) The `dns_servers` parameter. (see [below for nested schema](#nestedatt--data--dns_servers))
+- `enable_wins` (Attributes) The `enable_wins` parameter. (see [below for nested schema](#nestedatt--data--enable_wins))
+- `ip_pools` (Attributes List) The `ip_pools` parameter. (see [below for nested schema](#nestedatt--data--ip_pools))
+- `ipv6` (Boolean) The `ipv6` parameter.
+- `name` (String) The `name` parameter.
+- `portal_hostname` (Attributes) The `portal_hostname` parameter. (see [below for nested schema](#nestedatt--data--portal_hostname))
+- `region_ipv6` (Attributes) The `region_ipv6` parameter. (see [below for nested schema](#nestedatt--data--region_ipv6))
+- `udp_queries` (Attributes) The `udp_queries` parameter. (see [below for nested schema](#nestedatt--data--udp_queries))
 
 <a id="nestedatt--data--dns_servers"></a>
 ### Nested Schema for `data.dns_servers`
 
 Read-Only:
 
-- `dns_suffix` (List of String)
-- `internal_dns_match` (Attributes List) (see [below for nested schema](#nestedatt--data--dns_servers--internal_dns_match))
-- `name` (String)
-- `primary_public_dns` (Attributes) (see [below for nested schema](#nestedatt--data--dns_servers--primary_public_dns))
-- `secondary_public_dns` (Attributes) (see [below for nested schema](#nestedatt--data--dns_servers--secondary_public_dns))
+- `dns_suffix` (List of String) The `dns_suffix` parameter.
+- `internal_dns_match` (Attributes List) The `internal_dns_match` parameter. (see [below for nested schema](#nestedatt--data--dns_servers--internal_dns_match))
+- `name` (String) The `name` parameter.
+- `primary_public_dns` (Attributes) The `primary_public_dns` parameter. (see [below for nested schema](#nestedatt--data--dns_servers--primary_public_dns))
+- `secondary_public_dns` (Attributes) The `secondary_public_dns` parameter. (see [below for nested schema](#nestedatt--data--dns_servers--secondary_public_dns))
 
 <a id="nestedatt--data--dns_servers--internal_dns_match"></a>
 ### Nested Schema for `data.dns_servers.internal_dns_match`
 
 Read-Only:
 
-- `domain_list` (List of String)
-- `name` (String)
-- `primary` (Attributes) (see [below for nested schema](#nestedatt--data--dns_servers--internal_dns_match--primary))
-- `secondary` (Attributes) (see [below for nested schema](#nestedatt--data--dns_servers--internal_dns_match--secondary))
+- `domain_list` (List of String) The `domain_list` parameter.
+- `name` (String) The `name` parameter.
+- `primary` (Attributes) The `primary` parameter. (see [below for nested schema](#nestedatt--data--dns_servers--internal_dns_match--primary))
+- `secondary` (Attributes) The `secondary` parameter. (see [below for nested schema](#nestedatt--data--dns_servers--internal_dns_match--secondary))
 
 <a id="nestedatt--data--dns_servers--internal_dns_match--primary"></a>
 ### Nested Schema for `data.dns_servers.internal_dns_match.secondary`
 
 Read-Only:
 
-- `dns_server` (Boolean)
-- `use_cloud_default` (Boolean)
+- `dns_server` (Boolean) The `dns_server` parameter.
+- `use_cloud_default` (Boolean) The `use_cloud_default` parameter.
 
 
 <a id="nestedatt--data--dns_servers--internal_dns_match--secondary"></a>
@@ -76,8 +76,8 @@ Read-Only:
 
 Read-Only:
 
-- `dns_server` (Boolean)
-- `use_cloud_default` (Boolean)
+- `dns_server` (Boolean) The `dns_server` parameter.
+- `use_cloud_default` (Boolean) The `use_cloud_default` parameter.
 
 
 
@@ -86,7 +86,7 @@ Read-Only:
 
 Read-Only:
 
-- `dns_server` (String)
+- `dns_server` (String) The `dns_server` parameter.
 
 
 <a id="nestedatt--data--dns_servers--secondary_public_dns"></a>
@@ -94,7 +94,7 @@ Read-Only:
 
 Read-Only:
 
-- `dns_server` (String)
+- `dns_server` (String) The `dns_server` parameter.
 
 
 
@@ -103,24 +103,24 @@ Read-Only:
 
 Read-Only:
 
-- `no` (Boolean)
-- `yes` (Attributes) (see [below for nested schema](#nestedatt--data--enable_wins--yes))
+- `no` (Boolean) The `no` parameter.
+- `yes` (Attributes) The `yes` parameter. (see [below for nested schema](#nestedatt--data--enable_wins--yes))
 
 <a id="nestedatt--data--enable_wins--yes"></a>
 ### Nested Schema for `data.enable_wins.yes`
 
 Read-Only:
 
-- `wins_servers` (Attributes List) (see [below for nested schema](#nestedatt--data--enable_wins--yes--wins_servers))
+- `wins_servers` (Attributes List) The `wins_servers` parameter. (see [below for nested schema](#nestedatt--data--enable_wins--yes--wins_servers))
 
 <a id="nestedatt--data--enable_wins--yes--wins_servers"></a>
 ### Nested Schema for `data.enable_wins.yes.wins_servers`
 
 Read-Only:
 
-- `name` (String)
-- `primary` (String)
-- `secondary` (String)
+- `name` (String) The `name` parameter.
+- `primary` (String) The `primary` parameter.
+- `secondary` (String) The `secondary` parameter.
 
 
 
@@ -130,8 +130,8 @@ Read-Only:
 
 Read-Only:
 
-- `ip_pool` (List of String)
-- `name` (String)
+- `ip_pool` (List of String) The `ip_pool` parameter.
+- `name` (String) The `name` parameter.
 
 
 <a id="nestedatt--data--portal_hostname"></a>
@@ -139,17 +139,17 @@ Read-Only:
 
 Read-Only:
 
-- `custom_domain` (Attributes) (see [below for nested schema](#nestedatt--data--portal_hostname--custom_domain))
-- `default_domain` (Attributes) (see [below for nested schema](#nestedatt--data--portal_hostname--default_domain))
+- `custom_domain` (Attributes) The `custom_domain` parameter. (see [below for nested schema](#nestedatt--data--portal_hostname--custom_domain))
+- `default_domain` (Attributes) The `default_domain` parameter. (see [below for nested schema](#nestedatt--data--portal_hostname--default_domain))
 
 <a id="nestedatt--data--portal_hostname--custom_domain"></a>
 ### Nested Schema for `data.portal_hostname.custom_domain`
 
 Read-Only:
 
-- `cname` (String)
-- `hostname` (String)
-- `ssl_tls_service_profile` (String)
+- `cname` (String) The `cname` parameter.
+- `hostname` (String) The `hostname` parameter.
+- `ssl_tls_service_profile` (String) The `ssl_tls_service_profile` parameter.
 
 
 <a id="nestedatt--data--portal_hostname--default_domain"></a>
@@ -157,7 +157,7 @@ Read-Only:
 
 Read-Only:
 
-- `hostname` (String)
+- `hostname` (String) The `hostname` parameter.
 
 
 
@@ -166,15 +166,15 @@ Read-Only:
 
 Read-Only:
 
-- `region` (Attributes List) (see [below for nested schema](#nestedatt--data--region_ipv6--region))
+- `region` (Attributes List) The `region` parameter. (see [below for nested schema](#nestedatt--data--region_ipv6--region))
 
 <a id="nestedatt--data--region_ipv6--region"></a>
 ### Nested Schema for `data.region_ipv6.region`
 
 Read-Only:
 
-- `locations` (List of String)
-- `name` (String)
+- `locations` (List of String) The `locations` parameter.
+- `name` (String) The `name` parameter.
 
 
 
@@ -183,14 +183,14 @@ Read-Only:
 
 Read-Only:
 
-- `retries` (Attributes) (see [below for nested schema](#nestedatt--data--udp_queries--retries))
+- `retries` (Attributes) The `retries` parameter. (see [below for nested schema](#nestedatt--data--udp_queries--retries))
 
 <a id="nestedatt--data--udp_queries--retries"></a>
 ### Nested Schema for `data.udp_queries.retries`
 
 Read-Only:
 
-- `attempts` (Number)
-- `interval` (Number)
+- `attempts` (Number) The `attempts` parameter.
+- `interval` (Number) The `interval` parameter.
 
 

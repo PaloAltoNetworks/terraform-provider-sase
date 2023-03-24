@@ -99,28 +99,33 @@ func (d *ipsecCryptoProfilesListDataSource) Schema(_ context.Context, _ datasour
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description: "The max count in result entry (count per page)",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The max count in result entry (count per page)",
+				MarkdownDescription: "The max count in result entry (count per page)",
+				Optional:            true,
+				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description: "The offset of the result entry",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The offset of the result entry",
+				MarkdownDescription: "The offset of the result entry",
+				Optional:            true,
+				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description: "The name of the entry",
-				Optional:    true,
+				Description:         "The name of the entry",
+				MarkdownDescription: "The name of the entry",
+				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -128,99 +133,119 @@ func (d *ipsecCryptoProfilesListDataSource) Schema(_ context.Context, _ datasour
 
 			// Output.
 			"data": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `data` parameter.",
+				MarkdownDescription: "The `data` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"ah": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `ah` parameter.",
+							MarkdownDescription: "The `ah` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"authentication": dsschema.ListAttribute{
-									Description: "",
-									Computed:    true,
-									ElementType: types.StringType,
+									Description:         "The `authentication` parameter.",
+									MarkdownDescription: "The `authentication` parameter.",
+									Computed:            true,
+									ElementType:         types.StringType,
 								},
 							},
 						},
 						"dh_group": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `dh_group` parameter.",
+							MarkdownDescription: "The `dh_group` parameter.",
+							Computed:            true,
 						},
 						"esp": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `esp` parameter.",
+							MarkdownDescription: "The `esp` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"authentication": dsschema.ListAttribute{
-									Description: "",
-									Computed:    true,
-									ElementType: types.StringType,
+									Description:         "The `authentication` parameter.",
+									MarkdownDescription: "The `authentication` parameter.",
+									Computed:            true,
+									ElementType:         types.StringType,
 								},
 								"encryption": dsschema.ListAttribute{
-									Description: "",
-									Computed:    true,
-									ElementType: types.StringType,
+									Description:         "The `encryption` parameter.",
+									MarkdownDescription: "The `encryption` parameter.",
+									Computed:            true,
+									ElementType:         types.StringType,
 								},
 							},
 						},
 						"object_id": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `object_id` parameter.",
+							MarkdownDescription: "The `object_id` parameter.",
+							Computed:            true,
 						},
 						"lifesize": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `lifesize` parameter.",
+							MarkdownDescription: "The `lifesize` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"gb": dsschema.Int64Attribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `gb` parameter.",
+									MarkdownDescription: "The `gb` parameter.",
+									Computed:            true,
 								},
 								"kb": dsschema.Int64Attribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `kb` parameter.",
+									MarkdownDescription: "The `kb` parameter.",
+									Computed:            true,
 								},
 								"mb": dsschema.Int64Attribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `mb` parameter.",
+									MarkdownDescription: "The `mb` parameter.",
+									Computed:            true,
 								},
 								"tb": dsschema.Int64Attribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `tb` parameter.",
+									MarkdownDescription: "The `tb` parameter.",
+									Computed:            true,
 								},
 							},
 						},
 						"lifetime": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `lifetime` parameter.",
+							MarkdownDescription: "The `lifetime` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"days": dsschema.Int64Attribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `days` parameter.",
+									MarkdownDescription: "The `days` parameter.",
+									Computed:            true,
 								},
 								"hours": dsschema.Int64Attribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `hours` parameter.",
+									MarkdownDescription: "The `hours` parameter.",
+									Computed:            true,
 								},
 								"minutes": dsschema.Int64Attribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `minutes` parameter.",
+									MarkdownDescription: "The `minutes` parameter.",
+									Computed:            true,
 								},
 								"seconds": dsschema.Int64Attribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `seconds` parameter.",
+									MarkdownDescription: "The `seconds` parameter.",
+									Computed:            true,
 								},
 							},
 						},
 						"name": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `name` parameter.",
+							MarkdownDescription: "The `name` parameter.",
+							Computed:            true,
 						},
 					},
 				},
 			},
 			"total": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `total` parameter.",
+				MarkdownDescription: "The `total` parameter.",
+				Computed:            true,
 			},
 		},
 	}
@@ -417,18 +442,21 @@ func (d *ipsecCryptoProfilesDataSource) Schema(_ context.Context, _ datasource.S
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description: "The uuid of the resource",
-				Required:    true,
+				Description:         "The uuid of the resource",
+				MarkdownDescription: "The uuid of the resource",
+				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -436,83 +464,100 @@ func (d *ipsecCryptoProfilesDataSource) Schema(_ context.Context, _ datasource.S
 
 			// Output.
 			"ah": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `ah` parameter.",
+				MarkdownDescription: "The `ah` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"authentication": dsschema.ListAttribute{
-						Description: "",
-						Computed:    true,
-						ElementType: types.StringType,
+						Description:         "The `authentication` parameter.",
+						MarkdownDescription: "The `authentication` parameter.",
+						Computed:            true,
+						ElementType:         types.StringType,
 					},
 				},
 			},
 			"dh_group": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `dh_group` parameter.",
+				MarkdownDescription: "The `dh_group` parameter.",
+				Computed:            true,
 			},
 			"esp": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `esp` parameter.",
+				MarkdownDescription: "The `esp` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"authentication": dsschema.ListAttribute{
-						Description: "",
-						Computed:    true,
-						ElementType: types.StringType,
+						Description:         "The `authentication` parameter.",
+						MarkdownDescription: "The `authentication` parameter.",
+						Computed:            true,
+						ElementType:         types.StringType,
 					},
 					"encryption": dsschema.ListAttribute{
-						Description: "",
-						Computed:    true,
-						ElementType: types.StringType,
+						Description:         "The `encryption` parameter.",
+						MarkdownDescription: "The `encryption` parameter.",
+						Computed:            true,
+						ElementType:         types.StringType,
 					},
 				},
 			},
 			"lifesize": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `lifesize` parameter.",
+				MarkdownDescription: "The `lifesize` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"gb": dsschema.Int64Attribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `gb` parameter.",
+						MarkdownDescription: "The `gb` parameter.",
+						Computed:            true,
 					},
 					"kb": dsschema.Int64Attribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `kb` parameter.",
+						MarkdownDescription: "The `kb` parameter.",
+						Computed:            true,
 					},
 					"mb": dsschema.Int64Attribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `mb` parameter.",
+						MarkdownDescription: "The `mb` parameter.",
+						Computed:            true,
 					},
 					"tb": dsschema.Int64Attribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `tb` parameter.",
+						MarkdownDescription: "The `tb` parameter.",
+						Computed:            true,
 					},
 				},
 			},
 			"lifetime": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `lifetime` parameter.",
+				MarkdownDescription: "The `lifetime` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"days": dsschema.Int64Attribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `days` parameter.",
+						MarkdownDescription: "The `days` parameter.",
+						Computed:            true,
 					},
 					"hours": dsschema.Int64Attribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `hours` parameter.",
+						MarkdownDescription: "The `hours` parameter.",
+						Computed:            true,
 					},
 					"minutes": dsschema.Int64Attribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `minutes` parameter.",
+						MarkdownDescription: "The `minutes` parameter.",
+						Computed:            true,
 					},
 					"seconds": dsschema.Int64Attribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `seconds` parameter.",
+						MarkdownDescription: "The `seconds` parameter.",
+						Computed:            true,
 					},
 				},
 			},
 			"name": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `name` parameter.",
+				MarkdownDescription: "The `name` parameter.",
+				Computed:            true,
 			},
 		},
 	}
@@ -665,8 +710,9 @@ func (r *ipsecCryptoProfilesResource) Schema(_ context.Context, _ resource.Schem
 
 		Attributes: map[string]rsschema.Attribute{
 			"id": rsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
@@ -674,28 +720,32 @@ func (r *ipsecCryptoProfilesResource) Schema(_ context.Context, _ resource.Schem
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
 			},
 
 			"ah": rsschema.SingleNestedAttribute{
-				Description: "",
-				Optional:    true,
+				Description:         "The `ah` parameter.",
+				MarkdownDescription: "The `ah` parameter.",
+				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"authentication": rsschema.ListAttribute{
-						Description: "",
-						Required:    true,
-						ElementType: types.StringType,
+						Description:         "The `authentication` parameter.",
+						MarkdownDescription: "The `authentication` parameter.",
+						Required:            true,
+						ElementType:         types.StringType,
 					},
 				},
 			},
 			"dh_group": rsschema.StringAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `dh_group` parameter.",
+				MarkdownDescription: "The `dh_group` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					DefaultString("group2"),
 				},
@@ -704,36 +754,42 @@ func (r *ipsecCryptoProfilesResource) Schema(_ context.Context, _ resource.Schem
 				},
 			},
 			"esp": rsschema.SingleNestedAttribute{
-				Description: "",
-				Optional:    true,
+				Description:         "The `esp` parameter.",
+				MarkdownDescription: "The `esp` parameter.",
+				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"authentication": rsschema.ListAttribute{
-						Description: "",
-						Required:    true,
-						ElementType: types.StringType,
+						Description:         "The `authentication` parameter.",
+						MarkdownDescription: "The `authentication` parameter.",
+						Required:            true,
+						ElementType:         types.StringType,
 					},
 					"encryption": rsschema.ListAttribute{
-						Description: "",
-						Required:    true,
-						ElementType: types.StringType,
+						Description:         "The `encryption` parameter.",
+						MarkdownDescription: "The `encryption` parameter.",
+						Required:            true,
+						ElementType:         types.StringType,
 					},
 				},
 			},
 			"object_id": rsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `object_id` parameter.",
+				MarkdownDescription: "The `object_id` parameter.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
 			},
 			"lifesize": rsschema.SingleNestedAttribute{
-				Description: "",
-				Optional:    true,
+				Description:         "The `lifesize` parameter.",
+				MarkdownDescription: "The `lifesize` parameter.",
+				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"gb": rsschema.Int64Attribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `gb` parameter.",
+						MarkdownDescription: "The `gb` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.Int64{
 							DefaultInt64(0),
 						},
@@ -742,9 +798,10 @@ func (r *ipsecCryptoProfilesResource) Schema(_ context.Context, _ resource.Schem
 						},
 					},
 					"kb": rsschema.Int64Attribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `kb` parameter.",
+						MarkdownDescription: "The `kb` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.Int64{
 							DefaultInt64(0),
 						},
@@ -753,9 +810,10 @@ func (r *ipsecCryptoProfilesResource) Schema(_ context.Context, _ resource.Schem
 						},
 					},
 					"mb": rsschema.Int64Attribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `mb` parameter.",
+						MarkdownDescription: "The `mb` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.Int64{
 							DefaultInt64(0),
 						},
@@ -764,9 +822,10 @@ func (r *ipsecCryptoProfilesResource) Schema(_ context.Context, _ resource.Schem
 						},
 					},
 					"tb": rsschema.Int64Attribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `tb` parameter.",
+						MarkdownDescription: "The `tb` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.Int64{
 							DefaultInt64(0),
 						},
@@ -777,13 +836,15 @@ func (r *ipsecCryptoProfilesResource) Schema(_ context.Context, _ resource.Schem
 				},
 			},
 			"lifetime": rsschema.SingleNestedAttribute{
-				Description: "",
-				Required:    true,
+				Description:         "The `lifetime` parameter.",
+				MarkdownDescription: "The `lifetime` parameter.",
+				Required:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"days": rsschema.Int64Attribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `days` parameter.",
+						MarkdownDescription: "The `days` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.Int64{
 							DefaultInt64(0),
 						},
@@ -792,9 +853,10 @@ func (r *ipsecCryptoProfilesResource) Schema(_ context.Context, _ resource.Schem
 						},
 					},
 					"hours": rsschema.Int64Attribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `hours` parameter.",
+						MarkdownDescription: "The `hours` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.Int64{
 							DefaultInt64(0),
 						},
@@ -803,9 +865,10 @@ func (r *ipsecCryptoProfilesResource) Schema(_ context.Context, _ resource.Schem
 						},
 					},
 					"minutes": rsschema.Int64Attribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `minutes` parameter.",
+						MarkdownDescription: "The `minutes` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.Int64{
 							DefaultInt64(0),
 						},
@@ -814,9 +877,10 @@ func (r *ipsecCryptoProfilesResource) Schema(_ context.Context, _ resource.Schem
 						},
 					},
 					"seconds": rsschema.Int64Attribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `seconds` parameter.",
+						MarkdownDescription: "The `seconds` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.Int64{
 							DefaultInt64(0),
 						},
@@ -827,8 +891,9 @@ func (r *ipsecCryptoProfilesResource) Schema(_ context.Context, _ resource.Schem
 				},
 			},
 			"name": rsschema.StringAttribute{
-				Description: "",
-				Required:    true,
+				Description:         "The `name` parameter.",
+				MarkdownDescription: "The `name` parameter.",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(31),
 				},

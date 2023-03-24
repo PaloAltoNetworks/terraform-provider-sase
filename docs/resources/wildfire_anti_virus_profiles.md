@@ -18,29 +18,29 @@ Retrieves config for a specific item.
 ### Required
 
 - `folder` (String) The folder of the entry
-- `name` (String)
+- `name` (String) The `name` parameter.
 
 ### Optional
 
-- `description` (String)
-- `mlav_exception` (Attributes List) (see [below for nested schema](#nestedatt--mlav_exception))
-- `packet_capture` (Boolean)
-- `rules` (Attributes List) (see [below for nested schema](#nestedatt--rules))
-- `threat_exception` (Attributes List) (see [below for nested schema](#nestedatt--threat_exception))
+- `description` (String) The `description` parameter.
+- `mlav_exception` (Attributes List) The `mlav_exception` parameter. (see [below for nested schema](#nestedatt--mlav_exception))
+- `packet_capture` (Boolean) The `packet_capture` parameter.
+- `rules` (Attributes List) The `rules` parameter. (see [below for nested schema](#nestedatt--rules))
+- `threat_exception` (Attributes List) The `threat_exception` parameter. (see [below for nested schema](#nestedatt--threat_exception))
 
 ### Read-Only
 
 - `id` (String) The object ID.
-- `object_id` (String)
+- `object_id` (String) The `object_id` parameter.
 
 <a id="nestedatt--mlav_exception"></a>
 ### Nested Schema for `mlav_exception`
 
 Optional:
 
-- `description` (String)
-- `filename` (String)
-- `name` (String)
+- `description` (String) The `description` parameter.
+- `filename` (String) The `filename` parameter.
+- `name` (String) The `name` parameter.
 
 
 <a id="nestedatt--rules"></a>
@@ -48,11 +48,11 @@ Optional:
 
 Optional:
 
-- `analysis` (String)
-- `application` (List of String)
-- `direction` (String)
-- `file_type` (List of String)
-- `name` (String)
+- `analysis` (String) The `analysis` parameter.
+- `application` (List of String) The `application` parameter.
+- `direction` (String) The `direction` parameter.
+- `file_type` (List of String) The `file_type` parameter.
+- `name` (String) The `name` parameter.
 
 
 <a id="nestedatt--threat_exception"></a>
@@ -60,7 +60,7 @@ Optional:
 
 Optional:
 
-- `name` (String)
-- `notes` (String)
+- `name` (String) The `name` parameter.
+- `notes` (String) The `notes` parameter.
 
 

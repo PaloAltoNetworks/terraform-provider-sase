@@ -27,38 +27,38 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `anti_replay` (Boolean)
-- `auto_key` (Attributes) (see [below for nested schema](#nestedatt--data--auto_key))
-- `copy_tos` (Boolean)
-- `enable_gre_encapsulation` (Boolean)
-- `name` (String)
-- `object_id` (String)
-- `tunnel_monitor` (Attributes) (see [below for nested schema](#nestedatt--data--tunnel_monitor))
+- `anti_replay` (Boolean) The `anti_replay` parameter.
+- `auto_key` (Attributes) The `auto_key` parameter. (see [below for nested schema](#nestedatt--data--auto_key))
+- `copy_tos` (Boolean) The `copy_tos` parameter.
+- `enable_gre_encapsulation` (Boolean) The `enable_gre_encapsulation` parameter.
+- `name` (String) The `name` parameter.
+- `object_id` (String) The `object_id` parameter.
+- `tunnel_monitor` (Attributes) The `tunnel_monitor` parameter. (see [below for nested schema](#nestedatt--data--tunnel_monitor))
 
 <a id="nestedatt--data--auto_key"></a>
 ### Nested Schema for `data.auto_key`
 
 Read-Only:
 
-- `ike_gateway` (Attributes List) (see [below for nested schema](#nestedatt--data--auto_key--ike_gateway))
-- `ipsec_crypto_profile` (String)
-- `proxy_id` (Attributes List) (see [below for nested schema](#nestedatt--data--auto_key--proxy_id))
+- `ike_gateway` (Attributes List) The `ike_gateway` parameter. (see [below for nested schema](#nestedatt--data--auto_key--ike_gateway))
+- `ipsec_crypto_profile` (String) The `ipsec_crypto_profile` parameter.
+- `proxy_id` (Attributes List) The `proxy_id` parameter. (see [below for nested schema](#nestedatt--data--auto_key--proxy_id))
 
 <a id="nestedatt--data--auto_key--ike_gateway"></a>
 ### Nested Schema for `data.auto_key.ike_gateway`
 
 Read-Only:
 
-- `name` (String)
+- `name` (String) The `name` parameter.
 
 
 <a id="nestedatt--data--auto_key--proxy_id"></a>
@@ -66,27 +66,27 @@ Read-Only:
 
 Read-Only:
 
-- `local` (String)
-- `name` (String)
-- `protocol` (Attributes) (see [below for nested schema](#nestedatt--data--auto_key--proxy_id--protocol))
-- `remote` (String)
+- `local` (String) The `local` parameter.
+- `name` (String) The `name` parameter.
+- `protocol` (Attributes) The `protocol` parameter. (see [below for nested schema](#nestedatt--data--auto_key--proxy_id--protocol))
+- `remote` (String) The `remote` parameter.
 
 <a id="nestedatt--data--auto_key--proxy_id--protocol"></a>
 ### Nested Schema for `data.auto_key.proxy_id.remote`
 
 Read-Only:
 
-- `number` (Number)
-- `tcp` (Attributes) (see [below for nested schema](#nestedatt--data--auto_key--proxy_id--remote--tcp))
-- `udp` (Attributes) (see [below for nested schema](#nestedatt--data--auto_key--proxy_id--remote--udp))
+- `number` (Number) The `number` parameter.
+- `tcp` (Attributes) The `tcp` parameter. (see [below for nested schema](#nestedatt--data--auto_key--proxy_id--remote--tcp))
+- `udp` (Attributes) The `udp` parameter. (see [below for nested schema](#nestedatt--data--auto_key--proxy_id--remote--udp))
 
 <a id="nestedatt--data--auto_key--proxy_id--remote--tcp"></a>
 ### Nested Schema for `data.auto_key.proxy_id.remote.tcp`
 
 Read-Only:
 
-- `local_port` (Number)
-- `remote_port` (Number)
+- `local_port` (Number) The `local_port` parameter.
+- `remote_port` (Number) The `remote_port` parameter.
 
 
 <a id="nestedatt--data--auto_key--proxy_id--remote--udp"></a>
@@ -94,8 +94,8 @@ Read-Only:
 
 Read-Only:
 
-- `local_port` (Number)
-- `remote_port` (Number)
+- `local_port` (Number) The `local_port` parameter.
+- `remote_port` (Number) The `remote_port` parameter.
 
 
 
@@ -106,8 +106,8 @@ Read-Only:
 
 Read-Only:
 
-- `destination_ip` (String)
-- `enable` (Boolean)
-- `proxy_id` (String)
+- `destination_ip` (String) The `destination_ip` parameter.
+- `enable` (Boolean) The `enable` parameter.
+- `proxy_id` (String) The `proxy_id` parameter.
 
 

@@ -64,53 +64,62 @@ func (d *urlFilteringCategoriesListDataSource) Schema(_ context.Context, _ datas
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description: "The max count in result entry (count per page)",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The max count in result entry (count per page)",
+				MarkdownDescription: "The max count in result entry (count per page)",
+				Optional:            true,
+				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description: "The offset of the result entry",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The offset of the result entry",
+				MarkdownDescription: "The offset of the result entry",
+				Optional:            true,
+				Computed:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
 			},
 			"name": dsschema.StringAttribute{
-				Description: "The name of the entry",
-				Required:    true,
+				Description:         "The name of the entry",
+				MarkdownDescription: "The name of the entry",
+				Required:            true,
 			},
 
 			// Output.
 			"data": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `data` parameter.",
+				MarkdownDescription: "The `data` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"type": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `type` parameter.",
+							MarkdownDescription: "The `type` parameter.",
+							Computed:            true,
 						},
 						"value": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `value` parameter.",
+							MarkdownDescription: "The `value` parameter.",
+							Computed:            true,
 						},
 					},
 				},
 			},
 			"total": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `total` parameter.",
+				MarkdownDescription: "The `total` parameter.",
+				Computed:            true,
 			},
 		},
 	}

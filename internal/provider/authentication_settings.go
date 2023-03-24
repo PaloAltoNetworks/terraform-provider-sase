@@ -64,24 +64,28 @@ func (d *authenticationSettingsListDataSource) Schema(_ context.Context, _ datas
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description: "The max count in result entry (count per page)",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The max count in result entry (count per page)",
+				MarkdownDescription: "The max count in result entry (count per page)",
+				Optional:            true,
+				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description: "The offset of the result entry",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The offset of the result entry",
+				MarkdownDescription: "The offset of the result entry",
+				Optional:            true,
+				Computed:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "",
-				Required:    true,
+				Description:         "The `folder` parameter.",
+				MarkdownDescription: "The `folder` parameter.",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Mobile Users"),
 				},
@@ -89,28 +93,33 @@ func (d *authenticationSettingsListDataSource) Schema(_ context.Context, _ datas
 
 			// Output.
 			"data": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `data` parameter.",
+				MarkdownDescription: "The `data` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"authentication_profile": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `authentication_profile` parameter.",
+							MarkdownDescription: "The `authentication_profile` parameter.",
+							Computed:            true,
 						},
 						"os": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `os` parameter.",
+							MarkdownDescription: "The `os` parameter.",
+							Computed:            true,
 						},
 						"user_credential_or_client_cert_required": dsschema.BoolAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `user_credential_or_client_cert_required` parameter.",
+							MarkdownDescription: "The `user_credential_or_client_cert_required` parameter.",
+							Computed:            true,
 						},
 					},
 				},
 			},
 			"total": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `total` parameter.",
+				MarkdownDescription: "The `total` parameter.",
+				Computed:            true,
 			},
 		},
 	}

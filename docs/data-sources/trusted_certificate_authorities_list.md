@@ -27,24 +27,24 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `common_name` (String)
-- `expiry_epoch` (String)
-- `filename` (String)
-- `issuer` (String)
-- `name` (String)
-- `not_valid_after` (String)
-- `not_valid_before` (String)
-- `object_id` (String)
-- `serial_number` (String)
-- `subject` (String)
+- `common_name` (String) The `common_name` parameter.
+- `expiry_epoch` (String) The `expiry_epoch` parameter.
+- `filename` (String) The `filename` parameter.
+- `issuer` (String) The `issuer` parameter.
+- `name` (String) The `name` parameter.
+- `not_valid_after` (String) The `not_valid_after` parameter.
+- `not_valid_before` (String) The `not_valid_before` parameter.
+- `object_id` (String) The `object_id` parameter.
+- `serial_number` (String) The `serial_number` parameter.
+- `subject` (String) The `subject` parameter.
 
 

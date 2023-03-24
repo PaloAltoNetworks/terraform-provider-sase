@@ -22,32 +22,32 @@ Retrieves config for a specific item.
 
 ### Read-Only
 
-- `action` (String)
-- `application` (List of String)
-- `category` (List of String)
-- `description` (String)
-- `destination` (List of String)
-- `destination_hip` (List of String)
-- `disabled` (Boolean)
-- `from` (List of String)
+- `action` (String) The `action` parameter.
+- `application` (List of String) The `application` parameter.
+- `category` (List of String) The `category` parameter.
+- `description` (String) The `description` parameter.
+- `destination` (List of String) The `destination` parameter.
+- `destination_hip` (List of String) The `destination_hip` parameter.
+- `disabled` (Boolean) The `disabled` parameter.
+- `from` (List of String) The `from` parameter.
 - `id` (String) The object ID.
-- `log_setting` (String)
-- `name` (String)
-- `negate_destination` (Boolean)
-- `negate_source` (Boolean)
-- `profile_setting` (Attributes) (see [below for nested schema](#nestedatt--profile_setting))
-- `service` (List of String)
-- `source` (List of String)
-- `source_hip` (List of String)
-- `source_user` (List of String)
-- `tag` (List of String)
-- `to` (List of String)
+- `log_setting` (String) The `log_setting` parameter.
+- `name` (String) The `name` parameter.
+- `negate_destination` (Boolean) The `negate_destination` parameter.
+- `negate_source` (Boolean) The `negate_source` parameter.
+- `profile_setting` (Attributes) The `profile_setting` parameter. (see [below for nested schema](#nestedatt--profile_setting))
+- `service` (List of String) The `service` parameter.
+- `source` (List of String) The `source` parameter.
+- `source_hip` (List of String) The `source_hip` parameter.
+- `source_user` (List of String) The `source_user` parameter.
+- `tag` (List of String) The `tag` parameter.
+- `to` (List of String) The `to` parameter.
 
 <a id="nestedatt--profile_setting"></a>
 ### Nested Schema for `profile_setting`
 
 Read-Only:
 
-- `group` (List of String)
+- `group` (List of String) The `group` parameter.
 
 

@@ -23,7 +23,7 @@ Retrieves config for a specific item.
 ### Read-Only
 
 - `id` (String) The object ID.
-- `name` (String)
-- `password` (String)
+- `name` (String) The `name` parameter.
+- `password` (String) The `password` parameter.
 
 

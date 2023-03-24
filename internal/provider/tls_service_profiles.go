@@ -89,28 +89,33 @@ func (d *tlsServiceProfilesListDataSource) Schema(_ context.Context, _ datasourc
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description: "The max count in result entry (count per page)",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The max count in result entry (count per page)",
+				MarkdownDescription: "The max count in result entry (count per page)",
+				Optional:            true,
+				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description: "The offset of the result entry",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The offset of the result entry",
+				MarkdownDescription: "The offset of the result entry",
+				Optional:            true,
+				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description: "The name of the entry",
-				Optional:    true,
+				Description:         "The name of the entry",
+				MarkdownDescription: "The name of the entry",
+				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -118,81 +123,100 @@ func (d *tlsServiceProfilesListDataSource) Schema(_ context.Context, _ datasourc
 
 			// Output.
 			"data": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `data` parameter.",
+				MarkdownDescription: "The `data` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"certificate": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `certificate` parameter.",
+							MarkdownDescription: "The `certificate` parameter.",
+							Computed:            true,
 						},
 						"object_id": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `object_id` parameter.",
+							MarkdownDescription: "The `object_id` parameter.",
+							Computed:            true,
 						},
 						"name": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `name` parameter.",
+							MarkdownDescription: "The `name` parameter.",
+							Computed:            true,
 						},
 						"protocol_settings": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `protocol_settings` parameter.",
+							MarkdownDescription: "The `protocol_settings` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"auth_algo_sha1": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `auth_algo_sha1` parameter.",
+									MarkdownDescription: "The `auth_algo_sha1` parameter.",
+									Computed:            true,
 								},
 								"auth_algo_sha256": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `auth_algo_sha256` parameter.",
+									MarkdownDescription: "The `auth_algo_sha256` parameter.",
+									Computed:            true,
 								},
 								"auth_algo_sha384": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `auth_algo_sha384` parameter.",
+									MarkdownDescription: "The `auth_algo_sha384` parameter.",
+									Computed:            true,
 								},
 								"enc_algo3des": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `enc_algo3des` parameter.",
+									MarkdownDescription: "The `enc_algo3des` parameter.",
+									Computed:            true,
 								},
 								"enc_algo_aes128_cbc": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `enc_algo_aes128_cbc` parameter.",
+									MarkdownDescription: "The `enc_algo_aes128_cbc` parameter.",
+									Computed:            true,
 								},
 								"enc_algo_aes128_gcm": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `enc_algo_aes128_gcm` parameter.",
+									MarkdownDescription: "The `enc_algo_aes128_gcm` parameter.",
+									Computed:            true,
 								},
 								"enc_algo_aes256_cbc": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `enc_algo_aes256_cbc` parameter.",
+									MarkdownDescription: "The `enc_algo_aes256_cbc` parameter.",
+									Computed:            true,
 								},
 								"enc_algo_aes256_gcm": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `enc_algo_aes256_gcm` parameter.",
+									MarkdownDescription: "The `enc_algo_aes256_gcm` parameter.",
+									Computed:            true,
 								},
 								"enc_algo_rc4": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `enc_algo_rc4` parameter.",
+									MarkdownDescription: "The `enc_algo_rc4` parameter.",
+									Computed:            true,
 								},
 								"keyxchg_algo_dhe": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `keyxchg_algo_dhe` parameter.",
+									MarkdownDescription: "The `keyxchg_algo_dhe` parameter.",
+									Computed:            true,
 								},
 								"keyxchg_algo_ecdhe": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `keyxchg_algo_ecdhe` parameter.",
+									MarkdownDescription: "The `keyxchg_algo_ecdhe` parameter.",
+									Computed:            true,
 								},
 								"keyxchg_algo_rsa": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `keyxchg_algo_rsa` parameter.",
+									MarkdownDescription: "The `keyxchg_algo_rsa` parameter.",
+									Computed:            true,
 								},
 								"max_version": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `max_version` parameter.",
+									MarkdownDescription: "The `max_version` parameter.",
+									Computed:            true,
 								},
 								"min_version": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `min_version` parameter.",
+									MarkdownDescription: "The `min_version` parameter.",
+									Computed:            true,
 								},
 							},
 						},
@@ -200,8 +224,9 @@ func (d *tlsServiceProfilesListDataSource) Schema(_ context.Context, _ datasourc
 				},
 			},
 			"total": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `total` parameter.",
+				MarkdownDescription: "The `total` parameter.",
+				Computed:            true,
 			},
 		},
 	}
@@ -377,18 +402,21 @@ func (d *tlsServiceProfilesDataSource) Schema(_ context.Context, _ datasource.Sc
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description: "The uuid of the resource",
-				Required:    true,
+				Description:         "The uuid of the resource",
+				MarkdownDescription: "The uuid of the resource",
+				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -396,72 +424,89 @@ func (d *tlsServiceProfilesDataSource) Schema(_ context.Context, _ datasource.Sc
 
 			// Output.
 			"certificate": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `certificate` parameter.",
+				MarkdownDescription: "The `certificate` parameter.",
+				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `name` parameter.",
+				MarkdownDescription: "The `name` parameter.",
+				Computed:            true,
 			},
 			"protocol_settings": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `protocol_settings` parameter.",
+				MarkdownDescription: "The `protocol_settings` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"auth_algo_sha1": dsschema.BoolAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `auth_algo_sha1` parameter.",
+						MarkdownDescription: "The `auth_algo_sha1` parameter.",
+						Computed:            true,
 					},
 					"auth_algo_sha256": dsschema.BoolAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `auth_algo_sha256` parameter.",
+						MarkdownDescription: "The `auth_algo_sha256` parameter.",
+						Computed:            true,
 					},
 					"auth_algo_sha384": dsschema.BoolAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `auth_algo_sha384` parameter.",
+						MarkdownDescription: "The `auth_algo_sha384` parameter.",
+						Computed:            true,
 					},
 					"enc_algo3des": dsschema.BoolAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `enc_algo3des` parameter.",
+						MarkdownDescription: "The `enc_algo3des` parameter.",
+						Computed:            true,
 					},
 					"enc_algo_aes128_cbc": dsschema.BoolAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `enc_algo_aes128_cbc` parameter.",
+						MarkdownDescription: "The `enc_algo_aes128_cbc` parameter.",
+						Computed:            true,
 					},
 					"enc_algo_aes128_gcm": dsschema.BoolAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `enc_algo_aes128_gcm` parameter.",
+						MarkdownDescription: "The `enc_algo_aes128_gcm` parameter.",
+						Computed:            true,
 					},
 					"enc_algo_aes256_cbc": dsschema.BoolAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `enc_algo_aes256_cbc` parameter.",
+						MarkdownDescription: "The `enc_algo_aes256_cbc` parameter.",
+						Computed:            true,
 					},
 					"enc_algo_aes256_gcm": dsschema.BoolAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `enc_algo_aes256_gcm` parameter.",
+						MarkdownDescription: "The `enc_algo_aes256_gcm` parameter.",
+						Computed:            true,
 					},
 					"enc_algo_rc4": dsschema.BoolAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `enc_algo_rc4` parameter.",
+						MarkdownDescription: "The `enc_algo_rc4` parameter.",
+						Computed:            true,
 					},
 					"keyxchg_algo_dhe": dsschema.BoolAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `keyxchg_algo_dhe` parameter.",
+						MarkdownDescription: "The `keyxchg_algo_dhe` parameter.",
+						Computed:            true,
 					},
 					"keyxchg_algo_ecdhe": dsschema.BoolAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `keyxchg_algo_ecdhe` parameter.",
+						MarkdownDescription: "The `keyxchg_algo_ecdhe` parameter.",
+						Computed:            true,
 					},
 					"keyxchg_algo_rsa": dsschema.BoolAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `keyxchg_algo_rsa` parameter.",
+						MarkdownDescription: "The `keyxchg_algo_rsa` parameter.",
+						Computed:            true,
 					},
 					"max_version": dsschema.StringAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `max_version` parameter.",
+						MarkdownDescription: "The `max_version` parameter.",
+						Computed:            true,
 					},
 					"min_version": dsschema.StringAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `min_version` parameter.",
+						MarkdownDescription: "The `min_version` parameter.",
+						Computed:            true,
 					},
 				},
 			},
@@ -595,8 +640,9 @@ func (r *tlsServiceProfilesResource) Schema(_ context.Context, _ resource.Schema
 
 		Attributes: map[string]rsschema.Attribute{
 			"id": rsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
@@ -604,138 +650,156 @@ func (r *tlsServiceProfilesResource) Schema(_ context.Context, _ resource.Schema
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
 			},
 
 			"certificate": rsschema.StringAttribute{
-				Description: "",
-				Required:    true,
+				Description:         "The `certificate` parameter.",
+				MarkdownDescription: "The `certificate` parameter.",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(255),
 				},
 			},
 			"object_id": rsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `object_id` parameter.",
+				MarkdownDescription: "The `object_id` parameter.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
 			},
 			"name": rsschema.StringAttribute{
-				Description: "",
-				Required:    true,
+				Description:         "The `name` parameter.",
+				MarkdownDescription: "The `name` parameter.",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(127),
 				},
 			},
 			"protocol_settings": rsschema.SingleNestedAttribute{
-				Description: "",
-				Required:    true,
+				Description:         "The `protocol_settings` parameter.",
+				MarkdownDescription: "The `protocol_settings` parameter.",
+				Required:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"auth_algo_sha1": rsschema.BoolAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `auth_algo_sha1` parameter.",
+						MarkdownDescription: "The `auth_algo_sha1` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
 							DefaultBool(false),
 						},
 					},
 					"auth_algo_sha256": rsschema.BoolAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `auth_algo_sha256` parameter.",
+						MarkdownDescription: "The `auth_algo_sha256` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
 							DefaultBool(false),
 						},
 					},
 					"auth_algo_sha384": rsschema.BoolAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `auth_algo_sha384` parameter.",
+						MarkdownDescription: "The `auth_algo_sha384` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
 							DefaultBool(false),
 						},
 					},
 					"enc_algo3des": rsschema.BoolAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `enc_algo3des` parameter.",
+						MarkdownDescription: "The `enc_algo3des` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
 							DefaultBool(false),
 						},
 					},
 					"enc_algo_aes128_cbc": rsschema.BoolAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `enc_algo_aes128_cbc` parameter.",
+						MarkdownDescription: "The `enc_algo_aes128_cbc` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
 							DefaultBool(false),
 						},
 					},
 					"enc_algo_aes128_gcm": rsschema.BoolAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `enc_algo_aes128_gcm` parameter.",
+						MarkdownDescription: "The `enc_algo_aes128_gcm` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
 							DefaultBool(false),
 						},
 					},
 					"enc_algo_aes256_cbc": rsschema.BoolAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `enc_algo_aes256_cbc` parameter.",
+						MarkdownDescription: "The `enc_algo_aes256_cbc` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
 							DefaultBool(false),
 						},
 					},
 					"enc_algo_aes256_gcm": rsschema.BoolAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `enc_algo_aes256_gcm` parameter.",
+						MarkdownDescription: "The `enc_algo_aes256_gcm` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
 							DefaultBool(false),
 						},
 					},
 					"enc_algo_rc4": rsschema.BoolAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `enc_algo_rc4` parameter.",
+						MarkdownDescription: "The `enc_algo_rc4` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
 							DefaultBool(false),
 						},
 					},
 					"keyxchg_algo_dhe": rsschema.BoolAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `keyxchg_algo_dhe` parameter.",
+						MarkdownDescription: "The `keyxchg_algo_dhe` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
 							DefaultBool(false),
 						},
 					},
 					"keyxchg_algo_ecdhe": rsschema.BoolAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `keyxchg_algo_ecdhe` parameter.",
+						MarkdownDescription: "The `keyxchg_algo_ecdhe` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
 							DefaultBool(false),
 						},
 					},
 					"keyxchg_algo_rsa": rsschema.BoolAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `keyxchg_algo_rsa` parameter.",
+						MarkdownDescription: "The `keyxchg_algo_rsa` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
 							DefaultBool(false),
 						},
 					},
 					"max_version": rsschema.StringAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `max_version` parameter.",
+						MarkdownDescription: "The `max_version` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.String{
 							DefaultString("max"),
 						},
@@ -744,9 +808,10 @@ func (r *tlsServiceProfilesResource) Schema(_ context.Context, _ resource.Schema
 						},
 					},
 					"min_version": rsschema.StringAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `min_version` parameter.",
+						MarkdownDescription: "The `min_version` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.String{
 							DefaultString("tls1-0"),
 						},

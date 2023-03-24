@@ -27,38 +27,38 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `certificate` (String)
-- `name` (String)
-- `object_id` (String)
-- `protocol_settings` (Attributes) (see [below for nested schema](#nestedatt--data--protocol_settings))
+- `certificate` (String) The `certificate` parameter.
+- `name` (String) The `name` parameter.
+- `object_id` (String) The `object_id` parameter.
+- `protocol_settings` (Attributes) The `protocol_settings` parameter. (see [below for nested schema](#nestedatt--data--protocol_settings))
 
 <a id="nestedatt--data--protocol_settings"></a>
 ### Nested Schema for `data.protocol_settings`
 
 Read-Only:
 
-- `auth_algo_sha1` (Boolean)
-- `auth_algo_sha256` (Boolean)
-- `auth_algo_sha384` (Boolean)
-- `enc_algo3des` (Boolean)
-- `enc_algo_aes128_cbc` (Boolean)
-- `enc_algo_aes128_gcm` (Boolean)
-- `enc_algo_aes256_cbc` (Boolean)
-- `enc_algo_aes256_gcm` (Boolean)
-- `enc_algo_rc4` (Boolean)
-- `keyxchg_algo_dhe` (Boolean)
-- `keyxchg_algo_ecdhe` (Boolean)
-- `keyxchg_algo_rsa` (Boolean)
-- `max_version` (String)
-- `min_version` (String)
+- `auth_algo_sha1` (Boolean) The `auth_algo_sha1` parameter.
+- `auth_algo_sha256` (Boolean) The `auth_algo_sha256` parameter.
+- `auth_algo_sha384` (Boolean) The `auth_algo_sha384` parameter.
+- `enc_algo3des` (Boolean) The `enc_algo3des` parameter.
+- `enc_algo_aes128_cbc` (Boolean) The `enc_algo_aes128_cbc` parameter.
+- `enc_algo_aes128_gcm` (Boolean) The `enc_algo_aes128_gcm` parameter.
+- `enc_algo_aes256_cbc` (Boolean) The `enc_algo_aes256_cbc` parameter.
+- `enc_algo_aes256_gcm` (Boolean) The `enc_algo_aes256_gcm` parameter.
+- `enc_algo_rc4` (Boolean) The `enc_algo_rc4` parameter.
+- `keyxchg_algo_dhe` (Boolean) The `keyxchg_algo_dhe` parameter.
+- `keyxchg_algo_ecdhe` (Boolean) The `keyxchg_algo_ecdhe` parameter.
+- `keyxchg_algo_rsa` (Boolean) The `keyxchg_algo_rsa` parameter.
+- `max_version` (String) The `max_version` parameter.
+- `min_version` (String) The `min_version` parameter.
 
 

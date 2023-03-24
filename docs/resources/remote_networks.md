@@ -18,43 +18,43 @@ Retrieves config for a specific item.
 ### Required
 
 - `folder` (String) The folder of the entry
-- `license_type` (String)
-- `name` (String)
-- `region` (String)
+- `license_type` (String) The `license_type` parameter.
+- `name` (String) The `name` parameter.
+- `region` (String) The `region` parameter.
 
 ### Optional
 
-- `ecmp_load_balancing` (String)
-- `ecmp_tunnels` (Attributes List) (see [below for nested schema](#nestedatt--ecmp_tunnels))
-- `ipsec_tunnel` (String)
-- `protocol` (Attributes) (see [below for nested schema](#nestedatt--protocol))
-- `secondary_ipsec_tunnel` (String)
-- `spn_name` (String)
-- `subnets` (List of String)
+- `ecmp_load_balancing` (String) The `ecmp_load_balancing` parameter.
+- `ecmp_tunnels` (Attributes List) The `ecmp_tunnels` parameter. (see [below for nested schema](#nestedatt--ecmp_tunnels))
+- `ipsec_tunnel` (String) The `ipsec_tunnel` parameter.
+- `protocol` (Attributes) The `protocol` parameter. (see [below for nested schema](#nestedatt--protocol))
+- `secondary_ipsec_tunnel` (String) The `secondary_ipsec_tunnel` parameter.
+- `spn_name` (String) The `spn_name` parameter.
+- `subnets` (List of String) The `subnets` parameter.
 
 ### Read-Only
 
 - `id` (String) The object ID.
-- `object_id` (String)
+- `object_id` (String) The `object_id` parameter.
 
 <a id="nestedatt--ecmp_tunnels"></a>
 ### Nested Schema for `ecmp_tunnels`
 
 Required:
 
-- `ipsec_tunnel` (String)
-- `name` (String)
+- `ipsec_tunnel` (String) The `ipsec_tunnel` parameter.
+- `name` (String) The `name` parameter.
 
 Optional:
 
-- `do_not_export_routes` (Boolean)
-- `local_ip_address` (String)
-- `originate_default_route` (Boolean)
-- `peer_as` (String)
-- `peer_ip_address` (String)
-- `peering_type` (String)
-- `secret` (String)
-- `summarize_mobile_user_routes` (Boolean)
+- `do_not_export_routes` (Boolean) The `do_not_export_routes` parameter.
+- `local_ip_address` (String) The `local_ip_address` parameter.
+- `originate_default_route` (Boolean) The `originate_default_route` parameter.
+- `peer_as` (String) The `peer_as` parameter.
+- `peer_ip_address` (String) The `peer_ip_address` parameter.
+- `peering_type` (String) The `peering_type` parameter.
+- `secret` (String) The `secret` parameter.
+- `summarize_mobile_user_routes` (Boolean) The `summarize_mobile_user_routes` parameter.
 
 
 <a id="nestedatt--protocol"></a>
@@ -62,23 +62,23 @@ Optional:
 
 Optional:
 
-- `bgp` (Attributes) (see [below for nested schema](#nestedatt--protocol--bgp))
-- `bgp_peer` (Attributes) (see [below for nested schema](#nestedatt--protocol--bgp_peer))
+- `bgp` (Attributes) The `bgp` parameter. (see [below for nested schema](#nestedatt--protocol--bgp))
+- `bgp_peer` (Attributes) The `bgp_peer` parameter. (see [below for nested schema](#nestedatt--protocol--bgp_peer))
 
 <a id="nestedatt--protocol--bgp"></a>
 ### Nested Schema for `protocol.bgp`
 
 Optional:
 
-- `do_not_export_routes` (Boolean)
-- `enable` (Boolean)
-- `local_ip_address` (String)
-- `originate_default_route` (Boolean)
-- `peer_as` (String)
-- `peer_ip_address` (String)
-- `peering_type` (String)
-- `secret` (String)
-- `summarize_mobile_user_routes` (Boolean)
+- `do_not_export_routes` (Boolean) The `do_not_export_routes` parameter.
+- `enable` (Boolean) The `enable` parameter.
+- `local_ip_address` (String) The `local_ip_address` parameter.
+- `originate_default_route` (Boolean) The `originate_default_route` parameter.
+- `peer_as` (String) The `peer_as` parameter.
+- `peer_ip_address` (String) The `peer_ip_address` parameter.
+- `peering_type` (String) The `peering_type` parameter.
+- `secret` (String) The `secret` parameter.
+- `summarize_mobile_user_routes` (Boolean) The `summarize_mobile_user_routes` parameter.
 
 
 <a id="nestedatt--protocol--bgp_peer"></a>
@@ -86,8 +86,8 @@ Optional:
 
 Optional:
 
-- `local_ip_address` (String)
-- `peer_ip_address` (String)
-- `secret` (String)
+- `local_ip_address` (String) The `local_ip_address` parameter.
+- `peer_ip_address` (String) The `peer_ip_address` parameter.
+- `secret` (String) The `secret` parameter.
 
 

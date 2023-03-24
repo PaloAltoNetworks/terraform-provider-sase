@@ -18,39 +18,39 @@ Retrieves config for a specific item.
 ### Required
 
 - `folder` (String) The folder of the entry
-- `mfa_cert_profile` (String)
-- `name` (String)
+- `mfa_cert_profile` (String) The `mfa_cert_profile` parameter.
+- `name` (String) The `name` parameter.
 - `position` (String) The position of a security rule
 
 ### Optional
 
-- `mfa_vendor_type` (Attributes) (see [below for nested schema](#nestedatt--mfa_vendor_type))
+- `mfa_vendor_type` (Attributes) The `mfa_vendor_type` parameter. (see [below for nested schema](#nestedatt--mfa_vendor_type))
 
 ### Read-Only
 
 - `id` (String) The object ID.
-- `object_id` (String)
+- `object_id` (String) The `object_id` parameter.
 
 <a id="nestedatt--mfa_vendor_type"></a>
 ### Nested Schema for `mfa_vendor_type`
 
 Optional:
 
-- `duo_security_v2` (Attributes) (see [below for nested schema](#nestedatt--mfa_vendor_type--duo_security_v2))
-- `okta_adaptive_v1` (Attributes) (see [below for nested schema](#nestedatt--mfa_vendor_type--okta_adaptive_v1))
-- `ping_identity_v1` (Attributes) (see [below for nested schema](#nestedatt--mfa_vendor_type--ping_identity_v1))
-- `rsa_securid_access_v1` (Attributes) (see [below for nested schema](#nestedatt--mfa_vendor_type--rsa_securid_access_v1))
+- `duo_security_v2` (Attributes) The `duo_security_v2` parameter. (see [below for nested schema](#nestedatt--mfa_vendor_type--duo_security_v2))
+- `okta_adaptive_v1` (Attributes) The `okta_adaptive_v1` parameter. (see [below for nested schema](#nestedatt--mfa_vendor_type--okta_adaptive_v1))
+- `ping_identity_v1` (Attributes) The `ping_identity_v1` parameter. (see [below for nested schema](#nestedatt--mfa_vendor_type--ping_identity_v1))
+- `rsa_securid_access_v1` (Attributes) The `rsa_securid_access_v1` parameter. (see [below for nested schema](#nestedatt--mfa_vendor_type--rsa_securid_access_v1))
 
 <a id="nestedatt--mfa_vendor_type--duo_security_v2"></a>
 ### Nested Schema for `mfa_vendor_type.duo_security_v2`
 
 Optional:
 
-- `duo_api_host` (String)
-- `duo_baseuri` (String)
-- `duo_integration_key` (String)
-- `duo_secret_key` (String)
-- `duo_timeout` (String)
+- `duo_api_host` (String) The `duo_api_host` parameter.
+- `duo_baseuri` (String) The `duo_baseuri` parameter.
+- `duo_integration_key` (String) The `duo_integration_key` parameter.
+- `duo_secret_key` (String) The `duo_secret_key` parameter.
+- `duo_timeout` (String) The `duo_timeout` parameter.
 
 
 <a id="nestedatt--mfa_vendor_type--okta_adaptive_v1"></a>
@@ -58,11 +58,11 @@ Optional:
 
 Optional:
 
-- `okta_api_host` (String)
-- `okta_baseuri` (String)
-- `okta_org` (String)
-- `okta_timeout` (String)
-- `okta_token` (String)
+- `okta_api_host` (String) The `okta_api_host` parameter.
+- `okta_baseuri` (String) The `okta_baseuri` parameter.
+- `okta_org` (String) The `okta_org` parameter.
+- `okta_timeout` (String) The `okta_timeout` parameter.
+- `okta_token` (String) The `okta_token` parameter.
 
 
 <a id="nestedatt--mfa_vendor_type--ping_identity_v1"></a>
@@ -70,12 +70,12 @@ Optional:
 
 Optional:
 
-- `ping_api_host` (String)
-- `ping_baseuri` (String)
-- `ping_org` (String)
-- `ping_org_alias` (String)
-- `ping_timeout` (String)
-- `ping_token` (String)
+- `ping_api_host` (String) The `ping_api_host` parameter.
+- `ping_baseuri` (String) The `ping_baseuri` parameter.
+- `ping_org` (String) The `ping_org` parameter.
+- `ping_org_alias` (String) The `ping_org_alias` parameter.
+- `ping_timeout` (String) The `ping_timeout` parameter.
+- `ping_token` (String) The `ping_token` parameter.
 
 
 <a id="nestedatt--mfa_vendor_type--rsa_securid_access_v1"></a>
@@ -83,11 +83,11 @@ Optional:
 
 Optional:
 
-- `rsa_accessid` (String)
-- `rsa_accesskey` (String)
-- `rsa_api_host` (String)
-- `rsa_assurancepolicyid` (String)
-- `rsa_baseuri` (String)
-- `rsa_timeout` (String)
+- `rsa_accessid` (String) The `rsa_accessid` parameter.
+- `rsa_accesskey` (String) The `rsa_accesskey` parameter.
+- `rsa_api_host` (String) The `rsa_api_host` parameter.
+- `rsa_assurancepolicyid` (String) The `rsa_assurancepolicyid` parameter.
+- `rsa_baseuri` (String) The `rsa_baseuri` parameter.
+- `rsa_timeout` (String) The `rsa_timeout` parameter.
 
 

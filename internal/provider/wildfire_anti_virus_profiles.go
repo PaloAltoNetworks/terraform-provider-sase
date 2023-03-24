@@ -94,28 +94,33 @@ func (d *wildfireAntiVirusProfilesListDataSource) Schema(_ context.Context, _ da
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description: "The max count in result entry (count per page)",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The max count in result entry (count per page)",
+				MarkdownDescription: "The max count in result entry (count per page)",
+				Optional:            true,
+				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description: "The offset of the result entry",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The offset of the result entry",
+				MarkdownDescription: "The offset of the result entry",
+				Optional:            true,
+				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description: "The name of the entry",
-				Optional:    true,
+				Description:         "The name of the entry",
+				MarkdownDescription: "The name of the entry",
+				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -123,88 +128,106 @@ func (d *wildfireAntiVirusProfilesListDataSource) Schema(_ context.Context, _ da
 
 			// Output.
 			"data": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `data` parameter.",
+				MarkdownDescription: "The `data` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"description": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `description` parameter.",
+							MarkdownDescription: "The `description` parameter.",
+							Computed:            true,
 						},
 						"object_id": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `object_id` parameter.",
+							MarkdownDescription: "The `object_id` parameter.",
+							Computed:            true,
 						},
 						"mlav_exception": dsschema.ListNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `mlav_exception` parameter.",
+							MarkdownDescription: "The `mlav_exception` parameter.",
+							Computed:            true,
 							NestedObject: dsschema.NestedAttributeObject{
 								Attributes: map[string]dsschema.Attribute{
 									"description": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `description` parameter.",
+										MarkdownDescription: "The `description` parameter.",
+										Computed:            true,
 									},
 									"filename": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `filename` parameter.",
+										MarkdownDescription: "The `filename` parameter.",
+										Computed:            true,
 									},
 									"name": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `name` parameter.",
+										MarkdownDescription: "The `name` parameter.",
+										Computed:            true,
 									},
 								},
 							},
 						},
 						"name": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `name` parameter.",
+							MarkdownDescription: "The `name` parameter.",
+							Computed:            true,
 						},
 						"packet_capture": dsschema.BoolAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `packet_capture` parameter.",
+							MarkdownDescription: "The `packet_capture` parameter.",
+							Computed:            true,
 						},
 						"rules": dsschema.ListNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `rules` parameter.",
+							MarkdownDescription: "The `rules` parameter.",
+							Computed:            true,
 							NestedObject: dsschema.NestedAttributeObject{
 								Attributes: map[string]dsschema.Attribute{
 									"analysis": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `analysis` parameter.",
+										MarkdownDescription: "The `analysis` parameter.",
+										Computed:            true,
 									},
 									"application": dsschema.ListAttribute{
-										Description: "",
-										Computed:    true,
-										ElementType: types.StringType,
+										Description:         "The `application` parameter.",
+										MarkdownDescription: "The `application` parameter.",
+										Computed:            true,
+										ElementType:         types.StringType,
 									},
 									"direction": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `direction` parameter.",
+										MarkdownDescription: "The `direction` parameter.",
+										Computed:            true,
 									},
 									"file_type": dsschema.ListAttribute{
-										Description: "",
-										Computed:    true,
-										ElementType: types.StringType,
+										Description:         "The `file_type` parameter.",
+										MarkdownDescription: "The `file_type` parameter.",
+										Computed:            true,
+										ElementType:         types.StringType,
 									},
 									"name": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `name` parameter.",
+										MarkdownDescription: "The `name` parameter.",
+										Computed:            true,
 									},
 								},
 							},
 						},
 						"threat_exception": dsschema.ListNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `threat_exception` parameter.",
+							MarkdownDescription: "The `threat_exception` parameter.",
+							Computed:            true,
 							NestedObject: dsschema.NestedAttributeObject{
 								Attributes: map[string]dsschema.Attribute{
 									"name": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `name` parameter.",
+										MarkdownDescription: "The `name` parameter.",
+										Computed:            true,
 									},
 									"notes": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `notes` parameter.",
+										MarkdownDescription: "The `notes` parameter.",
+										Computed:            true,
 									},
 								},
 							},
@@ -213,8 +236,9 @@ func (d *wildfireAntiVirusProfilesListDataSource) Schema(_ context.Context, _ da
 				},
 			},
 			"total": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `total` parameter.",
+				MarkdownDescription: "The `total` parameter.",
+				Computed:            true,
 			},
 		},
 	}
@@ -420,18 +444,21 @@ func (d *wildfireAntiVirusProfilesDataSource) Schema(_ context.Context, _ dataso
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description: "The uuid of the resource",
-				Required:    true,
+				Description:         "The uuid of the resource",
+				MarkdownDescription: "The uuid of the resource",
+				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -439,79 +466,95 @@ func (d *wildfireAntiVirusProfilesDataSource) Schema(_ context.Context, _ dataso
 
 			// Output.
 			"description": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `description` parameter.",
+				MarkdownDescription: "The `description` parameter.",
+				Computed:            true,
 			},
 			"mlav_exception": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `mlav_exception` parameter.",
+				MarkdownDescription: "The `mlav_exception` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"description": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `description` parameter.",
+							MarkdownDescription: "The `description` parameter.",
+							Computed:            true,
 						},
 						"filename": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `filename` parameter.",
+							MarkdownDescription: "The `filename` parameter.",
+							Computed:            true,
 						},
 						"name": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `name` parameter.",
+							MarkdownDescription: "The `name` parameter.",
+							Computed:            true,
 						},
 					},
 				},
 			},
 			"name": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `name` parameter.",
+				MarkdownDescription: "The `name` parameter.",
+				Computed:            true,
 			},
 			"packet_capture": dsschema.BoolAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `packet_capture` parameter.",
+				MarkdownDescription: "The `packet_capture` parameter.",
+				Computed:            true,
 			},
 			"rules": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `rules` parameter.",
+				MarkdownDescription: "The `rules` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"analysis": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `analysis` parameter.",
+							MarkdownDescription: "The `analysis` parameter.",
+							Computed:            true,
 						},
 						"application": dsschema.ListAttribute{
-							Description: "",
-							Computed:    true,
-							ElementType: types.StringType,
+							Description:         "The `application` parameter.",
+							MarkdownDescription: "The `application` parameter.",
+							Computed:            true,
+							ElementType:         types.StringType,
 						},
 						"direction": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `direction` parameter.",
+							MarkdownDescription: "The `direction` parameter.",
+							Computed:            true,
 						},
 						"file_type": dsschema.ListAttribute{
-							Description: "",
-							Computed:    true,
-							ElementType: types.StringType,
+							Description:         "The `file_type` parameter.",
+							MarkdownDescription: "The `file_type` parameter.",
+							Computed:            true,
+							ElementType:         types.StringType,
 						},
 						"name": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `name` parameter.",
+							MarkdownDescription: "The `name` parameter.",
+							Computed:            true,
 						},
 					},
 				},
 			},
 			"threat_exception": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `threat_exception` parameter.",
+				MarkdownDescription: "The `threat_exception` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"name": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `name` parameter.",
+							MarkdownDescription: "The `name` parameter.",
+							Computed:            true,
 						},
 						"notes": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `notes` parameter.",
+							MarkdownDescription: "The `notes` parameter.",
+							Computed:            true,
 						},
 					},
 				},
@@ -676,8 +719,9 @@ func (r *wildfireAntiVirusProfilesResource) Schema(_ context.Context, _ resource
 
 		Attributes: map[string]rsschema.Attribute{
 			"id": rsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
@@ -685,53 +729,60 @@ func (r *wildfireAntiVirusProfilesResource) Schema(_ context.Context, _ resource
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
 			},
 
 			"description": rsschema.StringAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `description` parameter.",
+				MarkdownDescription: "The `description` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					DefaultString(""),
 				},
 			},
 			"object_id": rsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `object_id` parameter.",
+				MarkdownDescription: "The `object_id` parameter.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
 			},
 			"mlav_exception": rsschema.ListNestedAttribute{
-				Description: "",
-				Optional:    true,
+				Description:         "The `mlav_exception` parameter.",
+				MarkdownDescription: "The `mlav_exception` parameter.",
+				Optional:            true,
 				NestedObject: rsschema.NestedAttributeObject{
 					Attributes: map[string]rsschema.Attribute{
 						"description": rsschema.StringAttribute{
-							Description: "",
-							Optional:    true,
-							Computed:    true,
+							Description:         "The `description` parameter.",
+							MarkdownDescription: "The `description` parameter.",
+							Optional:            true,
+							Computed:            true,
 							PlanModifiers: []planmodifier.String{
 								DefaultString(""),
 							},
 						},
 						"filename": rsschema.StringAttribute{
-							Description: "",
-							Optional:    true,
-							Computed:    true,
+							Description:         "The `filename` parameter.",
+							MarkdownDescription: "The `filename` parameter.",
+							Optional:            true,
+							Computed:            true,
 							PlanModifiers: []planmodifier.String{
 								DefaultString(""),
 							},
 						},
 						"name": rsschema.StringAttribute{
-							Description: "",
-							Optional:    true,
-							Computed:    true,
+							Description:         "The `name` parameter.",
+							MarkdownDescription: "The `name` parameter.",
+							Optional:            true,
+							Computed:            true,
 							PlanModifiers: []planmodifier.String{
 								DefaultString(""),
 							},
@@ -740,26 +791,30 @@ func (r *wildfireAntiVirusProfilesResource) Schema(_ context.Context, _ resource
 				},
 			},
 			"name": rsschema.StringAttribute{
-				Description: "",
-				Required:    true,
+				Description:         "The `name` parameter.",
+				MarkdownDescription: "The `name` parameter.",
+				Required:            true,
 			},
 			"packet_capture": rsschema.BoolAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `packet_capture` parameter.",
+				MarkdownDescription: "The `packet_capture` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.Bool{
 					DefaultBool(false),
 				},
 			},
 			"rules": rsschema.ListNestedAttribute{
-				Description: "",
-				Optional:    true,
+				Description:         "The `rules` parameter.",
+				MarkdownDescription: "The `rules` parameter.",
+				Optional:            true,
 				NestedObject: rsschema.NestedAttributeObject{
 					Attributes: map[string]rsschema.Attribute{
 						"analysis": rsschema.StringAttribute{
-							Description: "",
-							Optional:    true,
-							Computed:    true,
+							Description:         "The `analysis` parameter.",
+							MarkdownDescription: "The `analysis` parameter.",
+							Optional:            true,
+							Computed:            true,
 							PlanModifiers: []planmodifier.String{
 								DefaultString(""),
 							},
@@ -768,14 +823,16 @@ func (r *wildfireAntiVirusProfilesResource) Schema(_ context.Context, _ resource
 							},
 						},
 						"application": rsschema.ListAttribute{
-							Description: "",
-							Optional:    true,
-							ElementType: types.StringType,
+							Description:         "The `application` parameter.",
+							MarkdownDescription: "The `application` parameter.",
+							Optional:            true,
+							ElementType:         types.StringType,
 						},
 						"direction": rsschema.StringAttribute{
-							Description: "",
-							Optional:    true,
-							Computed:    true,
+							Description:         "The `direction` parameter.",
+							MarkdownDescription: "The `direction` parameter.",
+							Optional:            true,
+							Computed:            true,
 							PlanModifiers: []planmodifier.String{
 								DefaultString(""),
 							},
@@ -784,14 +841,16 @@ func (r *wildfireAntiVirusProfilesResource) Schema(_ context.Context, _ resource
 							},
 						},
 						"file_type": rsschema.ListAttribute{
-							Description: "",
-							Optional:    true,
-							ElementType: types.StringType,
+							Description:         "The `file_type` parameter.",
+							MarkdownDescription: "The `file_type` parameter.",
+							Optional:            true,
+							ElementType:         types.StringType,
 						},
 						"name": rsschema.StringAttribute{
-							Description: "",
-							Optional:    true,
-							Computed:    true,
+							Description:         "The `name` parameter.",
+							MarkdownDescription: "The `name` parameter.",
+							Optional:            true,
+							Computed:            true,
 							PlanModifiers: []planmodifier.String{
 								DefaultString(""),
 							},
@@ -800,22 +859,25 @@ func (r *wildfireAntiVirusProfilesResource) Schema(_ context.Context, _ resource
 				},
 			},
 			"threat_exception": rsschema.ListNestedAttribute{
-				Description: "",
-				Optional:    true,
+				Description:         "The `threat_exception` parameter.",
+				MarkdownDescription: "The `threat_exception` parameter.",
+				Optional:            true,
 				NestedObject: rsschema.NestedAttributeObject{
 					Attributes: map[string]rsschema.Attribute{
 						"name": rsschema.StringAttribute{
-							Description: "",
-							Optional:    true,
-							Computed:    true,
+							Description:         "The `name` parameter.",
+							MarkdownDescription: "The `name` parameter.",
+							Optional:            true,
+							Computed:            true,
 							PlanModifiers: []planmodifier.String{
 								DefaultString(""),
 							},
 						},
 						"notes": rsschema.StringAttribute{
-							Description: "",
-							Optional:    true,
-							Computed:    true,
+							Description:         "The `notes` parameter.",
+							MarkdownDescription: "The `notes` parameter.",
+							Optional:            true,
+							Computed:            true,
 							PlanModifiers: []planmodifier.String{
 								DefaultString(""),
 							},

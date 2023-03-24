@@ -108,28 +108,33 @@ func (d *scepProfilesListDataSource) Schema(_ context.Context, _ datasource.Sche
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description: "The max count in result entry (count per page)",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The max count in result entry (count per page)",
+				MarkdownDescription: "The max count in result entry (count per page)",
+				Optional:            true,
+				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description: "The offset of the result entry",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The offset of the result entry",
+				MarkdownDescription: "The offset of the result entry",
+				Optional:            true,
+				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description: "The name of the entry",
-				Optional:    true,
+				Description:         "The name of the entry",
+				MarkdownDescription: "The name of the entry",
+				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -137,126 +142,153 @@ func (d *scepProfilesListDataSource) Schema(_ context.Context, _ datasource.Sche
 
 			// Output.
 			"data": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `data` parameter.",
+				MarkdownDescription: "The `data` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"algorithm": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `algorithm` parameter.",
+							MarkdownDescription: "The `algorithm` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"rsa": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `rsa` parameter.",
+									MarkdownDescription: "The `rsa` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"rsa_nbits": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `rsa_nbits` parameter.",
+											MarkdownDescription: "The `rsa_nbits` parameter.",
+											Computed:            true,
 										},
 									},
 								},
 							},
 						},
 						"ca_identity_name": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `ca_identity_name` parameter.",
+							MarkdownDescription: "The `ca_identity_name` parameter.",
+							Computed:            true,
 						},
 						"certificate_attributes": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `certificate_attributes` parameter.",
+							MarkdownDescription: "The `certificate_attributes` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"dnsname": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `dnsname` parameter.",
+									MarkdownDescription: "The `dnsname` parameter.",
+									Computed:            true,
 								},
 								"rfc822name": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `rfc822name` parameter.",
+									MarkdownDescription: "The `rfc822name` parameter.",
+									Computed:            true,
 								},
 								"uniform_resource_identifier": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `uniform_resource_identifier` parameter.",
+									MarkdownDescription: "The `uniform_resource_identifier` parameter.",
+									Computed:            true,
 								},
 							},
 						},
 						"digest": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `digest` parameter.",
+							MarkdownDescription: "The `digest` parameter.",
+							Computed:            true,
 						},
 						"fingerprint": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `fingerprint` parameter.",
+							MarkdownDescription: "The `fingerprint` parameter.",
+							Computed:            true,
 						},
 						"object_id": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `object_id` parameter.",
+							MarkdownDescription: "The `object_id` parameter.",
+							Computed:            true,
 						},
 						"name": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `name` parameter.",
+							MarkdownDescription: "The `name` parameter.",
+							Computed:            true,
 						},
 						"scep_ca_cert": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `scep_ca_cert` parameter.",
+							MarkdownDescription: "The `scep_ca_cert` parameter.",
+							Computed:            true,
 						},
 						"scep_challenge": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `scep_challenge` parameter.",
+							MarkdownDescription: "The `scep_challenge` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"dynamic_value": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `dynamic_value` parameter.",
+									MarkdownDescription: "The `dynamic_value` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"otp_server_url": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `otp_server_url` parameter.",
+											MarkdownDescription: "The `otp_server_url` parameter.",
+											Computed:            true,
 										},
 										"password": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `password` parameter.",
+											MarkdownDescription: "The `password` parameter.",
+											Computed:            true,
 										},
 										"username": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `username` parameter.",
+											MarkdownDescription: "The `username` parameter.",
+											Computed:            true,
 										},
 									},
 								},
 								"fixed": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `fixed` parameter.",
+									MarkdownDescription: "The `fixed` parameter.",
+									Computed:            true,
 								},
 								"none": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `none` parameter.",
+									MarkdownDescription: "The `none` parameter.",
+									Computed:            true,
 								},
 							},
 						},
 						"scep_client_cert": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `scep_client_cert` parameter.",
+							MarkdownDescription: "The `scep_client_cert` parameter.",
+							Computed:            true,
 						},
 						"scep_url": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `scep_url` parameter.",
+							MarkdownDescription: "The `scep_url` parameter.",
+							Computed:            true,
 						},
 						"subject": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `subject` parameter.",
+							MarkdownDescription: "The `subject` parameter.",
+							Computed:            true,
 						},
 						"use_as_digital_signature": dsschema.BoolAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `use_as_digital_signature` parameter.",
+							MarkdownDescription: "The `use_as_digital_signature` parameter.",
+							Computed:            true,
 						},
 						"use_for_key_encipherment": dsschema.BoolAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `use_for_key_encipherment` parameter.",
+							MarkdownDescription: "The `use_for_key_encipherment` parameter.",
+							Computed:            true,
 						},
 					},
 				},
 			},
 			"total": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `total` parameter.",
+				MarkdownDescription: "The `total` parameter.",
+				Computed:            true,
 			},
 		},
 	}
@@ -476,122 +508,148 @@ func (d *scepProfilesDataSource) Schema(_ context.Context, _ datasource.SchemaRe
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description: "The uuid of the resource",
-				Required:    true,
+				Description:         "The uuid of the resource",
+				MarkdownDescription: "The uuid of the resource",
+				Required:            true,
 			},
 
 			// Output.
 			"algorithm": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `algorithm` parameter.",
+				MarkdownDescription: "The `algorithm` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"rsa": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `rsa` parameter.",
+						MarkdownDescription: "The `rsa` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"rsa_nbits": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `rsa_nbits` parameter.",
+								MarkdownDescription: "The `rsa_nbits` parameter.",
+								Computed:            true,
 							},
 						},
 					},
 				},
 			},
 			"ca_identity_name": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `ca_identity_name` parameter.",
+				MarkdownDescription: "The `ca_identity_name` parameter.",
+				Computed:            true,
 			},
 			"certificate_attributes": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `certificate_attributes` parameter.",
+				MarkdownDescription: "The `certificate_attributes` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"dnsname": dsschema.StringAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `dnsname` parameter.",
+						MarkdownDescription: "The `dnsname` parameter.",
+						Computed:            true,
 					},
 					"rfc822name": dsschema.StringAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `rfc822name` parameter.",
+						MarkdownDescription: "The `rfc822name` parameter.",
+						Computed:            true,
 					},
 					"uniform_resource_identifier": dsschema.StringAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `uniform_resource_identifier` parameter.",
+						MarkdownDescription: "The `uniform_resource_identifier` parameter.",
+						Computed:            true,
 					},
 				},
 			},
 			"digest": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `digest` parameter.",
+				MarkdownDescription: "The `digest` parameter.",
+				Computed:            true,
 			},
 			"fingerprint": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `fingerprint` parameter.",
+				MarkdownDescription: "The `fingerprint` parameter.",
+				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `name` parameter.",
+				MarkdownDescription: "The `name` parameter.",
+				Computed:            true,
 			},
 			"scep_ca_cert": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `scep_ca_cert` parameter.",
+				MarkdownDescription: "The `scep_ca_cert` parameter.",
+				Computed:            true,
 			},
 			"scep_challenge": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `scep_challenge` parameter.",
+				MarkdownDescription: "The `scep_challenge` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"dynamic_value": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `dynamic_value` parameter.",
+						MarkdownDescription: "The `dynamic_value` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"otp_server_url": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `otp_server_url` parameter.",
+								MarkdownDescription: "The `otp_server_url` parameter.",
+								Computed:            true,
 							},
 							"password": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `password` parameter.",
+								MarkdownDescription: "The `password` parameter.",
+								Computed:            true,
 							},
 							"username": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `username` parameter.",
+								MarkdownDescription: "The `username` parameter.",
+								Computed:            true,
 							},
 						},
 					},
 					"fixed": dsschema.StringAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `fixed` parameter.",
+						MarkdownDescription: "The `fixed` parameter.",
+						Computed:            true,
 					},
 					"none": dsschema.StringAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `none` parameter.",
+						MarkdownDescription: "The `none` parameter.",
+						Computed:            true,
 					},
 				},
 			},
 			"scep_client_cert": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `scep_client_cert` parameter.",
+				MarkdownDescription: "The `scep_client_cert` parameter.",
+				Computed:            true,
 			},
 			"scep_url": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `scep_url` parameter.",
+				MarkdownDescription: "The `scep_url` parameter.",
+				Computed:            true,
 			},
 			"subject": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `subject` parameter.",
+				MarkdownDescription: "The `subject` parameter.",
+				Computed:            true,
 			},
 			"use_as_digital_signature": dsschema.BoolAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `use_as_digital_signature` parameter.",
+				MarkdownDescription: "The `use_as_digital_signature` parameter.",
+				Computed:            true,
 			},
 			"use_for_key_encipherment": dsschema.BoolAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `use_for_key_encipherment` parameter.",
+				MarkdownDescription: "The `use_for_key_encipherment` parameter.",
+				Computed:            true,
 			},
 		},
 	}
@@ -764,8 +822,9 @@ func (r *scepProfilesResource) Schema(_ context.Context, _ resource.SchemaReques
 
 		Attributes: map[string]rsschema.Attribute{
 			"id": rsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
@@ -773,25 +832,29 @@ func (r *scepProfilesResource) Schema(_ context.Context, _ resource.SchemaReques
 
 			// Input.
 			"type": rsschema.StringAttribute{
-				Description: "The type of the schema node",
-				Required:    true,
+				Description:         "The type of the schema node",
+				MarkdownDescription: "The type of the schema node",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("cloud", "container"),
 				},
 			},
 
 			"algorithm": rsschema.SingleNestedAttribute{
-				Description: "",
-				Optional:    true,
+				Description:         "The `algorithm` parameter.",
+				MarkdownDescription: "The `algorithm` parameter.",
+				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"rsa": rsschema.SingleNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `rsa` parameter.",
+						MarkdownDescription: "The `rsa` parameter.",
+						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"rsa_nbits": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `rsa_nbits` parameter.",
+								MarkdownDescription: "The `rsa_nbits` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString(""),
 								},
@@ -801,33 +864,38 @@ func (r *scepProfilesResource) Schema(_ context.Context, _ resource.SchemaReques
 				},
 			},
 			"ca_identity_name": rsschema.StringAttribute{
-				Description: "",
-				Required:    true,
+				Description:         "The `ca_identity_name` parameter.",
+				MarkdownDescription: "The `ca_identity_name` parameter.",
+				Required:            true,
 			},
 			"certificate_attributes": rsschema.SingleNestedAttribute{
-				Description: "",
-				Optional:    true,
+				Description:         "The `certificate_attributes` parameter.",
+				MarkdownDescription: "The `certificate_attributes` parameter.",
+				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"dnsname": rsschema.StringAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `dnsname` parameter.",
+						MarkdownDescription: "The `dnsname` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.String{
 							DefaultString(""),
 						},
 					},
 					"rfc822name": rsschema.StringAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `rfc822name` parameter.",
+						MarkdownDescription: "The `rfc822name` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.String{
 							DefaultString(""),
 						},
 					},
 					"uniform_resource_identifier": rsschema.StringAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `uniform_resource_identifier` parameter.",
+						MarkdownDescription: "The `uniform_resource_identifier` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.String{
 							DefaultString(""),
 						},
@@ -835,51 +903,59 @@ func (r *scepProfilesResource) Schema(_ context.Context, _ resource.SchemaReques
 				},
 			},
 			"digest": rsschema.StringAttribute{
-				Description: "",
-				Required:    true,
+				Description:         "The `digest` parameter.",
+				MarkdownDescription: "The `digest` parameter.",
+				Required:            true,
 			},
 			"fingerprint": rsschema.StringAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `fingerprint` parameter.",
+				MarkdownDescription: "The `fingerprint` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					DefaultString(""),
 				},
 			},
 			"object_id": rsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `object_id` parameter.",
+				MarkdownDescription: "The `object_id` parameter.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
 			},
 			"name": rsschema.StringAttribute{
-				Description: "",
-				Required:    true,
+				Description:         "The `name` parameter.",
+				MarkdownDescription: "The `name` parameter.",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(31),
 				},
 			},
 			"scep_ca_cert": rsschema.StringAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `scep_ca_cert` parameter.",
+				MarkdownDescription: "The `scep_ca_cert` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					DefaultString(""),
 				},
 			},
 			"scep_challenge": rsschema.SingleNestedAttribute{
-				Description: "",
-				Optional:    true,
+				Description:         "The `scep_challenge` parameter.",
+				MarkdownDescription: "The `scep_challenge` parameter.",
+				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"dynamic_value": rsschema.SingleNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `dynamic_value` parameter.",
+						MarkdownDescription: "The `dynamic_value` parameter.",
+						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"otp_server_url": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `otp_server_url` parameter.",
+								MarkdownDescription: "The `otp_server_url` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString(""),
 								},
@@ -888,9 +964,10 @@ func (r *scepProfilesResource) Schema(_ context.Context, _ resource.SchemaReques
 								},
 							},
 							"password": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `password` parameter.",
+								MarkdownDescription: "The `password` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString(""),
 								},
@@ -899,9 +976,10 @@ func (r *scepProfilesResource) Schema(_ context.Context, _ resource.SchemaReques
 								},
 							},
 							"username": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `username` parameter.",
+								MarkdownDescription: "The `username` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString(""),
 								},
@@ -912,9 +990,10 @@ func (r *scepProfilesResource) Schema(_ context.Context, _ resource.SchemaReques
 						},
 					},
 					"fixed": rsschema.StringAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `fixed` parameter.",
+						MarkdownDescription: "The `fixed` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.String{
 							DefaultString(""),
 						},
@@ -923,9 +1002,10 @@ func (r *scepProfilesResource) Schema(_ context.Context, _ resource.SchemaReques
 						},
 					},
 					"none": rsschema.StringAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `none` parameter.",
+						MarkdownDescription: "The `none` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.String{
 							DefaultString(""),
 						},
@@ -936,37 +1016,42 @@ func (r *scepProfilesResource) Schema(_ context.Context, _ resource.SchemaReques
 				},
 			},
 			"scep_client_cert": rsschema.StringAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `scep_client_cert` parameter.",
+				MarkdownDescription: "The `scep_client_cert` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					DefaultString(""),
 				},
 			},
 			"scep_url": rsschema.StringAttribute{
-				Description: "",
-				Required:    true,
+				Description:         "The `scep_url` parameter.",
+				MarkdownDescription: "The `scep_url` parameter.",
+				Required:            true,
 			},
 			"subject": rsschema.StringAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `subject` parameter.",
+				MarkdownDescription: "The `subject` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					DefaultString(""),
 				},
 			},
 			"use_as_digital_signature": rsschema.BoolAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `use_as_digital_signature` parameter.",
+				MarkdownDescription: "The `use_as_digital_signature` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.Bool{
 					DefaultBool(false),
 				},
 			},
 			"use_for_key_encipherment": rsschema.BoolAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `use_for_key_encipherment` parameter.",
+				MarkdownDescription: "The `use_for_key_encipherment` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.Bool{
 					DefaultBool(false),
 				},

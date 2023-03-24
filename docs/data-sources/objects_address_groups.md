@@ -21,18 +21,18 @@ Retrieves config for a specific item.
 
 ### Read-Only
 
-- `description` (String)
-- `dynamic_value` (Attributes) (see [below for nested schema](#nestedatt--dynamic_value))
+- `description` (String) The `description` parameter.
+- `dynamic_value` (Attributes) The `dynamic_value` parameter. (see [below for nested schema](#nestedatt--dynamic_value))
 - `id` (String) The object ID.
-- `name` (String)
-- `static` (List of String)
-- `tag` (List of String)
+- `name` (String) The `name` parameter.
+- `static` (List of String) The `static` parameter.
+- `tag` (List of String) The `tag` parameter.
 
 <a id="nestedatt--dynamic_value"></a>
 ### Nested Schema for `dynamic_value`
 
 Read-Only:
 
-- `filter` (String)
+- `filter` (String) The `filter` parameter.
 
 

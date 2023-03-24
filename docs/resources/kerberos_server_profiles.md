@@ -18,20 +18,20 @@ Retrieves config for a specific item.
 ### Required
 
 - `folder` (String) The folder of the entry
-- `server` (Attributes List) (see [below for nested schema](#nestedatt--server))
+- `server` (Attributes List) The `server` parameter. (see [below for nested schema](#nestedatt--server))
 
 ### Read-Only
 
 - `id` (String) The object ID.
-- `object_id` (String)
+- `object_id` (String) The `object_id` parameter.
 
 <a id="nestedatt--server"></a>
 ### Nested Schema for `server`
 
 Optional:
 
-- `host` (String)
-- `name` (String)
-- `port` (Number)
+- `host` (String) The `host` parameter.
+- `name` (String) The `name` parameter.
+- `port` (Number) The `port` parameter.
 
 

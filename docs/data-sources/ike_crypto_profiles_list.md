@@ -27,31 +27,31 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `authentication_multiple` (Number)
-- `dh_group` (List of String)
-- `encryption` (List of String)
-- `hash` (List of String)
-- `lifetime` (Attributes) (see [below for nested schema](#nestedatt--data--lifetime))
-- `name` (String)
-- `object_id` (String)
+- `authentication_multiple` (Number) The `authentication_multiple` parameter.
+- `dh_group` (List of String) The `dh_group` parameter.
+- `encryption` (List of String) The `encryption` parameter.
+- `hash` (List of String) The `hash` parameter.
+- `lifetime` (Attributes) The `lifetime` parameter. (see [below for nested schema](#nestedatt--data--lifetime))
+- `name` (String) The `name` parameter.
+- `object_id` (String) The `object_id` parameter.
 
 <a id="nestedatt--data--lifetime"></a>
 ### Nested Schema for `data.lifetime`
 
 Read-Only:
 
-- `days` (Number)
-- `hours` (Number)
-- `minutes` (Number)
-- `seconds` (Number)
+- `days` (Number) The `days` parameter.
+- `hours` (Number) The `hours` parameter.
+- `minutes` (Number) The `minutes` parameter.
+- `seconds` (Number) The `seconds` parameter.
 
 

@@ -23,15 +23,15 @@ Retrieves config for a specific item.
 ### Read-Only
 
 - `id` (String) The object ID.
-- `server` (Attributes List) (see [below for nested schema](#nestedatt--server))
+- `server` (Attributes List) The `server` parameter. (see [below for nested schema](#nestedatt--server))
 
 <a id="nestedatt--server"></a>
 ### Nested Schema for `server`
 
 Read-Only:
 
-- `host` (String)
-- `name` (String)
-- `port` (Number)
+- `host` (String) The `host` parameter.
+- `name` (String) The `name` parameter.
+- `port` (Number) The `port` parameter.
 
 

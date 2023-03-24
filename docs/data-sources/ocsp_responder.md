@@ -21,8 +21,8 @@ Retrieves config for a specific item.
 
 ### Read-Only
 
-- `host_name` (String)
+- `host_name` (String) The `host_name` parameter.
 - `id` (String) The object ID.
-- `name` (String)
+- `name` (String) The `name` parameter.
 
 

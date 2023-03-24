@@ -17,44 +17,44 @@ Retrieves config for a specific item.
 
 ### Required
 
-- `action` (String)
-- `category` (List of String)
-- `destination` (List of String)
+- `action` (String) The `action` parameter.
+- `category` (List of String) The `category` parameter.
+- `destination` (List of String) The `destination` parameter.
 - `folder` (String) The folder of the entry
-- `from` (List of String)
-- `name` (String)
+- `from` (List of String) The `from` parameter.
+- `name` (String) The `name` parameter.
 - `position` (String) The position of a security rule
-- `service` (List of String)
-- `source` (List of String)
-- `source_user` (List of String)
-- `to` (List of String)
+- `service` (List of String) The `service` parameter.
+- `source` (List of String) The `source` parameter.
+- `source_user` (List of String) The `source_user` parameter.
+- `to` (List of String) The `to` parameter.
 
 ### Optional
 
-- `description` (String)
-- `destination_hip` (List of String)
-- `disabled` (Boolean)
-- `log_fail` (Boolean)
-- `log_setting` (String)
-- `log_success` (Boolean)
-- `negate_destination` (Boolean)
-- `negate_source` (Boolean)
-- `profile` (String)
-- `source_hip` (List of String)
-- `tag` (List of String)
-- `type` (Attributes) (see [below for nested schema](#nestedatt--type))
+- `description` (String) The `description` parameter.
+- `destination_hip` (List of String) The `destination_hip` parameter.
+- `disabled` (Boolean) The `disabled` parameter.
+- `log_fail` (Boolean) The `log_fail` parameter.
+- `log_setting` (String) The `log_setting` parameter.
+- `log_success` (Boolean) The `log_success` parameter.
+- `negate_destination` (Boolean) The `negate_destination` parameter.
+- `negate_source` (Boolean) The `negate_source` parameter.
+- `profile` (String) The `profile` parameter.
+- `source_hip` (List of String) The `source_hip` parameter.
+- `tag` (List of String) The `tag` parameter.
+- `type` (Attributes) The `type` parameter. (see [below for nested schema](#nestedatt--type))
 
 ### Read-Only
 
 - `id` (String) The object ID.
-- `object_id` (String)
+- `object_id` (String) The `object_id` parameter.
 
 <a id="nestedatt--type"></a>
 ### Nested Schema for `type`
 
 Optional:
 
-- `ssl_forward_proxy` (Boolean)
-- `ssl_inbound_inspection` (String)
+- `ssl_forward_proxy` (Boolean) The `ssl_forward_proxy` parameter.
+- `ssl_inbound_inspection` (String) The `ssl_inbound_inspection` parameter.
 
 

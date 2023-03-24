@@ -72,62 +72,73 @@ func (d *authenticationSequencesListDataSource) Schema(_ context.Context, _ data
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description: "The max count in result entry (count per page)",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The max count in result entry (count per page)",
+				MarkdownDescription: "The max count in result entry (count per page)",
+				Optional:            true,
+				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description: "The offset of the result entry",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The offset of the result entry",
+				MarkdownDescription: "The offset of the result entry",
+				Optional:            true,
+				Computed:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
 			},
 			"name": dsschema.StringAttribute{
-				Description: "The name of the entry",
-				Optional:    true,
+				Description:         "The name of the entry",
+				MarkdownDescription: "The name of the entry",
+				Optional:            true,
 			},
 
 			// Output.
 			"data": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `data` parameter.",
+				MarkdownDescription: "The `data` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"authentication_profiles": dsschema.ListAttribute{
-							Description: "",
-							Computed:    true,
-							ElementType: types.StringType,
+							Description:         "The `authentication_profiles` parameter.",
+							MarkdownDescription: "The `authentication_profiles` parameter.",
+							Computed:            true,
+							ElementType:         types.StringType,
 						},
 						"object_id": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `object_id` parameter.",
+							MarkdownDescription: "The `object_id` parameter.",
+							Computed:            true,
 						},
 						"name": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `name` parameter.",
+							MarkdownDescription: "The `name` parameter.",
+							Computed:            true,
 						},
 						"use_domain_find_profile": dsschema.BoolAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `use_domain_find_profile` parameter.",
+							MarkdownDescription: "The `use_domain_find_profile` parameter.",
+							Computed:            true,
 						},
 					},
 				},
 			},
 			"total": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `total` parameter.",
+				MarkdownDescription: "The `total` parameter.",
+				Computed:            true,
 			},
 		},
 	}
@@ -270,29 +281,34 @@ func (d *authenticationSequencesDataSource) Schema(_ context.Context, _ datasour
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description: "The uuid of the resource",
-				Required:    true,
+				Description:         "The uuid of the resource",
+				MarkdownDescription: "The uuid of the resource",
+				Required:            true,
 			},
 
 			// Output.
 			"authentication_profiles": dsschema.ListAttribute{
-				Description: "",
-				Computed:    true,
-				ElementType: types.StringType,
+				Description:         "The `authentication_profiles` parameter.",
+				MarkdownDescription: "The `authentication_profiles` parameter.",
+				Computed:            true,
+				ElementType:         types.StringType,
 			},
 			"name": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `name` parameter.",
+				MarkdownDescription: "The `name` parameter.",
+				Computed:            true,
 			},
 			"use_domain_find_profile": dsschema.BoolAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `use_domain_find_profile` parameter.",
+				MarkdownDescription: "The `use_domain_find_profile` parameter.",
+				Computed:            true,
 			},
 		},
 	}
@@ -388,8 +404,9 @@ func (r *authenticationSequencesResource) Schema(_ context.Context, _ resource.S
 
 		Attributes: map[string]rsschema.Attribute{
 			"id": rsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
@@ -397,33 +414,38 @@ func (r *authenticationSequencesResource) Schema(_ context.Context, _ resource.S
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
 			},
 
 			"authentication_profiles": rsschema.ListAttribute{
-				Description: "",
-				Optional:    true,
-				ElementType: types.StringType,
+				Description:         "The `authentication_profiles` parameter.",
+				MarkdownDescription: "The `authentication_profiles` parameter.",
+				Optional:            true,
+				ElementType:         types.StringType,
 			},
 			"object_id": rsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `object_id` parameter.",
+				MarkdownDescription: "The `object_id` parameter.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
 			},
 			"name": rsschema.StringAttribute{
-				Description: "",
-				Required:    true,
+				Description:         "The `name` parameter.",
+				MarkdownDescription: "The `name` parameter.",
+				Required:            true,
 			},
 			"use_domain_find_profile": rsschema.BoolAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `use_domain_find_profile` parameter.",
+				MarkdownDescription: "The `use_domain_find_profile` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.Bool{
 					DefaultBool(true),
 				},

@@ -27,23 +27,23 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `description` (String)
-- `fqdn` (String)
-- `ip_netmask` (String)
-- `ip_range` (String)
-- `ip_wildcard` (String)
-- `name` (String)
-- `object_id` (String)
-- `tag` (List of String)
-- `type` (String)
+- `description` (String) The `description` parameter.
+- `fqdn` (String) The `fqdn` parameter.
+- `ip_netmask` (String) The `ip_netmask` parameter.
+- `ip_range` (String) The `ip_range` parameter.
+- `ip_wildcard` (String) The `ip_wildcard` parameter.
+- `name` (String) The `name` parameter.
+- `object_id` (String) The `object_id` parameter.
+- `tag` (List of String) The `tag` parameter.
+- `type` (String) The `type` parameter.
 
 

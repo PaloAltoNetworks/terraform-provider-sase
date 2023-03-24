@@ -27,28 +27,28 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `algorithm` (String)
-- `ca` (Boolean)
-- `common_name` (String)
-- `common_name_int` (String)
-- `expiry_epoch` (String)
-- `issuer` (String)
-- `issuer_hash` (String)
-- `not_valid_after` (String)
-- `not_valid_before` (String)
-- `object_id` (String)
-- `public_key` (String)
-- `subject` (String)
-- `subject_hash` (String)
-- `subject_int` (String)
+- `algorithm` (String) The `algorithm` parameter.
+- `ca` (Boolean) The `ca` parameter.
+- `common_name` (String) The `common_name` parameter.
+- `common_name_int` (String) The `common_name_int` parameter.
+- `expiry_epoch` (String) The `expiry_epoch` parameter.
+- `issuer` (String) The `issuer` parameter.
+- `issuer_hash` (String) The `issuer_hash` parameter.
+- `not_valid_after` (String) The `not_valid_after` parameter.
+- `not_valid_before` (String) The `not_valid_before` parameter.
+- `object_id` (String) The `object_id` parameter.
+- `public_key` (String) The `public_key` parameter.
+- `subject` (String) The `subject` parameter.
+- `subject_hash` (String) The `subject_hash` parameter.
+- `subject_int` (String) The `subject_int` parameter.
 
 

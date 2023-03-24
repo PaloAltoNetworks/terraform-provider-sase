@@ -77,28 +77,33 @@ func (d *profileGroupsListDataSource) Schema(_ context.Context, _ datasource.Sch
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description: "The max count in result entry (count per page)",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The max count in result entry (count per page)",
+				MarkdownDescription: "The max count in result entry (count per page)",
+				Optional:            true,
+				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description: "The offset of the result entry",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The offset of the result entry",
+				MarkdownDescription: "The offset of the result entry",
+				Optional:            true,
+				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description: "The name of the entry",
-				Optional:    true,
+				Description:         "The name of the entry",
+				MarkdownDescription: "The name of the entry",
+				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -106,59 +111,70 @@ func (d *profileGroupsListDataSource) Schema(_ context.Context, _ datasource.Sch
 
 			// Output.
 			"data": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `data` parameter.",
+				MarkdownDescription: "The `data` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"dns_security": dsschema.ListAttribute{
-							Description: "",
-							Computed:    true,
-							ElementType: types.StringType,
+							Description:         "The `dns_security` parameter.",
+							MarkdownDescription: "The `dns_security` parameter.",
+							Computed:            true,
+							ElementType:         types.StringType,
 						},
 						"file_blocking": dsschema.ListAttribute{
-							Description: "",
-							Computed:    true,
-							ElementType: types.StringType,
+							Description:         "The `file_blocking` parameter.",
+							MarkdownDescription: "The `file_blocking` parameter.",
+							Computed:            true,
+							ElementType:         types.StringType,
 						},
 						"object_id": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `object_id` parameter.",
+							MarkdownDescription: "The `object_id` parameter.",
+							Computed:            true,
 						},
 						"name": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `name` parameter.",
+							MarkdownDescription: "The `name` parameter.",
+							Computed:            true,
 						},
 						"saas_security": dsschema.ListAttribute{
-							Description: "",
-							Computed:    true,
-							ElementType: types.StringType,
+							Description:         "The `saas_security` parameter.",
+							MarkdownDescription: "The `saas_security` parameter.",
+							Computed:            true,
+							ElementType:         types.StringType,
 						},
 						"spyware": dsschema.ListAttribute{
-							Description: "",
-							Computed:    true,
-							ElementType: types.StringType,
+							Description:         "The `spyware` parameter.",
+							MarkdownDescription: "The `spyware` parameter.",
+							Computed:            true,
+							ElementType:         types.StringType,
 						},
 						"url_filtering": dsschema.ListAttribute{
-							Description: "",
-							Computed:    true,
-							ElementType: types.StringType,
+							Description:         "The `url_filtering` parameter.",
+							MarkdownDescription: "The `url_filtering` parameter.",
+							Computed:            true,
+							ElementType:         types.StringType,
 						},
 						"virus_and_wildfire_analysis": dsschema.ListAttribute{
-							Description: "",
-							Computed:    true,
-							ElementType: types.StringType,
+							Description:         "The `virus_and_wildfire_analysis` parameter.",
+							MarkdownDescription: "The `virus_and_wildfire_analysis` parameter.",
+							Computed:            true,
+							ElementType:         types.StringType,
 						},
 						"vulnerability": dsschema.ListAttribute{
-							Description: "",
-							Computed:    true,
-							ElementType: types.StringType,
+							Description:         "The `vulnerability` parameter.",
+							MarkdownDescription: "The `vulnerability` parameter.",
+							Computed:            true,
+							ElementType:         types.StringType,
 						},
 					},
 				},
 			},
 			"total": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `total` parameter.",
+				MarkdownDescription: "The `total` parameter.",
+				Computed:            true,
 			},
 		},
 	}
@@ -312,18 +328,21 @@ func (d *profileGroupsDataSource) Schema(_ context.Context, _ datasource.SchemaR
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description: "The uuid of the resource",
-				Required:    true,
+				Description:         "The uuid of the resource",
+				MarkdownDescription: "The uuid of the resource",
+				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -331,43 +350,51 @@ func (d *profileGroupsDataSource) Schema(_ context.Context, _ datasource.SchemaR
 
 			// Output.
 			"dns_security": dsschema.ListAttribute{
-				Description: "",
-				Computed:    true,
-				ElementType: types.StringType,
+				Description:         "The `dns_security` parameter.",
+				MarkdownDescription: "The `dns_security` parameter.",
+				Computed:            true,
+				ElementType:         types.StringType,
 			},
 			"file_blocking": dsschema.ListAttribute{
-				Description: "",
-				Computed:    true,
-				ElementType: types.StringType,
+				Description:         "The `file_blocking` parameter.",
+				MarkdownDescription: "The `file_blocking` parameter.",
+				Computed:            true,
+				ElementType:         types.StringType,
 			},
 			"name": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `name` parameter.",
+				MarkdownDescription: "The `name` parameter.",
+				Computed:            true,
 			},
 			"saas_security": dsschema.ListAttribute{
-				Description: "",
-				Computed:    true,
-				ElementType: types.StringType,
+				Description:         "The `saas_security` parameter.",
+				MarkdownDescription: "The `saas_security` parameter.",
+				Computed:            true,
+				ElementType:         types.StringType,
 			},
 			"spyware": dsschema.ListAttribute{
-				Description: "",
-				Computed:    true,
-				ElementType: types.StringType,
+				Description:         "The `spyware` parameter.",
+				MarkdownDescription: "The `spyware` parameter.",
+				Computed:            true,
+				ElementType:         types.StringType,
 			},
 			"url_filtering": dsschema.ListAttribute{
-				Description: "",
-				Computed:    true,
-				ElementType: types.StringType,
+				Description:         "The `url_filtering` parameter.",
+				MarkdownDescription: "The `url_filtering` parameter.",
+				Computed:            true,
+				ElementType:         types.StringType,
 			},
 			"virus_and_wildfire_analysis": dsschema.ListAttribute{
-				Description: "",
-				Computed:    true,
-				ElementType: types.StringType,
+				Description:         "The `virus_and_wildfire_analysis` parameter.",
+				MarkdownDescription: "The `virus_and_wildfire_analysis` parameter.",
+				Computed:            true,
+				ElementType:         types.StringType,
 			},
 			"vulnerability": dsschema.ListAttribute{
-				Description: "",
-				Computed:    true,
-				ElementType: types.StringType,
+				Description:         "The `vulnerability` parameter.",
+				MarkdownDescription: "The `vulnerability` parameter.",
+				Computed:            true,
+				ElementType:         types.StringType,
 			},
 		},
 	}
@@ -477,8 +504,9 @@ func (r *profileGroupsResource) Schema(_ context.Context, _ resource.SchemaReque
 
 		Attributes: map[string]rsschema.Attribute{
 			"id": rsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
@@ -486,58 +514,68 @@ func (r *profileGroupsResource) Schema(_ context.Context, _ resource.SchemaReque
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
 			},
 
 			"dns_security": rsschema.ListAttribute{
-				Description: "",
-				Optional:    true,
-				ElementType: types.StringType,
+				Description:         "The `dns_security` parameter.",
+				MarkdownDescription: "The `dns_security` parameter.",
+				Optional:            true,
+				ElementType:         types.StringType,
 			},
 			"file_blocking": rsschema.ListAttribute{
-				Description: "",
-				Optional:    true,
-				ElementType: types.StringType,
+				Description:         "The `file_blocking` parameter.",
+				MarkdownDescription: "The `file_blocking` parameter.",
+				Optional:            true,
+				ElementType:         types.StringType,
 			},
 			"object_id": rsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `object_id` parameter.",
+				MarkdownDescription: "The `object_id` parameter.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
 			},
 			"name": rsschema.StringAttribute{
-				Description: "",
-				Required:    true,
+				Description:         "The `name` parameter.",
+				MarkdownDescription: "The `name` parameter.",
+				Required:            true,
 			},
 			"saas_security": rsschema.ListAttribute{
-				Description: "",
-				Optional:    true,
-				ElementType: types.StringType,
+				Description:         "The `saas_security` parameter.",
+				MarkdownDescription: "The `saas_security` parameter.",
+				Optional:            true,
+				ElementType:         types.StringType,
 			},
 			"spyware": rsschema.ListAttribute{
-				Description: "",
-				Optional:    true,
-				ElementType: types.StringType,
+				Description:         "The `spyware` parameter.",
+				MarkdownDescription: "The `spyware` parameter.",
+				Optional:            true,
+				ElementType:         types.StringType,
 			},
 			"url_filtering": rsschema.ListAttribute{
-				Description: "",
-				Optional:    true,
-				ElementType: types.StringType,
+				Description:         "The `url_filtering` parameter.",
+				MarkdownDescription: "The `url_filtering` parameter.",
+				Optional:            true,
+				ElementType:         types.StringType,
 			},
 			"virus_and_wildfire_analysis": rsschema.ListAttribute{
-				Description: "",
-				Optional:    true,
-				ElementType: types.StringType,
+				Description:         "The `virus_and_wildfire_analysis` parameter.",
+				MarkdownDescription: "The `virus_and_wildfire_analysis` parameter.",
+				Optional:            true,
+				ElementType:         types.StringType,
 			},
 			"vulnerability": rsschema.ListAttribute{
-				Description: "",
-				Optional:    true,
-				ElementType: types.StringType,
+				Description:         "The `vulnerability` parameter.",
+				MarkdownDescription: "The `vulnerability` parameter.",
+				Optional:            true,
+				ElementType:         types.StringType,
 			},
 		},
 	}

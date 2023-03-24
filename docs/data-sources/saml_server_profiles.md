@@ -22,14 +22,14 @@ Retrieves config for a specific item.
 
 ### Read-Only
 
-- `certificate` (String)
-- `entity_id` (String)
+- `certificate` (String) The `certificate` parameter.
+- `entity_id` (String) The `entity_id` parameter.
 - `id` (String) The object ID.
-- `max_clock_skew` (Number)
-- `slo_bindings` (String)
-- `sso_bindings` (String)
-- `sso_url` (String)
-- `validate_idp_certificate` (Boolean)
-- `want_auth_requests_signed` (Boolean)
+- `max_clock_skew` (Number) The `max_clock_skew` parameter.
+- `slo_bindings` (String) The `slo_bindings` parameter.
+- `sso_bindings` (String) The `sso_bindings` parameter.
+- `sso_url` (String) The `sso_url` parameter.
+- `validate_idp_certificate` (Boolean) The `validate_idp_certificate` parameter.
+- `want_auth_requests_signed` (Boolean) The `want_auth_requests_signed` parameter.
 
 

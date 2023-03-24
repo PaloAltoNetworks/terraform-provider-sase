@@ -90,28 +90,33 @@ func (d *httpHeaderProfilesListDataSource) Schema(_ context.Context, _ datasourc
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description: "The max count in result entry (count per page)",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The max count in result entry (count per page)",
+				MarkdownDescription: "The max count in result entry (count per page)",
+				Optional:            true,
+				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description: "The offset of the result entry",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The offset of the result entry",
+				MarkdownDescription: "The offset of the result entry",
+				Optional:            true,
+				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description: "The name of the entry",
-				Optional:    true,
+				Description:         "The name of the entry",
+				MarkdownDescription: "The name of the entry",
+				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -119,60 +124,72 @@ func (d *httpHeaderProfilesListDataSource) Schema(_ context.Context, _ datasourc
 
 			// Output.
 			"data": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `data` parameter.",
+				MarkdownDescription: "The `data` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"description": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `description` parameter.",
+							MarkdownDescription: "The `description` parameter.",
+							Computed:            true,
 						},
 						"http_header_insertion": dsschema.ListNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `http_header_insertion` parameter.",
+							MarkdownDescription: "The `http_header_insertion` parameter.",
+							Computed:            true,
 							NestedObject: dsschema.NestedAttributeObject{
 								Attributes: map[string]dsschema.Attribute{
 									"name": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `name` parameter.",
+										MarkdownDescription: "The `name` parameter.",
+										Computed:            true,
 									},
 									"type": dsschema.ListNestedAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `type` parameter.",
+										MarkdownDescription: "The `type` parameter.",
+										Computed:            true,
 										NestedObject: dsschema.NestedAttributeObject{
 											Attributes: map[string]dsschema.Attribute{
 												"domains": dsschema.ListAttribute{
-													Description: "",
-													Computed:    true,
-													ElementType: types.StringType,
+													Description:         "The `domains` parameter.",
+													MarkdownDescription: "The `domains` parameter.",
+													Computed:            true,
+													ElementType:         types.StringType,
 												},
 												"headers": dsschema.ListNestedAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `headers` parameter.",
+													MarkdownDescription: "The `headers` parameter.",
+													Computed:            true,
 													NestedObject: dsschema.NestedAttributeObject{
 														Attributes: map[string]dsschema.Attribute{
 															"header": dsschema.StringAttribute{
-																Description: "",
-																Computed:    true,
+																Description:         "The `header` parameter.",
+																MarkdownDescription: "The `header` parameter.",
+																Computed:            true,
 															},
 															"log": dsschema.BoolAttribute{
-																Description: "",
-																Computed:    true,
+																Description:         "The `log` parameter.",
+																MarkdownDescription: "The `log` parameter.",
+																Computed:            true,
 															},
 															"name": dsschema.StringAttribute{
-																Description: "",
-																Computed:    true,
+																Description:         "The `name` parameter.",
+																MarkdownDescription: "The `name` parameter.",
+																Computed:            true,
 															},
 															"value": dsschema.StringAttribute{
-																Description: "",
-																Computed:    true,
+																Description:         "The `value` parameter.",
+																MarkdownDescription: "The `value` parameter.",
+																Computed:            true,
 															},
 														},
 													},
 												},
 												"name": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `name` parameter.",
+													MarkdownDescription: "The `name` parameter.",
+													Computed:            true,
 												},
 											},
 										},
@@ -181,19 +198,22 @@ func (d *httpHeaderProfilesListDataSource) Schema(_ context.Context, _ datasourc
 							},
 						},
 						"object_id": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `object_id` parameter.",
+							MarkdownDescription: "The `object_id` parameter.",
+							Computed:            true,
 						},
 						"name": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `name` parameter.",
+							MarkdownDescription: "The `name` parameter.",
+							Computed:            true,
 						},
 					},
 				},
 			},
 			"total": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `total` parameter.",
+				MarkdownDescription: "The `total` parameter.",
+				Computed:            true,
 			},
 		},
 	}
@@ -391,18 +411,21 @@ func (d *httpHeaderProfilesDataSource) Schema(_ context.Context, _ datasource.Sc
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description: "The uuid of the resource",
-				Required:    true,
+				Description:         "The uuid of the resource",
+				MarkdownDescription: "The uuid of the resource",
+				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -410,55 +433,66 @@ func (d *httpHeaderProfilesDataSource) Schema(_ context.Context, _ datasource.Sc
 
 			// Output.
 			"description": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `description` parameter.",
+				MarkdownDescription: "The `description` parameter.",
+				Computed:            true,
 			},
 			"http_header_insertion": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `http_header_insertion` parameter.",
+				MarkdownDescription: "The `http_header_insertion` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"name": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `name` parameter.",
+							MarkdownDescription: "The `name` parameter.",
+							Computed:            true,
 						},
 						"type": dsschema.ListNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `type` parameter.",
+							MarkdownDescription: "The `type` parameter.",
+							Computed:            true,
 							NestedObject: dsschema.NestedAttributeObject{
 								Attributes: map[string]dsschema.Attribute{
 									"domains": dsschema.ListAttribute{
-										Description: "",
-										Computed:    true,
-										ElementType: types.StringType,
+										Description:         "The `domains` parameter.",
+										MarkdownDescription: "The `domains` parameter.",
+										Computed:            true,
+										ElementType:         types.StringType,
 									},
 									"headers": dsschema.ListNestedAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `headers` parameter.",
+										MarkdownDescription: "The `headers` parameter.",
+										Computed:            true,
 										NestedObject: dsschema.NestedAttributeObject{
 											Attributes: map[string]dsschema.Attribute{
 												"header": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `header` parameter.",
+													MarkdownDescription: "The `header` parameter.",
+													Computed:            true,
 												},
 												"log": dsschema.BoolAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `log` parameter.",
+													MarkdownDescription: "The `log` parameter.",
+													Computed:            true,
 												},
 												"name": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `name` parameter.",
+													MarkdownDescription: "The `name` parameter.",
+													Computed:            true,
 												},
 												"value": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `value` parameter.",
+													MarkdownDescription: "The `value` parameter.",
+													Computed:            true,
 												},
 											},
 										},
 									},
 									"name": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `name` parameter.",
+										MarkdownDescription: "The `name` parameter.",
+										Computed:            true,
 									},
 								},
 							},
@@ -467,8 +501,9 @@ func (d *httpHeaderProfilesDataSource) Schema(_ context.Context, _ datasource.Sc
 				},
 			},
 			"name": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `name` parameter.",
+				MarkdownDescription: "The `name` parameter.",
+				Computed:            true,
 			},
 		},
 	}
@@ -622,8 +657,9 @@ func (r *httpHeaderProfilesResource) Schema(_ context.Context, _ resource.Schema
 
 		Attributes: map[string]rsschema.Attribute{
 			"id": rsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
@@ -631,71 +667,83 @@ func (r *httpHeaderProfilesResource) Schema(_ context.Context, _ resource.Schema
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
 			},
 
 			"description": rsschema.StringAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `description` parameter.",
+				MarkdownDescription: "The `description` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					DefaultString(""),
 				},
 			},
 			"http_header_insertion": rsschema.ListNestedAttribute{
-				Description: "",
-				Optional:    true,
+				Description:         "The `http_header_insertion` parameter.",
+				MarkdownDescription: "The `http_header_insertion` parameter.",
+				Optional:            true,
 				NestedObject: rsschema.NestedAttributeObject{
 					Attributes: map[string]rsschema.Attribute{
 						"name": rsschema.StringAttribute{
-							Description: "",
-							Required:    true,
+							Description:         "The `name` parameter.",
+							MarkdownDescription: "The `name` parameter.",
+							Required:            true,
 						},
 						"type": rsschema.ListNestedAttribute{
-							Description: "",
-							Required:    true,
+							Description:         "The `type` parameter.",
+							MarkdownDescription: "The `type` parameter.",
+							Required:            true,
 							NestedObject: rsschema.NestedAttributeObject{
 								Attributes: map[string]rsschema.Attribute{
 									"domains": rsschema.ListAttribute{
-										Description: "",
-										Required:    true,
-										ElementType: types.StringType,
+										Description:         "The `domains` parameter.",
+										MarkdownDescription: "The `domains` parameter.",
+										Required:            true,
+										ElementType:         types.StringType,
 									},
 									"headers": rsschema.ListNestedAttribute{
-										Description: "",
-										Required:    true,
+										Description:         "The `headers` parameter.",
+										MarkdownDescription: "The `headers` parameter.",
+										Required:            true,
 										NestedObject: rsschema.NestedAttributeObject{
 											Attributes: map[string]rsschema.Attribute{
 												"header": rsschema.StringAttribute{
-													Description: "",
-													Required:    true,
+													Description:         "The `header` parameter.",
+													MarkdownDescription: "The `header` parameter.",
+													Required:            true,
 												},
 												"log": rsschema.BoolAttribute{
-													Description: "",
-													Optional:    true,
-													Computed:    true,
+													Description:         "The `log` parameter.",
+													MarkdownDescription: "The `log` parameter.",
+													Optional:            true,
+													Computed:            true,
 													PlanModifiers: []planmodifier.Bool{
 														DefaultBool(false),
 													},
 												},
 												"name": rsschema.StringAttribute{
-													Description: "",
-													Required:    true,
+													Description:         "The `name` parameter.",
+													MarkdownDescription: "The `name` parameter.",
+													Required:            true,
 												},
 												"value": rsschema.StringAttribute{
-													Description: "",
-													Required:    true,
+													Description:         "The `value` parameter.",
+													MarkdownDescription: "The `value` parameter.",
+													Required:            true,
 												},
 											},
 										},
 									},
 									"name": rsschema.StringAttribute{
-										Description: "",
-										Required:    true,
+										Description:         "The `name` parameter.",
+										MarkdownDescription: "The `name` parameter.",
+										Required:            true,
 									},
 								},
 							},
@@ -704,15 +752,17 @@ func (r *httpHeaderProfilesResource) Schema(_ context.Context, _ resource.Schema
 				},
 			},
 			"object_id": rsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `object_id` parameter.",
+				MarkdownDescription: "The `object_id` parameter.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
 			},
 			"name": rsschema.StringAttribute{
-				Description: "",
-				Required:    true,
+				Description:         "The `name` parameter.",
+				MarkdownDescription: "The `name` parameter.",
+				Required:            true,
 			},
 		},
 	}

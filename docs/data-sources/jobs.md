@@ -21,29 +21,29 @@ Retrieves config for a specific item.
 
 ### Read-Only
 
-- `details` (String)
-- `end_ts` (String)
+- `details` (String) The `details` parameter.
+- `end_ts` (String) The `end_ts` parameter.
 - `id` (String) The object ID.
-- `insert_ts` (String)
-- `job_result` (String)
-- `job_status` (String)
-- `job_type` (String)
-- `last_update` (String)
-- `object_id` (String)
-- `opaque_int` (String)
-- `opaque_str` (String)
-- `owner` (String)
-- `parent_id` (String)
-- `percent` (String)
-- `result_i` (String)
-- `result_str` (String)
-- `session_id` (String)
-- `start_ts` (String)
-- `status_i` (String)
-- `status_str` (String)
-- `summary` (String)
-- `type_i` (String)
-- `type_str` (String)
-- `uname` (String)
+- `insert_ts` (String) The `insert_ts` parameter.
+- `job_result` (String) The `job_result` parameter.
+- `job_status` (String) The `job_status` parameter.
+- `job_type` (String) The `job_type` parameter.
+- `last_update` (String) The `last_update` parameter.
+- `object_id` (String) The `object_id` parameter.
+- `opaque_int` (String) The `opaque_int` parameter.
+- `opaque_str` (String) The `opaque_str` parameter.
+- `owner` (String) The `owner` parameter.
+- `parent_id` (String) The `parent_id` parameter.
+- `percent` (String) The `percent` parameter.
+- `result_i` (String) The `result_i` parameter.
+- `result_str` (String) The `result_str` parameter.
+- `session_id` (String) The `session_id` parameter.
+- `start_ts` (String) The `start_ts` parameter.
+- `status_i` (String) The `status_i` parameter.
+- `status_str` (String) The `status_str` parameter.
+- `summary` (String) The `summary` parameter.
+- `type_i` (String) The `type_i` parameter.
+- `type_str` (String) The `type_str` parameter.
+- `uname` (String) The `uname` parameter.
 
 

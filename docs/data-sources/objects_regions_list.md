@@ -27,26 +27,26 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `address` (List of String)
-- `geo_location` (Attributes) (see [below for nested schema](#nestedatt--data--geo_location))
-- `name` (String)
-- `object_id` (String)
+- `address` (List of String) The `address` parameter.
+- `geo_location` (Attributes) The `geo_location` parameter. (see [below for nested schema](#nestedatt--data--geo_location))
+- `name` (String) The `name` parameter.
+- `object_id` (String) The `object_id` parameter.
 
 <a id="nestedatt--data--geo_location"></a>
 ### Nested Schema for `data.geo_location`
 
 Read-Only:
 
-- `latitude` (Number)
-- `longitude` (Number)
+- `latitude` (Number) The `latitude` parameter.
+- `longitude` (Number) The `longitude` parameter.
 
 

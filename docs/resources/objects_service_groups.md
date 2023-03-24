@@ -18,16 +18,16 @@ Retrieves config for a specific item.
 ### Required
 
 - `folder` (String) The folder of the entry
-- `members` (List of String)
-- `name` (String)
+- `members` (List of String) The `members` parameter.
+- `name` (String) The `name` parameter.
 
 ### Optional
 
-- `tag` (List of String)
+- `tag` (List of String) The `tag` parameter.
 
 ### Read-Only
 
 - `id` (String) The object ID.
-- `object_id` (String)
+- `object_id` (String) The `object_id` parameter.
 
 

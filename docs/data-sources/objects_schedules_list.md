@@ -27,46 +27,46 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `name` (String)
-- `object_id` (String)
-- `schedule_type` (Attributes) (see [below for nested schema](#nestedatt--data--schedule_type))
+- `name` (String) The `name` parameter.
+- `object_id` (String) The `object_id` parameter.
+- `schedule_type` (Attributes) The `schedule_type` parameter. (see [below for nested schema](#nestedatt--data--schedule_type))
 
 <a id="nestedatt--data--schedule_type"></a>
 ### Nested Schema for `data.schedule_type`
 
 Read-Only:
 
-- `non_recurring` (List of String)
-- `recurring` (Attributes) (see [below for nested schema](#nestedatt--data--schedule_type--recurring))
+- `non_recurring` (List of String) The `non_recurring` parameter.
+- `recurring` (Attributes) The `recurring` parameter. (see [below for nested schema](#nestedatt--data--schedule_type--recurring))
 
 <a id="nestedatt--data--schedule_type--recurring"></a>
 ### Nested Schema for `data.schedule_type.recurring`
 
 Read-Only:
 
-- `daily` (List of String)
-- `weekly` (Attributes) (see [below for nested schema](#nestedatt--data--schedule_type--recurring--weekly))
+- `daily` (List of String) The `daily` parameter.
+- `weekly` (Attributes) The `weekly` parameter. (see [below for nested schema](#nestedatt--data--schedule_type--recurring--weekly))
 
 <a id="nestedatt--data--schedule_type--recurring--weekly"></a>
 ### Nested Schema for `data.schedule_type.recurring.weekly`
 
 Read-Only:
 
-- `friday` (List of String)
-- `monday` (List of String)
-- `saturday` (List of String)
-- `sunday` (List of String)
-- `thursday` (List of String)
-- `tuesday` (List of String)
-- `wednesday` (List of String)
+- `friday` (List of String) The `friday` parameter.
+- `monday` (List of String) The `monday` parameter.
+- `saturday` (List of String) The `saturday` parameter.
+- `sunday` (List of String) The `sunday` parameter.
+- `thursday` (List of String) The `thursday` parameter.
+- `tuesday` (List of String) The `tuesday` parameter.
+- `wednesday` (List of String) The `wednesday` parameter.
 
 

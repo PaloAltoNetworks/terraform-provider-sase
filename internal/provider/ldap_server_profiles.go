@@ -86,105 +86,126 @@ func (d *ldapServerProfilesListDataSource) Schema(_ context.Context, _ datasourc
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description: "The max count in result entry (count per page)",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The max count in result entry (count per page)",
+				MarkdownDescription: "The max count in result entry (count per page)",
+				Optional:            true,
+				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description: "The offset of the result entry",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The offset of the result entry",
+				MarkdownDescription: "The offset of the result entry",
+				Optional:            true,
+				Computed:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
 			},
 			"name": dsschema.StringAttribute{
-				Description: "The name of the entry",
-				Optional:    true,
+				Description:         "The name of the entry",
+				MarkdownDescription: "The name of the entry",
+				Optional:            true,
 			},
 
 			// Output.
 			"data": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `data` parameter.",
+				MarkdownDescription: "The `data` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"base": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `base` parameter.",
+							MarkdownDescription: "The `base` parameter.",
+							Computed:            true,
 						},
 						"bind_dn": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `bind_dn` parameter.",
+							MarkdownDescription: "The `bind_dn` parameter.",
+							Computed:            true,
 						},
 						"bind_password": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `bind_password` parameter.",
+							MarkdownDescription: "The `bind_password` parameter.",
+							Computed:            true,
 						},
 						"bind_timelimit": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `bind_timelimit` parameter.",
+							MarkdownDescription: "The `bind_timelimit` parameter.",
+							Computed:            true,
 						},
 						"object_id": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `object_id` parameter.",
+							MarkdownDescription: "The `object_id` parameter.",
+							Computed:            true,
 						},
 						"ldap_type": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `ldap_type` parameter.",
+							MarkdownDescription: "The `ldap_type` parameter.",
+							Computed:            true,
 						},
 						"retry_interval": dsschema.Int64Attribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `retry_interval` parameter.",
+							MarkdownDescription: "The `retry_interval` parameter.",
+							Computed:            true,
 						},
 						"server": dsschema.ListNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `server` parameter.",
+							MarkdownDescription: "The `server` parameter.",
+							Computed:            true,
 							NestedObject: dsschema.NestedAttributeObject{
 								Attributes: map[string]dsschema.Attribute{
 									"address": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `address` parameter.",
+										MarkdownDescription: "The `address` parameter.",
+										Computed:            true,
 									},
 									"name": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `name` parameter.",
+										MarkdownDescription: "The `name` parameter.",
+										Computed:            true,
 									},
 									"port": dsschema.Int64Attribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `port` parameter.",
+										MarkdownDescription: "The `port` parameter.",
+										Computed:            true,
 									},
 								},
 							},
 						},
 						"ssl": dsschema.BoolAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `ssl` parameter.",
+							MarkdownDescription: "The `ssl` parameter.",
+							Computed:            true,
 						},
 						"timelimit": dsschema.Int64Attribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `timelimit` parameter.",
+							MarkdownDescription: "The `timelimit` parameter.",
+							Computed:            true,
 						},
 						"verify_server_certificate": dsschema.BoolAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `verify_server_certificate` parameter.",
+							MarkdownDescription: "The `verify_server_certificate` parameter.",
+							Computed:            true,
 						},
 					},
 				},
 			},
 			"total": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `total` parameter.",
+				MarkdownDescription: "The `total` parameter.",
+				Computed:            true,
 			},
 		},
 	}
@@ -360,18 +381,21 @@ func (d *ldapServerProfilesDataSource) Schema(_ context.Context, _ datasource.Sc
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description: "The uuid of the resource",
-				Required:    true,
+				Description:         "The uuid of the resource",
+				MarkdownDescription: "The uuid of the resource",
+				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -379,60 +403,73 @@ func (d *ldapServerProfilesDataSource) Schema(_ context.Context, _ datasource.Sc
 
 			// Output.
 			"base": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `base` parameter.",
+				MarkdownDescription: "The `base` parameter.",
+				Computed:            true,
 			},
 			"bind_dn": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `bind_dn` parameter.",
+				MarkdownDescription: "The `bind_dn` parameter.",
+				Computed:            true,
 			},
 			"bind_password": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `bind_password` parameter.",
+				MarkdownDescription: "The `bind_password` parameter.",
+				Computed:            true,
 			},
 			"bind_timelimit": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `bind_timelimit` parameter.",
+				MarkdownDescription: "The `bind_timelimit` parameter.",
+				Computed:            true,
 			},
 			"ldap_type": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `ldap_type` parameter.",
+				MarkdownDescription: "The `ldap_type` parameter.",
+				Computed:            true,
 			},
 			"retry_interval": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `retry_interval` parameter.",
+				MarkdownDescription: "The `retry_interval` parameter.",
+				Computed:            true,
 			},
 			"server": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `server` parameter.",
+				MarkdownDescription: "The `server` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"address": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `address` parameter.",
+							MarkdownDescription: "The `address` parameter.",
+							Computed:            true,
 						},
 						"name": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `name` parameter.",
+							MarkdownDescription: "The `name` parameter.",
+							Computed:            true,
 						},
 						"port": dsschema.Int64Attribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `port` parameter.",
+							MarkdownDescription: "The `port` parameter.",
+							Computed:            true,
 						},
 					},
 				},
 			},
 			"ssl": dsschema.BoolAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `ssl` parameter.",
+				MarkdownDescription: "The `ssl` parameter.",
+				Computed:            true,
 			},
 			"timelimit": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `timelimit` parameter.",
+				MarkdownDescription: "The `timelimit` parameter.",
+				Computed:            true,
 			},
 			"verify_server_certificate": dsschema.BoolAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `verify_server_certificate` parameter.",
+				MarkdownDescription: "The `verify_server_certificate` parameter.",
+				Computed:            true,
 			},
 		},
 	}
@@ -564,8 +601,9 @@ func (r *ldapServerProfilesResource) Schema(_ context.Context, _ resource.Schema
 
 		Attributes: map[string]rsschema.Attribute{
 			"id": rsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
@@ -573,17 +611,19 @@ func (r *ldapServerProfilesResource) Schema(_ context.Context, _ resource.Schema
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
 			},
 
 			"base": rsschema.StringAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `base` parameter.",
+				MarkdownDescription: "The `base` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					DefaultString(""),
 				},
@@ -592,9 +632,10 @@ func (r *ldapServerProfilesResource) Schema(_ context.Context, _ resource.Schema
 				},
 			},
 			"bind_dn": rsschema.StringAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `bind_dn` parameter.",
+				MarkdownDescription: "The `bind_dn` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					DefaultString(""),
 				},
@@ -603,9 +644,10 @@ func (r *ldapServerProfilesResource) Schema(_ context.Context, _ resource.Schema
 				},
 			},
 			"bind_password": rsschema.StringAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `bind_password` parameter.",
+				MarkdownDescription: "The `bind_password` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					DefaultString(""),
 				},
@@ -614,24 +656,27 @@ func (r *ldapServerProfilesResource) Schema(_ context.Context, _ resource.Schema
 				},
 			},
 			"bind_timelimit": rsschema.StringAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `bind_timelimit` parameter.",
+				MarkdownDescription: "The `bind_timelimit` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					DefaultString(""),
 				},
 			},
 			"object_id": rsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `object_id` parameter.",
+				MarkdownDescription: "The `object_id` parameter.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
 			},
 			"ldap_type": rsschema.StringAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `ldap_type` parameter.",
+				MarkdownDescription: "The `ldap_type` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					DefaultString(""),
 				},
@@ -640,38 +685,43 @@ func (r *ldapServerProfilesResource) Schema(_ context.Context, _ resource.Schema
 				},
 			},
 			"retry_interval": rsschema.Int64Attribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `retry_interval` parameter.",
+				MarkdownDescription: "The `retry_interval` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.Int64{
 					DefaultInt64(0),
 				},
 			},
 			"server": rsschema.ListNestedAttribute{
-				Description: "",
-				Required:    true,
+				Description:         "The `server` parameter.",
+				MarkdownDescription: "The `server` parameter.",
+				Required:            true,
 				NestedObject: rsschema.NestedAttributeObject{
 					Attributes: map[string]rsschema.Attribute{
 						"address": rsschema.StringAttribute{
-							Description: "",
-							Optional:    true,
-							Computed:    true,
+							Description:         "The `address` parameter.",
+							MarkdownDescription: "The `address` parameter.",
+							Optional:            true,
+							Computed:            true,
 							PlanModifiers: []planmodifier.String{
 								DefaultString(""),
 							},
 						},
 						"name": rsschema.StringAttribute{
-							Description: "",
-							Optional:    true,
-							Computed:    true,
+							Description:         "The `name` parameter.",
+							MarkdownDescription: "The `name` parameter.",
+							Optional:            true,
+							Computed:            true,
 							PlanModifiers: []planmodifier.String{
 								DefaultString(""),
 							},
 						},
 						"port": rsschema.Int64Attribute{
-							Description: "",
-							Optional:    true,
-							Computed:    true,
+							Description:         "The `port` parameter.",
+							MarkdownDescription: "The `port` parameter.",
+							Optional:            true,
+							Computed:            true,
 							PlanModifiers: []planmodifier.Int64{
 								DefaultInt64(0),
 							},
@@ -683,25 +733,28 @@ func (r *ldapServerProfilesResource) Schema(_ context.Context, _ resource.Schema
 				},
 			},
 			"ssl": rsschema.BoolAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `ssl` parameter.",
+				MarkdownDescription: "The `ssl` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.Bool{
 					DefaultBool(false),
 				},
 			},
 			"timelimit": rsschema.Int64Attribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `timelimit` parameter.",
+				MarkdownDescription: "The `timelimit` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.Int64{
 					DefaultInt64(0),
 				},
 			},
 			"verify_server_certificate": rsschema.BoolAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `verify_server_certificate` parameter.",
+				MarkdownDescription: "The `verify_server_certificate` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.Bool{
 					DefaultBool(false),
 				},

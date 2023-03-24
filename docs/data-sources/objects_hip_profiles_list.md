@@ -27,18 +27,18 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `description` (String)
-- `match` (String)
-- `name` (String)
-- `object_id` (String)
+- `description` (String) The `description` parameter.
+- `match` (String) The `match` parameter.
+- `name` (String) The `name` parameter.
+- `object_id` (String) The `object_id` parameter.
 
 

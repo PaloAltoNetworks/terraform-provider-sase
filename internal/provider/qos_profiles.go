@@ -102,28 +102,33 @@ func (d *qosProfilesListDataSource) Schema(_ context.Context, _ datasource.Schem
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description: "The max count in result entry (count per page)",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The max count in result entry (count per page)",
+				MarkdownDescription: "The max count in result entry (count per page)",
+				Optional:            true,
+				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description: "The offset of the result entry",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The offset of the result entry",
+				MarkdownDescription: "The offset of the result entry",
+				Optional:            true,
+				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description: "The name of the entry",
-				Optional:    true,
+				Description:         "The name of the entry",
+				MarkdownDescription: "The name of the entry",
+				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -131,58 +136,70 @@ func (d *qosProfilesListDataSource) Schema(_ context.Context, _ datasource.Schem
 
 			// Output.
 			"data": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `data` parameter.",
+				MarkdownDescription: "The `data` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"aggregate_bandwidth": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `aggregate_bandwidth` parameter.",
+							MarkdownDescription: "The `aggregate_bandwidth` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"egress_guaranteed": dsschema.Int64Attribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `egress_guaranteed` parameter.",
+									MarkdownDescription: "The `egress_guaranteed` parameter.",
+									Computed:            true,
 								},
 								"egress_max": dsschema.Int64Attribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `egress_max` parameter.",
+									MarkdownDescription: "The `egress_max` parameter.",
+									Computed:            true,
 								},
 							},
 						},
 						"class_bandwidth_type": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `class_bandwidth_type` parameter.",
+							MarkdownDescription: "The `class_bandwidth_type` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"mbps": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `mbps` parameter.",
+									MarkdownDescription: "The `mbps` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"class": dsschema.ListNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `class` parameter.",
+											MarkdownDescription: "The `class` parameter.",
+											Computed:            true,
 											NestedObject: dsschema.NestedAttributeObject{
 												Attributes: map[string]dsschema.Attribute{
 													"class_bandwidth": dsschema.SingleNestedAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `class_bandwidth` parameter.",
+														MarkdownDescription: "The `class_bandwidth` parameter.",
+														Computed:            true,
 														Attributes: map[string]dsschema.Attribute{
 															"egress_guaranteed": dsschema.Int64Attribute{
-																Description: "",
-																Computed:    true,
+																Description:         "The `egress_guaranteed` parameter.",
+																MarkdownDescription: "The `egress_guaranteed` parameter.",
+																Computed:            true,
 															},
 															"egress_max": dsschema.Int64Attribute{
-																Description: "",
-																Computed:    true,
+																Description:         "The `egress_max` parameter.",
+																MarkdownDescription: "The `egress_max` parameter.",
+																Computed:            true,
 															},
 														},
 													},
 													"name": dsschema.StringAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `name` parameter.",
+														MarkdownDescription: "The `name` parameter.",
+														Computed:            true,
 													},
 													"priority": dsschema.StringAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `priority` parameter.",
+														MarkdownDescription: "The `priority` parameter.",
+														Computed:            true,
 													},
 												},
 											},
@@ -190,35 +207,42 @@ func (d *qosProfilesListDataSource) Schema(_ context.Context, _ datasource.Schem
 									},
 								},
 								"percentage": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `percentage` parameter.",
+									MarkdownDescription: "The `percentage` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"class": dsschema.ListNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `class` parameter.",
+											MarkdownDescription: "The `class` parameter.",
+											Computed:            true,
 											NestedObject: dsschema.NestedAttributeObject{
 												Attributes: map[string]dsschema.Attribute{
 													"class_bandwidth": dsschema.SingleNestedAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `class_bandwidth` parameter.",
+														MarkdownDescription: "The `class_bandwidth` parameter.",
+														Computed:            true,
 														Attributes: map[string]dsschema.Attribute{
 															"egress_guaranteed": dsschema.Int64Attribute{
-																Description: "",
-																Computed:    true,
+																Description:         "The `egress_guaranteed` parameter.",
+																MarkdownDescription: "The `egress_guaranteed` parameter.",
+																Computed:            true,
 															},
 															"egress_max": dsschema.Int64Attribute{
-																Description: "",
-																Computed:    true,
+																Description:         "The `egress_max` parameter.",
+																MarkdownDescription: "The `egress_max` parameter.",
+																Computed:            true,
 															},
 														},
 													},
 													"name": dsschema.StringAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `name` parameter.",
+														MarkdownDescription: "The `name` parameter.",
+														Computed:            true,
 													},
 													"priority": dsschema.StringAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `priority` parameter.",
+														MarkdownDescription: "The `priority` parameter.",
+														Computed:            true,
 													},
 												},
 											},
@@ -228,19 +252,22 @@ func (d *qosProfilesListDataSource) Schema(_ context.Context, _ datasource.Schem
 							},
 						},
 						"object_id": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `object_id` parameter.",
+							MarkdownDescription: "The `object_id` parameter.",
+							Computed:            true,
 						},
 						"name": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `name` parameter.",
+							MarkdownDescription: "The `name` parameter.",
+							Computed:            true,
 						},
 					},
 				},
 			},
 			"total": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `total` parameter.",
+				MarkdownDescription: "The `total` parameter.",
+				Computed:            true,
 			},
 		},
 	}
@@ -471,18 +498,21 @@ func (d *qosProfilesDataSource) Schema(_ context.Context, _ datasource.SchemaReq
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description: "The uuid of the resource",
-				Required:    true,
+				Description:         "The uuid of the resource",
+				MarkdownDescription: "The uuid of the resource",
+				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -490,53 +520,64 @@ func (d *qosProfilesDataSource) Schema(_ context.Context, _ datasource.SchemaReq
 
 			// Output.
 			"aggregate_bandwidth": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `aggregate_bandwidth` parameter.",
+				MarkdownDescription: "The `aggregate_bandwidth` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"egress_guaranteed": dsschema.Int64Attribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `egress_guaranteed` parameter.",
+						MarkdownDescription: "The `egress_guaranteed` parameter.",
+						Computed:            true,
 					},
 					"egress_max": dsschema.Int64Attribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `egress_max` parameter.",
+						MarkdownDescription: "The `egress_max` parameter.",
+						Computed:            true,
 					},
 				},
 			},
 			"class_bandwidth_type": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `class_bandwidth_type` parameter.",
+				MarkdownDescription: "The `class_bandwidth_type` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"mbps": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `mbps` parameter.",
+						MarkdownDescription: "The `mbps` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"class": dsschema.ListNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `class` parameter.",
+								MarkdownDescription: "The `class` parameter.",
+								Computed:            true,
 								NestedObject: dsschema.NestedAttributeObject{
 									Attributes: map[string]dsschema.Attribute{
 										"class_bandwidth": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `class_bandwidth` parameter.",
+											MarkdownDescription: "The `class_bandwidth` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"egress_guaranteed": dsschema.Int64Attribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `egress_guaranteed` parameter.",
+													MarkdownDescription: "The `egress_guaranteed` parameter.",
+													Computed:            true,
 												},
 												"egress_max": dsschema.Int64Attribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `egress_max` parameter.",
+													MarkdownDescription: "The `egress_max` parameter.",
+													Computed:            true,
 												},
 											},
 										},
 										"name": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `name` parameter.",
+											MarkdownDescription: "The `name` parameter.",
+											Computed:            true,
 										},
 										"priority": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `priority` parameter.",
+											MarkdownDescription: "The `priority` parameter.",
+											Computed:            true,
 										},
 									},
 								},
@@ -544,35 +585,42 @@ func (d *qosProfilesDataSource) Schema(_ context.Context, _ datasource.SchemaReq
 						},
 					},
 					"percentage": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `percentage` parameter.",
+						MarkdownDescription: "The `percentage` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"class": dsschema.ListNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `class` parameter.",
+								MarkdownDescription: "The `class` parameter.",
+								Computed:            true,
 								NestedObject: dsschema.NestedAttributeObject{
 									Attributes: map[string]dsschema.Attribute{
 										"class_bandwidth": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `class_bandwidth` parameter.",
+											MarkdownDescription: "The `class_bandwidth` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"egress_guaranteed": dsschema.Int64Attribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `egress_guaranteed` parameter.",
+													MarkdownDescription: "The `egress_guaranteed` parameter.",
+													Computed:            true,
 												},
 												"egress_max": dsschema.Int64Attribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `egress_max` parameter.",
+													MarkdownDescription: "The `egress_max` parameter.",
+													Computed:            true,
 												},
 											},
 										},
 										"name": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `name` parameter.",
+											MarkdownDescription: "The `name` parameter.",
+											Computed:            true,
 										},
 										"priority": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `priority` parameter.",
+											MarkdownDescription: "The `priority` parameter.",
+											Computed:            true,
 										},
 									},
 								},
@@ -582,8 +630,9 @@ func (d *qosProfilesDataSource) Schema(_ context.Context, _ datasource.SchemaReq
 				},
 			},
 			"name": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `name` parameter.",
+				MarkdownDescription: "The `name` parameter.",
+				Computed:            true,
 			},
 		},
 	}
@@ -770,8 +819,9 @@ func (r *qosProfilesResource) Schema(_ context.Context, _ resource.SchemaRequest
 
 		Attributes: map[string]rsschema.Attribute{
 			"id": rsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
@@ -779,21 +829,24 @@ func (r *qosProfilesResource) Schema(_ context.Context, _ resource.SchemaRequest
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
 			},
 
 			"aggregate_bandwidth": rsschema.SingleNestedAttribute{
-				Description: "",
-				Optional:    true,
+				Description:         "The `aggregate_bandwidth` parameter.",
+				MarkdownDescription: "The `aggregate_bandwidth` parameter.",
+				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"egress_guaranteed": rsschema.Int64Attribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `egress_guaranteed` parameter.",
+						MarkdownDescription: "The `egress_guaranteed` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.Int64{
 							DefaultInt64(0),
 						},
@@ -802,9 +855,10 @@ func (r *qosProfilesResource) Schema(_ context.Context, _ resource.SchemaRequest
 						},
 					},
 					"egress_max": rsschema.Int64Attribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `egress_max` parameter.",
+						MarkdownDescription: "The `egress_max` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.Int64{
 							DefaultInt64(0),
 						},
@@ -815,26 +869,31 @@ func (r *qosProfilesResource) Schema(_ context.Context, _ resource.SchemaRequest
 				},
 			},
 			"class_bandwidth_type": rsschema.SingleNestedAttribute{
-				Description: "",
-				Optional:    true,
+				Description:         "The `class_bandwidth_type` parameter.",
+				MarkdownDescription: "The `class_bandwidth_type` parameter.",
+				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"mbps": rsschema.SingleNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `mbps` parameter.",
+						MarkdownDescription: "The `mbps` parameter.",
+						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"class": rsschema.ListNestedAttribute{
-								Description: "",
-								Optional:    true,
+								Description:         "The `class` parameter.",
+								MarkdownDescription: "The `class` parameter.",
+								Optional:            true,
 								NestedObject: rsschema.NestedAttributeObject{
 									Attributes: map[string]rsschema.Attribute{
 										"class_bandwidth": rsschema.SingleNestedAttribute{
-											Description: "",
-											Optional:    true,
+											Description:         "The `class_bandwidth` parameter.",
+											MarkdownDescription: "The `class_bandwidth` parameter.",
+											Optional:            true,
 											Attributes: map[string]rsschema.Attribute{
 												"egress_guaranteed": rsschema.Int64Attribute{
-													Description: "",
-													Optional:    true,
-													Computed:    true,
+													Description:         "The `egress_guaranteed` parameter.",
+													MarkdownDescription: "The `egress_guaranteed` parameter.",
+													Optional:            true,
+													Computed:            true,
 													PlanModifiers: []planmodifier.Int64{
 														DefaultInt64(0),
 													},
@@ -843,9 +902,10 @@ func (r *qosProfilesResource) Schema(_ context.Context, _ resource.SchemaRequest
 													},
 												},
 												"egress_max": rsschema.Int64Attribute{
-													Description: "",
-													Optional:    true,
-													Computed:    true,
+													Description:         "The `egress_max` parameter.",
+													MarkdownDescription: "The `egress_max` parameter.",
+													Optional:            true,
+													Computed:            true,
 													PlanModifiers: []planmodifier.Int64{
 														DefaultInt64(0),
 													},
@@ -856,9 +916,10 @@ func (r *qosProfilesResource) Schema(_ context.Context, _ resource.SchemaRequest
 											},
 										},
 										"name": rsschema.StringAttribute{
-											Description: "",
-											Optional:    true,
-											Computed:    true,
+											Description:         "The `name` parameter.",
+											MarkdownDescription: "The `name` parameter.",
+											Optional:            true,
+											Computed:            true,
 											PlanModifiers: []planmodifier.String{
 												DefaultString(""),
 											},
@@ -867,9 +928,10 @@ func (r *qosProfilesResource) Schema(_ context.Context, _ resource.SchemaRequest
 											},
 										},
 										"priority": rsschema.StringAttribute{
-											Description: "",
-											Optional:    true,
-											Computed:    true,
+											Description:         "The `priority` parameter.",
+											MarkdownDescription: "The `priority` parameter.",
+											Optional:            true,
+											Computed:            true,
 											PlanModifiers: []planmodifier.String{
 												DefaultString("medium"),
 											},
@@ -883,22 +945,26 @@ func (r *qosProfilesResource) Schema(_ context.Context, _ resource.SchemaRequest
 						},
 					},
 					"percentage": rsschema.SingleNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `percentage` parameter.",
+						MarkdownDescription: "The `percentage` parameter.",
+						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"class": rsschema.ListNestedAttribute{
-								Description: "",
-								Optional:    true,
+								Description:         "The `class` parameter.",
+								MarkdownDescription: "The `class` parameter.",
+								Optional:            true,
 								NestedObject: rsschema.NestedAttributeObject{
 									Attributes: map[string]rsschema.Attribute{
 										"class_bandwidth": rsschema.SingleNestedAttribute{
-											Description: "",
-											Optional:    true,
+											Description:         "The `class_bandwidth` parameter.",
+											MarkdownDescription: "The `class_bandwidth` parameter.",
+											Optional:            true,
 											Attributes: map[string]rsschema.Attribute{
 												"egress_guaranteed": rsschema.Int64Attribute{
-													Description: "",
-													Optional:    true,
-													Computed:    true,
+													Description:         "The `egress_guaranteed` parameter.",
+													MarkdownDescription: "The `egress_guaranteed` parameter.",
+													Optional:            true,
+													Computed:            true,
 													PlanModifiers: []planmodifier.Int64{
 														DefaultInt64(0),
 													},
@@ -907,9 +973,10 @@ func (r *qosProfilesResource) Schema(_ context.Context, _ resource.SchemaRequest
 													},
 												},
 												"egress_max": rsschema.Int64Attribute{
-													Description: "",
-													Optional:    true,
-													Computed:    true,
+													Description:         "The `egress_max` parameter.",
+													MarkdownDescription: "The `egress_max` parameter.",
+													Optional:            true,
+													Computed:            true,
 													PlanModifiers: []planmodifier.Int64{
 														DefaultInt64(0),
 													},
@@ -920,9 +987,10 @@ func (r *qosProfilesResource) Schema(_ context.Context, _ resource.SchemaRequest
 											},
 										},
 										"name": rsschema.StringAttribute{
-											Description: "",
-											Optional:    true,
-											Computed:    true,
+											Description:         "The `name` parameter.",
+											MarkdownDescription: "The `name` parameter.",
+											Optional:            true,
+											Computed:            true,
 											PlanModifiers: []planmodifier.String{
 												DefaultString(""),
 											},
@@ -931,9 +999,10 @@ func (r *qosProfilesResource) Schema(_ context.Context, _ resource.SchemaRequest
 											},
 										},
 										"priority": rsschema.StringAttribute{
-											Description: "",
-											Optional:    true,
-											Computed:    true,
+											Description:         "The `priority` parameter.",
+											MarkdownDescription: "The `priority` parameter.",
+											Optional:            true,
+											Computed:            true,
 											PlanModifiers: []planmodifier.String{
 												DefaultString("medium"),
 											},
@@ -949,15 +1018,17 @@ func (r *qosProfilesResource) Schema(_ context.Context, _ resource.SchemaRequest
 				},
 			},
 			"object_id": rsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `object_id` parameter.",
+				MarkdownDescription: "The `object_id` parameter.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
 			},
 			"name": rsschema.StringAttribute{
-				Description: "",
-				Required:    true,
+				Description:         "The `name` parameter.",
+				MarkdownDescription: "The `name` parameter.",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(31),
 				},

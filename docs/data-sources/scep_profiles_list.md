@@ -27,43 +27,43 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `algorithm` (Attributes) (see [below for nested schema](#nestedatt--data--algorithm))
-- `ca_identity_name` (String)
-- `certificate_attributes` (Attributes) (see [below for nested schema](#nestedatt--data--certificate_attributes))
-- `digest` (String)
-- `fingerprint` (String)
-- `name` (String)
-- `object_id` (String)
-- `scep_ca_cert` (String)
-- `scep_challenge` (Attributes) (see [below for nested schema](#nestedatt--data--scep_challenge))
-- `scep_client_cert` (String)
-- `scep_url` (String)
-- `subject` (String)
-- `use_as_digital_signature` (Boolean)
-- `use_for_key_encipherment` (Boolean)
+- `algorithm` (Attributes) The `algorithm` parameter. (see [below for nested schema](#nestedatt--data--algorithm))
+- `ca_identity_name` (String) The `ca_identity_name` parameter.
+- `certificate_attributes` (Attributes) The `certificate_attributes` parameter. (see [below for nested schema](#nestedatt--data--certificate_attributes))
+- `digest` (String) The `digest` parameter.
+- `fingerprint` (String) The `fingerprint` parameter.
+- `name` (String) The `name` parameter.
+- `object_id` (String) The `object_id` parameter.
+- `scep_ca_cert` (String) The `scep_ca_cert` parameter.
+- `scep_challenge` (Attributes) The `scep_challenge` parameter. (see [below for nested schema](#nestedatt--data--scep_challenge))
+- `scep_client_cert` (String) The `scep_client_cert` parameter.
+- `scep_url` (String) The `scep_url` parameter.
+- `subject` (String) The `subject` parameter.
+- `use_as_digital_signature` (Boolean) The `use_as_digital_signature` parameter.
+- `use_for_key_encipherment` (Boolean) The `use_for_key_encipherment` parameter.
 
 <a id="nestedatt--data--algorithm"></a>
 ### Nested Schema for `data.algorithm`
 
 Read-Only:
 
-- `rsa` (Attributes) (see [below for nested schema](#nestedatt--data--algorithm--rsa))
+- `rsa` (Attributes) The `rsa` parameter. (see [below for nested schema](#nestedatt--data--algorithm--rsa))
 
 <a id="nestedatt--data--algorithm--rsa"></a>
 ### Nested Schema for `data.algorithm.rsa`
 
 Read-Only:
 
-- `rsa_nbits` (String)
+- `rsa_nbits` (String) The `rsa_nbits` parameter.
 
 
 
@@ -72,9 +72,9 @@ Read-Only:
 
 Read-Only:
 
-- `dnsname` (String)
-- `rfc822name` (String)
-- `uniform_resource_identifier` (String)
+- `dnsname` (String) The `dnsname` parameter.
+- `rfc822name` (String) The `rfc822name` parameter.
+- `uniform_resource_identifier` (String) The `uniform_resource_identifier` parameter.
 
 
 <a id="nestedatt--data--scep_challenge"></a>
@@ -82,17 +82,17 @@ Read-Only:
 
 Read-Only:
 
-- `dynamic_value` (Attributes) (see [below for nested schema](#nestedatt--data--scep_challenge--dynamic_value))
-- `fixed` (String)
-- `none` (String)
+- `dynamic_value` (Attributes) The `dynamic_value` parameter. (see [below for nested schema](#nestedatt--data--scep_challenge--dynamic_value))
+- `fixed` (String) The `fixed` parameter.
+- `none` (String) The `none` parameter.
 
 <a id="nestedatt--data--scep_challenge--dynamic_value"></a>
 ### Nested Schema for `data.scep_challenge.dynamic_value`
 
 Read-Only:
 
-- `otp_server_url` (String)
-- `password` (String)
-- `username` (String)
+- `otp_server_url` (String) The `otp_server_url` parameter.
+- `password` (String) The `password` parameter.
+- `username` (String) The `username` parameter.
 
 

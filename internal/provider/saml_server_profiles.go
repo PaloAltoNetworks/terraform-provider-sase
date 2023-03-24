@@ -78,81 +78,97 @@ func (d *samlServerProfilesListDataSource) Schema(_ context.Context, _ datasourc
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description: "The max count in result entry (count per page)",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The max count in result entry (count per page)",
+				MarkdownDescription: "The max count in result entry (count per page)",
+				Optional:            true,
+				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description: "The offset of the result entry",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The offset of the result entry",
+				MarkdownDescription: "The offset of the result entry",
+				Optional:            true,
+				Computed:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
 			},
 			"name": dsschema.StringAttribute{
-				Description: "The name of the entry",
-				Optional:    true,
+				Description:         "The name of the entry",
+				MarkdownDescription: "The name of the entry",
+				Optional:            true,
 			},
 
 			// Output.
 			"data": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `data` parameter.",
+				MarkdownDescription: "The `data` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"certificate": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `certificate` parameter.",
+							MarkdownDescription: "The `certificate` parameter.",
+							Computed:            true,
 						},
 						"entity_id": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `entity_id` parameter.",
+							MarkdownDescription: "The `entity_id` parameter.",
+							Computed:            true,
 						},
 						"object_id": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `object_id` parameter.",
+							MarkdownDescription: "The `object_id` parameter.",
+							Computed:            true,
 						},
 						"max_clock_skew": dsschema.Int64Attribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `max_clock_skew` parameter.",
+							MarkdownDescription: "The `max_clock_skew` parameter.",
+							Computed:            true,
 						},
 						"slo_bindings": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `slo_bindings` parameter.",
+							MarkdownDescription: "The `slo_bindings` parameter.",
+							Computed:            true,
 						},
 						"sso_bindings": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `sso_bindings` parameter.",
+							MarkdownDescription: "The `sso_bindings` parameter.",
+							Computed:            true,
 						},
 						"sso_url": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `sso_url` parameter.",
+							MarkdownDescription: "The `sso_url` parameter.",
+							Computed:            true,
 						},
 						"validate_idp_certificate": dsschema.BoolAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `validate_idp_certificate` parameter.",
+							MarkdownDescription: "The `validate_idp_certificate` parameter.",
+							Computed:            true,
 						},
 						"want_auth_requests_signed": dsschema.BoolAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `want_auth_requests_signed` parameter.",
+							MarkdownDescription: "The `want_auth_requests_signed` parameter.",
+							Computed:            true,
 						},
 					},
 				},
 			},
 			"total": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `total` parameter.",
+				MarkdownDescription: "The `total` parameter.",
+				Computed:            true,
 			},
 		},
 	}
@@ -306,18 +322,21 @@ func (d *samlServerProfilesDataSource) Schema(_ context.Context, _ datasource.Sc
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description: "The uuid of the resource",
-				Required:    true,
+				Description:         "The uuid of the resource",
+				MarkdownDescription: "The uuid of the resource",
+				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -325,36 +344,44 @@ func (d *samlServerProfilesDataSource) Schema(_ context.Context, _ datasource.Sc
 
 			// Output.
 			"certificate": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `certificate` parameter.",
+				MarkdownDescription: "The `certificate` parameter.",
+				Computed:            true,
 			},
 			"entity_id": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `entity_id` parameter.",
+				MarkdownDescription: "The `entity_id` parameter.",
+				Computed:            true,
 			},
 			"max_clock_skew": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `max_clock_skew` parameter.",
+				MarkdownDescription: "The `max_clock_skew` parameter.",
+				Computed:            true,
 			},
 			"slo_bindings": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `slo_bindings` parameter.",
+				MarkdownDescription: "The `slo_bindings` parameter.",
+				Computed:            true,
 			},
 			"sso_bindings": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `sso_bindings` parameter.",
+				MarkdownDescription: "The `sso_bindings` parameter.",
+				Computed:            true,
 			},
 			"sso_url": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `sso_url` parameter.",
+				MarkdownDescription: "The `sso_url` parameter.",
+				Computed:            true,
 			},
 			"validate_idp_certificate": dsschema.BoolAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `validate_idp_certificate` parameter.",
+				MarkdownDescription: "The `validate_idp_certificate` parameter.",
+				Computed:            true,
 			},
 			"want_auth_requests_signed": dsschema.BoolAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `want_auth_requests_signed` parameter.",
+				MarkdownDescription: "The `want_auth_requests_signed` parameter.",
+				Computed:            true,
 			},
 		},
 	}
@@ -464,8 +491,9 @@ func (r *samlServerProfilesResource) Schema(_ context.Context, _ resource.Schema
 
 		Attributes: map[string]rsschema.Attribute{
 			"id": rsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
@@ -473,24 +501,27 @@ func (r *samlServerProfilesResource) Schema(_ context.Context, _ resource.Schema
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
 			},
 
 			"certificate": rsschema.StringAttribute{
-				Description: "",
-				Required:    true,
+				Description:         "The `certificate` parameter.",
+				MarkdownDescription: "The `certificate` parameter.",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(63),
 				},
 			},
 			"entity_id": rsschema.StringAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `entity_id` parameter.",
+				MarkdownDescription: "The `entity_id` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					DefaultString(""),
 				},
@@ -499,16 +530,18 @@ func (r *samlServerProfilesResource) Schema(_ context.Context, _ resource.Schema
 				},
 			},
 			"object_id": rsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `object_id` parameter.",
+				MarkdownDescription: "The `object_id` parameter.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
 			},
 			"max_clock_skew": rsschema.Int64Attribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `max_clock_skew` parameter.",
+				MarkdownDescription: "The `max_clock_skew` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.Int64{
 					DefaultInt64(0),
 				},
@@ -517,9 +550,10 @@ func (r *samlServerProfilesResource) Schema(_ context.Context, _ resource.Schema
 				},
 			},
 			"slo_bindings": rsschema.StringAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `slo_bindings` parameter.",
+				MarkdownDescription: "The `slo_bindings` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					DefaultString(""),
 				},
@@ -528,9 +562,10 @@ func (r *samlServerProfilesResource) Schema(_ context.Context, _ resource.Schema
 				},
 			},
 			"sso_bindings": rsschema.StringAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `sso_bindings` parameter.",
+				MarkdownDescription: "The `sso_bindings` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					DefaultString(""),
 				},
@@ -539,9 +574,10 @@ func (r *samlServerProfilesResource) Schema(_ context.Context, _ resource.Schema
 				},
 			},
 			"sso_url": rsschema.StringAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `sso_url` parameter.",
+				MarkdownDescription: "The `sso_url` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					DefaultString(""),
 				},
@@ -550,17 +586,19 @@ func (r *samlServerProfilesResource) Schema(_ context.Context, _ resource.Schema
 				},
 			},
 			"validate_idp_certificate": rsschema.BoolAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `validate_idp_certificate` parameter.",
+				MarkdownDescription: "The `validate_idp_certificate` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.Bool{
 					DefaultBool(false),
 				},
 			},
 			"want_auth_requests_signed": rsschema.BoolAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `want_auth_requests_signed` parameter.",
+				MarkdownDescription: "The `want_auth_requests_signed` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.Bool{
 					DefaultBool(false),
 				},

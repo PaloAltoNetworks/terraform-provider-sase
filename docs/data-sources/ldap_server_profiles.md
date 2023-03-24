@@ -22,25 +22,25 @@ Retrieves config for a specific item.
 
 ### Read-Only
 
-- `base` (String)
-- `bind_dn` (String)
-- `bind_password` (String)
-- `bind_timelimit` (String)
+- `base` (String) The `base` parameter.
+- `bind_dn` (String) The `bind_dn` parameter.
+- `bind_password` (String) The `bind_password` parameter.
+- `bind_timelimit` (String) The `bind_timelimit` parameter.
 - `id` (String) The object ID.
-- `ldap_type` (String)
-- `retry_interval` (Number)
-- `server` (Attributes List) (see [below for nested schema](#nestedatt--server))
-- `ssl` (Boolean)
-- `timelimit` (Number)
-- `verify_server_certificate` (Boolean)
+- `ldap_type` (String) The `ldap_type` parameter.
+- `retry_interval` (Number) The `retry_interval` parameter.
+- `server` (Attributes List) The `server` parameter. (see [below for nested schema](#nestedatt--server))
+- `ssl` (Boolean) The `ssl` parameter.
+- `timelimit` (Number) The `timelimit` parameter.
+- `verify_server_certificate` (Boolean) The `verify_server_certificate` parameter.
 
 <a id="nestedatt--server"></a>
 ### Nested Schema for `server`
 
 Read-Only:
 
-- `address` (String)
-- `name` (String)
-- `port` (Number)
+- `address` (String) The `address` parameter.
+- `name` (String) The `name` parameter.
+- `port` (Number) The `port` parameter.
 
 

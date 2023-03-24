@@ -27,46 +27,46 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `description` (String)
-- `name` (String)
-- `object_id` (String)
-- `protocol` (Attributes) (see [below for nested schema](#nestedatt--data--protocol))
-- `tag` (List of String)
+- `description` (String) The `description` parameter.
+- `name` (String) The `name` parameter.
+- `object_id` (String) The `object_id` parameter.
+- `protocol` (Attributes) The `protocol` parameter. (see [below for nested schema](#nestedatt--data--protocol))
+- `tag` (List of String) The `tag` parameter.
 
 <a id="nestedatt--data--protocol"></a>
 ### Nested Schema for `data.protocol`
 
 Read-Only:
 
-- `tcp` (Attributes) (see [below for nested schema](#nestedatt--data--protocol--tcp))
-- `udp` (Attributes) (see [below for nested schema](#nestedatt--data--protocol--udp))
+- `tcp` (Attributes) The `tcp` parameter. (see [below for nested schema](#nestedatt--data--protocol--tcp))
+- `udp` (Attributes) The `udp` parameter. (see [below for nested schema](#nestedatt--data--protocol--udp))
 
 <a id="nestedatt--data--protocol--tcp"></a>
 ### Nested Schema for `data.protocol.tcp`
 
 Read-Only:
 
-- `override` (Attributes) (see [below for nested schema](#nestedatt--data--protocol--tcp--override))
-- `port` (String)
-- `source_port` (String)
+- `override` (Attributes) The `override` parameter. (see [below for nested schema](#nestedatt--data--protocol--tcp--override))
+- `port` (String) The `port` parameter.
+- `source_port` (String) The `source_port` parameter.
 
 <a id="nestedatt--data--protocol--tcp--override"></a>
 ### Nested Schema for `data.protocol.tcp.source_port`
 
 Read-Only:
 
-- `halfclose_timeout` (Number)
-- `timeout` (Number)
-- `timewait_timeout` (Number)
+- `halfclose_timeout` (Number) The `halfclose_timeout` parameter.
+- `timeout` (Number) The `timeout` parameter.
+- `timewait_timeout` (Number) The `timewait_timeout` parameter.
 
 
 
@@ -75,15 +75,15 @@ Read-Only:
 
 Read-Only:
 
-- `override` (Attributes) (see [below for nested schema](#nestedatt--data--protocol--udp--override))
-- `port` (String)
-- `source_port` (String)
+- `override` (Attributes) The `override` parameter. (see [below for nested schema](#nestedatt--data--protocol--udp--override))
+- `port` (String) The `port` parameter.
+- `source_port` (String) The `source_port` parameter.
 
 <a id="nestedatt--data--protocol--udp--override"></a>
 ### Nested Schema for `data.protocol.udp.source_port`
 
 Read-Only:
 
-- `timeout` (Number)
+- `timeout` (Number) The `timeout` parameter.
 
 

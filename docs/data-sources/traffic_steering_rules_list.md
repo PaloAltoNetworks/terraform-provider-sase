@@ -27,36 +27,36 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `action` (Attributes) (see [below for nested schema](#nestedatt--data--action))
-- `category` (List of String)
-- `destination` (List of String)
-- `name` (String)
-- `service` (List of String)
-- `source` (List of String)
-- `source_user` (List of String)
+- `action` (Attributes) The `action` parameter. (see [below for nested schema](#nestedatt--data--action))
+- `category` (List of String) The `category` parameter.
+- `destination` (List of String) The `destination` parameter.
+- `name` (String) The `name` parameter.
+- `service` (List of String) The `service` parameter.
+- `source` (List of String) The `source` parameter.
+- `source_user` (List of String) The `source_user` parameter.
 
 <a id="nestedatt--data--action"></a>
 ### Nested Schema for `data.action`
 
 Read-Only:
 
-- `forward` (Attributes) (see [below for nested schema](#nestedatt--data--action--forward))
-- `no_pbf` (Boolean)
+- `forward` (Attributes) The `forward` parameter. (see [below for nested schema](#nestedatt--data--action--forward))
+- `no_pbf` (Boolean) The `no_pbf` parameter.
 
 <a id="nestedatt--data--action--forward"></a>
 ### Nested Schema for `data.action.forward`
 
 Read-Only:
 
-- `target` (String)
+- `target` (String) The `target` parameter.
 
 

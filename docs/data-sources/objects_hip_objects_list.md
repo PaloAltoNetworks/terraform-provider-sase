@@ -27,66 +27,66 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `anti_malware` (Attributes) (see [below for nested schema](#nestedatt--data--anti_malware))
-- `certificate` (Attributes) (see [below for nested schema](#nestedatt--data--certificate))
-- `custom_checks` (Attributes) (see [below for nested schema](#nestedatt--data--custom_checks))
-- `data_loss_prevention` (Attributes) (see [below for nested schema](#nestedatt--data--data_loss_prevention))
-- `description` (String)
-- `disk_backup` (Attributes) (see [below for nested schema](#nestedatt--data--disk_backup))
-- `disk_encryption` (Attributes) (see [below for nested schema](#nestedatt--data--disk_encryption))
-- `firewall` (Attributes) (see [below for nested schema](#nestedatt--data--firewall))
-- `host_info` (Attributes) (see [below for nested schema](#nestedatt--data--host_info))
-- `mobile_device` (Attributes) (see [below for nested schema](#nestedatt--data--mobile_device))
-- `name` (String)
-- `network_info` (Attributes) (see [below for nested schema](#nestedatt--data--network_info))
-- `object_id` (String)
-- `patch_management` (Attributes) (see [below for nested schema](#nestedatt--data--patch_management))
+- `anti_malware` (Attributes) The `anti_malware` parameter. (see [below for nested schema](#nestedatt--data--anti_malware))
+- `certificate` (Attributes) The `certificate` parameter. (see [below for nested schema](#nestedatt--data--certificate))
+- `custom_checks` (Attributes) The `custom_checks` parameter. (see [below for nested schema](#nestedatt--data--custom_checks))
+- `data_loss_prevention` (Attributes) The `data_loss_prevention` parameter. (see [below for nested schema](#nestedatt--data--data_loss_prevention))
+- `description` (String) The `description` parameter.
+- `disk_backup` (Attributes) The `disk_backup` parameter. (see [below for nested schema](#nestedatt--data--disk_backup))
+- `disk_encryption` (Attributes) The `disk_encryption` parameter. (see [below for nested schema](#nestedatt--data--disk_encryption))
+- `firewall` (Attributes) The `firewall` parameter. (see [below for nested schema](#nestedatt--data--firewall))
+- `host_info` (Attributes) The `host_info` parameter. (see [below for nested schema](#nestedatt--data--host_info))
+- `mobile_device` (Attributes) The `mobile_device` parameter. (see [below for nested schema](#nestedatt--data--mobile_device))
+- `name` (String) The `name` parameter.
+- `network_info` (Attributes) The `network_info` parameter. (see [below for nested schema](#nestedatt--data--network_info))
+- `object_id` (String) The `object_id` parameter.
+- `patch_management` (Attributes) The `patch_management` parameter. (see [below for nested schema](#nestedatt--data--patch_management))
 
 <a id="nestedatt--data--anti_malware"></a>
 ### Nested Schema for `data.anti_malware`
 
 Read-Only:
 
-- `criteria` (Attributes) (see [below for nested schema](#nestedatt--data--anti_malware--criteria))
-- `exclude_vendor` (Boolean)
-- `vendor` (Attributes List) (see [below for nested schema](#nestedatt--data--anti_malware--vendor))
+- `criteria` (Attributes) The `criteria` parameter. (see [below for nested schema](#nestedatt--data--anti_malware--criteria))
+- `exclude_vendor` (Boolean) The `exclude_vendor` parameter.
+- `vendor` (Attributes List) The `vendor` parameter. (see [below for nested schema](#nestedatt--data--anti_malware--vendor))
 
 <a id="nestedatt--data--anti_malware--criteria"></a>
 ### Nested Schema for `data.anti_malware.criteria`
 
 Read-Only:
 
-- `is_installed` (Boolean)
-- `last_scan_time` (Attributes) (see [below for nested schema](#nestedatt--data--anti_malware--criteria--last_scan_time))
-- `product_version` (Attributes) (see [below for nested schema](#nestedatt--data--anti_malware--criteria--product_version))
-- `real_time_protection` (String)
-- `virdef_version` (Attributes) (see [below for nested schema](#nestedatt--data--anti_malware--criteria--virdef_version))
+- `is_installed` (Boolean) The `is_installed` parameter.
+- `last_scan_time` (Attributes) The `last_scan_time` parameter. (see [below for nested schema](#nestedatt--data--anti_malware--criteria--last_scan_time))
+- `product_version` (Attributes) The `product_version` parameter. (see [below for nested schema](#nestedatt--data--anti_malware--criteria--product_version))
+- `real_time_protection` (String) The `real_time_protection` parameter.
+- `virdef_version` (Attributes) The `virdef_version` parameter. (see [below for nested schema](#nestedatt--data--anti_malware--criteria--virdef_version))
 
 <a id="nestedatt--data--anti_malware--criteria--last_scan_time"></a>
 ### Nested Schema for `data.anti_malware.criteria.virdef_version`
 
 Read-Only:
 
-- `not_available` (Boolean)
-- `not_within` (Attributes) (see [below for nested schema](#nestedatt--data--anti_malware--criteria--virdef_version--not_within))
-- `within` (Attributes) (see [below for nested schema](#nestedatt--data--anti_malware--criteria--virdef_version--within))
+- `not_available` (Boolean) The `not_available` parameter.
+- `not_within` (Attributes) The `not_within` parameter. (see [below for nested schema](#nestedatt--data--anti_malware--criteria--virdef_version--not_within))
+- `within` (Attributes) The `within` parameter. (see [below for nested schema](#nestedatt--data--anti_malware--criteria--virdef_version--within))
 
 <a id="nestedatt--data--anti_malware--criteria--virdef_version--not_within"></a>
 ### Nested Schema for `data.anti_malware.criteria.virdef_version.not_within`
 
 Read-Only:
 
-- `days` (Number)
-- `hours` (Number)
+- `days` (Number) The `days` parameter.
+- `hours` (Number) The `hours` parameter.
 
 
 <a id="nestedatt--data--anti_malware--criteria--virdef_version--within"></a>
@@ -94,8 +94,8 @@ Read-Only:
 
 Read-Only:
 
-- `days` (Number)
-- `hours` (Number)
+- `days` (Number) The `days` parameter.
+- `hours` (Number) The `hours` parameter.
 
 
 
@@ -104,22 +104,22 @@ Read-Only:
 
 Read-Only:
 
-- `contains` (String)
-- `greater_equal` (String)
-- `greater_than` (String)
-- `is` (String)
-- `is_not` (String)
-- `less_equal` (String)
-- `less_than` (String)
-- `not_within` (Attributes) (see [below for nested schema](#nestedatt--data--anti_malware--criteria--virdef_version--not_within))
-- `within` (Attributes) (see [below for nested schema](#nestedatt--data--anti_malware--criteria--virdef_version--within))
+- `contains` (String) The `contains` parameter.
+- `greater_equal` (String) The `greater_equal` parameter.
+- `greater_than` (String) The `greater_than` parameter.
+- `is` (String) The `is` parameter.
+- `is_not` (String) The `is_not` parameter.
+- `less_equal` (String) The `less_equal` parameter.
+- `less_than` (String) The `less_than` parameter.
+- `not_within` (Attributes) The `not_within` parameter. (see [below for nested schema](#nestedatt--data--anti_malware--criteria--virdef_version--not_within))
+- `within` (Attributes) The `within` parameter. (see [below for nested schema](#nestedatt--data--anti_malware--criteria--virdef_version--within))
 
 <a id="nestedatt--data--anti_malware--criteria--virdef_version--not_within"></a>
 ### Nested Schema for `data.anti_malware.criteria.virdef_version.not_within`
 
 Read-Only:
 
-- `versions` (Number)
+- `versions` (Number) The `versions` parameter.
 
 
 <a id="nestedatt--data--anti_malware--criteria--virdef_version--within"></a>
@@ -127,7 +127,7 @@ Read-Only:
 
 Read-Only:
 
-- `versions` (Number)
+- `versions` (Number) The `versions` parameter.
 
 
 
@@ -136,16 +136,16 @@ Read-Only:
 
 Read-Only:
 
-- `not_within` (Attributes) (see [below for nested schema](#nestedatt--data--anti_malware--criteria--virdef_version--not_within))
-- `within` (Attributes) (see [below for nested schema](#nestedatt--data--anti_malware--criteria--virdef_version--within))
+- `not_within` (Attributes) The `not_within` parameter. (see [below for nested schema](#nestedatt--data--anti_malware--criteria--virdef_version--not_within))
+- `within` (Attributes) The `within` parameter. (see [below for nested schema](#nestedatt--data--anti_malware--criteria--virdef_version--within))
 
 <a id="nestedatt--data--anti_malware--criteria--virdef_version--not_within"></a>
 ### Nested Schema for `data.anti_malware.criteria.virdef_version.not_within`
 
 Read-Only:
 
-- `days` (Number)
-- `versions` (Number)
+- `days` (Number) The `days` parameter.
+- `versions` (Number) The `versions` parameter.
 
 
 <a id="nestedatt--data--anti_malware--criteria--virdef_version--within"></a>
@@ -153,8 +153,8 @@ Read-Only:
 
 Read-Only:
 
-- `days` (Number)
-- `versions` (Number)
+- `days` (Number) The `days` parameter.
+- `versions` (Number) The `versions` parameter.
 
 
 
@@ -164,8 +164,8 @@ Read-Only:
 
 Read-Only:
 
-- `name` (String)
-- `product` (List of String)
+- `name` (String) The `name` parameter.
+- `product` (List of String) The `product` parameter.
 
 
 
@@ -174,23 +174,23 @@ Read-Only:
 
 Read-Only:
 
-- `criteria` (Attributes) (see [below for nested schema](#nestedatt--data--certificate--criteria))
+- `criteria` (Attributes) The `criteria` parameter. (see [below for nested schema](#nestedatt--data--certificate--criteria))
 
 <a id="nestedatt--data--certificate--criteria"></a>
 ### Nested Schema for `data.certificate.criteria`
 
 Read-Only:
 
-- `certificate_attributes` (Attributes List) (see [below for nested schema](#nestedatt--data--certificate--criteria--certificate_attributes))
-- `certificate_profile` (String)
+- `certificate_attributes` (Attributes List) The `certificate_attributes` parameter. (see [below for nested schema](#nestedatt--data--certificate--criteria--certificate_attributes))
+- `certificate_profile` (String) The `certificate_profile` parameter.
 
 <a id="nestedatt--data--certificate--criteria--certificate_attributes"></a>
 ### Nested Schema for `data.certificate.criteria.certificate_profile`
 
 Read-Only:
 
-- `name` (String)
-- `value` (String)
+- `name` (String) The `name` parameter.
+- `value` (String) The `value` parameter.
 
 
 
@@ -200,34 +200,34 @@ Read-Only:
 
 Read-Only:
 
-- `criteria` (Attributes) (see [below for nested schema](#nestedatt--data--custom_checks--criteria))
+- `criteria` (Attributes) The `criteria` parameter. (see [below for nested schema](#nestedatt--data--custom_checks--criteria))
 
 <a id="nestedatt--data--custom_checks--criteria"></a>
 ### Nested Schema for `data.custom_checks.criteria`
 
 Read-Only:
 
-- `plist` (Attributes List) (see [below for nested schema](#nestedatt--data--custom_checks--criteria--plist))
-- `process_list` (Attributes List) (see [below for nested schema](#nestedatt--data--custom_checks--criteria--process_list))
-- `registry_key` (Attributes List) (see [below for nested schema](#nestedatt--data--custom_checks--criteria--registry_key))
+- `plist` (Attributes List) The `plist` parameter. (see [below for nested schema](#nestedatt--data--custom_checks--criteria--plist))
+- `process_list` (Attributes List) The `process_list` parameter. (see [below for nested schema](#nestedatt--data--custom_checks--criteria--process_list))
+- `registry_key` (Attributes List) The `registry_key` parameter. (see [below for nested schema](#nestedatt--data--custom_checks--criteria--registry_key))
 
 <a id="nestedatt--data--custom_checks--criteria--plist"></a>
 ### Nested Schema for `data.custom_checks.criteria.registry_key`
 
 Read-Only:
 
-- `key` (Attributes List) (see [below for nested schema](#nestedatt--data--custom_checks--criteria--registry_key--key))
-- `name` (String)
-- `negate` (Boolean)
+- `key` (Attributes List) The `key` parameter. (see [below for nested schema](#nestedatt--data--custom_checks--criteria--registry_key--key))
+- `name` (String) The `name` parameter.
+- `negate` (Boolean) The `negate` parameter.
 
 <a id="nestedatt--data--custom_checks--criteria--registry_key--key"></a>
 ### Nested Schema for `data.custom_checks.criteria.registry_key.key`
 
 Read-Only:
 
-- `name` (String)
-- `negate` (Boolean)
-- `value` (String)
+- `name` (String) The `name` parameter.
+- `negate` (Boolean) The `negate` parameter.
+- `value` (String) The `value` parameter.
 
 
 
@@ -236,8 +236,8 @@ Read-Only:
 
 Read-Only:
 
-- `name` (String)
-- `running` (Boolean)
+- `name` (String) The `name` parameter.
+- `running` (Boolean) The `running` parameter.
 
 
 <a id="nestedatt--data--custom_checks--criteria--registry_key"></a>
@@ -245,19 +245,19 @@ Read-Only:
 
 Read-Only:
 
-- `default_value_data` (String)
-- `name` (String)
-- `negate` (Boolean)
-- `registry_value` (Attributes List) (see [below for nested schema](#nestedatt--data--custom_checks--criteria--registry_key--registry_value))
+- `default_value_data` (String) The `default_value_data` parameter.
+- `name` (String) The `name` parameter.
+- `negate` (Boolean) The `negate` parameter.
+- `registry_value` (Attributes List) The `registry_value` parameter. (see [below for nested schema](#nestedatt--data--custom_checks--criteria--registry_key--registry_value))
 
 <a id="nestedatt--data--custom_checks--criteria--registry_key--registry_value"></a>
 ### Nested Schema for `data.custom_checks.criteria.registry_key.registry_value`
 
 Read-Only:
 
-- `name` (String)
-- `negate` (Boolean)
-- `value_data` (String)
+- `name` (String) The `name` parameter.
+- `negate` (Boolean) The `negate` parameter.
+- `value_data` (String) The `value_data` parameter.
 
 
 
@@ -268,17 +268,17 @@ Read-Only:
 
 Read-Only:
 
-- `criteria` (Attributes) (see [below for nested schema](#nestedatt--data--data_loss_prevention--criteria))
-- `exclude_vendor` (Boolean)
-- `vendor` (Attributes List) (see [below for nested schema](#nestedatt--data--data_loss_prevention--vendor))
+- `criteria` (Attributes) The `criteria` parameter. (see [below for nested schema](#nestedatt--data--data_loss_prevention--criteria))
+- `exclude_vendor` (Boolean) The `exclude_vendor` parameter.
+- `vendor` (Attributes List) The `vendor` parameter. (see [below for nested schema](#nestedatt--data--data_loss_prevention--vendor))
 
 <a id="nestedatt--data--data_loss_prevention--criteria"></a>
 ### Nested Schema for `data.data_loss_prevention.criteria`
 
 Read-Only:
 
-- `is_enabled` (String)
-- `is_installed` (Boolean)
+- `is_enabled` (String) The `is_enabled` parameter.
+- `is_installed` (Boolean) The `is_installed` parameter.
 
 
 <a id="nestedatt--data--data_loss_prevention--vendor"></a>
@@ -286,8 +286,8 @@ Read-Only:
 
 Read-Only:
 
-- `name` (String)
-- `product` (List of String)
+- `name` (String) The `name` parameter.
+- `product` (List of String) The `product` parameter.
 
 
 
@@ -296,34 +296,34 @@ Read-Only:
 
 Read-Only:
 
-- `criteria` (Attributes) (see [below for nested schema](#nestedatt--data--disk_backup--criteria))
-- `exclude_vendor` (Boolean)
-- `vendor` (Attributes List) (see [below for nested schema](#nestedatt--data--disk_backup--vendor))
+- `criteria` (Attributes) The `criteria` parameter. (see [below for nested schema](#nestedatt--data--disk_backup--criteria))
+- `exclude_vendor` (Boolean) The `exclude_vendor` parameter.
+- `vendor` (Attributes List) The `vendor` parameter. (see [below for nested schema](#nestedatt--data--disk_backup--vendor))
 
 <a id="nestedatt--data--disk_backup--criteria"></a>
 ### Nested Schema for `data.disk_backup.criteria`
 
 Read-Only:
 
-- `is_installed` (Boolean)
-- `last_backup_time` (Attributes) (see [below for nested schema](#nestedatt--data--disk_backup--criteria--last_backup_time))
+- `is_installed` (Boolean) The `is_installed` parameter.
+- `last_backup_time` (Attributes) The `last_backup_time` parameter. (see [below for nested schema](#nestedatt--data--disk_backup--criteria--last_backup_time))
 
 <a id="nestedatt--data--disk_backup--criteria--last_backup_time"></a>
 ### Nested Schema for `data.disk_backup.criteria.last_backup_time`
 
 Read-Only:
 
-- `not_available` (Boolean)
-- `not_within` (Attributes) (see [below for nested schema](#nestedatt--data--disk_backup--criteria--last_backup_time--not_within))
-- `within` (Attributes) (see [below for nested schema](#nestedatt--data--disk_backup--criteria--last_backup_time--within))
+- `not_available` (Boolean) The `not_available` parameter.
+- `not_within` (Attributes) The `not_within` parameter. (see [below for nested schema](#nestedatt--data--disk_backup--criteria--last_backup_time--not_within))
+- `within` (Attributes) The `within` parameter. (see [below for nested schema](#nestedatt--data--disk_backup--criteria--last_backup_time--within))
 
 <a id="nestedatt--data--disk_backup--criteria--last_backup_time--not_within"></a>
 ### Nested Schema for `data.disk_backup.criteria.last_backup_time.not_within`
 
 Read-Only:
 
-- `days` (Number)
-- `hours` (Number)
+- `days` (Number) The `days` parameter.
+- `hours` (Number) The `hours` parameter.
 
 
 <a id="nestedatt--data--disk_backup--criteria--last_backup_time--within"></a>
@@ -331,8 +331,8 @@ Read-Only:
 
 Read-Only:
 
-- `days` (Number)
-- `hours` (Number)
+- `days` (Number) The `days` parameter.
+- `hours` (Number) The `hours` parameter.
 
 
 
@@ -342,8 +342,8 @@ Read-Only:
 
 Read-Only:
 
-- `name` (String)
-- `product` (List of String)
+- `name` (String) The `name` parameter.
+- `product` (List of String) The `product` parameter.
 
 
 
@@ -352,33 +352,33 @@ Read-Only:
 
 Read-Only:
 
-- `criteria` (Attributes) (see [below for nested schema](#nestedatt--data--disk_encryption--criteria))
-- `exclude_vendor` (Boolean)
-- `vendor` (Attributes List) (see [below for nested schema](#nestedatt--data--disk_encryption--vendor))
+- `criteria` (Attributes) The `criteria` parameter. (see [below for nested schema](#nestedatt--data--disk_encryption--criteria))
+- `exclude_vendor` (Boolean) The `exclude_vendor` parameter.
+- `vendor` (Attributes List) The `vendor` parameter. (see [below for nested schema](#nestedatt--data--disk_encryption--vendor))
 
 <a id="nestedatt--data--disk_encryption--criteria"></a>
 ### Nested Schema for `data.disk_encryption.criteria`
 
 Read-Only:
 
-- `encrypted_locations` (Attributes List) (see [below for nested schema](#nestedatt--data--disk_encryption--criteria--encrypted_locations))
-- `is_installed` (Boolean)
+- `encrypted_locations` (Attributes List) The `encrypted_locations` parameter. (see [below for nested schema](#nestedatt--data--disk_encryption--criteria--encrypted_locations))
+- `is_installed` (Boolean) The `is_installed` parameter.
 
 <a id="nestedatt--data--disk_encryption--criteria--encrypted_locations"></a>
 ### Nested Schema for `data.disk_encryption.criteria.is_installed`
 
 Read-Only:
 
-- `encryption_state` (Attributes) (see [below for nested schema](#nestedatt--data--disk_encryption--criteria--is_installed--encryption_state))
-- `name` (String)
+- `encryption_state` (Attributes) The `encryption_state` parameter. (see [below for nested schema](#nestedatt--data--disk_encryption--criteria--is_installed--encryption_state))
+- `name` (String) The `name` parameter.
 
 <a id="nestedatt--data--disk_encryption--criteria--is_installed--encryption_state"></a>
 ### Nested Schema for `data.disk_encryption.criteria.is_installed.encryption_state`
 
 Read-Only:
 
-- `is` (String)
-- `is_not` (String)
+- `is` (String) The `is` parameter.
+- `is_not` (String) The `is_not` parameter.
 
 
 
@@ -388,8 +388,8 @@ Read-Only:
 
 Read-Only:
 
-- `name` (String)
-- `product` (List of String)
+- `name` (String) The `name` parameter.
+- `product` (List of String) The `product` parameter.
 
 
 
@@ -398,17 +398,17 @@ Read-Only:
 
 Read-Only:
 
-- `criteria` (Attributes) (see [below for nested schema](#nestedatt--data--firewall--criteria))
-- `exclude_vendor` (Boolean)
-- `vendor` (Attributes List) (see [below for nested schema](#nestedatt--data--firewall--vendor))
+- `criteria` (Attributes) The `criteria` parameter. (see [below for nested schema](#nestedatt--data--firewall--criteria))
+- `exclude_vendor` (Boolean) The `exclude_vendor` parameter.
+- `vendor` (Attributes List) The `vendor` parameter. (see [below for nested schema](#nestedatt--data--firewall--vendor))
 
 <a id="nestedatt--data--firewall--criteria"></a>
 ### Nested Schema for `data.firewall.criteria`
 
 Read-Only:
 
-- `is_enabled` (String)
-- `is_installed` (Boolean)
+- `is_enabled` (String) The `is_enabled` parameter.
+- `is_installed` (Boolean) The `is_installed` parameter.
 
 
 <a id="nestedatt--data--firewall--vendor"></a>
@@ -416,8 +416,8 @@ Read-Only:
 
 Read-Only:
 
-- `name` (String)
-- `product` (List of String)
+- `name` (String) The `name` parameter.
+- `product` (List of String) The `product` parameter.
 
 
 
@@ -426,29 +426,29 @@ Read-Only:
 
 Read-Only:
 
-- `criteria` (Attributes) (see [below for nested schema](#nestedatt--data--host_info--criteria))
+- `criteria` (Attributes) The `criteria` parameter. (see [below for nested schema](#nestedatt--data--host_info--criteria))
 
 <a id="nestedatt--data--host_info--criteria"></a>
 ### Nested Schema for `data.host_info.criteria`
 
 Read-Only:
 
-- `client_version` (Attributes) (see [below for nested schema](#nestedatt--data--host_info--criteria--client_version))
-- `domain` (Attributes) (see [below for nested schema](#nestedatt--data--host_info--criteria--domain))
-- `host_id` (Attributes) (see [below for nested schema](#nestedatt--data--host_info--criteria--host_id))
-- `host_name` (Attributes) (see [below for nested schema](#nestedatt--data--host_info--criteria--host_name))
-- `managed` (Boolean)
-- `os` (Attributes) (see [below for nested schema](#nestedatt--data--host_info--criteria--os))
-- `serial_number` (Attributes) (see [below for nested schema](#nestedatt--data--host_info--criteria--serial_number))
+- `client_version` (Attributes) The `client_version` parameter. (see [below for nested schema](#nestedatt--data--host_info--criteria--client_version))
+- `domain` (Attributes) The `domain` parameter. (see [below for nested schema](#nestedatt--data--host_info--criteria--domain))
+- `host_id` (Attributes) The `host_id` parameter. (see [below for nested schema](#nestedatt--data--host_info--criteria--host_id))
+- `host_name` (Attributes) The `host_name` parameter. (see [below for nested schema](#nestedatt--data--host_info--criteria--host_name))
+- `managed` (Boolean) The `managed` parameter.
+- `os` (Attributes) The `os` parameter. (see [below for nested schema](#nestedatt--data--host_info--criteria--os))
+- `serial_number` (Attributes) The `serial_number` parameter. (see [below for nested schema](#nestedatt--data--host_info--criteria--serial_number))
 
 <a id="nestedatt--data--host_info--criteria--client_version"></a>
 ### Nested Schema for `data.host_info.criteria.serial_number`
 
 Read-Only:
 
-- `contains` (String)
-- `is` (String)
-- `is_not` (String)
+- `contains` (String) The `contains` parameter.
+- `is` (String) The `is` parameter.
+- `is_not` (String) The `is_not` parameter.
 
 
 <a id="nestedatt--data--host_info--criteria--domain"></a>
@@ -456,9 +456,9 @@ Read-Only:
 
 Read-Only:
 
-- `contains` (String)
-- `is` (String)
-- `is_not` (String)
+- `contains` (String) The `contains` parameter.
+- `is` (String) The `is` parameter.
+- `is_not` (String) The `is_not` parameter.
 
 
 <a id="nestedatt--data--host_info--criteria--host_id"></a>
@@ -466,9 +466,9 @@ Read-Only:
 
 Read-Only:
 
-- `contains` (String)
-- `is` (String)
-- `is_not` (String)
+- `contains` (String) The `contains` parameter.
+- `is` (String) The `is` parameter.
+- `is_not` (String) The `is_not` parameter.
 
 
 <a id="nestedatt--data--host_info--criteria--host_name"></a>
@@ -476,9 +476,9 @@ Read-Only:
 
 Read-Only:
 
-- `contains` (String)
-- `is` (String)
-- `is_not` (String)
+- `contains` (String) The `contains` parameter.
+- `is` (String) The `is` parameter.
+- `is_not` (String) The `is_not` parameter.
 
 
 <a id="nestedatt--data--host_info--criteria--os"></a>
@@ -486,18 +486,18 @@ Read-Only:
 
 Read-Only:
 
-- `contains` (Attributes) (see [below for nested schema](#nestedatt--data--host_info--criteria--serial_number--contains))
+- `contains` (Attributes) The `contains` parameter. (see [below for nested schema](#nestedatt--data--host_info--criteria--serial_number--contains))
 
 <a id="nestedatt--data--host_info--criteria--serial_number--contains"></a>
 ### Nested Schema for `data.host_info.criteria.serial_number.contains`
 
 Read-Only:
 
-- `apple` (String)
-- `google` (String)
-- `linux` (String)
-- `microsoft` (String)
-- `other` (String)
+- `apple` (String) The `apple` parameter.
+- `google` (String) The `google` parameter.
+- `linux` (String) The `linux` parameter.
+- `microsoft` (String) The `microsoft` parameter.
+- `other` (String) The `other` parameter.
 
 
 
@@ -506,9 +506,9 @@ Read-Only:
 
 Read-Only:
 
-- `contains` (String)
-- `is` (String)
-- `is_not` (String)
+- `contains` (String) The `contains` parameter.
+- `is` (String) The `is` parameter.
+- `is_not` (String) The `is_not` parameter.
 
 
 
@@ -518,55 +518,55 @@ Read-Only:
 
 Read-Only:
 
-- `criteria` (Attributes) (see [below for nested schema](#nestedatt--data--mobile_device--criteria))
+- `criteria` (Attributes) The `criteria` parameter. (see [below for nested schema](#nestedatt--data--mobile_device--criteria))
 
 <a id="nestedatt--data--mobile_device--criteria"></a>
 ### Nested Schema for `data.mobile_device.criteria`
 
 Read-Only:
 
-- `applications` (Attributes) (see [below for nested schema](#nestedatt--data--mobile_device--criteria--applications))
-- `disk_encrypted` (Boolean)
-- `imei` (Attributes) (see [below for nested schema](#nestedatt--data--mobile_device--criteria--imei))
-- `jailbroken` (Boolean)
-- `last_checkin_time` (Attributes) (see [below for nested schema](#nestedatt--data--mobile_device--criteria--last_checkin_time))
-- `model` (Attributes) (see [below for nested schema](#nestedatt--data--mobile_device--criteria--model))
-- `passcode_set` (Boolean)
-- `phone_number` (Attributes) (see [below for nested schema](#nestedatt--data--mobile_device--criteria--phone_number))
-- `tag` (Attributes) (see [below for nested schema](#nestedatt--data--mobile_device--criteria--tag))
+- `applications` (Attributes) The `applications` parameter. (see [below for nested schema](#nestedatt--data--mobile_device--criteria--applications))
+- `disk_encrypted` (Boolean) The `disk_encrypted` parameter.
+- `imei` (Attributes) The `imei` parameter. (see [below for nested schema](#nestedatt--data--mobile_device--criteria--imei))
+- `jailbroken` (Boolean) The `jailbroken` parameter.
+- `last_checkin_time` (Attributes) The `last_checkin_time` parameter. (see [below for nested schema](#nestedatt--data--mobile_device--criteria--last_checkin_time))
+- `model` (Attributes) The `model` parameter. (see [below for nested schema](#nestedatt--data--mobile_device--criteria--model))
+- `passcode_set` (Boolean) The `passcode_set` parameter.
+- `phone_number` (Attributes) The `phone_number` parameter. (see [below for nested schema](#nestedatt--data--mobile_device--criteria--phone_number))
+- `tag` (Attributes) The `tag` parameter. (see [below for nested schema](#nestedatt--data--mobile_device--criteria--tag))
 
 <a id="nestedatt--data--mobile_device--criteria--applications"></a>
 ### Nested Schema for `data.mobile_device.criteria.tag`
 
 Read-Only:
 
-- `has_malware` (Attributes) (see [below for nested schema](#nestedatt--data--mobile_device--criteria--tag--has_malware))
-- `has_unmanaged_app` (Boolean)
-- `includes` (Attributes List) (see [below for nested schema](#nestedatt--data--mobile_device--criteria--tag--includes))
+- `has_malware` (Attributes) The `has_malware` parameter. (see [below for nested schema](#nestedatt--data--mobile_device--criteria--tag--has_malware))
+- `has_unmanaged_app` (Boolean) The `has_unmanaged_app` parameter.
+- `includes` (Attributes List) The `includes` parameter. (see [below for nested schema](#nestedatt--data--mobile_device--criteria--tag--includes))
 
 <a id="nestedatt--data--mobile_device--criteria--tag--has_malware"></a>
 ### Nested Schema for `data.mobile_device.criteria.tag.has_malware`
 
 Read-Only:
 
-- `no` (Boolean)
-- `yes` (Attributes) (see [below for nested schema](#nestedatt--data--mobile_device--criteria--tag--has_malware--yes))
+- `no` (Boolean) The `no` parameter.
+- `yes` (Attributes) The `yes` parameter. (see [below for nested schema](#nestedatt--data--mobile_device--criteria--tag--has_malware--yes))
 
 <a id="nestedatt--data--mobile_device--criteria--tag--has_malware--yes"></a>
 ### Nested Schema for `data.mobile_device.criteria.tag.has_malware.yes`
 
 Read-Only:
 
-- `excludes` (Attributes List) (see [below for nested schema](#nestedatt--data--mobile_device--criteria--tag--has_malware--yes--excludes))
+- `excludes` (Attributes List) The `excludes` parameter. (see [below for nested schema](#nestedatt--data--mobile_device--criteria--tag--has_malware--yes--excludes))
 
 <a id="nestedatt--data--mobile_device--criteria--tag--has_malware--yes--excludes"></a>
 ### Nested Schema for `data.mobile_device.criteria.tag.has_malware.yes.excludes`
 
 Read-Only:
 
-- `hash` (String)
-- `name` (String)
-- `package` (String)
+- `hash` (String) The `hash` parameter.
+- `name` (String) The `name` parameter.
+- `package` (String) The `package` parameter.
 
 
 
@@ -576,9 +576,9 @@ Read-Only:
 
 Read-Only:
 
-- `hash` (String)
-- `name` (String)
-- `package` (String)
+- `hash` (String) The `hash` parameter.
+- `name` (String) The `name` parameter.
+- `package` (String) The `package` parameter.
 
 
 
@@ -587,9 +587,9 @@ Read-Only:
 
 Read-Only:
 
-- `contains` (String)
-- `is` (String)
-- `is_not` (String)
+- `contains` (String) The `contains` parameter.
+- `is` (String) The `is` parameter.
+- `is_not` (String) The `is_not` parameter.
 
 
 <a id="nestedatt--data--mobile_device--criteria--last_checkin_time"></a>
@@ -597,15 +597,15 @@ Read-Only:
 
 Read-Only:
 
-- `not_within` (Attributes) (see [below for nested schema](#nestedatt--data--mobile_device--criteria--tag--not_within))
-- `within` (Attributes) (see [below for nested schema](#nestedatt--data--mobile_device--criteria--tag--within))
+- `not_within` (Attributes) The `not_within` parameter. (see [below for nested schema](#nestedatt--data--mobile_device--criteria--tag--not_within))
+- `within` (Attributes) The `within` parameter. (see [below for nested schema](#nestedatt--data--mobile_device--criteria--tag--within))
 
 <a id="nestedatt--data--mobile_device--criteria--tag--not_within"></a>
 ### Nested Schema for `data.mobile_device.criteria.tag.not_within`
 
 Read-Only:
 
-- `days` (Number)
+- `days` (Number) The `days` parameter.
 
 
 <a id="nestedatt--data--mobile_device--criteria--tag--within"></a>
@@ -613,7 +613,7 @@ Read-Only:
 
 Read-Only:
 
-- `days` (Number)
+- `days` (Number) The `days` parameter.
 
 
 
@@ -622,9 +622,9 @@ Read-Only:
 
 Read-Only:
 
-- `contains` (String)
-- `is` (String)
-- `is_not` (String)
+- `contains` (String) The `contains` parameter.
+- `is` (String) The `is` parameter.
+- `is_not` (String) The `is_not` parameter.
 
 
 <a id="nestedatt--data--mobile_device--criteria--phone_number"></a>
@@ -632,9 +632,9 @@ Read-Only:
 
 Read-Only:
 
-- `contains` (String)
-- `is` (String)
-- `is_not` (String)
+- `contains` (String) The `contains` parameter.
+- `is` (String) The `is` parameter.
+- `is_not` (String) The `is_not` parameter.
 
 
 <a id="nestedatt--data--mobile_device--criteria--tag"></a>
@@ -642,9 +642,9 @@ Read-Only:
 
 Read-Only:
 
-- `contains` (String)
-- `is` (String)
-- `is_not` (String)
+- `contains` (String) The `contains` parameter.
+- `is` (String) The `is` parameter.
+- `is_not` (String) The `is_not` parameter.
 
 
 
@@ -654,38 +654,38 @@ Read-Only:
 
 Read-Only:
 
-- `criteria` (Attributes) (see [below for nested schema](#nestedatt--data--network_info--criteria))
+- `criteria` (Attributes) The `criteria` parameter. (see [below for nested schema](#nestedatt--data--network_info--criteria))
 
 <a id="nestedatt--data--network_info--criteria"></a>
 ### Nested Schema for `data.network_info.criteria`
 
 Read-Only:
 
-- `network` (Attributes) (see [below for nested schema](#nestedatt--data--network_info--criteria--network))
+- `network` (Attributes) The `network` parameter. (see [below for nested schema](#nestedatt--data--network_info--criteria--network))
 
 <a id="nestedatt--data--network_info--criteria--network"></a>
 ### Nested Schema for `data.network_info.criteria.network`
 
 Read-Only:
 
-- `is` (Attributes) (see [below for nested schema](#nestedatt--data--network_info--criteria--network--is))
-- `is_not` (Attributes) (see [below for nested schema](#nestedatt--data--network_info--criteria--network--is_not))
+- `is` (Attributes) The `is` parameter. (see [below for nested schema](#nestedatt--data--network_info--criteria--network--is))
+- `is_not` (Attributes) The `is_not` parameter. (see [below for nested schema](#nestedatt--data--network_info--criteria--network--is_not))
 
 <a id="nestedatt--data--network_info--criteria--network--is"></a>
 ### Nested Schema for `data.network_info.criteria.network.is`
 
 Read-Only:
 
-- `mobile` (Attributes) (see [below for nested schema](#nestedatt--data--network_info--criteria--network--is--mobile))
-- `unknown` (Boolean)
-- `wifi` (Attributes) (see [below for nested schema](#nestedatt--data--network_info--criteria--network--is--wifi))
+- `mobile` (Attributes) The `mobile` parameter. (see [below for nested schema](#nestedatt--data--network_info--criteria--network--is--mobile))
+- `unknown` (Boolean) The `unknown` parameter.
+- `wifi` (Attributes) The `wifi` parameter. (see [below for nested schema](#nestedatt--data--network_info--criteria--network--is--wifi))
 
 <a id="nestedatt--data--network_info--criteria--network--is--mobile"></a>
 ### Nested Schema for `data.network_info.criteria.network.is.wifi`
 
 Read-Only:
 
-- `carrier` (String)
+- `carrier` (String) The `carrier` parameter.
 
 
 <a id="nestedatt--data--network_info--criteria--network--is--wifi"></a>
@@ -693,7 +693,7 @@ Read-Only:
 
 Read-Only:
 
-- `ssid` (String)
+- `ssid` (String) The `ssid` parameter.
 
 
 
@@ -702,17 +702,17 @@ Read-Only:
 
 Read-Only:
 
-- `ethernet` (Boolean)
-- `mobile` (Attributes) (see [below for nested schema](#nestedatt--data--network_info--criteria--network--is_not--mobile))
-- `unknown` (Boolean)
-- `wifi` (Attributes) (see [below for nested schema](#nestedatt--data--network_info--criteria--network--is_not--wifi))
+- `ethernet` (Boolean) The `ethernet` parameter.
+- `mobile` (Attributes) The `mobile` parameter. (see [below for nested schema](#nestedatt--data--network_info--criteria--network--is_not--mobile))
+- `unknown` (Boolean) The `unknown` parameter.
+- `wifi` (Attributes) The `wifi` parameter. (see [below for nested schema](#nestedatt--data--network_info--criteria--network--is_not--wifi))
 
 <a id="nestedatt--data--network_info--criteria--network--is_not--mobile"></a>
 ### Nested Schema for `data.network_info.criteria.network.is_not.wifi`
 
 Read-Only:
 
-- `carrier` (String)
+- `carrier` (String) The `carrier` parameter.
 
 
 <a id="nestedatt--data--network_info--criteria--network--is_not--wifi"></a>
@@ -720,7 +720,7 @@ Read-Only:
 
 Read-Only:
 
-- `ssid` (String)
+- `ssid` (String) The `ssid` parameter.
 
 
 
@@ -732,39 +732,39 @@ Read-Only:
 
 Read-Only:
 
-- `criteria` (Attributes) (see [below for nested schema](#nestedatt--data--patch_management--criteria))
-- `exclude_vendor` (Boolean)
-- `vendor` (Attributes List) (see [below for nested schema](#nestedatt--data--patch_management--vendor))
+- `criteria` (Attributes) The `criteria` parameter. (see [below for nested schema](#nestedatt--data--patch_management--criteria))
+- `exclude_vendor` (Boolean) The `exclude_vendor` parameter.
+- `vendor` (Attributes List) The `vendor` parameter. (see [below for nested schema](#nestedatt--data--patch_management--vendor))
 
 <a id="nestedatt--data--patch_management--criteria"></a>
 ### Nested Schema for `data.patch_management.criteria`
 
 Read-Only:
 
-- `is_enabled` (String)
-- `is_installed` (Boolean)
-- `missing_patches` (Attributes) (see [below for nested schema](#nestedatt--data--patch_management--criteria--missing_patches))
+- `is_enabled` (String) The `is_enabled` parameter.
+- `is_installed` (Boolean) The `is_installed` parameter.
+- `missing_patches` (Attributes) The `missing_patches` parameter. (see [below for nested schema](#nestedatt--data--patch_management--criteria--missing_patches))
 
 <a id="nestedatt--data--patch_management--criteria--missing_patches"></a>
 ### Nested Schema for `data.patch_management.criteria.missing_patches`
 
 Read-Only:
 
-- `check` (String)
-- `patches` (List of String)
-- `severity` (Attributes) (see [below for nested schema](#nestedatt--data--patch_management--criteria--missing_patches--severity))
+- `check` (String) The `check` parameter.
+- `patches` (List of String) The `patches` parameter.
+- `severity` (Attributes) The `severity` parameter. (see [below for nested schema](#nestedatt--data--patch_management--criteria--missing_patches--severity))
 
 <a id="nestedatt--data--patch_management--criteria--missing_patches--severity"></a>
 ### Nested Schema for `data.patch_management.criteria.missing_patches.severity`
 
 Read-Only:
 
-- `greater_equal` (Number)
-- `greater_than` (Number)
-- `is` (Number)
-- `is_not` (Number)
-- `less_equal` (Number)
-- `less_than` (Number)
+- `greater_equal` (Number) The `greater_equal` parameter.
+- `greater_than` (Number) The `greater_than` parameter.
+- `is` (Number) The `is` parameter.
+- `is_not` (Number) The `is_not` parameter.
+- `less_equal` (Number) The `less_equal` parameter.
+- `less_than` (Number) The `less_than` parameter.
 
 
 
@@ -774,7 +774,7 @@ Read-Only:
 
 Read-Only:
 
-- `name` (String)
-- `product` (List of String)
+- `name` (String) The `name` parameter.
+- `product` (List of String) The `product` parameter.
 
 

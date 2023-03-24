@@ -22,14 +22,14 @@ Retrieves config for a specific item.
 
 ### Read-Only
 
-- `description` (String)
-- `fqdn` (String)
+- `description` (String) The `description` parameter.
+- `fqdn` (String) The `fqdn` parameter.
 - `id` (String) The object ID.
-- `ip_netmask` (String)
-- `ip_range` (String)
-- `ip_wildcard` (String)
-- `name` (String)
-- `tag` (List of String)
-- `type` (String)
+- `ip_netmask` (String) The `ip_netmask` parameter.
+- `ip_range` (String) The `ip_range` parameter.
+- `ip_wildcard` (String) The `ip_wildcard` parameter.
+- `name` (String) The `name` parameter.
+- `tag` (List of String) The `tag` parameter.
+- `type` (String) The `type` parameter.
 
 

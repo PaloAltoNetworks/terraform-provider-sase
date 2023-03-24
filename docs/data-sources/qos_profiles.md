@@ -22,18 +22,18 @@ Retrieves config for a specific item.
 
 ### Read-Only
 
-- `aggregate_bandwidth` (Attributes) (see [below for nested schema](#nestedatt--aggregate_bandwidth))
-- `class_bandwidth_type` (Attributes) (see [below for nested schema](#nestedatt--class_bandwidth_type))
+- `aggregate_bandwidth` (Attributes) The `aggregate_bandwidth` parameter. (see [below for nested schema](#nestedatt--aggregate_bandwidth))
+- `class_bandwidth_type` (Attributes) The `class_bandwidth_type` parameter. (see [below for nested schema](#nestedatt--class_bandwidth_type))
 - `id` (String) The object ID.
-- `name` (String)
+- `name` (String) The `name` parameter.
 
 <a id="nestedatt--aggregate_bandwidth"></a>
 ### Nested Schema for `aggregate_bandwidth`
 
 Read-Only:
 
-- `egress_guaranteed` (Number)
-- `egress_max` (Number)
+- `egress_guaranteed` (Number) The `egress_guaranteed` parameter.
+- `egress_max` (Number) The `egress_max` parameter.
 
 
 <a id="nestedatt--class_bandwidth_type"></a>
@@ -41,32 +41,32 @@ Read-Only:
 
 Read-Only:
 
-- `mbps` (Attributes) (see [below for nested schema](#nestedatt--class_bandwidth_type--mbps))
-- `percentage` (Attributes) (see [below for nested schema](#nestedatt--class_bandwidth_type--percentage))
+- `mbps` (Attributes) The `mbps` parameter. (see [below for nested schema](#nestedatt--class_bandwidth_type--mbps))
+- `percentage` (Attributes) The `percentage` parameter. (see [below for nested schema](#nestedatt--class_bandwidth_type--percentage))
 
 <a id="nestedatt--class_bandwidth_type--mbps"></a>
 ### Nested Schema for `class_bandwidth_type.mbps`
 
 Read-Only:
 
-- `class` (Attributes List) (see [below for nested schema](#nestedatt--class_bandwidth_type--mbps--class))
+- `class` (Attributes List) The `class` parameter. (see [below for nested schema](#nestedatt--class_bandwidth_type--mbps--class))
 
 <a id="nestedatt--class_bandwidth_type--mbps--class"></a>
 ### Nested Schema for `class_bandwidth_type.mbps.class`
 
 Read-Only:
 
-- `class_bandwidth` (Attributes) (see [below for nested schema](#nestedatt--class_bandwidth_type--mbps--class--class_bandwidth))
-- `name` (String)
-- `priority` (String)
+- `class_bandwidth` (Attributes) The `class_bandwidth` parameter. (see [below for nested schema](#nestedatt--class_bandwidth_type--mbps--class--class_bandwidth))
+- `name` (String) The `name` parameter.
+- `priority` (String) The `priority` parameter.
 
 <a id="nestedatt--class_bandwidth_type--mbps--class--class_bandwidth"></a>
 ### Nested Schema for `class_bandwidth_type.mbps.class.priority`
 
 Read-Only:
 
-- `egress_guaranteed` (Number)
-- `egress_max` (Number)
+- `egress_guaranteed` (Number) The `egress_guaranteed` parameter.
+- `egress_max` (Number) The `egress_max` parameter.
 
 
 
@@ -76,23 +76,23 @@ Read-Only:
 
 Read-Only:
 
-- `class` (Attributes List) (see [below for nested schema](#nestedatt--class_bandwidth_type--percentage--class))
+- `class` (Attributes List) The `class` parameter. (see [below for nested schema](#nestedatt--class_bandwidth_type--percentage--class))
 
 <a id="nestedatt--class_bandwidth_type--percentage--class"></a>
 ### Nested Schema for `class_bandwidth_type.percentage.class`
 
 Read-Only:
 
-- `class_bandwidth` (Attributes) (see [below for nested schema](#nestedatt--class_bandwidth_type--percentage--class--class_bandwidth))
-- `name` (String)
-- `priority` (String)
+- `class_bandwidth` (Attributes) The `class_bandwidth` parameter. (see [below for nested schema](#nestedatt--class_bandwidth_type--percentage--class--class_bandwidth))
+- `name` (String) The `name` parameter.
+- `priority` (String) The `priority` parameter.
 
 <a id="nestedatt--class_bandwidth_type--percentage--class--class_bandwidth"></a>
 ### Nested Schema for `class_bandwidth_type.percentage.class.priority`
 
 Read-Only:
 
-- `egress_guaranteed` (Number)
-- `egress_max` (Number)
+- `egress_guaranteed` (Number) The `egress_guaranteed` parameter.
+- `egress_max` (Number) The `egress_max` parameter.
 
 

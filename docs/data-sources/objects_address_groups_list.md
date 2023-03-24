@@ -27,27 +27,27 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `description` (String)
-- `dynamic_value` (Attributes) (see [below for nested schema](#nestedatt--data--dynamic_value))
-- `name` (String)
-- `object_id` (String)
-- `static` (List of String)
-- `tag` (List of String)
+- `description` (String) The `description` parameter.
+- `dynamic_value` (Attributes) The `dynamic_value` parameter. (see [below for nested schema](#nestedatt--data--dynamic_value))
+- `name` (String) The `name` parameter.
+- `object_id` (String) The `object_id` parameter.
+- `static` (List of String) The `static` parameter.
+- `tag` (List of String) The `tag` parameter.
 
 <a id="nestedatt--data--dynamic_value"></a>
 ### Nested Schema for `data.dynamic_value`
 
 Read-Only:
 
-- `filter` (String)
+- `filter` (String) The `filter` parameter.
 
 

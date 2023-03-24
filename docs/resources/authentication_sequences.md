@@ -18,16 +18,16 @@ Retrieves config for a specific item.
 ### Required
 
 - `folder` (String) The folder of the entry
-- `name` (String)
+- `name` (String) The `name` parameter.
 
 ### Optional
 
-- `authentication_profiles` (List of String)
-- `use_domain_find_profile` (Boolean)
+- `authentication_profiles` (List of String) The `authentication_profiles` parameter.
+- `use_domain_find_profile` (Boolean) The `use_domain_find_profile` parameter.
 
 ### Read-Only
 
 - `id` (String) The object ID.
-- `object_id` (String)
+- `object_id` (String) The `object_id` parameter.
 
 

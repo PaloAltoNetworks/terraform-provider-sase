@@ -22,9 +22,9 @@ Retrieves config for a specific item.
 
 ### Read-Only
 
-- `color` (String)
-- `comments` (String)
+- `color` (String) The `color` parameter.
+- `comments` (String) The `comments` parameter.
 - `id` (String) The object ID.
-- `name` (String)
+- `name` (String) The `name` parameter.
 
 

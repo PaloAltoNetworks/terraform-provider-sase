@@ -151,14 +151,16 @@ func (d *mobileAgentInfrastructureSettingsListDataSource) Schema(_ context.Conte
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"folder": dsschema.StringAttribute{
-				Description: "",
-				Required:    true,
+				Description:         "The `folder` parameter.",
+				MarkdownDescription: "The `folder` parameter.",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Mobile Users"),
 				},
@@ -166,59 +168,71 @@ func (d *mobileAgentInfrastructureSettingsListDataSource) Schema(_ context.Conte
 
 			// Output.
 			"data": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `data` parameter.",
+				MarkdownDescription: "The `data` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"dns_servers": dsschema.ListNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `dns_servers` parameter.",
+							MarkdownDescription: "The `dns_servers` parameter.",
+							Computed:            true,
 							NestedObject: dsschema.NestedAttributeObject{
 								Attributes: map[string]dsschema.Attribute{
 									"dns_suffix": dsschema.ListAttribute{
-										Description: "",
-										Computed:    true,
-										ElementType: types.StringType,
+										Description:         "The `dns_suffix` parameter.",
+										MarkdownDescription: "The `dns_suffix` parameter.",
+										Computed:            true,
+										ElementType:         types.StringType,
 									},
 									"internal_dns_match": dsschema.ListNestedAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `internal_dns_match` parameter.",
+										MarkdownDescription: "The `internal_dns_match` parameter.",
+										Computed:            true,
 										NestedObject: dsschema.NestedAttributeObject{
 											Attributes: map[string]dsschema.Attribute{
 												"domain_list": dsschema.ListAttribute{
-													Description: "",
-													Computed:    true,
-													ElementType: types.StringType,
+													Description:         "The `domain_list` parameter.",
+													MarkdownDescription: "The `domain_list` parameter.",
+													Computed:            true,
+													ElementType:         types.StringType,
 												},
 												"name": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `name` parameter.",
+													MarkdownDescription: "The `name` parameter.",
+													Computed:            true,
 												},
 												"primary": dsschema.SingleNestedAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `primary` parameter.",
+													MarkdownDescription: "The `primary` parameter.",
+													Computed:            true,
 													Attributes: map[string]dsschema.Attribute{
 														"dns_server": dsschema.BoolAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `dns_server` parameter.",
+															MarkdownDescription: "The `dns_server` parameter.",
+															Computed:            true,
 														},
 														"use_cloud_default": dsschema.BoolAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `use_cloud_default` parameter.",
+															MarkdownDescription: "The `use_cloud_default` parameter.",
+															Computed:            true,
 														},
 													},
 												},
 												"secondary": dsschema.SingleNestedAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `secondary` parameter.",
+													MarkdownDescription: "The `secondary` parameter.",
+													Computed:            true,
 													Attributes: map[string]dsschema.Attribute{
 														"dns_server": dsschema.BoolAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `dns_server` parameter.",
+															MarkdownDescription: "The `dns_server` parameter.",
+															Computed:            true,
 														},
 														"use_cloud_default": dsschema.BoolAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `use_cloud_default` parameter.",
+															MarkdownDescription: "The `use_cloud_default` parameter.",
+															Computed:            true,
 														},
 													},
 												},
@@ -226,26 +240,31 @@ func (d *mobileAgentInfrastructureSettingsListDataSource) Schema(_ context.Conte
 										},
 									},
 									"name": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `name` parameter.",
+										MarkdownDescription: "The `name` parameter.",
+										Computed:            true,
 									},
 									"primary_public_dns": dsschema.SingleNestedAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `primary_public_dns` parameter.",
+										MarkdownDescription: "The `primary_public_dns` parameter.",
+										Computed:            true,
 										Attributes: map[string]dsschema.Attribute{
 											"dns_server": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `dns_server` parameter.",
+												MarkdownDescription: "The `dns_server` parameter.",
+												Computed:            true,
 											},
 										},
 									},
 									"secondary_public_dns": dsschema.SingleNestedAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `secondary_public_dns` parameter.",
+										MarkdownDescription: "The `secondary_public_dns` parameter.",
+										Computed:            true,
 										Attributes: map[string]dsschema.Attribute{
 											"dns_server": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `dns_server` parameter.",
+												MarkdownDescription: "The `dns_server` parameter.",
+												Computed:            true,
 											},
 										},
 									},
@@ -253,33 +272,40 @@ func (d *mobileAgentInfrastructureSettingsListDataSource) Schema(_ context.Conte
 							},
 						},
 						"enable_wins": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `enable_wins` parameter.",
+							MarkdownDescription: "The `enable_wins` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"no": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `no` parameter.",
+									MarkdownDescription: "The `no` parameter.",
+									Computed:            true,
 								},
 								"yes": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `yes` parameter.",
+									MarkdownDescription: "The `yes` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"wins_servers": dsschema.ListNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `wins_servers` parameter.",
+											MarkdownDescription: "The `wins_servers` parameter.",
+											Computed:            true,
 											NestedObject: dsschema.NestedAttributeObject{
 												Attributes: map[string]dsschema.Attribute{
 													"name": dsschema.StringAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `name` parameter.",
+														MarkdownDescription: "The `name` parameter.",
+														Computed:            true,
 													},
 													"primary": dsschema.StringAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `primary` parameter.",
+														MarkdownDescription: "The `primary` parameter.",
+														Computed:            true,
 													},
 													"secondary": dsschema.StringAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `secondary` parameter.",
+														MarkdownDescription: "The `secondary` parameter.",
+														Computed:            true,
 													},
 												},
 											},
@@ -289,81 +315,97 @@ func (d *mobileAgentInfrastructureSettingsListDataSource) Schema(_ context.Conte
 							},
 						},
 						"ip_pools": dsschema.ListNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `ip_pools` parameter.",
+							MarkdownDescription: "The `ip_pools` parameter.",
+							Computed:            true,
 							NestedObject: dsschema.NestedAttributeObject{
 								Attributes: map[string]dsschema.Attribute{
 									"ip_pool": dsschema.ListAttribute{
-										Description: "",
-										Computed:    true,
-										ElementType: types.StringType,
+										Description:         "The `ip_pool` parameter.",
+										MarkdownDescription: "The `ip_pool` parameter.",
+										Computed:            true,
+										ElementType:         types.StringType,
 									},
 									"name": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `name` parameter.",
+										MarkdownDescription: "The `name` parameter.",
+										Computed:            true,
 									},
 								},
 							},
 						},
 						"ipv6": dsschema.BoolAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `ipv6` parameter.",
+							MarkdownDescription: "The `ipv6` parameter.",
+							Computed:            true,
 						},
 						"name": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `name` parameter.",
+							MarkdownDescription: "The `name` parameter.",
+							Computed:            true,
 						},
 						"portal_hostname": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `portal_hostname` parameter.",
+							MarkdownDescription: "The `portal_hostname` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"custom_domain": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `custom_domain` parameter.",
+									MarkdownDescription: "The `custom_domain` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"cname": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `cname` parameter.",
+											MarkdownDescription: "The `cname` parameter.",
+											Computed:            true,
 										},
 										"hostname": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `hostname` parameter.",
+											MarkdownDescription: "The `hostname` parameter.",
+											Computed:            true,
 										},
 										"ssl_tls_service_profile": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `ssl_tls_service_profile` parameter.",
+											MarkdownDescription: "The `ssl_tls_service_profile` parameter.",
+											Computed:            true,
 										},
 									},
 								},
 								"default_domain": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `default_domain` parameter.",
+									MarkdownDescription: "The `default_domain` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"hostname": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `hostname` parameter.",
+											MarkdownDescription: "The `hostname` parameter.",
+											Computed:            true,
 										},
 									},
 								},
 							},
 						},
 						"region_ipv6": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `region_ipv6` parameter.",
+							MarkdownDescription: "The `region_ipv6` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"region": dsschema.ListNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `region` parameter.",
+									MarkdownDescription: "The `region` parameter.",
+									Computed:            true,
 									NestedObject: dsschema.NestedAttributeObject{
 										Attributes: map[string]dsschema.Attribute{
 											"locations": dsschema.ListAttribute{
-												Description: "",
-												Computed:    true,
-												ElementType: types.StringType,
+												Description:         "The `locations` parameter.",
+												MarkdownDescription: "The `locations` parameter.",
+												Computed:            true,
+												ElementType:         types.StringType,
 											},
 											"name": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `name` parameter.",
+												MarkdownDescription: "The `name` parameter.",
+												Computed:            true,
 											},
 										},
 									},
@@ -371,20 +413,24 @@ func (d *mobileAgentInfrastructureSettingsListDataSource) Schema(_ context.Conte
 							},
 						},
 						"udp_queries": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `udp_queries` parameter.",
+							MarkdownDescription: "The `udp_queries` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"retries": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `retries` parameter.",
+									MarkdownDescription: "The `retries` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"attempts": dsschema.Int64Attribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `attempts` parameter.",
+											MarkdownDescription: "The `attempts` parameter.",
+											Computed:            true,
 										},
 										"interval": dsschema.Int64Attribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `interval` parameter.",
+											MarkdownDescription: "The `interval` parameter.",
+											Computed:            true,
 										},
 									},
 								},
@@ -394,16 +440,19 @@ func (d *mobileAgentInfrastructureSettingsListDataSource) Schema(_ context.Conte
 				},
 			},
 			"limit": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `limit` parameter.",
+				MarkdownDescription: "The `limit` parameter.",
+				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `offset` parameter.",
+				MarkdownDescription: "The `offset` parameter.",
+				Computed:            true,
 			},
 			"total": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `total` parameter.",
+				MarkdownDescription: "The `total` parameter.",
+				Computed:            true,
 			},
 		},
 	}

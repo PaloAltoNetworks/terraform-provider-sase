@@ -105,141 +105,169 @@ func (d *radiusServerProfilesListDataSource) Schema(_ context.Context, _ datasou
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description: "The max count in result entry (count per page)",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The max count in result entry (count per page)",
+				MarkdownDescription: "The max count in result entry (count per page)",
+				Optional:            true,
+				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description: "The offset of the result entry",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The offset of the result entry",
+				MarkdownDescription: "The offset of the result entry",
+				Optional:            true,
+				Computed:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
 			},
 			"name": dsschema.StringAttribute{
-				Description: "The name of the entry",
-				Optional:    true,
+				Description:         "The name of the entry",
+				MarkdownDescription: "The name of the entry",
+				Optional:            true,
 			},
 
 			// Output.
 			"data": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `data` parameter.",
+				MarkdownDescription: "The `data` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"object_id": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `object_id` parameter.",
+							MarkdownDescription: "The `object_id` parameter.",
+							Computed:            true,
 						},
 						"protocol": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `protocol` parameter.",
+							MarkdownDescription: "The `protocol` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"c_h_a_p": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `c_h_a_p` parameter.",
+									MarkdownDescription: "The `c_h_a_p` parameter.",
+									Computed:            true,
 								},
 								"e_a_p_t_t_l_s_with_p_a_p": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `e_a_p_t_t_l_s_with_p_a_p` parameter.",
+									MarkdownDescription: "The `e_a_p_t_t_l_s_with_p_a_p` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"anon_outer_id": dsschema.BoolAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `anon_outer_id` parameter.",
+											MarkdownDescription: "The `anon_outer_id` parameter.",
+											Computed:            true,
 										},
 										"radius_cert_profile": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `radius_cert_profile` parameter.",
+											MarkdownDescription: "The `radius_cert_profile` parameter.",
+											Computed:            true,
 										},
 									},
 								},
 								"p_a_p": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `p_a_p` parameter.",
+									MarkdownDescription: "The `p_a_p` parameter.",
+									Computed:            true,
 								},
 								"p_e_a_p_m_s_c_h_a_pv2": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `p_e_a_p_m_s_c_h_a_pv2` parameter.",
+									MarkdownDescription: "The `p_e_a_p_m_s_c_h_a_pv2` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"allow_pwd_change": dsschema.BoolAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `allow_pwd_change` parameter.",
+											MarkdownDescription: "The `allow_pwd_change` parameter.",
+											Computed:            true,
 										},
 										"anon_outer_id": dsschema.BoolAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `anon_outer_id` parameter.",
+											MarkdownDescription: "The `anon_outer_id` parameter.",
+											Computed:            true,
 										},
 										"radius_cert_profile": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `radius_cert_profile` parameter.",
+											MarkdownDescription: "The `radius_cert_profile` parameter.",
+											Computed:            true,
 										},
 									},
 								},
 								"p_e_a_p_with_g_t_c": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `p_e_a_p_with_g_t_c` parameter.",
+									MarkdownDescription: "The `p_e_a_p_with_g_t_c` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"anon_outer_id": dsschema.BoolAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `anon_outer_id` parameter.",
+											MarkdownDescription: "The `anon_outer_id` parameter.",
+											Computed:            true,
 										},
 										"radius_cert_profile": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `radius_cert_profile` parameter.",
+											MarkdownDescription: "The `radius_cert_profile` parameter.",
+											Computed:            true,
 										},
 									},
 								},
 							},
 						},
 						"retries": dsschema.Int64Attribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `retries` parameter.",
+							MarkdownDescription: "The `retries` parameter.",
+							Computed:            true,
 						},
 						"server": dsschema.ListNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `server` parameter.",
+							MarkdownDescription: "The `server` parameter.",
+							Computed:            true,
 							NestedObject: dsschema.NestedAttributeObject{
 								Attributes: map[string]dsschema.Attribute{
 									"ip_address": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `ip_address` parameter.",
+										MarkdownDescription: "The `ip_address` parameter.",
+										Computed:            true,
 									},
 									"name": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `name` parameter.",
+										MarkdownDescription: "The `name` parameter.",
+										Computed:            true,
 									},
 									"port": dsschema.Int64Attribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `port` parameter.",
+										MarkdownDescription: "The `port` parameter.",
+										Computed:            true,
 									},
 									"secret": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `secret` parameter.",
+										MarkdownDescription: "The `secret` parameter.",
+										Computed:            true,
 									},
 								},
 							},
 						},
 						"timeout": dsschema.Int64Attribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `timeout` parameter.",
+							MarkdownDescription: "The `timeout` parameter.",
+							Computed:            true,
 						},
 					},
 				},
 			},
 			"total": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `total` parameter.",
+				MarkdownDescription: "The `total` parameter.",
+				Computed:            true,
 			},
 		},
 	}
@@ -461,18 +489,21 @@ func (d *radiusServerProfilesDataSource) Schema(_ context.Context, _ datasource.
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description: "The uuid of the resource",
-				Required:    true,
+				Description:         "The uuid of the resource",
+				MarkdownDescription: "The uuid of the resource",
+				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -480,96 +511,116 @@ func (d *radiusServerProfilesDataSource) Schema(_ context.Context, _ datasource.
 
 			// Output.
 			"protocol": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `protocol` parameter.",
+				MarkdownDescription: "The `protocol` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"c_h_a_p": dsschema.BoolAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `c_h_a_p` parameter.",
+						MarkdownDescription: "The `c_h_a_p` parameter.",
+						Computed:            true,
 					},
 					"e_a_p_t_t_l_s_with_p_a_p": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `e_a_p_t_t_l_s_with_p_a_p` parameter.",
+						MarkdownDescription: "The `e_a_p_t_t_l_s_with_p_a_p` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"anon_outer_id": dsschema.BoolAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `anon_outer_id` parameter.",
+								MarkdownDescription: "The `anon_outer_id` parameter.",
+								Computed:            true,
 							},
 							"radius_cert_profile": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `radius_cert_profile` parameter.",
+								MarkdownDescription: "The `radius_cert_profile` parameter.",
+								Computed:            true,
 							},
 						},
 					},
 					"p_a_p": dsschema.BoolAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `p_a_p` parameter.",
+						MarkdownDescription: "The `p_a_p` parameter.",
+						Computed:            true,
 					},
 					"p_e_a_p_m_s_c_h_a_pv2": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `p_e_a_p_m_s_c_h_a_pv2` parameter.",
+						MarkdownDescription: "The `p_e_a_p_m_s_c_h_a_pv2` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"allow_pwd_change": dsschema.BoolAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `allow_pwd_change` parameter.",
+								MarkdownDescription: "The `allow_pwd_change` parameter.",
+								Computed:            true,
 							},
 							"anon_outer_id": dsschema.BoolAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `anon_outer_id` parameter.",
+								MarkdownDescription: "The `anon_outer_id` parameter.",
+								Computed:            true,
 							},
 							"radius_cert_profile": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `radius_cert_profile` parameter.",
+								MarkdownDescription: "The `radius_cert_profile` parameter.",
+								Computed:            true,
 							},
 						},
 					},
 					"p_e_a_p_with_g_t_c": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `p_e_a_p_with_g_t_c` parameter.",
+						MarkdownDescription: "The `p_e_a_p_with_g_t_c` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"anon_outer_id": dsschema.BoolAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `anon_outer_id` parameter.",
+								MarkdownDescription: "The `anon_outer_id` parameter.",
+								Computed:            true,
 							},
 							"radius_cert_profile": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `radius_cert_profile` parameter.",
+								MarkdownDescription: "The `radius_cert_profile` parameter.",
+								Computed:            true,
 							},
 						},
 					},
 				},
 			},
 			"retries": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `retries` parameter.",
+				MarkdownDescription: "The `retries` parameter.",
+				Computed:            true,
 			},
 			"server": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `server` parameter.",
+				MarkdownDescription: "The `server` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"ip_address": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `ip_address` parameter.",
+							MarkdownDescription: "The `ip_address` parameter.",
+							Computed:            true,
 						},
 						"name": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `name` parameter.",
+							MarkdownDescription: "The `name` parameter.",
+							Computed:            true,
 						},
 						"port": dsschema.Int64Attribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `port` parameter.",
+							MarkdownDescription: "The `port` parameter.",
+							Computed:            true,
 						},
 						"secret": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `secret` parameter.",
+							MarkdownDescription: "The `secret` parameter.",
+							Computed:            true,
 						},
 					},
 				},
 			},
 			"timeout": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `timeout` parameter.",
+				MarkdownDescription: "The `timeout` parameter.",
+				Computed:            true,
 			},
 		},
 	}
@@ -747,8 +798,9 @@ func (r *radiusServerProfilesResource) Schema(_ context.Context, _ resource.Sche
 
 		Attributes: map[string]rsschema.Attribute{
 			"id": rsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
@@ -756,44 +808,51 @@ func (r *radiusServerProfilesResource) Schema(_ context.Context, _ resource.Sche
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
 			},
 
 			"object_id": rsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `object_id` parameter.",
+				MarkdownDescription: "The `object_id` parameter.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
 			},
 			"protocol": rsschema.SingleNestedAttribute{
-				Description: "",
-				Optional:    true,
+				Description:         "The `protocol` parameter.",
+				MarkdownDescription: "The `protocol` parameter.",
+				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"c_h_a_p": rsschema.BoolAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `c_h_a_p` parameter.",
+						MarkdownDescription: "The `c_h_a_p` parameter.",
+						Optional:            true,
 					},
 					"e_a_p_t_t_l_s_with_p_a_p": rsschema.SingleNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `e_a_p_t_t_l_s_with_p_a_p` parameter.",
+						MarkdownDescription: "The `e_a_p_t_t_l_s_with_p_a_p` parameter.",
+						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"anon_outer_id": rsschema.BoolAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `anon_outer_id` parameter.",
+								MarkdownDescription: "The `anon_outer_id` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.Bool{
 									DefaultBool(false),
 								},
 							},
 							"radius_cert_profile": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `radius_cert_profile` parameter.",
+								MarkdownDescription: "The `radius_cert_profile` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString(""),
 								},
@@ -801,33 +860,38 @@ func (r *radiusServerProfilesResource) Schema(_ context.Context, _ resource.Sche
 						},
 					},
 					"p_a_p": rsschema.BoolAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `p_a_p` parameter.",
+						MarkdownDescription: "The `p_a_p` parameter.",
+						Optional:            true,
 					},
 					"p_e_a_p_m_s_c_h_a_pv2": rsschema.SingleNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `p_e_a_p_m_s_c_h_a_pv2` parameter.",
+						MarkdownDescription: "The `p_e_a_p_m_s_c_h_a_pv2` parameter.",
+						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"allow_pwd_change": rsschema.BoolAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `allow_pwd_change` parameter.",
+								MarkdownDescription: "The `allow_pwd_change` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.Bool{
 									DefaultBool(false),
 								},
 							},
 							"anon_outer_id": rsschema.BoolAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `anon_outer_id` parameter.",
+								MarkdownDescription: "The `anon_outer_id` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.Bool{
 									DefaultBool(false),
 								},
 							},
 							"radius_cert_profile": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `radius_cert_profile` parameter.",
+								MarkdownDescription: "The `radius_cert_profile` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString(""),
 								},
@@ -835,21 +899,24 @@ func (r *radiusServerProfilesResource) Schema(_ context.Context, _ resource.Sche
 						},
 					},
 					"p_e_a_p_with_g_t_c": rsschema.SingleNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `p_e_a_p_with_g_t_c` parameter.",
+						MarkdownDescription: "The `p_e_a_p_with_g_t_c` parameter.",
+						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"anon_outer_id": rsschema.BoolAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `anon_outer_id` parameter.",
+								MarkdownDescription: "The `anon_outer_id` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.Bool{
 									DefaultBool(false),
 								},
 							},
 							"radius_cert_profile": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `radius_cert_profile` parameter.",
+								MarkdownDescription: "The `radius_cert_profile` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString(""),
 								},
@@ -859,9 +926,10 @@ func (r *radiusServerProfilesResource) Schema(_ context.Context, _ resource.Sche
 				},
 			},
 			"retries": rsschema.Int64Attribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `retries` parameter.",
+				MarkdownDescription: "The `retries` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.Int64{
 					DefaultInt64(0),
 				},
@@ -870,30 +938,34 @@ func (r *radiusServerProfilesResource) Schema(_ context.Context, _ resource.Sche
 				},
 			},
 			"server": rsschema.ListNestedAttribute{
-				Description: "",
-				Required:    true,
+				Description:         "The `server` parameter.",
+				MarkdownDescription: "The `server` parameter.",
+				Required:            true,
 				NestedObject: rsschema.NestedAttributeObject{
 					Attributes: map[string]rsschema.Attribute{
 						"ip_address": rsschema.StringAttribute{
-							Description: "",
-							Optional:    true,
-							Computed:    true,
+							Description:         "The `ip_address` parameter.",
+							MarkdownDescription: "The `ip_address` parameter.",
+							Optional:            true,
+							Computed:            true,
 							PlanModifiers: []planmodifier.String{
 								DefaultString(""),
 							},
 						},
 						"name": rsschema.StringAttribute{
-							Description: "",
-							Optional:    true,
-							Computed:    true,
+							Description:         "The `name` parameter.",
+							MarkdownDescription: "The `name` parameter.",
+							Optional:            true,
+							Computed:            true,
 							PlanModifiers: []planmodifier.String{
 								DefaultString(""),
 							},
 						},
 						"port": rsschema.Int64Attribute{
-							Description: "",
-							Optional:    true,
-							Computed:    true,
+							Description:         "The `port` parameter.",
+							MarkdownDescription: "The `port` parameter.",
+							Optional:            true,
+							Computed:            true,
 							PlanModifiers: []planmodifier.Int64{
 								DefaultInt64(0),
 							},
@@ -902,9 +974,10 @@ func (r *radiusServerProfilesResource) Schema(_ context.Context, _ resource.Sche
 							},
 						},
 						"secret": rsschema.StringAttribute{
-							Description: "",
-							Optional:    true,
-							Computed:    true,
+							Description:         "The `secret` parameter.",
+							MarkdownDescription: "The `secret` parameter.",
+							Optional:            true,
+							Computed:            true,
 							PlanModifiers: []planmodifier.String{
 								DefaultString(""),
 							},
@@ -916,9 +989,10 @@ func (r *radiusServerProfilesResource) Schema(_ context.Context, _ resource.Sche
 				},
 			},
 			"timeout": rsschema.Int64Attribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `timeout` parameter.",
+				MarkdownDescription: "The `timeout` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.Int64{
 					DefaultInt64(0),
 				},

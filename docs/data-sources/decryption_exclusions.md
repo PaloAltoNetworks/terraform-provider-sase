@@ -22,8 +22,8 @@ Retrieves config for a specific item.
 
 ### Read-Only
 
-- `description` (String)
+- `description` (String) The `description` parameter.
 - `id` (String) The object ID.
-- `name` (String)
+- `name` (String) The `name` parameter.
 
 

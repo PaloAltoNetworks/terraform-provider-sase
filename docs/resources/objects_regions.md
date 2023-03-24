@@ -18,24 +18,24 @@ Retrieves config for a specific item.
 ### Required
 
 - `folder` (String) The folder of the entry
-- `name` (String)
+- `name` (String) The `name` parameter.
 
 ### Optional
 
-- `address` (List of String)
-- `geo_location` (Attributes) (see [below for nested schema](#nestedatt--geo_location))
+- `address` (List of String) The `address` parameter.
+- `geo_location` (Attributes) The `geo_location` parameter. (see [below for nested schema](#nestedatt--geo_location))
 
 ### Read-Only
 
 - `id` (String) The object ID.
-- `object_id` (String)
+- `object_id` (String) The `object_id` parameter.
 
 <a id="nestedatt--geo_location"></a>
 ### Nested Schema for `geo_location`
 
 Required:
 
-- `latitude` (Number)
-- `longitude` (Number)
+- `latitude` (Number) The `latitude` parameter.
+- `longitude` (Number) The `longitude` parameter.
 
 

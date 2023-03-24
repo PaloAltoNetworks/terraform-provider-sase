@@ -17,64 +17,64 @@ Retrieves config for a specific item.
 
 ### Required
 
-- `category` (String)
+- `category` (String) The `category` parameter.
 - `folder` (String) The folder of the entry
-- `name` (String)
-- `risk` (Number)
-- `subcategory` (String)
-- `technology` (String)
+- `name` (String) The `name` parameter.
+- `risk` (Number) The `risk` parameter.
+- `subcategory` (String) The `subcategory` parameter.
+- `technology` (String) The `technology` parameter.
 
 ### Optional
 
-- `able_to_transfer_file` (Boolean)
-- `alg_disable_capability` (String)
-- `consume_big_bandwidth` (Boolean)
-- `data_ident` (Boolean)
-- `default` (Attributes) (see [below for nested schema](#nestedatt--default))
-- `description` (String)
-- `evasive_behavior` (Boolean)
-- `file_type_ident` (Boolean)
-- `has_known_vulnerability` (Boolean)
-- `no_appid_caching` (Boolean)
-- `parent_app` (String)
-- `pervasive_use` (Boolean)
-- `prone_to_misuse` (Boolean)
-- `signature` (Attributes List) (see [below for nested schema](#nestedatt--signature))
-- `tcp_half_closed_timeout` (Number)
-- `tcp_time_wait_timeout` (Number)
-- `tcp_timeout` (Number)
-- `timeout` (Number)
-- `tunnel_applications` (Boolean)
-- `tunnel_other_application` (Boolean)
-- `udp_timeout` (Number)
-- `used_by_malware` (Boolean)
-- `virus_ident` (Boolean)
+- `able_to_transfer_file` (Boolean) The `able_to_transfer_file` parameter.
+- `alg_disable_capability` (String) The `alg_disable_capability` parameter.
+- `consume_big_bandwidth` (Boolean) The `consume_big_bandwidth` parameter.
+- `data_ident` (Boolean) The `data_ident` parameter.
+- `default` (Attributes) The `default` parameter. (see [below for nested schema](#nestedatt--default))
+- `description` (String) The `description` parameter.
+- `evasive_behavior` (Boolean) The `evasive_behavior` parameter.
+- `file_type_ident` (Boolean) The `file_type_ident` parameter.
+- `has_known_vulnerability` (Boolean) The `has_known_vulnerability` parameter.
+- `no_appid_caching` (Boolean) The `no_appid_caching` parameter.
+- `parent_app` (String) The `parent_app` parameter.
+- `pervasive_use` (Boolean) The `pervasive_use` parameter.
+- `prone_to_misuse` (Boolean) The `prone_to_misuse` parameter.
+- `signature` (Attributes List) The `signature` parameter. (see [below for nested schema](#nestedatt--signature))
+- `tcp_half_closed_timeout` (Number) The `tcp_half_closed_timeout` parameter.
+- `tcp_time_wait_timeout` (Number) The `tcp_time_wait_timeout` parameter.
+- `tcp_timeout` (Number) The `tcp_timeout` parameter.
+- `timeout` (Number) The `timeout` parameter.
+- `tunnel_applications` (Boolean) The `tunnel_applications` parameter.
+- `tunnel_other_application` (Boolean) The `tunnel_other_application` parameter.
+- `udp_timeout` (Number) The `udp_timeout` parameter.
+- `used_by_malware` (Boolean) The `used_by_malware` parameter.
+- `virus_ident` (Boolean) The `virus_ident` parameter.
 
 ### Read-Only
 
 - `id` (String) The object ID.
-- `object_id` (String)
+- `object_id` (String) The `object_id` parameter.
 
 <a id="nestedatt--default"></a>
 ### Nested Schema for `default`
 
 Optional:
 
-- `ident_by_icmp6_type` (Attributes) (see [below for nested schema](#nestedatt--default--ident_by_icmp6_type))
-- `ident_by_icmp_type` (Attributes) (see [below for nested schema](#nestedatt--default--ident_by_icmp_type))
-- `ident_by_ip_protocol` (String)
-- `port` (List of String)
+- `ident_by_icmp6_type` (Attributes) The `ident_by_icmp6_type` parameter. (see [below for nested schema](#nestedatt--default--ident_by_icmp6_type))
+- `ident_by_icmp_type` (Attributes) The `ident_by_icmp_type` parameter. (see [below for nested schema](#nestedatt--default--ident_by_icmp_type))
+- `ident_by_ip_protocol` (String) The `ident_by_ip_protocol` parameter.
+- `port` (List of String) The `port` parameter.
 
 <a id="nestedatt--default--ident_by_icmp6_type"></a>
 ### Nested Schema for `default.ident_by_icmp6_type`
 
 Required:
 
-- `type` (String)
+- `type` (String) The `type` parameter.
 
 Optional:
 
-- `code` (String)
+- `code` (String) The `code` parameter.
 
 
 <a id="nestedatt--default--ident_by_icmp_type"></a>
@@ -82,11 +82,11 @@ Optional:
 
 Required:
 
-- `type` (String)
+- `type` (String) The `type` parameter.
 
 Optional:
 
-- `code` (String)
+- `code` (String) The `code` parameter.
 
 
 
@@ -95,56 +95,56 @@ Optional:
 
 Required:
 
-- `name` (String)
+- `name` (String) The `name` parameter.
 
 Optional:
 
-- `and_condition` (Attributes List) (see [below for nested schema](#nestedatt--signature--and_condition))
-- `comment` (String)
-- `order_free` (Boolean)
-- `scope` (String)
+- `and_condition` (Attributes List) The `and_condition` parameter. (see [below for nested schema](#nestedatt--signature--and_condition))
+- `comment` (String) The `comment` parameter.
+- `order_free` (Boolean) The `order_free` parameter.
+- `scope` (String) The `scope` parameter.
 
 <a id="nestedatt--signature--and_condition"></a>
 ### Nested Schema for `signature.and_condition`
 
 Required:
 
-- `name` (String)
+- `name` (String) The `name` parameter.
 
 Optional:
 
-- `or_condition` (Attributes List) (see [below for nested schema](#nestedatt--signature--and_condition--or_condition))
+- `or_condition` (Attributes List) The `or_condition` parameter. (see [below for nested schema](#nestedatt--signature--and_condition--or_condition))
 
 <a id="nestedatt--signature--and_condition--or_condition"></a>
 ### Nested Schema for `signature.and_condition.or_condition`
 
 Required:
 
-- `name` (String)
-- `operator` (Attributes) (see [below for nested schema](#nestedatt--signature--and_condition--or_condition--operator))
+- `name` (String) The `name` parameter.
+- `operator` (Attributes) The `operator` parameter. (see [below for nested schema](#nestedatt--signature--and_condition--or_condition--operator))
 
 <a id="nestedatt--signature--and_condition--or_condition--operator"></a>
 ### Nested Schema for `signature.and_condition.or_condition.operator`
 
 Optional:
 
-- `equal_to` (Attributes) (see [below for nested schema](#nestedatt--signature--and_condition--or_condition--operator--equal_to))
-- `greater_than` (Attributes) (see [below for nested schema](#nestedatt--signature--and_condition--or_condition--operator--greater_than))
-- `less_than` (Attributes) (see [below for nested schema](#nestedatt--signature--and_condition--or_condition--operator--less_than))
-- `pattern_match` (Attributes) (see [below for nested schema](#nestedatt--signature--and_condition--or_condition--operator--pattern_match))
+- `equal_to` (Attributes) The `equal_to` parameter. (see [below for nested schema](#nestedatt--signature--and_condition--or_condition--operator--equal_to))
+- `greater_than` (Attributes) The `greater_than` parameter. (see [below for nested schema](#nestedatt--signature--and_condition--or_condition--operator--greater_than))
+- `less_than` (Attributes) The `less_than` parameter. (see [below for nested schema](#nestedatt--signature--and_condition--or_condition--operator--less_than))
+- `pattern_match` (Attributes) The `pattern_match` parameter. (see [below for nested schema](#nestedatt--signature--and_condition--or_condition--operator--pattern_match))
 
 <a id="nestedatt--signature--and_condition--or_condition--operator--equal_to"></a>
 ### Nested Schema for `signature.and_condition.or_condition.operator.equal_to`
 
 Required:
 
-- `context` (String)
-- `value` (String)
+- `context` (String) The `context` parameter.
+- `value` (String) The `value` parameter.
 
 Optional:
 
-- `mask` (String)
-- `position` (String)
+- `mask` (String) The `mask` parameter.
+- `position` (String) The `position` parameter.
 
 
 <a id="nestedatt--signature--and_condition--or_condition--operator--greater_than"></a>
@@ -152,20 +152,20 @@ Optional:
 
 Required:
 
-- `context` (String)
-- `value` (Number)
+- `context` (String) The `context` parameter.
+- `value` (Number) The `value` parameter.
 
 Optional:
 
-- `qualifier` (Attributes List) (see [below for nested schema](#nestedatt--signature--and_condition--or_condition--operator--greater_than--qualifier))
+- `qualifier` (Attributes List) The `qualifier` parameter. (see [below for nested schema](#nestedatt--signature--and_condition--or_condition--operator--greater_than--qualifier))
 
 <a id="nestedatt--signature--and_condition--or_condition--operator--greater_than--qualifier"></a>
 ### Nested Schema for `signature.and_condition.or_condition.operator.greater_than.qualifier`
 
 Required:
 
-- `name` (String)
-- `value` (String)
+- `name` (String) The `name` parameter.
+- `value` (String) The `value` parameter.
 
 
 
@@ -174,20 +174,20 @@ Required:
 
 Required:
 
-- `context` (String)
-- `value` (Number)
+- `context` (String) The `context` parameter.
+- `value` (Number) The `value` parameter.
 
 Optional:
 
-- `qualifier` (Attributes List) (see [below for nested schema](#nestedatt--signature--and_condition--or_condition--operator--less_than--qualifier))
+- `qualifier` (Attributes List) The `qualifier` parameter. (see [below for nested schema](#nestedatt--signature--and_condition--or_condition--operator--less_than--qualifier))
 
 <a id="nestedatt--signature--and_condition--or_condition--operator--less_than--qualifier"></a>
 ### Nested Schema for `signature.and_condition.or_condition.operator.less_than.qualifier`
 
 Required:
 
-- `name` (String)
-- `value` (String)
+- `name` (String) The `name` parameter.
+- `value` (String) The `value` parameter.
 
 
 
@@ -196,19 +196,19 @@ Required:
 
 Required:
 
-- `context` (String)
-- `pattern` (String)
+- `context` (String) The `context` parameter.
+- `pattern` (String) The `pattern` parameter.
 
 Optional:
 
-- `qualifier` (Attributes List) (see [below for nested schema](#nestedatt--signature--and_condition--or_condition--operator--pattern_match--qualifier))
+- `qualifier` (Attributes List) The `qualifier` parameter. (see [below for nested schema](#nestedatt--signature--and_condition--or_condition--operator--pattern_match--qualifier))
 
 <a id="nestedatt--signature--and_condition--or_condition--operator--pattern_match--qualifier"></a>
 ### Nested Schema for `signature.and_condition.or_condition.operator.pattern_match.qualifier`
 
 Required:
 
-- `name` (String)
-- `value` (String)
+- `name` (String) The `name` parameter.
+- `value` (String) The `value` parameter.
 
 

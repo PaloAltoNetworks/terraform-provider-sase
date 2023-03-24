@@ -124,28 +124,33 @@ func (d *antiSpywareSignaturesListDataSource) Schema(_ context.Context, _ dataso
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description: "The max count in result entry (count per page)",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The max count in result entry (count per page)",
+				MarkdownDescription: "The max count in result entry (count per page)",
+				Optional:            true,
+				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description: "The offset of the result entry",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The offset of the result entry",
+				MarkdownDescription: "The offset of the result entry",
+				Optional:            true,
+				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description: "The name of the entry",
-				Optional:    true,
+				Description:         "The name of the entry",
+				MarkdownDescription: "The name of the entry",
+				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -153,114 +158,139 @@ func (d *antiSpywareSignaturesListDataSource) Schema(_ context.Context, _ dataso
 
 			// Output.
 			"data": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `data` parameter.",
+				MarkdownDescription: "The `data` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"bugtraq": dsschema.ListAttribute{
-							Description: "",
-							Computed:    true,
-							ElementType: types.StringType,
+							Description:         "The `bugtraq` parameter.",
+							MarkdownDescription: "The `bugtraq` parameter.",
+							Computed:            true,
+							ElementType:         types.StringType,
 						},
 						"comment": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `comment` parameter.",
+							MarkdownDescription: "The `comment` parameter.",
+							Computed:            true,
 						},
 						"cve": dsschema.ListAttribute{
-							Description: "",
-							Computed:    true,
-							ElementType: types.StringType,
+							Description:         "The `cve` parameter.",
+							MarkdownDescription: "The `cve` parameter.",
+							Computed:            true,
+							ElementType:         types.StringType,
 						},
 						"default_action": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `default_action` parameter.",
+							MarkdownDescription: "The `default_action` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"alert": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `alert` parameter.",
+									MarkdownDescription: "The `alert` parameter.",
+									Computed:            true,
 								},
 								"allow": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `allow` parameter.",
+									MarkdownDescription: "The `allow` parameter.",
+									Computed:            true,
 								},
 								"block_ip": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `block_ip` parameter.",
+									MarkdownDescription: "The `block_ip` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"duration": dsschema.Int64Attribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `duration` parameter.",
+											MarkdownDescription: "The `duration` parameter.",
+											Computed:            true,
 										},
 										"track_by": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `track_by` parameter.",
+											MarkdownDescription: "The `track_by` parameter.",
+											Computed:            true,
 										},
 									},
 								},
 								"drop": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `drop` parameter.",
+									MarkdownDescription: "The `drop` parameter.",
+									Computed:            true,
 								},
 								"reset_both": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `reset_both` parameter.",
+									MarkdownDescription: "The `reset_both` parameter.",
+									Computed:            true,
 								},
 								"reset_client": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `reset_client` parameter.",
+									MarkdownDescription: "The `reset_client` parameter.",
+									Computed:            true,
 								},
 								"reset_server": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `reset_server` parameter.",
+									MarkdownDescription: "The `reset_server` parameter.",
+									Computed:            true,
 								},
 							},
 						},
 						"direction": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `direction` parameter.",
+							MarkdownDescription: "The `direction` parameter.",
+							Computed:            true,
 						},
 						"object_id": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `object_id` parameter.",
+							MarkdownDescription: "The `object_id` parameter.",
+							Computed:            true,
 						},
 						"reference": dsschema.ListAttribute{
-							Description: "",
-							Computed:    true,
-							ElementType: types.StringType,
+							Description:         "The `reference` parameter.",
+							MarkdownDescription: "The `reference` parameter.",
+							Computed:            true,
+							ElementType:         types.StringType,
 						},
 						"severity": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `severity` parameter.",
+							MarkdownDescription: "The `severity` parameter.",
+							Computed:            true,
 						},
 						"signature": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `signature` parameter.",
+							MarkdownDescription: "The `signature` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"combination": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `combination` parameter.",
+									MarkdownDescription: "The `combination` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"and_condition": dsschema.ListNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `and_condition` parameter.",
+											MarkdownDescription: "The `and_condition` parameter.",
+											Computed:            true,
 											NestedObject: dsschema.NestedAttributeObject{
 												Attributes: map[string]dsschema.Attribute{
 													"name": dsschema.StringAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `name` parameter.",
+														MarkdownDescription: "The `name` parameter.",
+														Computed:            true,
 													},
 													"or_condition": dsschema.ListNestedAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `or_condition` parameter.",
+														MarkdownDescription: "The `or_condition` parameter.",
+														Computed:            true,
 														NestedObject: dsschema.NestedAttributeObject{
 															Attributes: map[string]dsschema.Attribute{
 																"name": dsschema.StringAttribute{
-																	Description: "",
-																	Computed:    true,
+																	Description:         "The `name` parameter.",
+																	MarkdownDescription: "The `name` parameter.",
+																	Computed:            true,
 																},
 																"threat_id": dsschema.StringAttribute{
-																	Description: "",
-																	Computed:    true,
+																	Description:         "The `threat_id` parameter.",
+																	MarkdownDescription: "The `threat_id` parameter.",
+																	Computed:            true,
 																},
 															},
 														},
@@ -269,55 +299,66 @@ func (d *antiSpywareSignaturesListDataSource) Schema(_ context.Context, _ dataso
 											},
 										},
 										"order_free": dsschema.BoolAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `order_free` parameter.",
+											MarkdownDescription: "The `order_free` parameter.",
+											Computed:            true,
 										},
 										"time_attribute": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `time_attribute` parameter.",
+											MarkdownDescription: "The `time_attribute` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"interval": dsschema.Int64Attribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `interval` parameter.",
+													MarkdownDescription: "The `interval` parameter.",
+													Computed:            true,
 												},
 												"threshold": dsschema.Int64Attribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `threshold` parameter.",
+													MarkdownDescription: "The `threshold` parameter.",
+													Computed:            true,
 												},
 												"track_by": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `track_by` parameter.",
+													MarkdownDescription: "The `track_by` parameter.",
+													Computed:            true,
 												},
 											},
 										},
 									},
 								},
 								"standard": dsschema.ListNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `standard` parameter.",
+									MarkdownDescription: "The `standard` parameter.",
+									Computed:            true,
 									NestedObject: dsschema.NestedAttributeObject{
 										Attributes: map[string]dsschema.Attribute{
 											"and_condition": dsschema.ListNestedAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `and_condition` parameter.",
+												MarkdownDescription: "The `and_condition` parameter.",
+												Computed:            true,
 												NestedObject: dsschema.NestedAttributeObject{
 													Attributes: map[string]dsschema.Attribute{
 														"name": dsschema.StringAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `name` parameter.",
+															MarkdownDescription: "The `name` parameter.",
+															Computed:            true,
 														},
 														"or_condition": dsschema.ListNestedAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `or_condition` parameter.",
+															MarkdownDescription: "The `or_condition` parameter.",
+															Computed:            true,
 															NestedObject: dsschema.NestedAttributeObject{
 																Attributes: map[string]dsschema.Attribute{
 																	"name": dsschema.StringAttribute{
-																		Description: "",
-																		Computed:    true,
+																		Description:         "The `name` parameter.",
+																		MarkdownDescription: "The `name` parameter.",
+																		Computed:            true,
 																	},
 																	"threat_id": dsschema.StringAttribute{
-																		Description: "",
-																		Computed:    true,
+																		Description:         "The `threat_id` parameter.",
+																		MarkdownDescription: "The `threat_id` parameter.",
+																		Computed:            true,
 																	},
 																},
 															},
@@ -326,20 +367,24 @@ func (d *antiSpywareSignaturesListDataSource) Schema(_ context.Context, _ dataso
 												},
 											},
 											"comment": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `comment` parameter.",
+												MarkdownDescription: "The `comment` parameter.",
+												Computed:            true,
 											},
 											"name": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `name` parameter.",
+												MarkdownDescription: "The `name` parameter.",
+												Computed:            true,
 											},
 											"order_free": dsschema.BoolAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `order_free` parameter.",
+												MarkdownDescription: "The `order_free` parameter.",
+												Computed:            true,
 											},
 											"scope": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `scope` parameter.",
+												MarkdownDescription: "The `scope` parameter.",
+												Computed:            true,
 											},
 										},
 									},
@@ -347,24 +392,28 @@ func (d *antiSpywareSignaturesListDataSource) Schema(_ context.Context, _ dataso
 							},
 						},
 						"threat_id": dsschema.Int64Attribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `threat_id` parameter.",
+							MarkdownDescription: "The `threat_id` parameter.",
+							Computed:            true,
 						},
 						"threatname": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `threatname` parameter.",
+							MarkdownDescription: "The `threatname` parameter.",
+							Computed:            true,
 						},
 						"vendor": dsschema.ListAttribute{
-							Description: "",
-							Computed:    true,
-							ElementType: types.StringType,
+							Description:         "The `vendor` parameter.",
+							MarkdownDescription: "The `vendor` parameter.",
+							Computed:            true,
+							ElementType:         types.StringType,
 						},
 					},
 				},
 			},
 			"total": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `total` parameter.",
+				MarkdownDescription: "The `total` parameter.",
+				Computed:            true,
 			},
 		},
 	}

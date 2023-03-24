@@ -27,34 +27,34 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `base` (String)
-- `bind_dn` (String)
-- `bind_password` (String)
-- `bind_timelimit` (String)
-- `ldap_type` (String)
-- `object_id` (String)
-- `retry_interval` (Number)
-- `server` (Attributes List) (see [below for nested schema](#nestedatt--data--server))
-- `ssl` (Boolean)
-- `timelimit` (Number)
-- `verify_server_certificate` (Boolean)
+- `base` (String) The `base` parameter.
+- `bind_dn` (String) The `bind_dn` parameter.
+- `bind_password` (String) The `bind_password` parameter.
+- `bind_timelimit` (String) The `bind_timelimit` parameter.
+- `ldap_type` (String) The `ldap_type` parameter.
+- `object_id` (String) The `object_id` parameter.
+- `retry_interval` (Number) The `retry_interval` parameter.
+- `server` (Attributes List) The `server` parameter. (see [below for nested schema](#nestedatt--data--server))
+- `ssl` (Boolean) The `ssl` parameter.
+- `timelimit` (Number) The `timelimit` parameter.
+- `verify_server_certificate` (Boolean) The `verify_server_certificate` parameter.
 
 <a id="nestedatt--data--server"></a>
 ### Nested Schema for `data.server`
 
 Read-Only:
 
-- `address` (String)
-- `name` (String)
-- `port` (Number)
+- `address` (String) The `address` parameter.
+- `name` (String) The `name` parameter.
+- `port` (Number) The `port` parameter.
 
 

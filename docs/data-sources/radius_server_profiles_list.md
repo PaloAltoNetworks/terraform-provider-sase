@@ -27,39 +27,39 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `object_id` (String)
-- `protocol` (Attributes) (see [below for nested schema](#nestedatt--data--protocol))
-- `retries` (Number)
-- `server` (Attributes List) (see [below for nested schema](#nestedatt--data--server))
-- `timeout` (Number)
+- `object_id` (String) The `object_id` parameter.
+- `protocol` (Attributes) The `protocol` parameter. (see [below for nested schema](#nestedatt--data--protocol))
+- `retries` (Number) The `retries` parameter.
+- `server` (Attributes List) The `server` parameter. (see [below for nested schema](#nestedatt--data--server))
+- `timeout` (Number) The `timeout` parameter.
 
 <a id="nestedatt--data--protocol"></a>
 ### Nested Schema for `data.protocol`
 
 Read-Only:
 
-- `c_h_a_p` (Boolean)
-- `e_a_p_t_t_l_s_with_p_a_p` (Attributes) (see [below for nested schema](#nestedatt--data--protocol--e_a_p_t_t_l_s_with_p_a_p))
-- `p_a_p` (Boolean)
-- `p_e_a_p_m_s_c_h_a_pv2` (Attributes) (see [below for nested schema](#nestedatt--data--protocol--p_e_a_p_m_s_c_h_a_pv2))
-- `p_e_a_p_with_g_t_c` (Attributes) (see [below for nested schema](#nestedatt--data--protocol--p_e_a_p_with_g_t_c))
+- `c_h_a_p` (Boolean) The `c_h_a_p` parameter.
+- `e_a_p_t_t_l_s_with_p_a_p` (Attributes) The `e_a_p_t_t_l_s_with_p_a_p` parameter. (see [below for nested schema](#nestedatt--data--protocol--e_a_p_t_t_l_s_with_p_a_p))
+- `p_a_p` (Boolean) The `p_a_p` parameter.
+- `p_e_a_p_m_s_c_h_a_pv2` (Attributes) The `p_e_a_p_m_s_c_h_a_pv2` parameter. (see [below for nested schema](#nestedatt--data--protocol--p_e_a_p_m_s_c_h_a_pv2))
+- `p_e_a_p_with_g_t_c` (Attributes) The `p_e_a_p_with_g_t_c` parameter. (see [below for nested schema](#nestedatt--data--protocol--p_e_a_p_with_g_t_c))
 
 <a id="nestedatt--data--protocol--e_a_p_t_t_l_s_with_p_a_p"></a>
 ### Nested Schema for `data.protocol.e_a_p_t_t_l_s_with_p_a_p`
 
 Read-Only:
 
-- `anon_outer_id` (Boolean)
-- `radius_cert_profile` (String)
+- `anon_outer_id` (Boolean) The `anon_outer_id` parameter.
+- `radius_cert_profile` (String) The `radius_cert_profile` parameter.
 
 
 <a id="nestedatt--data--protocol--p_e_a_p_m_s_c_h_a_pv2"></a>
@@ -67,9 +67,9 @@ Read-Only:
 
 Read-Only:
 
-- `allow_pwd_change` (Boolean)
-- `anon_outer_id` (Boolean)
-- `radius_cert_profile` (String)
+- `allow_pwd_change` (Boolean) The `allow_pwd_change` parameter.
+- `anon_outer_id` (Boolean) The `anon_outer_id` parameter.
+- `radius_cert_profile` (String) The `radius_cert_profile` parameter.
 
 
 <a id="nestedatt--data--protocol--p_e_a_p_with_g_t_c"></a>
@@ -77,8 +77,8 @@ Read-Only:
 
 Read-Only:
 
-- `anon_outer_id` (Boolean)
-- `radius_cert_profile` (String)
+- `anon_outer_id` (Boolean) The `anon_outer_id` parameter.
+- `radius_cert_profile` (String) The `radius_cert_profile` parameter.
 
 
 
@@ -87,9 +87,9 @@ Read-Only:
 
 Read-Only:
 
-- `ip_address` (String)
-- `name` (String)
-- `port` (Number)
-- `secret` (String)
+- `ip_address` (String) The `ip_address` parameter.
+- `name` (String) The `name` parameter.
+- `port` (Number) The `port` parameter.
+- `secret` (String) The `secret` parameter.
 
 

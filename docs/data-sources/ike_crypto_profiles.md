@@ -22,22 +22,22 @@ Retrieves config for a specific item.
 
 ### Read-Only
 
-- `authentication_multiple` (Number)
-- `dh_group` (List of String)
-- `encryption` (List of String)
-- `hash` (List of String)
+- `authentication_multiple` (Number) The `authentication_multiple` parameter.
+- `dh_group` (List of String) The `dh_group` parameter.
+- `encryption` (List of String) The `encryption` parameter.
+- `hash` (List of String) The `hash` parameter.
 - `id` (String) The object ID.
-- `lifetime` (Attributes) (see [below for nested schema](#nestedatt--lifetime))
-- `name` (String)
+- `lifetime` (Attributes) The `lifetime` parameter. (see [below for nested schema](#nestedatt--lifetime))
+- `name` (String) The `name` parameter.
 
 <a id="nestedatt--lifetime"></a>
 ### Nested Schema for `lifetime`
 
 Read-Only:
 
-- `days` (Number)
-- `hours` (Number)
-- `minutes` (Number)
-- `seconds` (Number)
+- `days` (Number) The `days` parameter.
+- `hours` (Number) The `hours` parameter.
+- `minutes` (Number) The `minutes` parameter.
+- `seconds` (Number) The `seconds` parameter.
 
 

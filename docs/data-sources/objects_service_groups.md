@@ -23,8 +23,8 @@ Retrieves config for a specific item.
 ### Read-Only
 
 - `id` (String) The object ID.
-- `members` (List of String)
-- `name` (String)
-- `tag` (List of String)
+- `members` (List of String) The `members` parameter.
+- `name` (String) The `name` parameter.
+- `tag` (List of String) The `tag` parameter.
 
 

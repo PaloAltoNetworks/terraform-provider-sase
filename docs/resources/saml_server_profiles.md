@@ -17,22 +17,22 @@ Retrieves config for a specific item.
 
 ### Required
 
-- `certificate` (String)
+- `certificate` (String) The `certificate` parameter.
 - `folder` (String) The folder of the entry
 
 ### Optional
 
-- `entity_id` (String)
-- `max_clock_skew` (Number)
-- `slo_bindings` (String)
-- `sso_bindings` (String)
-- `sso_url` (String)
-- `validate_idp_certificate` (Boolean)
-- `want_auth_requests_signed` (Boolean)
+- `entity_id` (String) The `entity_id` parameter.
+- `max_clock_skew` (Number) The `max_clock_skew` parameter.
+- `slo_bindings` (String) The `slo_bindings` parameter.
+- `sso_bindings` (String) The `sso_bindings` parameter.
+- `sso_url` (String) The `sso_url` parameter.
+- `validate_idp_certificate` (Boolean) The `validate_idp_certificate` parameter.
+- `want_auth_requests_signed` (Boolean) The `want_auth_requests_signed` parameter.
 
 ### Read-Only
 
 - `id` (String) The object ID.
-- `object_id` (String)
+- `object_id` (String) The `object_id` parameter.
 
 

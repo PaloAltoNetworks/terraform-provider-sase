@@ -18,30 +18,30 @@ Retrieves config for a specific item.
 ### Required
 
 - `folder` (String) The folder of the entry
-- `lifetime` (Attributes) (see [below for nested schema](#nestedatt--lifetime))
-- `name` (String)
+- `lifetime` (Attributes) The `lifetime` parameter. (see [below for nested schema](#nestedatt--lifetime))
+- `name` (String) The `name` parameter.
 
 ### Optional
 
-- `ah` (Attributes) (see [below for nested schema](#nestedatt--ah))
-- `dh_group` (String)
-- `esp` (Attributes) (see [below for nested schema](#nestedatt--esp))
-- `lifesize` (Attributes) (see [below for nested schema](#nestedatt--lifesize))
+- `ah` (Attributes) The `ah` parameter. (see [below for nested schema](#nestedatt--ah))
+- `dh_group` (String) The `dh_group` parameter.
+- `esp` (Attributes) The `esp` parameter. (see [below for nested schema](#nestedatt--esp))
+- `lifesize` (Attributes) The `lifesize` parameter. (see [below for nested schema](#nestedatt--lifesize))
 
 ### Read-Only
 
 - `id` (String) The object ID.
-- `object_id` (String)
+- `object_id` (String) The `object_id` parameter.
 
 <a id="nestedatt--lifetime"></a>
 ### Nested Schema for `lifetime`
 
 Optional:
 
-- `days` (Number)
-- `hours` (Number)
-- `minutes` (Number)
-- `seconds` (Number)
+- `days` (Number) The `days` parameter.
+- `hours` (Number) The `hours` parameter.
+- `minutes` (Number) The `minutes` parameter.
+- `seconds` (Number) The `seconds` parameter.
 
 
 <a id="nestedatt--ah"></a>
@@ -49,7 +49,7 @@ Optional:
 
 Required:
 
-- `authentication` (List of String)
+- `authentication` (List of String) The `authentication` parameter.
 
 
 <a id="nestedatt--esp"></a>
@@ -57,8 +57,8 @@ Required:
 
 Required:
 
-- `authentication` (List of String)
-- `encryption` (List of String)
+- `authentication` (List of String) The `authentication` parameter.
+- `encryption` (List of String) The `encryption` parameter.
 
 
 <a id="nestedatt--lifesize"></a>
@@ -66,9 +66,9 @@ Required:
 
 Optional:
 
-- `gb` (Number)
-- `kb` (Number)
-- `mb` (Number)
-- `tb` (Number)
+- `gb` (Number) The `gb` parameter.
+- `kb` (Number) The `kb` parameter.
+- `mb` (Number) The `mb` parameter.
+- `tb` (Number) The `tb` parameter.
 
 

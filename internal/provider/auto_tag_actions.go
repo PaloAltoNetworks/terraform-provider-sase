@@ -86,28 +86,33 @@ func (d *autoTagActionsListDataSource) Schema(_ context.Context, _ datasource.Sc
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description: "The max count in result entry (count per page)",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The max count in result entry (count per page)",
+				MarkdownDescription: "The max count in result entry (count per page)",
+				Optional:            true,
+				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description: "The offset of the result entry",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The offset of the result entry",
+				MarkdownDescription: "The offset of the result entry",
+				Optional:            true,
+				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description: "The name of the entry",
-				Optional:    true,
+				Description:         "The name of the entry",
+				MarkdownDescription: "The name of the entry",
+				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared"),
 				},
@@ -115,43 +120,52 @@ func (d *autoTagActionsListDataSource) Schema(_ context.Context, _ datasource.Sc
 
 			// Output.
 			"data": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `data` parameter.",
+				MarkdownDescription: "The `data` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"actions": dsschema.ListNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `actions` parameter.",
+							MarkdownDescription: "The `actions` parameter.",
+							Computed:            true,
 							NestedObject: dsschema.NestedAttributeObject{
 								Attributes: map[string]dsschema.Attribute{
 									"name": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `name` parameter.",
+										MarkdownDescription: "The `name` parameter.",
+										Computed:            true,
 									},
 									"type": dsschema.SingleNestedAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `type` parameter.",
+										MarkdownDescription: "The `type` parameter.",
+										Computed:            true,
 										Attributes: map[string]dsschema.Attribute{
 											"tagging": dsschema.SingleNestedAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `tagging` parameter.",
+												MarkdownDescription: "The `tagging` parameter.",
+												Computed:            true,
 												Attributes: map[string]dsschema.Attribute{
 													"action": dsschema.StringAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `action` parameter.",
+														MarkdownDescription: "The `action` parameter.",
+														Computed:            true,
 													},
 													"tags": dsschema.ListAttribute{
-														Description: "",
-														Computed:    true,
-														ElementType: types.StringType,
+														Description:         "The `tags` parameter.",
+														MarkdownDescription: "The `tags` parameter.",
+														Computed:            true,
+														ElementType:         types.StringType,
 													},
 													"target": dsschema.StringAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `target` parameter.",
+														MarkdownDescription: "The `target` parameter.",
+														Computed:            true,
 													},
 													"timeout": dsschema.Int64Attribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `timeout` parameter.",
+														MarkdownDescription: "The `timeout` parameter.",
+														Computed:            true,
 													},
 												},
 											},
@@ -161,39 +175,47 @@ func (d *autoTagActionsListDataSource) Schema(_ context.Context, _ datasource.Sc
 							},
 						},
 						"description": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `description` parameter.",
+							MarkdownDescription: "The `description` parameter.",
+							Computed:            true,
 						},
 						"filter": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `filter` parameter.",
+							MarkdownDescription: "The `filter` parameter.",
+							Computed:            true,
 						},
 						"object_id": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `object_id` parameter.",
+							MarkdownDescription: "The `object_id` parameter.",
+							Computed:            true,
 						},
 						"log_type": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `log_type` parameter.",
+							MarkdownDescription: "The `log_type` parameter.",
+							Computed:            true,
 						},
 						"name": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `name` parameter.",
+							MarkdownDescription: "The `name` parameter.",
+							Computed:            true,
 						},
 						"quarantine": dsschema.BoolAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `quarantine` parameter.",
+							MarkdownDescription: "The `quarantine` parameter.",
+							Computed:            true,
 						},
 						"send_to_panorama": dsschema.BoolAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `send_to_panorama` parameter.",
+							MarkdownDescription: "The `send_to_panorama` parameter.",
+							Computed:            true,
 						},
 					},
 				},
 			},
 			"total": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `total` parameter.",
+				MarkdownDescription: "The `total` parameter.",
+				Computed:            true,
 			},
 		},
 	}

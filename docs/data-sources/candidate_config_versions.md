@@ -21,15 +21,15 @@ Retrieves config for a specific item.
 
 ### Read-Only
 
-- `admin` (String)
-- `created` (Number)
-- `date` (String)
-- `deleted` (Number)
-- `description` (String)
+- `admin` (String) The `admin` parameter.
+- `created` (Number) The `created` parameter.
+- `date` (String) The `date` parameter.
+- `deleted` (Number) The `deleted` parameter.
+- `description` (String) The `description` parameter.
 - `id` (String) The object ID.
-- `object_id` (Number)
-- `scope` (String)
-- `swg_config` (String)
-- `updated` (Number)
+- `object_id` (Number) The `object_id` parameter.
+- `scope` (String) The `scope` parameter.
+- `swg_config` (String) The `swg_config` parameter.
+- `updated` (Number) The `updated` parameter.
 
 

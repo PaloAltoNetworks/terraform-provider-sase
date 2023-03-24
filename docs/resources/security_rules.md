@@ -17,41 +17,41 @@ Retrieves config for a specific item.
 
 ### Required
 
-- `action` (String)
-- `application` (List of String)
-- `category` (List of String)
-- `destination` (List of String)
+- `action` (String) The `action` parameter.
+- `application` (List of String) The `application` parameter.
+- `category` (List of String) The `category` parameter.
+- `destination` (List of String) The `destination` parameter.
 - `folder` (String) The folder of the entry
-- `from` (List of String)
-- `name` (String)
+- `from` (List of String) The `from` parameter.
+- `name` (String) The `name` parameter.
 - `position` (String) The position of a security rule
-- `service` (List of String)
-- `source` (List of String)
-- `source_user` (List of String)
-- `to` (List of String)
+- `service` (List of String) The `service` parameter.
+- `source` (List of String) The `source` parameter.
+- `source_user` (List of String) The `source_user` parameter.
+- `to` (List of String) The `to` parameter.
 
 ### Optional
 
-- `description` (String)
-- `destination_hip` (List of String)
-- `disabled` (Boolean)
-- `log_setting` (String)
-- `negate_destination` (Boolean)
-- `negate_source` (Boolean)
-- `profile_setting` (Attributes) (see [below for nested schema](#nestedatt--profile_setting))
-- `source_hip` (List of String)
-- `tag` (List of String)
+- `description` (String) The `description` parameter.
+- `destination_hip` (List of String) The `destination_hip` parameter.
+- `disabled` (Boolean) The `disabled` parameter.
+- `log_setting` (String) The `log_setting` parameter.
+- `negate_destination` (Boolean) The `negate_destination` parameter.
+- `negate_source` (Boolean) The `negate_source` parameter.
+- `profile_setting` (Attributes) The `profile_setting` parameter. (see [below for nested schema](#nestedatt--profile_setting))
+- `source_hip` (List of String) The `source_hip` parameter.
+- `tag` (List of String) The `tag` parameter.
 
 ### Read-Only
 
 - `id` (String) The object ID.
-- `object_id` (String)
+- `object_id` (String) The `object_id` parameter.
 
 <a id="nestedatt--profile_setting"></a>
 ### Nested Schema for `profile_setting`
 
 Optional:
 
-- `group` (List of String)
+- `group` (List of String) The `group` parameter.
 
 

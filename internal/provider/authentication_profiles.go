@@ -132,209 +132,252 @@ func (d *authenticationProfilesListDataSource) Schema(_ context.Context, _ datas
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description: "The max count in result entry (count per page)",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The max count in result entry (count per page)",
+				MarkdownDescription: "The max count in result entry (count per page)",
+				Optional:            true,
+				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description: "The offset of the result entry",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The offset of the result entry",
+				MarkdownDescription: "The offset of the result entry",
+				Optional:            true,
+				Computed:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
 			},
 			"name": dsschema.StringAttribute{
-				Description: "The name of the entry",
-				Optional:    true,
+				Description:         "The name of the entry",
+				MarkdownDescription: "The name of the entry",
+				Optional:            true,
 			},
 
 			// Output.
 			"data": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `data` parameter.",
+				MarkdownDescription: "The `data` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"allow_list": dsschema.ListAttribute{
-							Description: "",
-							Computed:    true,
-							ElementType: types.StringType,
+							Description:         "The `allow_list` parameter.",
+							MarkdownDescription: "The `allow_list` parameter.",
+							Computed:            true,
+							ElementType:         types.StringType,
 						},
 						"object_id": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `object_id` parameter.",
+							MarkdownDescription: "The `object_id` parameter.",
+							Computed:            true,
 						},
 						"lockout": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `lockout` parameter.",
+							MarkdownDescription: "The `lockout` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"failed_attempts": dsschema.Int64Attribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `failed_attempts` parameter.",
+									MarkdownDescription: "The `failed_attempts` parameter.",
+									Computed:            true,
 								},
 								"lockout_time": dsschema.Int64Attribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `lockout_time` parameter.",
+									MarkdownDescription: "The `lockout_time` parameter.",
+									Computed:            true,
 								},
 							},
 						},
 						"method": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `method` parameter.",
+							MarkdownDescription: "The `method` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"kerberos": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `kerberos` parameter.",
+									MarkdownDescription: "The `kerberos` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"realm": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `realm` parameter.",
+											MarkdownDescription: "The `realm` parameter.",
+											Computed:            true,
 										},
 										"server_profile": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `server_profile` parameter.",
+											MarkdownDescription: "The `server_profile` parameter.",
+											Computed:            true,
 										},
 									},
 								},
 								"ldap": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `ldap` parameter.",
+									MarkdownDescription: "The `ldap` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"login_attribute": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `login_attribute` parameter.",
+											MarkdownDescription: "The `login_attribute` parameter.",
+											Computed:            true,
 										},
 										"passwd_exp_days": dsschema.Int64Attribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `passwd_exp_days` parameter.",
+											MarkdownDescription: "The `passwd_exp_days` parameter.",
+											Computed:            true,
 										},
 										"server_profile": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `server_profile` parameter.",
+											MarkdownDescription: "The `server_profile` parameter.",
+											Computed:            true,
 										},
 									},
 								},
 								"local_database": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `local_database` parameter.",
+									MarkdownDescription: "The `local_database` parameter.",
+									Computed:            true,
 								},
 								"radius": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `radius` parameter.",
+									MarkdownDescription: "The `radius` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"checkgroup": dsschema.BoolAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `checkgroup` parameter.",
+											MarkdownDescription: "The `checkgroup` parameter.",
+											Computed:            true,
 										},
 										"server_profile": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `server_profile` parameter.",
+											MarkdownDescription: "The `server_profile` parameter.",
+											Computed:            true,
 										},
 									},
 								},
 								"saml_idp": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `saml_idp` parameter.",
+									MarkdownDescription: "The `saml_idp` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"attribute_name_usergroup": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `attribute_name_usergroup` parameter.",
+											MarkdownDescription: "The `attribute_name_usergroup` parameter.",
+											Computed:            true,
 										},
 										"attribute_name_username": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `attribute_name_username` parameter.",
+											MarkdownDescription: "The `attribute_name_username` parameter.",
+											Computed:            true,
 										},
 										"certificate_profile": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `certificate_profile` parameter.",
+											MarkdownDescription: "The `certificate_profile` parameter.",
+											Computed:            true,
 										},
 										"enable_single_logout": dsschema.BoolAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `enable_single_logout` parameter.",
+											MarkdownDescription: "The `enable_single_logout` parameter.",
+											Computed:            true,
 										},
 										"request_signing_certificate": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `request_signing_certificate` parameter.",
+											MarkdownDescription: "The `request_signing_certificate` parameter.",
+											Computed:            true,
 										},
 										"server_profile": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `server_profile` parameter.",
+											MarkdownDescription: "The `server_profile` parameter.",
+											Computed:            true,
 										},
 									},
 								},
 								"tacplus": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `tacplus` parameter.",
+									MarkdownDescription: "The `tacplus` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"checkgroup": dsschema.BoolAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `checkgroup` parameter.",
+											MarkdownDescription: "The `checkgroup` parameter.",
+											Computed:            true,
 										},
 										"server_profile": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `server_profile` parameter.",
+											MarkdownDescription: "The `server_profile` parameter.",
+											Computed:            true,
 										},
 									},
 								},
 							},
 						},
 						"multi_factor_auth": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `multi_factor_auth` parameter.",
+							MarkdownDescription: "The `multi_factor_auth` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"factors": dsschema.ListAttribute{
-									Description: "",
-									Computed:    true,
-									ElementType: types.StringType,
+									Description:         "The `factors` parameter.",
+									MarkdownDescription: "The `factors` parameter.",
+									Computed:            true,
+									ElementType:         types.StringType,
 								},
 								"mfa_enable": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `mfa_enable` parameter.",
+									MarkdownDescription: "The `mfa_enable` parameter.",
+									Computed:            true,
 								},
 							},
 						},
 						"name": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `name` parameter.",
+							MarkdownDescription: "The `name` parameter.",
+							Computed:            true,
 						},
 						"single_sign_on": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `single_sign_on` parameter.",
+							MarkdownDescription: "The `single_sign_on` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"kerberos_keytab": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `kerberos_keytab` parameter.",
+									MarkdownDescription: "The `kerberos_keytab` parameter.",
+									Computed:            true,
 								},
 								"realm": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `realm` parameter.",
+									MarkdownDescription: "The `realm` parameter.",
+									Computed:            true,
 								},
 							},
 						},
 						"user_domain": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `user_domain` parameter.",
+							MarkdownDescription: "The `user_domain` parameter.",
+							Computed:            true,
 						},
 						"username_modifier": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `username_modifier` parameter.",
+							MarkdownDescription: "The `username_modifier` parameter.",
+							Computed:            true,
 						},
 					},
 				},
 			},
 			"total": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `total` parameter.",
+				MarkdownDescription: "The `total` parameter.",
+				Computed:            true,
 			},
 		},
 	}
@@ -607,18 +650,21 @@ func (d *authenticationProfilesDataSource) Schema(_ context.Context, _ datasourc
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description: "The uuid of the resource",
-				Required:    true,
+				Description:         "The uuid of the resource",
+				MarkdownDescription: "The uuid of the resource",
+				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -626,164 +672,199 @@ func (d *authenticationProfilesDataSource) Schema(_ context.Context, _ datasourc
 
 			// Output.
 			"allow_list": dsschema.ListAttribute{
-				Description: "",
-				Computed:    true,
-				ElementType: types.StringType,
+				Description:         "The `allow_list` parameter.",
+				MarkdownDescription: "The `allow_list` parameter.",
+				Computed:            true,
+				ElementType:         types.StringType,
 			},
 			"lockout": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `lockout` parameter.",
+				MarkdownDescription: "The `lockout` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"failed_attempts": dsschema.Int64Attribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `failed_attempts` parameter.",
+						MarkdownDescription: "The `failed_attempts` parameter.",
+						Computed:            true,
 					},
 					"lockout_time": dsschema.Int64Attribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `lockout_time` parameter.",
+						MarkdownDescription: "The `lockout_time` parameter.",
+						Computed:            true,
 					},
 				},
 			},
 			"method": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `method` parameter.",
+				MarkdownDescription: "The `method` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"kerberos": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `kerberos` parameter.",
+						MarkdownDescription: "The `kerberos` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"realm": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `realm` parameter.",
+								MarkdownDescription: "The `realm` parameter.",
+								Computed:            true,
 							},
 							"server_profile": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `server_profile` parameter.",
+								MarkdownDescription: "The `server_profile` parameter.",
+								Computed:            true,
 							},
 						},
 					},
 					"ldap": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `ldap` parameter.",
+						MarkdownDescription: "The `ldap` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"login_attribute": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `login_attribute` parameter.",
+								MarkdownDescription: "The `login_attribute` parameter.",
+								Computed:            true,
 							},
 							"passwd_exp_days": dsschema.Int64Attribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `passwd_exp_days` parameter.",
+								MarkdownDescription: "The `passwd_exp_days` parameter.",
+								Computed:            true,
 							},
 							"server_profile": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `server_profile` parameter.",
+								MarkdownDescription: "The `server_profile` parameter.",
+								Computed:            true,
 							},
 						},
 					},
 					"local_database": dsschema.BoolAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `local_database` parameter.",
+						MarkdownDescription: "The `local_database` parameter.",
+						Computed:            true,
 					},
 					"radius": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `radius` parameter.",
+						MarkdownDescription: "The `radius` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"checkgroup": dsschema.BoolAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `checkgroup` parameter.",
+								MarkdownDescription: "The `checkgroup` parameter.",
+								Computed:            true,
 							},
 							"server_profile": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `server_profile` parameter.",
+								MarkdownDescription: "The `server_profile` parameter.",
+								Computed:            true,
 							},
 						},
 					},
 					"saml_idp": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `saml_idp` parameter.",
+						MarkdownDescription: "The `saml_idp` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"attribute_name_usergroup": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `attribute_name_usergroup` parameter.",
+								MarkdownDescription: "The `attribute_name_usergroup` parameter.",
+								Computed:            true,
 							},
 							"attribute_name_username": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `attribute_name_username` parameter.",
+								MarkdownDescription: "The `attribute_name_username` parameter.",
+								Computed:            true,
 							},
 							"certificate_profile": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `certificate_profile` parameter.",
+								MarkdownDescription: "The `certificate_profile` parameter.",
+								Computed:            true,
 							},
 							"enable_single_logout": dsschema.BoolAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `enable_single_logout` parameter.",
+								MarkdownDescription: "The `enable_single_logout` parameter.",
+								Computed:            true,
 							},
 							"request_signing_certificate": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `request_signing_certificate` parameter.",
+								MarkdownDescription: "The `request_signing_certificate` parameter.",
+								Computed:            true,
 							},
 							"server_profile": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `server_profile` parameter.",
+								MarkdownDescription: "The `server_profile` parameter.",
+								Computed:            true,
 							},
 						},
 					},
 					"tacplus": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `tacplus` parameter.",
+						MarkdownDescription: "The `tacplus` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"checkgroup": dsschema.BoolAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `checkgroup` parameter.",
+								MarkdownDescription: "The `checkgroup` parameter.",
+								Computed:            true,
 							},
 							"server_profile": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `server_profile` parameter.",
+								MarkdownDescription: "The `server_profile` parameter.",
+								Computed:            true,
 							},
 						},
 					},
 				},
 			},
 			"multi_factor_auth": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `multi_factor_auth` parameter.",
+				MarkdownDescription: "The `multi_factor_auth` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"factors": dsschema.ListAttribute{
-						Description: "",
-						Computed:    true,
-						ElementType: types.StringType,
+						Description:         "The `factors` parameter.",
+						MarkdownDescription: "The `factors` parameter.",
+						Computed:            true,
+						ElementType:         types.StringType,
 					},
 					"mfa_enable": dsschema.BoolAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `mfa_enable` parameter.",
+						MarkdownDescription: "The `mfa_enable` parameter.",
+						Computed:            true,
 					},
 				},
 			},
 			"name": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `name` parameter.",
+				MarkdownDescription: "The `name` parameter.",
+				Computed:            true,
 			},
 			"single_sign_on": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `single_sign_on` parameter.",
+				MarkdownDescription: "The `single_sign_on` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"kerberos_keytab": dsschema.StringAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `kerberos_keytab` parameter.",
+						MarkdownDescription: "The `kerberos_keytab` parameter.",
+						Computed:            true,
 					},
 					"realm": dsschema.StringAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `realm` parameter.",
+						MarkdownDescription: "The `realm` parameter.",
+						Computed:            true,
 					},
 				},
 			},
 			"user_domain": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `user_domain` parameter.",
+				MarkdownDescription: "The `user_domain` parameter.",
+				Computed:            true,
 			},
 			"username_modifier": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `username_modifier` parameter.",
+				MarkdownDescription: "The `username_modifier` parameter.",
+				Computed:            true,
 			},
 		},
 	}
@@ -1012,8 +1093,9 @@ func (r *authenticationProfilesResource) Schema(_ context.Context, _ resource.Sc
 
 		Attributes: map[string]rsschema.Attribute{
 			"id": rsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
@@ -1021,33 +1103,38 @@ func (r *authenticationProfilesResource) Schema(_ context.Context, _ resource.Sc
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
 			},
 
 			"allow_list": rsschema.ListAttribute{
-				Description: "",
-				Optional:    true,
-				ElementType: types.StringType,
+				Description:         "The `allow_list` parameter.",
+				MarkdownDescription: "The `allow_list` parameter.",
+				Optional:            true,
+				ElementType:         types.StringType,
 			},
 			"object_id": rsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `object_id` parameter.",
+				MarkdownDescription: "The `object_id` parameter.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
 			},
 			"lockout": rsschema.SingleNestedAttribute{
-				Description: "",
-				Optional:    true,
+				Description:         "The `lockout` parameter.",
+				MarkdownDescription: "The `lockout` parameter.",
+				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"failed_attempts": rsschema.Int64Attribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `failed_attempts` parameter.",
+						MarkdownDescription: "The `failed_attempts` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.Int64{
 							DefaultInt64(0),
 						},
@@ -1056,9 +1143,10 @@ func (r *authenticationProfilesResource) Schema(_ context.Context, _ resource.Sc
 						},
 					},
 					"lockout_time": rsschema.Int64Attribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `lockout_time` parameter.",
+						MarkdownDescription: "The `lockout_time` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.Int64{
 							DefaultInt64(0),
 						},
@@ -1069,25 +1157,29 @@ func (r *authenticationProfilesResource) Schema(_ context.Context, _ resource.Sc
 				},
 			},
 			"method": rsschema.SingleNestedAttribute{
-				Description: "",
-				Optional:    true,
+				Description:         "The `method` parameter.",
+				MarkdownDescription: "The `method` parameter.",
+				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"kerberos": rsschema.SingleNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `kerberos` parameter.",
+						MarkdownDescription: "The `kerberos` parameter.",
+						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"realm": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `realm` parameter.",
+								MarkdownDescription: "The `realm` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString(""),
 								},
 							},
 							"server_profile": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `server_profile` parameter.",
+								MarkdownDescription: "The `server_profile` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString(""),
 								},
@@ -1095,29 +1187,33 @@ func (r *authenticationProfilesResource) Schema(_ context.Context, _ resource.Sc
 						},
 					},
 					"ldap": rsschema.SingleNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `ldap` parameter.",
+						MarkdownDescription: "The `ldap` parameter.",
+						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"login_attribute": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `login_attribute` parameter.",
+								MarkdownDescription: "The `login_attribute` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString(""),
 								},
 							},
 							"passwd_exp_days": rsschema.Int64Attribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `passwd_exp_days` parameter.",
+								MarkdownDescription: "The `passwd_exp_days` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.Int64{
 									DefaultInt64(0),
 								},
 							},
 							"server_profile": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `server_profile` parameter.",
+								MarkdownDescription: "The `server_profile` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString(""),
 								},
@@ -1125,25 +1221,29 @@ func (r *authenticationProfilesResource) Schema(_ context.Context, _ resource.Sc
 						},
 					},
 					"local_database": rsschema.BoolAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `local_database` parameter.",
+						MarkdownDescription: "The `local_database` parameter.",
+						Optional:            true,
 					},
 					"radius": rsschema.SingleNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `radius` parameter.",
+						MarkdownDescription: "The `radius` parameter.",
+						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"checkgroup": rsschema.BoolAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `checkgroup` parameter.",
+								MarkdownDescription: "The `checkgroup` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.Bool{
 									DefaultBool(false),
 								},
 							},
 							"server_profile": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `server_profile` parameter.",
+								MarkdownDescription: "The `server_profile` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString(""),
 								},
@@ -1151,13 +1251,15 @@ func (r *authenticationProfilesResource) Schema(_ context.Context, _ resource.Sc
 						},
 					},
 					"saml_idp": rsschema.SingleNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `saml_idp` parameter.",
+						MarkdownDescription: "The `saml_idp` parameter.",
+						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"attribute_name_usergroup": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `attribute_name_usergroup` parameter.",
+								MarkdownDescription: "The `attribute_name_usergroup` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString(""),
 								},
@@ -1166,9 +1268,10 @@ func (r *authenticationProfilesResource) Schema(_ context.Context, _ resource.Sc
 								},
 							},
 							"attribute_name_username": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `attribute_name_username` parameter.",
+								MarkdownDescription: "The `attribute_name_username` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString(""),
 								},
@@ -1177,9 +1280,10 @@ func (r *authenticationProfilesResource) Schema(_ context.Context, _ resource.Sc
 								},
 							},
 							"certificate_profile": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `certificate_profile` parameter.",
+								MarkdownDescription: "The `certificate_profile` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString(""),
 								},
@@ -1188,17 +1292,19 @@ func (r *authenticationProfilesResource) Schema(_ context.Context, _ resource.Sc
 								},
 							},
 							"enable_single_logout": rsschema.BoolAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `enable_single_logout` parameter.",
+								MarkdownDescription: "The `enable_single_logout` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.Bool{
 									DefaultBool(false),
 								},
 							},
 							"request_signing_certificate": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `request_signing_certificate` parameter.",
+								MarkdownDescription: "The `request_signing_certificate` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString(""),
 								},
@@ -1207,9 +1313,10 @@ func (r *authenticationProfilesResource) Schema(_ context.Context, _ resource.Sc
 								},
 							},
 							"server_profile": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `server_profile` parameter.",
+								MarkdownDescription: "The `server_profile` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString(""),
 								},
@@ -1220,21 +1327,24 @@ func (r *authenticationProfilesResource) Schema(_ context.Context, _ resource.Sc
 						},
 					},
 					"tacplus": rsschema.SingleNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `tacplus` parameter.",
+						MarkdownDescription: "The `tacplus` parameter.",
+						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"checkgroup": rsschema.BoolAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `checkgroup` parameter.",
+								MarkdownDescription: "The `checkgroup` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.Bool{
 									DefaultBool(false),
 								},
 							},
 							"server_profile": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `server_profile` parameter.",
+								MarkdownDescription: "The `server_profile` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString(""),
 								},
@@ -1244,18 +1354,21 @@ func (r *authenticationProfilesResource) Schema(_ context.Context, _ resource.Sc
 				},
 			},
 			"multi_factor_auth": rsschema.SingleNestedAttribute{
-				Description: "",
-				Optional:    true,
+				Description:         "The `multi_factor_auth` parameter.",
+				MarkdownDescription: "The `multi_factor_auth` parameter.",
+				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"factors": rsschema.ListAttribute{
-						Description: "",
-						Optional:    true,
-						ElementType: types.StringType,
+						Description:         "The `factors` parameter.",
+						MarkdownDescription: "The `factors` parameter.",
+						Optional:            true,
+						ElementType:         types.StringType,
 					},
 					"mfa_enable": rsschema.BoolAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `mfa_enable` parameter.",
+						MarkdownDescription: "The `mfa_enable` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
 							DefaultBool(false),
 						},
@@ -1263,17 +1376,20 @@ func (r *authenticationProfilesResource) Schema(_ context.Context, _ resource.Sc
 				},
 			},
 			"name": rsschema.StringAttribute{
-				Description: "",
-				Required:    true,
+				Description:         "The `name` parameter.",
+				MarkdownDescription: "The `name` parameter.",
+				Required:            true,
 			},
 			"single_sign_on": rsschema.SingleNestedAttribute{
-				Description: "",
-				Optional:    true,
+				Description:         "The `single_sign_on` parameter.",
+				MarkdownDescription: "The `single_sign_on` parameter.",
+				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"kerberos_keytab": rsschema.StringAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `kerberos_keytab` parameter.",
+						MarkdownDescription: "The `kerberos_keytab` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.String{
 							DefaultString(""),
 						},
@@ -1282,9 +1398,10 @@ func (r *authenticationProfilesResource) Schema(_ context.Context, _ resource.Sc
 						},
 					},
 					"realm": rsschema.StringAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `realm` parameter.",
+						MarkdownDescription: "The `realm` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.String{
 							DefaultString(""),
 						},
@@ -1295,9 +1412,10 @@ func (r *authenticationProfilesResource) Schema(_ context.Context, _ resource.Sc
 				},
 			},
 			"user_domain": rsschema.StringAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `user_domain` parameter.",
+				MarkdownDescription: "The `user_domain` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					DefaultString(""),
 				},
@@ -1306,9 +1424,10 @@ func (r *authenticationProfilesResource) Schema(_ context.Context, _ resource.Sc
 				},
 			},
 			"username_modifier": rsschema.StringAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `username_modifier` parameter.",
+				MarkdownDescription: "The `username_modifier` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					DefaultString(""),
 				},

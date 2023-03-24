@@ -18,28 +18,28 @@ Retrieves config for a specific item.
 ### Required
 
 - `folder` (String) The folder of the entry
-- `server` (Attributes List) (see [below for nested schema](#nestedatt--server))
+- `server` (Attributes List) The `server` parameter. (see [below for nested schema](#nestedatt--server))
 
 ### Optional
 
-- `protocol` (Attributes) (see [below for nested schema](#nestedatt--protocol))
-- `retries` (Number)
-- `timeout` (Number)
+- `protocol` (Attributes) The `protocol` parameter. (see [below for nested schema](#nestedatt--protocol))
+- `retries` (Number) The `retries` parameter.
+- `timeout` (Number) The `timeout` parameter.
 
 ### Read-Only
 
 - `id` (String) The object ID.
-- `object_id` (String)
+- `object_id` (String) The `object_id` parameter.
 
 <a id="nestedatt--server"></a>
 ### Nested Schema for `server`
 
 Optional:
 
-- `ip_address` (String)
-- `name` (String)
-- `port` (Number)
-- `secret` (String)
+- `ip_address` (String) The `ip_address` parameter.
+- `name` (String) The `name` parameter.
+- `port` (Number) The `port` parameter.
+- `secret` (String) The `secret` parameter.
 
 
 <a id="nestedatt--protocol"></a>
@@ -47,19 +47,19 @@ Optional:
 
 Optional:
 
-- `c_h_a_p` (Boolean)
-- `e_a_p_t_t_l_s_with_p_a_p` (Attributes) (see [below for nested schema](#nestedatt--protocol--e_a_p_t_t_l_s_with_p_a_p))
-- `p_a_p` (Boolean)
-- `p_e_a_p_m_s_c_h_a_pv2` (Attributes) (see [below for nested schema](#nestedatt--protocol--p_e_a_p_m_s_c_h_a_pv2))
-- `p_e_a_p_with_g_t_c` (Attributes) (see [below for nested schema](#nestedatt--protocol--p_e_a_p_with_g_t_c))
+- `c_h_a_p` (Boolean) The `c_h_a_p` parameter.
+- `e_a_p_t_t_l_s_with_p_a_p` (Attributes) The `e_a_p_t_t_l_s_with_p_a_p` parameter. (see [below for nested schema](#nestedatt--protocol--e_a_p_t_t_l_s_with_p_a_p))
+- `p_a_p` (Boolean) The `p_a_p` parameter.
+- `p_e_a_p_m_s_c_h_a_pv2` (Attributes) The `p_e_a_p_m_s_c_h_a_pv2` parameter. (see [below for nested schema](#nestedatt--protocol--p_e_a_p_m_s_c_h_a_pv2))
+- `p_e_a_p_with_g_t_c` (Attributes) The `p_e_a_p_with_g_t_c` parameter. (see [below for nested schema](#nestedatt--protocol--p_e_a_p_with_g_t_c))
 
 <a id="nestedatt--protocol--e_a_p_t_t_l_s_with_p_a_p"></a>
 ### Nested Schema for `protocol.e_a_p_t_t_l_s_with_p_a_p`
 
 Optional:
 
-- `anon_outer_id` (Boolean)
-- `radius_cert_profile` (String)
+- `anon_outer_id` (Boolean) The `anon_outer_id` parameter.
+- `radius_cert_profile` (String) The `radius_cert_profile` parameter.
 
 
 <a id="nestedatt--protocol--p_e_a_p_m_s_c_h_a_pv2"></a>
@@ -67,9 +67,9 @@ Optional:
 
 Optional:
 
-- `allow_pwd_change` (Boolean)
-- `anon_outer_id` (Boolean)
-- `radius_cert_profile` (String)
+- `allow_pwd_change` (Boolean) The `allow_pwd_change` parameter.
+- `anon_outer_id` (Boolean) The `anon_outer_id` parameter.
+- `radius_cert_profile` (String) The `radius_cert_profile` parameter.
 
 
 <a id="nestedatt--protocol--p_e_a_p_with_g_t_c"></a>
@@ -77,7 +77,7 @@ Optional:
 
 Optional:
 
-- `anon_outer_id` (Boolean)
-- `radius_cert_profile` (String)
+- `anon_outer_id` (Boolean) The `anon_outer_id` parameter.
+- `radius_cert_profile` (String) The `radius_cert_profile` parameter.
 
 

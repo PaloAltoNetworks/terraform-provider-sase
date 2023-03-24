@@ -27,18 +27,18 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `disable_snat` (Boolean)
-- `name` (String)
-- `pbf_only` (Boolean)
-- `target` (List of String)
+- `disable_snat` (Boolean) The `disable_snat` parameter.
+- `name` (String) The `name` parameter.
+- `pbf_only` (Boolean) The `pbf_only` parameter.
+- `target` (List of String) The `target` parameter.
 
 

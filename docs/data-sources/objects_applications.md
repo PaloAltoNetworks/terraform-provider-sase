@@ -22,53 +22,53 @@ Retrieves config for a specific item.
 
 ### Read-Only
 
-- `able_to_transfer_file` (Boolean)
-- `alg_disable_capability` (String)
-- `category` (String)
-- `consume_big_bandwidth` (Boolean)
-- `data_ident` (Boolean)
-- `default` (Attributes) (see [below for nested schema](#nestedatt--default))
-- `description` (String)
-- `evasive_behavior` (Boolean)
-- `file_type_ident` (Boolean)
-- `has_known_vulnerability` (Boolean)
+- `able_to_transfer_file` (Boolean) The `able_to_transfer_file` parameter.
+- `alg_disable_capability` (String) The `alg_disable_capability` parameter.
+- `category` (String) The `category` parameter.
+- `consume_big_bandwidth` (Boolean) The `consume_big_bandwidth` parameter.
+- `data_ident` (Boolean) The `data_ident` parameter.
+- `default` (Attributes) The `default` parameter. (see [below for nested schema](#nestedatt--default))
+- `description` (String) The `description` parameter.
+- `evasive_behavior` (Boolean) The `evasive_behavior` parameter.
+- `file_type_ident` (Boolean) The `file_type_ident` parameter.
+- `has_known_vulnerability` (Boolean) The `has_known_vulnerability` parameter.
 - `id` (String) The object ID.
-- `name` (String)
-- `no_appid_caching` (Boolean)
-- `parent_app` (String)
-- `pervasive_use` (Boolean)
-- `prone_to_misuse` (Boolean)
-- `risk` (Number)
-- `signature` (Attributes List) (see [below for nested schema](#nestedatt--signature))
-- `subcategory` (String)
-- `tcp_half_closed_timeout` (Number)
-- `tcp_time_wait_timeout` (Number)
-- `tcp_timeout` (Number)
-- `technology` (String)
-- `timeout` (Number)
-- `tunnel_applications` (Boolean)
-- `tunnel_other_application` (Boolean)
-- `udp_timeout` (Number)
-- `used_by_malware` (Boolean)
-- `virus_ident` (Boolean)
+- `name` (String) The `name` parameter.
+- `no_appid_caching` (Boolean) The `no_appid_caching` parameter.
+- `parent_app` (String) The `parent_app` parameter.
+- `pervasive_use` (Boolean) The `pervasive_use` parameter.
+- `prone_to_misuse` (Boolean) The `prone_to_misuse` parameter.
+- `risk` (Number) The `risk` parameter.
+- `signature` (Attributes List) The `signature` parameter. (see [below for nested schema](#nestedatt--signature))
+- `subcategory` (String) The `subcategory` parameter.
+- `tcp_half_closed_timeout` (Number) The `tcp_half_closed_timeout` parameter.
+- `tcp_time_wait_timeout` (Number) The `tcp_time_wait_timeout` parameter.
+- `tcp_timeout` (Number) The `tcp_timeout` parameter.
+- `technology` (String) The `technology` parameter.
+- `timeout` (Number) The `timeout` parameter.
+- `tunnel_applications` (Boolean) The `tunnel_applications` parameter.
+- `tunnel_other_application` (Boolean) The `tunnel_other_application` parameter.
+- `udp_timeout` (Number) The `udp_timeout` parameter.
+- `used_by_malware` (Boolean) The `used_by_malware` parameter.
+- `virus_ident` (Boolean) The `virus_ident` parameter.
 
 <a id="nestedatt--default"></a>
 ### Nested Schema for `default`
 
 Read-Only:
 
-- `ident_by_icmp6_type` (Attributes) (see [below for nested schema](#nestedatt--default--ident_by_icmp6_type))
-- `ident_by_icmp_type` (Attributes) (see [below for nested schema](#nestedatt--default--ident_by_icmp_type))
-- `ident_by_ip_protocol` (String)
-- `port` (List of String)
+- `ident_by_icmp6_type` (Attributes) The `ident_by_icmp6_type` parameter. (see [below for nested schema](#nestedatt--default--ident_by_icmp6_type))
+- `ident_by_icmp_type` (Attributes) The `ident_by_icmp_type` parameter. (see [below for nested schema](#nestedatt--default--ident_by_icmp_type))
+- `ident_by_ip_protocol` (String) The `ident_by_ip_protocol` parameter.
+- `port` (List of String) The `port` parameter.
 
 <a id="nestedatt--default--ident_by_icmp6_type"></a>
 ### Nested Schema for `default.ident_by_icmp6_type`
 
 Read-Only:
 
-- `code` (String)
-- `type` (String)
+- `code` (String) The `code` parameter.
+- `type` (String) The `type` parameter.
 
 
 <a id="nestedatt--default--ident_by_icmp_type"></a>
@@ -76,8 +76,8 @@ Read-Only:
 
 Read-Only:
 
-- `code` (String)
-- `type` (String)
+- `code` (String) The `code` parameter.
+- `type` (String) The `type` parameter.
 
 
 
@@ -86,47 +86,47 @@ Read-Only:
 
 Read-Only:
 
-- `and_condition` (Attributes List) (see [below for nested schema](#nestedatt--signature--and_condition))
-- `comment` (String)
-- `name` (String)
-- `order_free` (Boolean)
-- `scope` (String)
+- `and_condition` (Attributes List) The `and_condition` parameter. (see [below for nested schema](#nestedatt--signature--and_condition))
+- `comment` (String) The `comment` parameter.
+- `name` (String) The `name` parameter.
+- `order_free` (Boolean) The `order_free` parameter.
+- `scope` (String) The `scope` parameter.
 
 <a id="nestedatt--signature--and_condition"></a>
 ### Nested Schema for `signature.and_condition`
 
 Read-Only:
 
-- `name` (String)
-- `or_condition` (Attributes List) (see [below for nested schema](#nestedatt--signature--and_condition--or_condition))
+- `name` (String) The `name` parameter.
+- `or_condition` (Attributes List) The `or_condition` parameter. (see [below for nested schema](#nestedatt--signature--and_condition--or_condition))
 
 <a id="nestedatt--signature--and_condition--or_condition"></a>
 ### Nested Schema for `signature.and_condition.or_condition`
 
 Read-Only:
 
-- `name` (String)
-- `operator` (Attributes) (see [below for nested schema](#nestedatt--signature--and_condition--or_condition--operator))
+- `name` (String) The `name` parameter.
+- `operator` (Attributes) The `operator` parameter. (see [below for nested schema](#nestedatt--signature--and_condition--or_condition--operator))
 
 <a id="nestedatt--signature--and_condition--or_condition--operator"></a>
 ### Nested Schema for `signature.and_condition.or_condition.operator`
 
 Read-Only:
 
-- `equal_to` (Attributes) (see [below for nested schema](#nestedatt--signature--and_condition--or_condition--operator--equal_to))
-- `greater_than` (Attributes) (see [below for nested schema](#nestedatt--signature--and_condition--or_condition--operator--greater_than))
-- `less_than` (Attributes) (see [below for nested schema](#nestedatt--signature--and_condition--or_condition--operator--less_than))
-- `pattern_match` (Attributes) (see [below for nested schema](#nestedatt--signature--and_condition--or_condition--operator--pattern_match))
+- `equal_to` (Attributes) The `equal_to` parameter. (see [below for nested schema](#nestedatt--signature--and_condition--or_condition--operator--equal_to))
+- `greater_than` (Attributes) The `greater_than` parameter. (see [below for nested schema](#nestedatt--signature--and_condition--or_condition--operator--greater_than))
+- `less_than` (Attributes) The `less_than` parameter. (see [below for nested schema](#nestedatt--signature--and_condition--or_condition--operator--less_than))
+- `pattern_match` (Attributes) The `pattern_match` parameter. (see [below for nested schema](#nestedatt--signature--and_condition--or_condition--operator--pattern_match))
 
 <a id="nestedatt--signature--and_condition--or_condition--operator--equal_to"></a>
 ### Nested Schema for `signature.and_condition.or_condition.operator.equal_to`
 
 Read-Only:
 
-- `context` (String)
-- `mask` (String)
-- `position` (String)
-- `value` (String)
+- `context` (String) The `context` parameter.
+- `mask` (String) The `mask` parameter.
+- `position` (String) The `position` parameter.
+- `value` (String) The `value` parameter.
 
 
 <a id="nestedatt--signature--and_condition--or_condition--operator--greater_than"></a>
@@ -134,17 +134,17 @@ Read-Only:
 
 Read-Only:
 
-- `context` (String)
-- `qualifier` (Attributes List) (see [below for nested schema](#nestedatt--signature--and_condition--or_condition--operator--greater_than--qualifier))
-- `value` (Number)
+- `context` (String) The `context` parameter.
+- `qualifier` (Attributes List) The `qualifier` parameter. (see [below for nested schema](#nestedatt--signature--and_condition--or_condition--operator--greater_than--qualifier))
+- `value` (Number) The `value` parameter.
 
 <a id="nestedatt--signature--and_condition--or_condition--operator--greater_than--qualifier"></a>
 ### Nested Schema for `signature.and_condition.or_condition.operator.greater_than.value`
 
 Read-Only:
 
-- `name` (String)
-- `value` (String)
+- `name` (String) The `name` parameter.
+- `value` (String) The `value` parameter.
 
 
 
@@ -153,17 +153,17 @@ Read-Only:
 
 Read-Only:
 
-- `context` (String)
-- `qualifier` (Attributes List) (see [below for nested schema](#nestedatt--signature--and_condition--or_condition--operator--less_than--qualifier))
-- `value` (Number)
+- `context` (String) The `context` parameter.
+- `qualifier` (Attributes List) The `qualifier` parameter. (see [below for nested schema](#nestedatt--signature--and_condition--or_condition--operator--less_than--qualifier))
+- `value` (Number) The `value` parameter.
 
 <a id="nestedatt--signature--and_condition--or_condition--operator--less_than--qualifier"></a>
 ### Nested Schema for `signature.and_condition.or_condition.operator.less_than.value`
 
 Read-Only:
 
-- `name` (String)
-- `value` (String)
+- `name` (String) The `name` parameter.
+- `value` (String) The `value` parameter.
 
 
 
@@ -172,16 +172,16 @@ Read-Only:
 
 Read-Only:
 
-- `context` (String)
-- `pattern` (String)
-- `qualifier` (Attributes List) (see [below for nested schema](#nestedatt--signature--and_condition--or_condition--operator--pattern_match--qualifier))
+- `context` (String) The `context` parameter.
+- `pattern` (String) The `pattern` parameter.
+- `qualifier` (Attributes List) The `qualifier` parameter. (see [below for nested schema](#nestedatt--signature--and_condition--or_condition--operator--pattern_match--qualifier))
 
 <a id="nestedatt--signature--and_condition--or_condition--operator--pattern_match--qualifier"></a>
 ### Nested Schema for `signature.and_condition.or_condition.operator.pattern_match.qualifier`
 
 Read-Only:
 
-- `name` (String)
-- `value` (String)
+- `name` (String) The `name` parameter.
+- `value` (String) The `value` parameter.
 
 

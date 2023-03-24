@@ -76,28 +76,33 @@ func (d *certificatesGetListDataSource) Schema(_ context.Context, _ datasource.S
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description: "The max count in result entry (count per page)",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The max count in result entry (count per page)",
+				MarkdownDescription: "The max count in result entry (count per page)",
+				Optional:            true,
+				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description: "The offset of the result entry",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The offset of the result entry",
+				MarkdownDescription: "The offset of the result entry",
+				Optional:            true,
+				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description: "The name of the entry",
-				Optional:    true,
+				Description:         "The name of the entry",
+				MarkdownDescription: "The name of the entry",
+				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -105,72 +110,88 @@ func (d *certificatesGetListDataSource) Schema(_ context.Context, _ datasource.S
 
 			// Output.
 			"data": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `data` parameter.",
+				MarkdownDescription: "The `data` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"algorithm": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `algorithm` parameter.",
+							MarkdownDescription: "The `algorithm` parameter.",
+							Computed:            true,
 						},
 						"ca": dsschema.BoolAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `ca` parameter.",
+							MarkdownDescription: "The `ca` parameter.",
+							Computed:            true,
 						},
 						"common_name": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `common_name` parameter.",
+							MarkdownDescription: "The `common_name` parameter.",
+							Computed:            true,
 						},
 						"common_name_int": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `common_name_int` parameter.",
+							MarkdownDescription: "The `common_name_int` parameter.",
+							Computed:            true,
 						},
 						"expiry_epoch": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `expiry_epoch` parameter.",
+							MarkdownDescription: "The `expiry_epoch` parameter.",
+							Computed:            true,
 						},
 						"object_id": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `object_id` parameter.",
+							MarkdownDescription: "The `object_id` parameter.",
+							Computed:            true,
 						},
 						"issuer": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `issuer` parameter.",
+							MarkdownDescription: "The `issuer` parameter.",
+							Computed:            true,
 						},
 						"issuer_hash": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `issuer_hash` parameter.",
+							MarkdownDescription: "The `issuer_hash` parameter.",
+							Computed:            true,
 						},
 						"not_valid_after": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `not_valid_after` parameter.",
+							MarkdownDescription: "The `not_valid_after` parameter.",
+							Computed:            true,
 						},
 						"not_valid_before": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `not_valid_before` parameter.",
+							MarkdownDescription: "The `not_valid_before` parameter.",
+							Computed:            true,
 						},
 						"public_key": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `public_key` parameter.",
+							MarkdownDescription: "The `public_key` parameter.",
+							Computed:            true,
 						},
 						"subject": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `subject` parameter.",
+							MarkdownDescription: "The `subject` parameter.",
+							Computed:            true,
 						},
 						"subject_hash": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `subject_hash` parameter.",
+							MarkdownDescription: "The `subject_hash` parameter.",
+							Computed:            true,
 						},
 						"subject_int": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `subject_int` parameter.",
+							MarkdownDescription: "The `subject_int` parameter.",
+							Computed:            true,
 						},
 					},
 				},
 			},
 			"total": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `total` parameter.",
+				MarkdownDescription: "The `total` parameter.",
+				Computed:            true,
 			},
 		},
 	}

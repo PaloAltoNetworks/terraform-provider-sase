@@ -22,20 +22,20 @@ Retrieves config for a specific item.
 
 ### Read-Only
 
-- `application` (String)
-- `description` (String)
-- `destination` (List of String)
-- `disabled` (Boolean)
-- `from` (List of String)
-- `group_tag` (String)
+- `application` (String) The `application` parameter.
+- `description` (String) The `description` parameter.
+- `destination` (List of String) The `destination` parameter.
+- `disabled` (Boolean) The `disabled` parameter.
+- `from` (List of String) The `from` parameter.
+- `group_tag` (String) The `group_tag` parameter.
 - `id` (String) The object ID.
-- `name` (String)
-- `negate_destination` (Boolean)
-- `negate_source` (Boolean)
-- `port` (Number)
-- `protocol` (String)
-- `source` (List of String)
-- `tag` (List of String)
-- `to` (List of String)
+- `name` (String) The `name` parameter.
+- `negate_destination` (Boolean) The `negate_destination` parameter.
+- `negate_source` (Boolean) The `negate_source` parameter.
+- `port` (Number) The `port` parameter.
+- `protocol` (String) The `protocol` parameter.
+- `source` (List of String) The `source` parameter.
+- `tag` (List of String) The `tag` parameter.
+- `to` (List of String) The `to` parameter.
 
 

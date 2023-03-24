@@ -17,7 +17,7 @@ Retrieves a listing of config items.
 
 ### Required
 
-- `folder` (String)
+- `folder` (String) The `folder` parameter.
 
 ### Optional
 
@@ -26,17 +26,17 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `authentication_profile` (String)
-- `os` (String)
-- `user_credential_or_client_cert_required` (Boolean)
+- `authentication_profile` (String) The `authentication_profile` parameter.
+- `os` (String) The `os` parameter.
+- `user_credential_or_client_cert_required` (Boolean) The `user_credential_or_client_cert_required` parameter.
 
 

@@ -28,28 +28,28 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `action` (Attributes) (see [below for nested schema](#nestedatt--data--action))
-- `description` (String)
-- `dscp_tos` (Attributes) (see [below for nested schema](#nestedatt--data--dscp_tos))
-- `name` (String)
-- `object_id` (String)
-- `schedule` (String)
+- `action` (Attributes) The `action` parameter. (see [below for nested schema](#nestedatt--data--action))
+- `description` (String) The `description` parameter.
+- `dscp_tos` (Attributes) The `dscp_tos` parameter. (see [below for nested schema](#nestedatt--data--dscp_tos))
+- `name` (String) The `name` parameter.
+- `object_id` (String) The `object_id` parameter.
+- `schedule` (String) The `schedule` parameter.
 
 <a id="nestedatt--data--action"></a>
 ### Nested Schema for `data.action`
 
 Read-Only:
 
-- `class` (String)
+- `class` (String) The `class` parameter.
 
 
 <a id="nestedatt--data--dscp_tos"></a>
@@ -57,33 +57,33 @@ Read-Only:
 
 Read-Only:
 
-- `codepoints` (Attributes List) (see [below for nested schema](#nestedatt--data--dscp_tos--codepoints))
+- `codepoints` (Attributes List) The `codepoints` parameter. (see [below for nested schema](#nestedatt--data--dscp_tos--codepoints))
 
 <a id="nestedatt--data--dscp_tos--codepoints"></a>
 ### Nested Schema for `data.dscp_tos.codepoints`
 
 Read-Only:
 
-- `name` (String)
-- `type` (Attributes) (see [below for nested schema](#nestedatt--data--dscp_tos--codepoints--type))
+- `name` (String) The `name` parameter.
+- `type` (Attributes) The `type` parameter. (see [below for nested schema](#nestedatt--data--dscp_tos--codepoints--type))
 
 <a id="nestedatt--data--dscp_tos--codepoints--type"></a>
 ### Nested Schema for `data.dscp_tos.codepoints.type`
 
 Read-Only:
 
-- `af` (Attributes) (see [below for nested schema](#nestedatt--data--dscp_tos--codepoints--type--af))
-- `cs` (Attributes) (see [below for nested schema](#nestedatt--data--dscp_tos--codepoints--type--cs))
-- `custom` (Attributes) (see [below for nested schema](#nestedatt--data--dscp_tos--codepoints--type--custom))
-- `ef` (Boolean)
-- `tos` (Attributes) (see [below for nested schema](#nestedatt--data--dscp_tos--codepoints--type--tos))
+- `af` (Attributes) The `af` parameter. (see [below for nested schema](#nestedatt--data--dscp_tos--codepoints--type--af))
+- `cs` (Attributes) The `cs` parameter. (see [below for nested schema](#nestedatt--data--dscp_tos--codepoints--type--cs))
+- `custom` (Attributes) The `custom` parameter. (see [below for nested schema](#nestedatt--data--dscp_tos--codepoints--type--custom))
+- `ef` (Boolean) The `ef` parameter.
+- `tos` (Attributes) The `tos` parameter. (see [below for nested schema](#nestedatt--data--dscp_tos--codepoints--type--tos))
 
 <a id="nestedatt--data--dscp_tos--codepoints--type--af"></a>
 ### Nested Schema for `data.dscp_tos.codepoints.type.af`
 
 Read-Only:
 
-- `codepoint` (String)
+- `codepoint` (String) The `codepoint` parameter.
 
 
 <a id="nestedatt--data--dscp_tos--codepoints--type--cs"></a>
@@ -91,7 +91,7 @@ Read-Only:
 
 Read-Only:
 
-- `codepoint` (String)
+- `codepoint` (String) The `codepoint` parameter.
 
 
 <a id="nestedatt--data--dscp_tos--codepoints--type--custom"></a>
@@ -99,15 +99,15 @@ Read-Only:
 
 Read-Only:
 
-- `codepoint` (Attributes) (see [below for nested schema](#nestedatt--data--dscp_tos--codepoints--type--custom--codepoint))
+- `codepoint` (Attributes) The `codepoint` parameter. (see [below for nested schema](#nestedatt--data--dscp_tos--codepoints--type--custom--codepoint))
 
 <a id="nestedatt--data--dscp_tos--codepoints--type--custom--codepoint"></a>
 ### Nested Schema for `data.dscp_tos.codepoints.type.custom.codepoint`
 
 Read-Only:
 
-- `binary_value` (String)
-- `codepoint_name` (String)
+- `binary_value` (String) The `binary_value` parameter.
+- `codepoint_name` (String) The `codepoint_name` parameter.
 
 
 
@@ -116,6 +116,6 @@ Read-Only:
 
 Read-Only:
 
-- `codepoint` (String)
+- `codepoint` (String) The `codepoint` parameter.
 
 

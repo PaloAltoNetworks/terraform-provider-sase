@@ -18,60 +18,60 @@ Retrieves config for a specific item.
 ### Required
 
 - `folder` (String) The folder of the entry
-- `name` (String)
-- `type` (Attributes) (see [below for nested schema](#nestedatt--type))
+- `name` (String) The `name` parameter.
+- `type` (Attributes) The `type` parameter. (see [below for nested schema](#nestedatt--type))
 
 ### Read-Only
 
 - `id` (String) The object ID.
-- `object_id` (String)
+- `object_id` (String) The `object_id` parameter.
 
 <a id="nestedatt--type"></a>
 ### Nested Schema for `type`
 
 Optional:
 
-- `domain` (Attributes) (see [below for nested schema](#nestedatt--type--domain))
-- `imei` (Attributes) (see [below for nested schema](#nestedatt--type--imei))
-- `imsi` (Attributes) (see [below for nested schema](#nestedatt--type--imsi))
-- `ip` (Attributes) (see [below for nested schema](#nestedatt--type--ip))
-- `predefined_ip` (Attributes) (see [below for nested schema](#nestedatt--type--predefined_ip))
-- `predefined_url` (Attributes) (see [below for nested schema](#nestedatt--type--predefined_url))
-- `url` (Attributes) (see [below for nested schema](#nestedatt--type--url))
+- `domain` (Attributes) The `domain` parameter. (see [below for nested schema](#nestedatt--type--domain))
+- `imei` (Attributes) The `imei` parameter. (see [below for nested schema](#nestedatt--type--imei))
+- `imsi` (Attributes) The `imsi` parameter. (see [below for nested schema](#nestedatt--type--imsi))
+- `ip` (Attributes) The `ip` parameter. (see [below for nested schema](#nestedatt--type--ip))
+- `predefined_ip` (Attributes) The `predefined_ip` parameter. (see [below for nested schema](#nestedatt--type--predefined_ip))
+- `predefined_url` (Attributes) The `predefined_url` parameter. (see [below for nested schema](#nestedatt--type--predefined_url))
+- `url` (Attributes) The `url` parameter. (see [below for nested schema](#nestedatt--type--url))
 
 <a id="nestedatt--type--domain"></a>
 ### Nested Schema for `type.domain`
 
 Required:
 
-- `recurring` (Attributes) (see [below for nested schema](#nestedatt--type--domain--recurring))
-- `url` (String)
+- `recurring` (Attributes) The `recurring` parameter. (see [below for nested schema](#nestedatt--type--domain--recurring))
+- `url` (String) The `url` parameter.
 
 Optional:
 
-- `auth` (Attributes) (see [below for nested schema](#nestedatt--type--domain--auth))
-- `certificate_profile` (String)
-- `description` (String)
-- `exception_list` (List of String)
-- `expand_domain` (Boolean)
+- `auth` (Attributes) The `auth` parameter. (see [below for nested schema](#nestedatt--type--domain--auth))
+- `certificate_profile` (String) The `certificate_profile` parameter.
+- `description` (String) The `description` parameter.
+- `exception_list` (List of String) The `exception_list` parameter.
+- `expand_domain` (Boolean) The `expand_domain` parameter.
 
 <a id="nestedatt--type--domain--recurring"></a>
 ### Nested Schema for `type.domain.recurring`
 
 Optional:
 
-- `daily` (Attributes) (see [below for nested schema](#nestedatt--type--domain--recurring--daily))
-- `five_minute` (Boolean)
-- `hourly` (Boolean)
-- `monthly` (Attributes) (see [below for nested schema](#nestedatt--type--domain--recurring--monthly))
-- `weekly` (Attributes) (see [below for nested schema](#nestedatt--type--domain--recurring--weekly))
+- `daily` (Attributes) The `daily` parameter. (see [below for nested schema](#nestedatt--type--domain--recurring--daily))
+- `five_minute` (Boolean) The `five_minute` parameter.
+- `hourly` (Boolean) The `hourly` parameter.
+- `monthly` (Attributes) The `monthly` parameter. (see [below for nested schema](#nestedatt--type--domain--recurring--monthly))
+- `weekly` (Attributes) The `weekly` parameter. (see [below for nested schema](#nestedatt--type--domain--recurring--weekly))
 
 <a id="nestedatt--type--domain--recurring--daily"></a>
 ### Nested Schema for `type.domain.recurring.weekly`
 
 Required:
 
-- `at` (String)
+- `at` (String) The `at` parameter.
 
 
 <a id="nestedatt--type--domain--recurring--monthly"></a>
@@ -79,8 +79,8 @@ Required:
 
 Required:
 
-- `at` (String)
-- `day_of_month` (Number)
+- `at` (String) The `at` parameter.
+- `day_of_month` (Number) The `day_of_month` parameter.
 
 
 <a id="nestedatt--type--domain--recurring--weekly"></a>
@@ -88,8 +88,8 @@ Required:
 
 Required:
 
-- `at` (String)
-- `day_of_week` (String)
+- `at` (String) The `at` parameter.
+- `day_of_week` (String) The `day_of_week` parameter.
 
 
 
@@ -98,8 +98,8 @@ Required:
 
 Required:
 
-- `password` (String)
-- `username` (String)
+- `password` (String) The `password` parameter.
+- `username` (String) The `username` parameter.
 
 
 
@@ -108,33 +108,33 @@ Required:
 
 Required:
 
-- `recurring` (Attributes) (see [below for nested schema](#nestedatt--type--imei--recurring))
-- `url` (String)
+- `recurring` (Attributes) The `recurring` parameter. (see [below for nested schema](#nestedatt--type--imei--recurring))
+- `url` (String) The `url` parameter.
 
 Optional:
 
-- `auth` (Attributes) (see [below for nested schema](#nestedatt--type--imei--auth))
-- `certificate_profile` (String)
-- `description` (String)
-- `exception_list` (List of String)
+- `auth` (Attributes) The `auth` parameter. (see [below for nested schema](#nestedatt--type--imei--auth))
+- `certificate_profile` (String) The `certificate_profile` parameter.
+- `description` (String) The `description` parameter.
+- `exception_list` (List of String) The `exception_list` parameter.
 
 <a id="nestedatt--type--imei--recurring"></a>
 ### Nested Schema for `type.imei.recurring`
 
 Optional:
 
-- `daily` (Attributes) (see [below for nested schema](#nestedatt--type--imei--recurring--daily))
-- `five_minute` (Boolean)
-- `hourly` (Boolean)
-- `monthly` (Attributes) (see [below for nested schema](#nestedatt--type--imei--recurring--monthly))
-- `weekly` (Attributes) (see [below for nested schema](#nestedatt--type--imei--recurring--weekly))
+- `daily` (Attributes) The `daily` parameter. (see [below for nested schema](#nestedatt--type--imei--recurring--daily))
+- `five_minute` (Boolean) The `five_minute` parameter.
+- `hourly` (Boolean) The `hourly` parameter.
+- `monthly` (Attributes) The `monthly` parameter. (see [below for nested schema](#nestedatt--type--imei--recurring--monthly))
+- `weekly` (Attributes) The `weekly` parameter. (see [below for nested schema](#nestedatt--type--imei--recurring--weekly))
 
 <a id="nestedatt--type--imei--recurring--daily"></a>
 ### Nested Schema for `type.imei.recurring.weekly`
 
 Required:
 
-- `at` (String)
+- `at` (String) The `at` parameter.
 
 
 <a id="nestedatt--type--imei--recurring--monthly"></a>
@@ -142,8 +142,8 @@ Required:
 
 Required:
 
-- `at` (String)
-- `day_of_month` (Number)
+- `at` (String) The `at` parameter.
+- `day_of_month` (Number) The `day_of_month` parameter.
 
 
 <a id="nestedatt--type--imei--recurring--weekly"></a>
@@ -151,8 +151,8 @@ Required:
 
 Required:
 
-- `at` (String)
-- `day_of_week` (String)
+- `at` (String) The `at` parameter.
+- `day_of_week` (String) The `day_of_week` parameter.
 
 
 
@@ -161,8 +161,8 @@ Required:
 
 Required:
 
-- `password` (String)
-- `username` (String)
+- `password` (String) The `password` parameter.
+- `username` (String) The `username` parameter.
 
 
 
@@ -171,33 +171,33 @@ Required:
 
 Required:
 
-- `recurring` (Attributes) (see [below for nested schema](#nestedatt--type--imsi--recurring))
-- `url` (String)
+- `recurring` (Attributes) The `recurring` parameter. (see [below for nested schema](#nestedatt--type--imsi--recurring))
+- `url` (String) The `url` parameter.
 
 Optional:
 
-- `auth` (Attributes) (see [below for nested schema](#nestedatt--type--imsi--auth))
-- `certificate_profile` (String)
-- `description` (String)
-- `exception_list` (List of String)
+- `auth` (Attributes) The `auth` parameter. (see [below for nested schema](#nestedatt--type--imsi--auth))
+- `certificate_profile` (String) The `certificate_profile` parameter.
+- `description` (String) The `description` parameter.
+- `exception_list` (List of String) The `exception_list` parameter.
 
 <a id="nestedatt--type--imsi--recurring"></a>
 ### Nested Schema for `type.imsi.recurring`
 
 Optional:
 
-- `daily` (Attributes) (see [below for nested schema](#nestedatt--type--imsi--recurring--daily))
-- `five_minute` (Boolean)
-- `hourly` (Boolean)
-- `monthly` (Attributes) (see [below for nested schema](#nestedatt--type--imsi--recurring--monthly))
-- `weekly` (Attributes) (see [below for nested schema](#nestedatt--type--imsi--recurring--weekly))
+- `daily` (Attributes) The `daily` parameter. (see [below for nested schema](#nestedatt--type--imsi--recurring--daily))
+- `five_minute` (Boolean) The `five_minute` parameter.
+- `hourly` (Boolean) The `hourly` parameter.
+- `monthly` (Attributes) The `monthly` parameter. (see [below for nested schema](#nestedatt--type--imsi--recurring--monthly))
+- `weekly` (Attributes) The `weekly` parameter. (see [below for nested schema](#nestedatt--type--imsi--recurring--weekly))
 
 <a id="nestedatt--type--imsi--recurring--daily"></a>
 ### Nested Schema for `type.imsi.recurring.weekly`
 
 Required:
 
-- `at` (String)
+- `at` (String) The `at` parameter.
 
 
 <a id="nestedatt--type--imsi--recurring--monthly"></a>
@@ -205,8 +205,8 @@ Required:
 
 Required:
 
-- `at` (String)
-- `day_of_month` (Number)
+- `at` (String) The `at` parameter.
+- `day_of_month` (Number) The `day_of_month` parameter.
 
 
 <a id="nestedatt--type--imsi--recurring--weekly"></a>
@@ -214,8 +214,8 @@ Required:
 
 Required:
 
-- `at` (String)
-- `day_of_week` (String)
+- `at` (String) The `at` parameter.
+- `day_of_week` (String) The `day_of_week` parameter.
 
 
 
@@ -224,8 +224,8 @@ Required:
 
 Required:
 
-- `password` (String)
-- `username` (String)
+- `password` (String) The `password` parameter.
+- `username` (String) The `username` parameter.
 
 
 
@@ -234,33 +234,33 @@ Required:
 
 Required:
 
-- `recurring` (Attributes) (see [below for nested schema](#nestedatt--type--ip--recurring))
-- `url` (String)
+- `recurring` (Attributes) The `recurring` parameter. (see [below for nested schema](#nestedatt--type--ip--recurring))
+- `url` (String) The `url` parameter.
 
 Optional:
 
-- `auth` (Attributes) (see [below for nested schema](#nestedatt--type--ip--auth))
-- `certificate_profile` (String)
-- `description` (String)
-- `exception_list` (List of String)
+- `auth` (Attributes) The `auth` parameter. (see [below for nested schema](#nestedatt--type--ip--auth))
+- `certificate_profile` (String) The `certificate_profile` parameter.
+- `description` (String) The `description` parameter.
+- `exception_list` (List of String) The `exception_list` parameter.
 
 <a id="nestedatt--type--ip--recurring"></a>
 ### Nested Schema for `type.ip.recurring`
 
 Optional:
 
-- `daily` (Attributes) (see [below for nested schema](#nestedatt--type--ip--recurring--daily))
-- `five_minute` (Boolean)
-- `hourly` (Boolean)
-- `monthly` (Attributes) (see [below for nested schema](#nestedatt--type--ip--recurring--monthly))
-- `weekly` (Attributes) (see [below for nested schema](#nestedatt--type--ip--recurring--weekly))
+- `daily` (Attributes) The `daily` parameter. (see [below for nested schema](#nestedatt--type--ip--recurring--daily))
+- `five_minute` (Boolean) The `five_minute` parameter.
+- `hourly` (Boolean) The `hourly` parameter.
+- `monthly` (Attributes) The `monthly` parameter. (see [below for nested schema](#nestedatt--type--ip--recurring--monthly))
+- `weekly` (Attributes) The `weekly` parameter. (see [below for nested schema](#nestedatt--type--ip--recurring--weekly))
 
 <a id="nestedatt--type--ip--recurring--daily"></a>
 ### Nested Schema for `type.ip.recurring.weekly`
 
 Required:
 
-- `at` (String)
+- `at` (String) The `at` parameter.
 
 
 <a id="nestedatt--type--ip--recurring--monthly"></a>
@@ -268,8 +268,8 @@ Required:
 
 Required:
 
-- `at` (String)
-- `day_of_month` (Number)
+- `at` (String) The `at` parameter.
+- `day_of_month` (Number) The `day_of_month` parameter.
 
 
 <a id="nestedatt--type--ip--recurring--weekly"></a>
@@ -277,8 +277,8 @@ Required:
 
 Required:
 
-- `at` (String)
-- `day_of_week` (String)
+- `at` (String) The `at` parameter.
+- `day_of_week` (String) The `day_of_week` parameter.
 
 
 
@@ -287,8 +287,8 @@ Required:
 
 Required:
 
-- `password` (String)
-- `username` (String)
+- `password` (String) The `password` parameter.
+- `username` (String) The `username` parameter.
 
 
 
@@ -297,12 +297,12 @@ Required:
 
 Required:
 
-- `url` (String)
+- `url` (String) The `url` parameter.
 
 Optional:
 
-- `description` (String)
-- `exception_list` (List of String)
+- `description` (String) The `description` parameter.
+- `exception_list` (List of String) The `exception_list` parameter.
 
 
 <a id="nestedatt--type--predefined_url"></a>
@@ -310,12 +310,12 @@ Optional:
 
 Required:
 
-- `url` (String)
+- `url` (String) The `url` parameter.
 
 Optional:
 
-- `description` (String)
-- `exception_list` (List of String)
+- `description` (String) The `description` parameter.
+- `exception_list` (List of String) The `exception_list` parameter.
 
 
 <a id="nestedatt--type--url"></a>
@@ -323,33 +323,33 @@ Optional:
 
 Required:
 
-- `recurring` (Attributes) (see [below for nested schema](#nestedatt--type--url--recurring))
-- `url` (String)
+- `recurring` (Attributes) The `recurring` parameter. (see [below for nested schema](#nestedatt--type--url--recurring))
+- `url` (String) The `url` parameter.
 
 Optional:
 
-- `auth` (Attributes) (see [below for nested schema](#nestedatt--type--url--auth))
-- `certificate_profile` (String)
-- `description` (String)
-- `exception_list` (List of String)
+- `auth` (Attributes) The `auth` parameter. (see [below for nested schema](#nestedatt--type--url--auth))
+- `certificate_profile` (String) The `certificate_profile` parameter.
+- `description` (String) The `description` parameter.
+- `exception_list` (List of String) The `exception_list` parameter.
 
 <a id="nestedatt--type--url--recurring"></a>
 ### Nested Schema for `type.url.recurring`
 
 Optional:
 
-- `daily` (Attributes) (see [below for nested schema](#nestedatt--type--url--recurring--daily))
-- `five_minute` (Boolean)
-- `hourly` (Boolean)
-- `monthly` (Attributes) (see [below for nested schema](#nestedatt--type--url--recurring--monthly))
-- `weekly` (Attributes) (see [below for nested schema](#nestedatt--type--url--recurring--weekly))
+- `daily` (Attributes) The `daily` parameter. (see [below for nested schema](#nestedatt--type--url--recurring--daily))
+- `five_minute` (Boolean) The `five_minute` parameter.
+- `hourly` (Boolean) The `hourly` parameter.
+- `monthly` (Attributes) The `monthly` parameter. (see [below for nested schema](#nestedatt--type--url--recurring--monthly))
+- `weekly` (Attributes) The `weekly` parameter. (see [below for nested schema](#nestedatt--type--url--recurring--weekly))
 
 <a id="nestedatt--type--url--recurring--daily"></a>
 ### Nested Schema for `type.url.recurring.weekly`
 
 Required:
 
-- `at` (String)
+- `at` (String) The `at` parameter.
 
 
 <a id="nestedatt--type--url--recurring--monthly"></a>
@@ -357,8 +357,8 @@ Required:
 
 Required:
 
-- `at` (String)
-- `day_of_month` (Number)
+- `at` (String) The `at` parameter.
+- `day_of_month` (Number) The `day_of_month` parameter.
 
 
 <a id="nestedatt--type--url--recurring--weekly"></a>
@@ -366,8 +366,8 @@ Required:
 
 Required:
 
-- `at` (String)
-- `day_of_week` (String)
+- `at` (String) The `at` parameter.
+- `day_of_week` (String) The `day_of_week` parameter.
 
 
 
@@ -376,7 +376,7 @@ Required:
 
 Required:
 
-- `password` (String)
-- `username` (String)
+- `password` (String) The `password` parameter.
+- `username` (String) The `username` parameter.
 
 

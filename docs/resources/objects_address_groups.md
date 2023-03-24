@@ -18,25 +18,25 @@ Retrieves config for a specific item.
 ### Required
 
 - `folder` (String) The folder of the entry
-- `name` (String)
+- `name` (String) The `name` parameter.
 
 ### Optional
 
-- `description` (String)
-- `dynamic_value` (Attributes) (see [below for nested schema](#nestedatt--dynamic_value))
-- `static` (List of String)
-- `tag` (List of String)
+- `description` (String) The `description` parameter.
+- `dynamic_value` (Attributes) The `dynamic_value` parameter. (see [below for nested schema](#nestedatt--dynamic_value))
+- `static` (List of String) The `static` parameter.
+- `tag` (List of String) The `tag` parameter.
 
 ### Read-Only
 
 - `id` (String) The object ID.
-- `object_id` (String)
+- `object_id` (String) The `object_id` parameter.
 
 <a id="nestedatt--dynamic_value"></a>
 ### Nested Schema for `dynamic_value`
 
 Required:
 
-- `filter` (String)
+- `filter` (String) The `filter` parameter.
 
 

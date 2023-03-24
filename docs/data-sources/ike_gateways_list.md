@@ -27,42 +27,42 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `authentication` (Attributes) (see [below for nested schema](#nestedatt--data--authentication))
-- `local_id` (Attributes) (see [below for nested schema](#nestedatt--data--local_id))
-- `name` (String)
-- `object_id` (String)
-- `peer_address` (Attributes) (see [below for nested schema](#nestedatt--data--peer_address))
-- `peer_id` (Attributes) (see [below for nested schema](#nestedatt--data--peer_id))
-- `protocol` (Attributes) (see [below for nested schema](#nestedatt--data--protocol))
-- `protocol_common` (Attributes) (see [below for nested schema](#nestedatt--data--protocol_common))
+- `authentication` (Attributes) The `authentication` parameter. (see [below for nested schema](#nestedatt--data--authentication))
+- `local_id` (Attributes) The `local_id` parameter. (see [below for nested schema](#nestedatt--data--local_id))
+- `name` (String) The `name` parameter.
+- `object_id` (String) The `object_id` parameter.
+- `peer_address` (Attributes) The `peer_address` parameter. (see [below for nested schema](#nestedatt--data--peer_address))
+- `peer_id` (Attributes) The `peer_id` parameter. (see [below for nested schema](#nestedatt--data--peer_id))
+- `protocol` (Attributes) The `protocol` parameter. (see [below for nested schema](#nestedatt--data--protocol))
+- `protocol_common` (Attributes) The `protocol_common` parameter. (see [below for nested schema](#nestedatt--data--protocol_common))
 
 <a id="nestedatt--data--authentication"></a>
 ### Nested Schema for `data.authentication`
 
 Read-Only:
 
-- `allow_id_payload_mismatch` (Boolean)
-- `certificate_profile` (String)
-- `local_certificate` (Attributes) (see [below for nested schema](#nestedatt--data--authentication--local_certificate))
-- `pre_shared_key` (Attributes) (see [below for nested schema](#nestedatt--data--authentication--pre_shared_key))
-- `strict_validation_revocation` (Boolean)
-- `use_management_as_source` (Boolean)
+- `allow_id_payload_mismatch` (Boolean) The `allow_id_payload_mismatch` parameter.
+- `certificate_profile` (String) The `certificate_profile` parameter.
+- `local_certificate` (Attributes) The `local_certificate` parameter. (see [below for nested schema](#nestedatt--data--authentication--local_certificate))
+- `pre_shared_key` (Attributes) The `pre_shared_key` parameter. (see [below for nested schema](#nestedatt--data--authentication--pre_shared_key))
+- `strict_validation_revocation` (Boolean) The `strict_validation_revocation` parameter.
+- `use_management_as_source` (Boolean) The `use_management_as_source` parameter.
 
 <a id="nestedatt--data--authentication--local_certificate"></a>
 ### Nested Schema for `data.authentication.local_certificate`
 
 Read-Only:
 
-- `local_certificate_name` (String)
+- `local_certificate_name` (String) The `local_certificate_name` parameter.
 
 
 <a id="nestedatt--data--authentication--pre_shared_key"></a>
@@ -70,7 +70,7 @@ Read-Only:
 
 Read-Only:
 
-- `key` (String)
+- `key` (String) The `key` parameter.
 
 
 
@@ -79,8 +79,8 @@ Read-Only:
 
 Read-Only:
 
-- `object_id` (String)
-- `type` (String)
+- `object_id` (String) The `object_id` parameter.
+- `type` (String) The `type` parameter.
 
 
 <a id="nestedatt--data--peer_address"></a>
@@ -88,9 +88,9 @@ Read-Only:
 
 Read-Only:
 
-- `dynamic_value` (Boolean)
-- `fqdn` (String)
-- `ip` (String)
+- `dynamic_value` (Boolean) The `dynamic_value` parameter.
+- `fqdn` (String) The `fqdn` parameter.
+- `ip` (String) The `ip` parameter.
 
 
 <a id="nestedatt--data--peer_id"></a>
@@ -98,8 +98,8 @@ Read-Only:
 
 Read-Only:
 
-- `object_id` (String)
-- `type` (String)
+- `object_id` (String) The `object_id` parameter.
+- `type` (String) The `type` parameter.
 
 
 <a id="nestedatt--data--protocol"></a>
@@ -107,24 +107,24 @@ Read-Only:
 
 Read-Only:
 
-- `ikev1` (Attributes) (see [below for nested schema](#nestedatt--data--protocol--ikev1))
-- `ikev2` (Attributes) (see [below for nested schema](#nestedatt--data--protocol--ikev2))
-- `version` (String)
+- `ikev1` (Attributes) The `ikev1` parameter. (see [below for nested schema](#nestedatt--data--protocol--ikev1))
+- `ikev2` (Attributes) The `ikev2` parameter. (see [below for nested schema](#nestedatt--data--protocol--ikev2))
+- `version` (String) The `version` parameter.
 
 <a id="nestedatt--data--protocol--ikev1"></a>
 ### Nested Schema for `data.protocol.ikev1`
 
 Read-Only:
 
-- `dpd` (Attributes) (see [below for nested schema](#nestedatt--data--protocol--ikev1--dpd))
-- `ike_crypto_profile` (String)
+- `dpd` (Attributes) The `dpd` parameter. (see [below for nested schema](#nestedatt--data--protocol--ikev1--dpd))
+- `ike_crypto_profile` (String) The `ike_crypto_profile` parameter.
 
 <a id="nestedatt--data--protocol--ikev1--dpd"></a>
 ### Nested Schema for `data.protocol.ikev1.ike_crypto_profile`
 
 Read-Only:
 
-- `enable` (Boolean)
+- `enable` (Boolean) The `enable` parameter.
 
 
 
@@ -133,15 +133,15 @@ Read-Only:
 
 Read-Only:
 
-- `dpd` (Attributes) (see [below for nested schema](#nestedatt--data--protocol--ikev2--dpd))
-- `ike_crypto_profile` (String)
+- `dpd` (Attributes) The `dpd` parameter. (see [below for nested schema](#nestedatt--data--protocol--ikev2--dpd))
+- `ike_crypto_profile` (String) The `ike_crypto_profile` parameter.
 
 <a id="nestedatt--data--protocol--ikev2--dpd"></a>
 ### Nested Schema for `data.protocol.ikev2.ike_crypto_profile`
 
 Read-Only:
 
-- `enable` (Boolean)
+- `enable` (Boolean) The `enable` parameter.
 
 
 
@@ -151,16 +151,16 @@ Read-Only:
 
 Read-Only:
 
-- `fragmentation` (Attributes) (see [below for nested schema](#nestedatt--data--protocol_common--fragmentation))
-- `nat_traversal` (Attributes) (see [below for nested schema](#nestedatt--data--protocol_common--nat_traversal))
-- `passive_mode` (Boolean)
+- `fragmentation` (Attributes) The `fragmentation` parameter. (see [below for nested schema](#nestedatt--data--protocol_common--fragmentation))
+- `nat_traversal` (Attributes) The `nat_traversal` parameter. (see [below for nested schema](#nestedatt--data--protocol_common--nat_traversal))
+- `passive_mode` (Boolean) The `passive_mode` parameter.
 
 <a id="nestedatt--data--protocol_common--fragmentation"></a>
 ### Nested Schema for `data.protocol_common.fragmentation`
 
 Read-Only:
 
-- `enable` (Boolean)
+- `enable` (Boolean) The `enable` parameter.
 
 
 <a id="nestedatt--data--protocol_common--nat_traversal"></a>
@@ -168,6 +168,6 @@ Read-Only:
 
 Read-Only:
 
-- `enable` (Boolean)
+- `enable` (Boolean) The `enable` parameter.
 
 

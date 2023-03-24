@@ -17,40 +17,40 @@ Retrieves config for a specific item.
 
 ### Required
 
-- `auto_key` (Attributes) (see [below for nested schema](#nestedatt--auto_key))
+- `auto_key` (Attributes) The `auto_key` parameter. (see [below for nested schema](#nestedatt--auto_key))
 - `folder` (String) The folder of the entry
-- `name` (String)
+- `name` (String) The `name` parameter.
 
 ### Optional
 
-- `anti_replay` (Boolean)
-- `copy_tos` (Boolean)
-- `enable_gre_encapsulation` (Boolean)
-- `tunnel_monitor` (Attributes) (see [below for nested schema](#nestedatt--tunnel_monitor))
+- `anti_replay` (Boolean) The `anti_replay` parameter.
+- `copy_tos` (Boolean) The `copy_tos` parameter.
+- `enable_gre_encapsulation` (Boolean) The `enable_gre_encapsulation` parameter.
+- `tunnel_monitor` (Attributes) The `tunnel_monitor` parameter. (see [below for nested schema](#nestedatt--tunnel_monitor))
 
 ### Read-Only
 
 - `id` (String) The object ID.
-- `object_id` (String)
+- `object_id` (String) The `object_id` parameter.
 
 <a id="nestedatt--auto_key"></a>
 ### Nested Schema for `auto_key`
 
 Required:
 
-- `ike_gateway` (Attributes List) (see [below for nested schema](#nestedatt--auto_key--ike_gateway))
-- `ipsec_crypto_profile` (String)
+- `ike_gateway` (Attributes List) The `ike_gateway` parameter. (see [below for nested schema](#nestedatt--auto_key--ike_gateway))
+- `ipsec_crypto_profile` (String) The `ipsec_crypto_profile` parameter.
 
 Optional:
 
-- `proxy_id` (Attributes List) (see [below for nested schema](#nestedatt--auto_key--proxy_id))
+- `proxy_id` (Attributes List) The `proxy_id` parameter. (see [below for nested schema](#nestedatt--auto_key--proxy_id))
 
 <a id="nestedatt--auto_key--ike_gateway"></a>
 ### Nested Schema for `auto_key.ike_gateway`
 
 Optional:
 
-- `name` (String)
+- `name` (String) The `name` parameter.
 
 
 <a id="nestedatt--auto_key--proxy_id"></a>
@@ -58,30 +58,30 @@ Optional:
 
 Required:
 
-- `name` (String)
+- `name` (String) The `name` parameter.
 
 Optional:
 
-- `local` (String)
-- `protocol` (Attributes) (see [below for nested schema](#nestedatt--auto_key--proxy_id--protocol))
-- `remote` (String)
+- `local` (String) The `local` parameter.
+- `protocol` (Attributes) The `protocol` parameter. (see [below for nested schema](#nestedatt--auto_key--proxy_id--protocol))
+- `remote` (String) The `remote` parameter.
 
 <a id="nestedatt--auto_key--proxy_id--protocol"></a>
 ### Nested Schema for `auto_key.proxy_id.protocol`
 
 Optional:
 
-- `number` (Number)
-- `tcp` (Attributes) (see [below for nested schema](#nestedatt--auto_key--proxy_id--protocol--tcp))
-- `udp` (Attributes) (see [below for nested schema](#nestedatt--auto_key--proxy_id--protocol--udp))
+- `number` (Number) The `number` parameter.
+- `tcp` (Attributes) The `tcp` parameter. (see [below for nested schema](#nestedatt--auto_key--proxy_id--protocol--tcp))
+- `udp` (Attributes) The `udp` parameter. (see [below for nested schema](#nestedatt--auto_key--proxy_id--protocol--udp))
 
 <a id="nestedatt--auto_key--proxy_id--protocol--tcp"></a>
 ### Nested Schema for `auto_key.proxy_id.protocol.udp`
 
 Optional:
 
-- `local_port` (Number)
-- `remote_port` (Number)
+- `local_port` (Number) The `local_port` parameter.
+- `remote_port` (Number) The `remote_port` parameter.
 
 
 <a id="nestedatt--auto_key--proxy_id--protocol--udp"></a>
@@ -89,8 +89,8 @@ Optional:
 
 Optional:
 
-- `local_port` (Number)
-- `remote_port` (Number)
+- `local_port` (Number) The `local_port` parameter.
+- `remote_port` (Number) The `remote_port` parameter.
 
 
 
@@ -101,11 +101,11 @@ Optional:
 
 Required:
 
-- `destination_ip` (String)
+- `destination_ip` (String) The `destination_ip` parameter.
 
 Optional:
 
-- `enable` (Boolean)
-- `proxy_id` (String)
+- `enable` (Boolean) The `enable` parameter.
+- `proxy_id` (String) The `proxy_id` parameter.
 
 

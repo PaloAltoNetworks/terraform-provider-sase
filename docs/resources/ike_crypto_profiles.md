@@ -17,30 +17,30 @@ Retrieves config for a specific item.
 
 ### Required
 
-- `dh_group` (List of String)
-- `encryption` (List of String)
+- `dh_group` (List of String) The `dh_group` parameter.
+- `encryption` (List of String) The `encryption` parameter.
 - `folder` (String) The folder of the entry
-- `hash` (List of String)
-- `name` (String)
+- `hash` (List of String) The `hash` parameter.
+- `name` (String) The `name` parameter.
 
 ### Optional
 
-- `authentication_multiple` (Number)
-- `lifetime` (Attributes) (see [below for nested schema](#nestedatt--lifetime))
+- `authentication_multiple` (Number) The `authentication_multiple` parameter.
+- `lifetime` (Attributes) The `lifetime` parameter. (see [below for nested schema](#nestedatt--lifetime))
 
 ### Read-Only
 
 - `id` (String) The object ID.
-- `object_id` (String)
+- `object_id` (String) The `object_id` parameter.
 
 <a id="nestedatt--lifetime"></a>
 ### Nested Schema for `lifetime`
 
 Optional:
 
-- `days` (Number)
-- `hours` (Number)
-- `minutes` (Number)
-- `seconds` (Number)
+- `days` (Number) The `days` parameter.
+- `hours` (Number) The `hours` parameter.
+- `minutes` (Number) The `minutes` parameter.
+- `seconds` (Number) The `seconds` parameter.
 
 

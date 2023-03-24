@@ -21,10 +21,10 @@ Retrieves config for a specific item.
 
 ### Read-Only
 
-- `description` (String)
-- `filter` (String)
+- `description` (String) The `description` parameter.
+- `filter` (String) The `filter` parameter.
 - `id` (String) The object ID.
-- `name` (String)
-- `tag` (List of String)
+- `name` (String) The `name` parameter.
+- `tag` (List of String) The `tag` parameter.
 
 

@@ -72,28 +72,33 @@ func (d *trustedCertificateAuthoritiesListDataSource) Schema(_ context.Context, 
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description: "The max count in result entry (count per page)",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The max count in result entry (count per page)",
+				MarkdownDescription: "The max count in result entry (count per page)",
+				Optional:            true,
+				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description: "The offset of the result entry",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The offset of the result entry",
+				MarkdownDescription: "The offset of the result entry",
+				Optional:            true,
+				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description: "The name of the entry",
-				Optional:    true,
+				Description:         "The name of the entry",
+				MarkdownDescription: "The name of the entry",
+				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -101,56 +106,68 @@ func (d *trustedCertificateAuthoritiesListDataSource) Schema(_ context.Context, 
 
 			// Output.
 			"data": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `data` parameter.",
+				MarkdownDescription: "The `data` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"common_name": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `common_name` parameter.",
+							MarkdownDescription: "The `common_name` parameter.",
+							Computed:            true,
 						},
 						"expiry_epoch": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `expiry_epoch` parameter.",
+							MarkdownDescription: "The `expiry_epoch` parameter.",
+							Computed:            true,
 						},
 						"filename": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `filename` parameter.",
+							MarkdownDescription: "The `filename` parameter.",
+							Computed:            true,
 						},
 						"object_id": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `object_id` parameter.",
+							MarkdownDescription: "The `object_id` parameter.",
+							Computed:            true,
 						},
 						"issuer": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `issuer` parameter.",
+							MarkdownDescription: "The `issuer` parameter.",
+							Computed:            true,
 						},
 						"name": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `name` parameter.",
+							MarkdownDescription: "The `name` parameter.",
+							Computed:            true,
 						},
 						"not_valid_after": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `not_valid_after` parameter.",
+							MarkdownDescription: "The `not_valid_after` parameter.",
+							Computed:            true,
 						},
 						"not_valid_before": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `not_valid_before` parameter.",
+							MarkdownDescription: "The `not_valid_before` parameter.",
+							Computed:            true,
 						},
 						"serial_number": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `serial_number` parameter.",
+							MarkdownDescription: "The `serial_number` parameter.",
+							Computed:            true,
 						},
 						"subject": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `subject` parameter.",
+							MarkdownDescription: "The `subject` parameter.",
+							Computed:            true,
 						},
 					},
 				},
 			},
 			"total": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `total` parameter.",
+				MarkdownDescription: "The `total` parameter.",
+				Computed:            true,
 			},
 		},
 	}

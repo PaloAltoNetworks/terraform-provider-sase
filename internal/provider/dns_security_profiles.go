@@ -109,28 +109,33 @@ func (d *dnsSecurityProfilesListDataSource) Schema(_ context.Context, _ datasour
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description: "The max count in result entry (count per page)",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The max count in result entry (count per page)",
+				MarkdownDescription: "The max count in result entry (count per page)",
+				Optional:            true,
+				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description: "The offset of the result entry",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The offset of the result entry",
+				MarkdownDescription: "The offset of the result entry",
+				Optional:            true,
+				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description: "The name of the entry",
-				Optional:    true,
+				Description:         "The name of the entry",
+				MarkdownDescription: "The name of the entry",
+				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -138,102 +143,123 @@ func (d *dnsSecurityProfilesListDataSource) Schema(_ context.Context, _ datasour
 
 			// Output.
 			"data": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `data` parameter.",
+				MarkdownDescription: "The `data` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"botnet_domains": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `botnet_domains` parameter.",
+							MarkdownDescription: "The `botnet_domains` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"dns_security_categories": dsschema.ListNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `dns_security_categories` parameter.",
+									MarkdownDescription: "The `dns_security_categories` parameter.",
+									Computed:            true,
 									NestedObject: dsschema.NestedAttributeObject{
 										Attributes: map[string]dsschema.Attribute{
 											"action": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `action` parameter.",
+												MarkdownDescription: "The `action` parameter.",
+												Computed:            true,
 											},
 											"log_level": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `log_level` parameter.",
+												MarkdownDescription: "The `log_level` parameter.",
+												Computed:            true,
 											},
 											"name": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `name` parameter.",
+												MarkdownDescription: "The `name` parameter.",
+												Computed:            true,
 											},
 											"packet_capture": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `packet_capture` parameter.",
+												MarkdownDescription: "The `packet_capture` parameter.",
+												Computed:            true,
 											},
 										},
 									},
 								},
 								"lists": dsschema.ListNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `lists` parameter.",
+									MarkdownDescription: "The `lists` parameter.",
+									Computed:            true,
 									NestedObject: dsschema.NestedAttributeObject{
 										Attributes: map[string]dsschema.Attribute{
 											"action": dsschema.SingleNestedAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `action` parameter.",
+												MarkdownDescription: "The `action` parameter.",
+												Computed:            true,
 												Attributes: map[string]dsschema.Attribute{
 													"alert": dsschema.BoolAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `alert` parameter.",
+														MarkdownDescription: "The `alert` parameter.",
+														Computed:            true,
 													},
 													"allow": dsschema.BoolAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `allow` parameter.",
+														MarkdownDescription: "The `allow` parameter.",
+														Computed:            true,
 													},
 													"block": dsschema.BoolAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `block` parameter.",
+														MarkdownDescription: "The `block` parameter.",
+														Computed:            true,
 													},
 													"sinkhole": dsschema.BoolAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `sinkhole` parameter.",
+														MarkdownDescription: "The `sinkhole` parameter.",
+														Computed:            true,
 													},
 												},
 											},
 											"name": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `name` parameter.",
+												MarkdownDescription: "The `name` parameter.",
+												Computed:            true,
 											},
 											"packet_capture": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `packet_capture` parameter.",
+												MarkdownDescription: "The `packet_capture` parameter.",
+												Computed:            true,
 											},
 										},
 									},
 								},
 								"sinkhole": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `sinkhole` parameter.",
+									MarkdownDescription: "The `sinkhole` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"ipv4_address": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `ipv4_address` parameter.",
+											MarkdownDescription: "The `ipv4_address` parameter.",
+											Computed:            true,
 										},
 										"ipv6_address": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `ipv6_address` parameter.",
+											MarkdownDescription: "The `ipv6_address` parameter.",
+											Computed:            true,
 										},
 									},
 								},
 								"whitelist": dsschema.ListNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `whitelist` parameter.",
+									MarkdownDescription: "The `whitelist` parameter.",
+									Computed:            true,
 									NestedObject: dsschema.NestedAttributeObject{
 										Attributes: map[string]dsschema.Attribute{
 											"description": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `description` parameter.",
+												MarkdownDescription: "The `description` parameter.",
+												Computed:            true,
 											},
 											"name": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `name` parameter.",
+												MarkdownDescription: "The `name` parameter.",
+												Computed:            true,
 											},
 										},
 									},
@@ -241,23 +267,27 @@ func (d *dnsSecurityProfilesListDataSource) Schema(_ context.Context, _ datasour
 							},
 						},
 						"description": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `description` parameter.",
+							MarkdownDescription: "The `description` parameter.",
+							Computed:            true,
 						},
 						"object_id": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `object_id` parameter.",
+							MarkdownDescription: "The `object_id` parameter.",
+							Computed:            true,
 						},
 						"name": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `name` parameter.",
+							MarkdownDescription: "The `name` parameter.",
+							Computed:            true,
 						},
 					},
 				},
 			},
 			"total": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `total` parameter.",
+				MarkdownDescription: "The `total` parameter.",
+				Computed:            true,
 			},
 		},
 	}
@@ -504,18 +534,21 @@ func (d *dnsSecurityProfilesDataSource) Schema(_ context.Context, _ datasource.S
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description: "The uuid of the resource",
-				Required:    true,
+				Description:         "The uuid of the resource",
+				MarkdownDescription: "The uuid of the resource",
+				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -523,97 +556,117 @@ func (d *dnsSecurityProfilesDataSource) Schema(_ context.Context, _ datasource.S
 
 			// Output.
 			"botnet_domains": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `botnet_domains` parameter.",
+				MarkdownDescription: "The `botnet_domains` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"dns_security_categories": dsschema.ListNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `dns_security_categories` parameter.",
+						MarkdownDescription: "The `dns_security_categories` parameter.",
+						Computed:            true,
 						NestedObject: dsschema.NestedAttributeObject{
 							Attributes: map[string]dsschema.Attribute{
 								"action": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `action` parameter.",
+									MarkdownDescription: "The `action` parameter.",
+									Computed:            true,
 								},
 								"log_level": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `log_level` parameter.",
+									MarkdownDescription: "The `log_level` parameter.",
+									Computed:            true,
 								},
 								"name": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `name` parameter.",
+									MarkdownDescription: "The `name` parameter.",
+									Computed:            true,
 								},
 								"packet_capture": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `packet_capture` parameter.",
+									MarkdownDescription: "The `packet_capture` parameter.",
+									Computed:            true,
 								},
 							},
 						},
 					},
 					"lists": dsschema.ListNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `lists` parameter.",
+						MarkdownDescription: "The `lists` parameter.",
+						Computed:            true,
 						NestedObject: dsschema.NestedAttributeObject{
 							Attributes: map[string]dsschema.Attribute{
 								"action": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `action` parameter.",
+									MarkdownDescription: "The `action` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"alert": dsschema.BoolAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `alert` parameter.",
+											MarkdownDescription: "The `alert` parameter.",
+											Computed:            true,
 										},
 										"allow": dsschema.BoolAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `allow` parameter.",
+											MarkdownDescription: "The `allow` parameter.",
+											Computed:            true,
 										},
 										"block": dsschema.BoolAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `block` parameter.",
+											MarkdownDescription: "The `block` parameter.",
+											Computed:            true,
 										},
 										"sinkhole": dsschema.BoolAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `sinkhole` parameter.",
+											MarkdownDescription: "The `sinkhole` parameter.",
+											Computed:            true,
 										},
 									},
 								},
 								"name": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `name` parameter.",
+									MarkdownDescription: "The `name` parameter.",
+									Computed:            true,
 								},
 								"packet_capture": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `packet_capture` parameter.",
+									MarkdownDescription: "The `packet_capture` parameter.",
+									Computed:            true,
 								},
 							},
 						},
 					},
 					"sinkhole": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `sinkhole` parameter.",
+						MarkdownDescription: "The `sinkhole` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"ipv4_address": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `ipv4_address` parameter.",
+								MarkdownDescription: "The `ipv4_address` parameter.",
+								Computed:            true,
 							},
 							"ipv6_address": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `ipv6_address` parameter.",
+								MarkdownDescription: "The `ipv6_address` parameter.",
+								Computed:            true,
 							},
 						},
 					},
 					"whitelist": dsschema.ListNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `whitelist` parameter.",
+						MarkdownDescription: "The `whitelist` parameter.",
+						Computed:            true,
 						NestedObject: dsschema.NestedAttributeObject{
 							Attributes: map[string]dsschema.Attribute{
 								"description": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `description` parameter.",
+									MarkdownDescription: "The `description` parameter.",
+									Computed:            true,
 								},
 								"name": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `name` parameter.",
+									MarkdownDescription: "The `name` parameter.",
+									Computed:            true,
 								},
 							},
 						},
@@ -621,12 +674,14 @@ func (d *dnsSecurityProfilesDataSource) Schema(_ context.Context, _ datasource.S
 				},
 			},
 			"description": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `description` parameter.",
+				MarkdownDescription: "The `description` parameter.",
+				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `name` parameter.",
+				MarkdownDescription: "The `name` parameter.",
+				Computed:            true,
 			},
 		},
 	}
@@ -829,8 +884,9 @@ func (r *dnsSecurityProfilesResource) Schema(_ context.Context, _ resource.Schem
 
 		Attributes: map[string]rsschema.Attribute{
 			"id": rsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
@@ -838,26 +894,30 @@ func (r *dnsSecurityProfilesResource) Schema(_ context.Context, _ resource.Schem
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
 			},
 
 			"botnet_domains": rsschema.SingleNestedAttribute{
-				Description: "",
-				Optional:    true,
+				Description:         "The `botnet_domains` parameter.",
+				MarkdownDescription: "The `botnet_domains` parameter.",
+				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"dns_security_categories": rsschema.ListNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `dns_security_categories` parameter.",
+						MarkdownDescription: "The `dns_security_categories` parameter.",
+						Optional:            true,
 						NestedObject: rsschema.NestedAttributeObject{
 							Attributes: map[string]rsschema.Attribute{
 								"action": rsschema.StringAttribute{
-									Description: "",
-									Optional:    true,
-									Computed:    true,
+									Description:         "The `action` parameter.",
+									MarkdownDescription: "The `action` parameter.",
+									Optional:            true,
+									Computed:            true,
 									PlanModifiers: []planmodifier.String{
 										DefaultString("default"),
 									},
@@ -866,9 +926,10 @@ func (r *dnsSecurityProfilesResource) Schema(_ context.Context, _ resource.Schem
 									},
 								},
 								"log_level": rsschema.StringAttribute{
-									Description: "",
-									Optional:    true,
-									Computed:    true,
+									Description:         "The `log_level` parameter.",
+									MarkdownDescription: "The `log_level` parameter.",
+									Optional:            true,
+									Computed:            true,
 									PlanModifiers: []planmodifier.String{
 										DefaultString("default"),
 									},
@@ -877,17 +938,19 @@ func (r *dnsSecurityProfilesResource) Schema(_ context.Context, _ resource.Schem
 									},
 								},
 								"name": rsschema.StringAttribute{
-									Description: "",
-									Optional:    true,
-									Computed:    true,
+									Description:         "The `name` parameter.",
+									MarkdownDescription: "The `name` parameter.",
+									Optional:            true,
+									Computed:            true,
 									PlanModifiers: []planmodifier.String{
 										DefaultString(""),
 									},
 								},
 								"packet_capture": rsschema.StringAttribute{
-									Description: "",
-									Optional:    true,
-									Computed:    true,
+									Description:         "The `packet_capture` parameter.",
+									MarkdownDescription: "The `packet_capture` parameter.",
+									Optional:            true,
+									Computed:            true,
 									PlanModifiers: []planmodifier.String{
 										DefaultString(""),
 									},
@@ -899,40 +962,48 @@ func (r *dnsSecurityProfilesResource) Schema(_ context.Context, _ resource.Schem
 						},
 					},
 					"lists": rsschema.ListNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `lists` parameter.",
+						MarkdownDescription: "The `lists` parameter.",
+						Optional:            true,
 						NestedObject: rsschema.NestedAttributeObject{
 							Attributes: map[string]rsschema.Attribute{
 								"action": rsschema.SingleNestedAttribute{
-									Description: "",
-									Optional:    true,
+									Description:         "The `action` parameter.",
+									MarkdownDescription: "The `action` parameter.",
+									Optional:            true,
 									Attributes: map[string]rsschema.Attribute{
 										"alert": rsschema.BoolAttribute{
-											Description: "",
-											Optional:    true,
+											Description:         "The `alert` parameter.",
+											MarkdownDescription: "The `alert` parameter.",
+											Optional:            true,
 										},
 										"allow": rsschema.BoolAttribute{
-											Description: "",
-											Optional:    true,
+											Description:         "The `allow` parameter.",
+											MarkdownDescription: "The `allow` parameter.",
+											Optional:            true,
 										},
 										"block": rsschema.BoolAttribute{
-											Description: "",
-											Optional:    true,
+											Description:         "The `block` parameter.",
+											MarkdownDescription: "The `block` parameter.",
+											Optional:            true,
 										},
 										"sinkhole": rsschema.BoolAttribute{
-											Description: "",
-											Optional:    true,
+											Description:         "The `sinkhole` parameter.",
+											MarkdownDescription: "The `sinkhole` parameter.",
+											Optional:            true,
 										},
 									},
 								},
 								"name": rsschema.StringAttribute{
-									Description: "",
-									Required:    true,
+									Description:         "The `name` parameter.",
+									MarkdownDescription: "The `name` parameter.",
+									Required:            true,
 								},
 								"packet_capture": rsschema.StringAttribute{
-									Description: "",
-									Optional:    true,
-									Computed:    true,
+									Description:         "The `packet_capture` parameter.",
+									MarkdownDescription: "The `packet_capture` parameter.",
+									Optional:            true,
+									Computed:            true,
 									PlanModifiers: []planmodifier.String{
 										DefaultString(""),
 									},
@@ -944,13 +1015,15 @@ func (r *dnsSecurityProfilesResource) Schema(_ context.Context, _ resource.Schem
 						},
 					},
 					"sinkhole": rsschema.SingleNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `sinkhole` parameter.",
+						MarkdownDescription: "The `sinkhole` parameter.",
+						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"ipv4_address": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `ipv4_address` parameter.",
+								MarkdownDescription: "The `ipv4_address` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString(""),
 								},
@@ -959,9 +1032,10 @@ func (r *dnsSecurityProfilesResource) Schema(_ context.Context, _ resource.Schem
 								},
 							},
 							"ipv6_address": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `ipv6_address` parameter.",
+								MarkdownDescription: "The `ipv6_address` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString(""),
 								},
@@ -972,21 +1046,24 @@ func (r *dnsSecurityProfilesResource) Schema(_ context.Context, _ resource.Schem
 						},
 					},
 					"whitelist": rsschema.ListNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `whitelist` parameter.",
+						MarkdownDescription: "The `whitelist` parameter.",
+						Optional:            true,
 						NestedObject: rsschema.NestedAttributeObject{
 							Attributes: map[string]rsschema.Attribute{
 								"description": rsschema.StringAttribute{
-									Description: "",
-									Optional:    true,
-									Computed:    true,
+									Description:         "The `description` parameter.",
+									MarkdownDescription: "The `description` parameter.",
+									Optional:            true,
+									Computed:            true,
 									PlanModifiers: []planmodifier.String{
 										DefaultString(""),
 									},
 								},
 								"name": rsschema.StringAttribute{
-									Description: "",
-									Required:    true,
+									Description:         "The `name` parameter.",
+									MarkdownDescription: "The `name` parameter.",
+									Required:            true,
 								},
 							},
 						},
@@ -994,24 +1071,27 @@ func (r *dnsSecurityProfilesResource) Schema(_ context.Context, _ resource.Schem
 				},
 			},
 			"description": rsschema.StringAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `description` parameter.",
+				MarkdownDescription: "The `description` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					DefaultString(""),
 				},
 			},
 			"object_id": rsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `object_id` parameter.",
+				MarkdownDescription: "The `object_id` parameter.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
 			},
 			"name": rsschema.StringAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `name` parameter.",
+				MarkdownDescription: "The `name` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					DefaultString(""),
 				},

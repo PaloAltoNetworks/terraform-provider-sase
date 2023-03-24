@@ -22,23 +22,23 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `api_key` (String)
-- `captive_portal_redirect_ip_address` (String)
-- `egress_ip_notification_url` (String)
-- `infra_bgp_as` (String)
-- `infrastructure_subnet` (String)
-- `infrastructure_subnet_ipv6` (String)
-- `ipv6` (Boolean)
-- `loopback_ips` (List of String)
-- `tunnel_monitor_ip_address` (String)
+- `api_key` (String) The `api_key` parameter.
+- `captive_portal_redirect_ip_address` (String) The `captive_portal_redirect_ip_address` parameter.
+- `egress_ip_notification_url` (String) The `egress_ip_notification_url` parameter.
+- `infra_bgp_as` (String) The `infra_bgp_as` parameter.
+- `infrastructure_subnet` (String) The `infrastructure_subnet` parameter.
+- `infrastructure_subnet_ipv6` (String) The `infrastructure_subnet_ipv6` parameter.
+- `ipv6` (Boolean) The `ipv6` parameter.
+- `loopback_ips` (List of String) The `loopback_ips` parameter.
+- `tunnel_monitor_ip_address` (String) The `tunnel_monitor_ip_address` parameter.
 
 

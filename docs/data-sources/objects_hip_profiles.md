@@ -22,9 +22,9 @@ Retrieves config for a specific item.
 
 ### Read-Only
 
-- `description` (String)
+- `description` (String) The `description` parameter.
 - `id` (String) The object ID.
-- `match` (String)
-- `name` (String)
+- `match` (String) The `match` parameter.
+- `name` (String) The `name` parameter.
 
 

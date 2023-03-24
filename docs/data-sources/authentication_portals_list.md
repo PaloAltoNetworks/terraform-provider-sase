@@ -26,22 +26,22 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `authentication_profile` (String)
-- `certificate_profile` (String)
-- `gp_udp_port` (Number)
-- `idle_timer` (Number)
-- `object_id` (String)
-- `redirect_host` (String)
-- `timer` (Number)
-- `tls_service_profile` (String)
+- `authentication_profile` (String) The `authentication_profile` parameter.
+- `certificate_profile` (String) The `certificate_profile` parameter.
+- `gp_udp_port` (Number) The `gp_udp_port` parameter.
+- `idle_timer` (Number) The `idle_timer` parameter.
+- `object_id` (String) The `object_id` parameter.
+- `redirect_host` (String) The `redirect_host` parameter.
+- `timer` (Number) The `timer` parameter.
+- `tls_service_profile` (String) The `tls_service_profile` parameter.
 
 

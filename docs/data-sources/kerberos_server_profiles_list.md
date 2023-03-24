@@ -27,25 +27,25 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `object_id` (String)
-- `server` (Attributes List) (see [below for nested schema](#nestedatt--data--server))
+- `object_id` (String) The `object_id` parameter.
+- `server` (Attributes List) The `server` parameter. (see [below for nested schema](#nestedatt--data--server))
 
 <a id="nestedatt--data--server"></a>
 ### Nested Schema for `data.server`
 
 Read-Only:
 
-- `host` (String)
-- `name` (String)
-- `port` (Number)
+- `host` (String) The `host` parameter.
+- `name` (String) The `name` parameter.
+- `port` (Number) The `port` parameter.
 
 

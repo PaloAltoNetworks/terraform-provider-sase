@@ -27,29 +27,29 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `description` (String)
-- `name` (String)
-- `object_id` (String)
-- `rules` (Attributes List) (see [below for nested schema](#nestedatt--data--rules))
+- `description` (String) The `description` parameter.
+- `name` (String) The `name` parameter.
+- `object_id` (String) The `object_id` parameter.
+- `rules` (Attributes List) The `rules` parameter. (see [below for nested schema](#nestedatt--data--rules))
 
 <a id="nestedatt--data--rules"></a>
 ### Nested Schema for `data.rules`
 
 Read-Only:
 
-- `action` (String)
-- `application` (List of String)
-- `direction` (String)
-- `file_type` (List of String)
-- `name` (String)
+- `action` (String) The `action` parameter.
+- `application` (List of String) The `application` parameter.
+- `direction` (String) The `direction` parameter.
+- `file_type` (List of String) The `file_type` parameter.
+- `name` (String) The `name` parameter.
 
 

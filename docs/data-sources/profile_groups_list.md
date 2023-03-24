@@ -27,23 +27,23 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `dns_security` (List of String)
-- `file_blocking` (List of String)
-- `name` (String)
-- `object_id` (String)
-- `saas_security` (List of String)
-- `spyware` (List of String)
-- `url_filtering` (List of String)
-- `virus_and_wildfire_analysis` (List of String)
-- `vulnerability` (List of String)
+- `dns_security` (List of String) The `dns_security` parameter.
+- `file_blocking` (List of String) The `file_blocking` parameter.
+- `name` (String) The `name` parameter.
+- `object_id` (String) The `object_id` parameter.
+- `saas_security` (List of String) The `saas_security` parameter.
+- `spyware` (List of String) The `spyware` parameter.
+- `url_filtering` (List of String) The `url_filtering` parameter.
+- `virus_and_wildfire_analysis` (List of String) The `virus_and_wildfire_analysis` parameter.
+- `vulnerability` (List of String) The `vulnerability` parameter.
 
 

@@ -27,45 +27,45 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `description` (String)
-- `http_header_insertion` (Attributes List) (see [below for nested schema](#nestedatt--data--http_header_insertion))
-- `name` (String)
-- `object_id` (String)
+- `description` (String) The `description` parameter.
+- `http_header_insertion` (Attributes List) The `http_header_insertion` parameter. (see [below for nested schema](#nestedatt--data--http_header_insertion))
+- `name` (String) The `name` parameter.
+- `object_id` (String) The `object_id` parameter.
 
 <a id="nestedatt--data--http_header_insertion"></a>
 ### Nested Schema for `data.http_header_insertion`
 
 Read-Only:
 
-- `name` (String)
-- `type` (Attributes List) (see [below for nested schema](#nestedatt--data--http_header_insertion--type))
+- `name` (String) The `name` parameter.
+- `type` (Attributes List) The `type` parameter. (see [below for nested schema](#nestedatt--data--http_header_insertion--type))
 
 <a id="nestedatt--data--http_header_insertion--type"></a>
 ### Nested Schema for `data.http_header_insertion.type`
 
 Read-Only:
 
-- `domains` (List of String)
-- `headers` (Attributes List) (see [below for nested schema](#nestedatt--data--http_header_insertion--type--headers))
-- `name` (String)
+- `domains` (List of String) The `domains` parameter.
+- `headers` (Attributes List) The `headers` parameter. (see [below for nested schema](#nestedatt--data--http_header_insertion--type--headers))
+- `name` (String) The `name` parameter.
 
 <a id="nestedatt--data--http_header_insertion--type--headers"></a>
 ### Nested Schema for `data.http_header_insertion.type.name`
 
 Read-Only:
 
-- `header` (String)
-- `log` (Boolean)
-- `name` (String)
-- `value` (String)
+- `header` (String) The `header` parameter.
+- `log` (Boolean) The `log` parameter.
+- `name` (String) The `name` parameter.
+- `value` (String) The `value` parameter.
 
 

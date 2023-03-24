@@ -22,20 +22,20 @@ Retrieves config for a specific item.
 
 ### Read-Only
 
-- `ah` (Attributes) (see [below for nested schema](#nestedatt--ah))
-- `dh_group` (String)
-- `esp` (Attributes) (see [below for nested schema](#nestedatt--esp))
+- `ah` (Attributes) The `ah` parameter. (see [below for nested schema](#nestedatt--ah))
+- `dh_group` (String) The `dh_group` parameter.
+- `esp` (Attributes) The `esp` parameter. (see [below for nested schema](#nestedatt--esp))
 - `id` (String) The object ID.
-- `lifesize` (Attributes) (see [below for nested schema](#nestedatt--lifesize))
-- `lifetime` (Attributes) (see [below for nested schema](#nestedatt--lifetime))
-- `name` (String)
+- `lifesize` (Attributes) The `lifesize` parameter. (see [below for nested schema](#nestedatt--lifesize))
+- `lifetime` (Attributes) The `lifetime` parameter. (see [below for nested schema](#nestedatt--lifetime))
+- `name` (String) The `name` parameter.
 
 <a id="nestedatt--ah"></a>
 ### Nested Schema for `ah`
 
 Read-Only:
 
-- `authentication` (List of String)
+- `authentication` (List of String) The `authentication` parameter.
 
 
 <a id="nestedatt--esp"></a>
@@ -43,8 +43,8 @@ Read-Only:
 
 Read-Only:
 
-- `authentication` (List of String)
-- `encryption` (List of String)
+- `authentication` (List of String) The `authentication` parameter.
+- `encryption` (List of String) The `encryption` parameter.
 
 
 <a id="nestedatt--lifesize"></a>
@@ -52,10 +52,10 @@ Read-Only:
 
 Read-Only:
 
-- `gb` (Number)
-- `kb` (Number)
-- `mb` (Number)
-- `tb` (Number)
+- `gb` (Number) The `gb` parameter.
+- `kb` (Number) The `kb` parameter.
+- `mb` (Number) The `mb` parameter.
+- `tb` (Number) The `tb` parameter.
 
 
 <a id="nestedatt--lifetime"></a>
@@ -63,9 +63,9 @@ Read-Only:
 
 Read-Only:
 
-- `days` (Number)
-- `hours` (Number)
-- `minutes` (Number)
-- `seconds` (Number)
+- `days` (Number) The `days` parameter.
+- `hours` (Number) The `hours` parameter.
+- `minutes` (Number) The `minutes` parameter.
+- `seconds` (Number) The `seconds` parameter.
 
 

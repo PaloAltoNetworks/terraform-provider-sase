@@ -78,28 +78,33 @@ func (d *trafficSteeringRulesListDataSource) Schema(_ context.Context, _ datasou
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description: "The max count in result entry (count per page)",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The max count in result entry (count per page)",
+				MarkdownDescription: "The max count in result entry (count per page)",
+				Optional:            true,
+				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description: "The offset of the result entry",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The offset of the result entry",
+				MarkdownDescription: "The offset of the result entry",
+				Optional:            true,
+				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description: "The name of the entry",
-				Optional:    true,
+				Description:         "The name of the entry",
+				MarkdownDescription: "The name of the entry",
+				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -107,65 +112,77 @@ func (d *trafficSteeringRulesListDataSource) Schema(_ context.Context, _ datasou
 
 			// Output.
 			"data": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `data` parameter.",
+				MarkdownDescription: "The `data` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"action": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `action` parameter.",
+							MarkdownDescription: "The `action` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"forward": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `forward` parameter.",
+									MarkdownDescription: "The `forward` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"target": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `target` parameter.",
+											MarkdownDescription: "The `target` parameter.",
+											Computed:            true,
 										},
 									},
 								},
 								"no_pbf": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `no_pbf` parameter.",
+									MarkdownDescription: "The `no_pbf` parameter.",
+									Computed:            true,
 								},
 							},
 						},
 						"category": dsschema.ListAttribute{
-							Description: "",
-							Computed:    true,
-							ElementType: types.StringType,
+							Description:         "The `category` parameter.",
+							MarkdownDescription: "The `category` parameter.",
+							Computed:            true,
+							ElementType:         types.StringType,
 						},
 						"destination": dsschema.ListAttribute{
-							Description: "",
-							Computed:    true,
-							ElementType: types.StringType,
+							Description:         "The `destination` parameter.",
+							MarkdownDescription: "The `destination` parameter.",
+							Computed:            true,
+							ElementType:         types.StringType,
 						},
 						"name": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `name` parameter.",
+							MarkdownDescription: "The `name` parameter.",
+							Computed:            true,
 						},
 						"service": dsschema.ListAttribute{
-							Description: "",
-							Computed:    true,
-							ElementType: types.StringType,
+							Description:         "The `service` parameter.",
+							MarkdownDescription: "The `service` parameter.",
+							Computed:            true,
+							ElementType:         types.StringType,
 						},
 						"source": dsschema.ListAttribute{
-							Description: "",
-							Computed:    true,
-							ElementType: types.StringType,
+							Description:         "The `source` parameter.",
+							MarkdownDescription: "The `source` parameter.",
+							Computed:            true,
+							ElementType:         types.StringType,
 						},
 						"source_user": dsschema.ListAttribute{
-							Description: "",
-							Computed:    true,
-							ElementType: types.StringType,
+							Description:         "The `source_user` parameter.",
+							MarkdownDescription: "The `source_user` parameter.",
+							Computed:            true,
+							ElementType:         types.StringType,
 						},
 					},
 				},
 			},
 			"total": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `total` parameter.",
+				MarkdownDescription: "The `total` parameter.",
+				Computed:            true,
 			},
 		},
 	}

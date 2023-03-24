@@ -28,36 +28,36 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `authentication_enforcement` (String)
-- `category` (List of String)
-- `description` (String)
-- `destination` (List of String)
-- `destination_hip` (List of String)
-- `disabled` (Boolean)
-- `from` (List of String)
-- `group_tag` (String)
-- `hip_profiles` (List of String)
-- `log_authentication_timeout` (Boolean)
-- `log_setting` (String)
-- `name` (String)
-- `negate_destination` (Boolean)
-- `negate_source` (Boolean)
-- `object_id` (String)
-- `service` (List of String)
-- `source` (List of String)
-- `source_hip` (List of String)
-- `source_user` (List of String)
-- `tag` (List of String)
-- `timeout` (Number)
-- `to` (List of String)
+- `authentication_enforcement` (String) The `authentication_enforcement` parameter.
+- `category` (List of String) The `category` parameter.
+- `description` (String) The `description` parameter.
+- `destination` (List of String) The `destination` parameter.
+- `destination_hip` (List of String) The `destination_hip` parameter.
+- `disabled` (Boolean) The `disabled` parameter.
+- `from` (List of String) The `from` parameter.
+- `group_tag` (String) The `group_tag` parameter.
+- `hip_profiles` (List of String) The `hip_profiles` parameter.
+- `log_authentication_timeout` (Boolean) The `log_authentication_timeout` parameter.
+- `log_setting` (String) The `log_setting` parameter.
+- `name` (String) The `name` parameter.
+- `negate_destination` (Boolean) The `negate_destination` parameter.
+- `negate_source` (Boolean) The `negate_source` parameter.
+- `object_id` (String) The `object_id` parameter.
+- `service` (List of String) The `service` parameter.
+- `source` (List of String) The `source` parameter.
+- `source_hip` (List of String) The `source_hip` parameter.
+- `source_user` (List of String) The `source_user` parameter.
+- `tag` (List of String) The `tag` parameter.
+- `timeout` (Number) The `timeout` parameter.
+- `to` (List of String) The `to` parameter.
 
 

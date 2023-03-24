@@ -69,24 +69,28 @@ func (d *authenticationPortalsListDataSource) Schema(_ context.Context, _ dataso
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description: "The max count in result entry (count per page)",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The max count in result entry (count per page)",
+				MarkdownDescription: "The max count in result entry (count per page)",
+				Optional:            true,
+				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description: "The offset of the result entry",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The offset of the result entry",
+				MarkdownDescription: "The offset of the result entry",
+				Optional:            true,
+				Computed:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -94,48 +98,58 @@ func (d *authenticationPortalsListDataSource) Schema(_ context.Context, _ dataso
 
 			// Output.
 			"data": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `data` parameter.",
+				MarkdownDescription: "The `data` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"authentication_profile": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `authentication_profile` parameter.",
+							MarkdownDescription: "The `authentication_profile` parameter.",
+							Computed:            true,
 						},
 						"certificate_profile": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `certificate_profile` parameter.",
+							MarkdownDescription: "The `certificate_profile` parameter.",
+							Computed:            true,
 						},
 						"gp_udp_port": dsschema.Int64Attribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `gp_udp_port` parameter.",
+							MarkdownDescription: "The `gp_udp_port` parameter.",
+							Computed:            true,
 						},
 						"object_id": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `object_id` parameter.",
+							MarkdownDescription: "The `object_id` parameter.",
+							Computed:            true,
 						},
 						"idle_timer": dsschema.Int64Attribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `idle_timer` parameter.",
+							MarkdownDescription: "The `idle_timer` parameter.",
+							Computed:            true,
 						},
 						"redirect_host": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `redirect_host` parameter.",
+							MarkdownDescription: "The `redirect_host` parameter.",
+							Computed:            true,
 						},
 						"timer": dsschema.Int64Attribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `timer` parameter.",
+							MarkdownDescription: "The `timer` parameter.",
+							Computed:            true,
 						},
 						"tls_service_profile": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `tls_service_profile` parameter.",
+							MarkdownDescription: "The `tls_service_profile` parameter.",
+							Computed:            true,
 						},
 					},
 				},
 			},
 			"total": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `total` parameter.",
+				MarkdownDescription: "The `total` parameter.",
+				Computed:            true,
 			},
 		},
 	}

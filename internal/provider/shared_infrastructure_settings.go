@@ -67,71 +67,85 @@ func (d *sharedInfrastructureSettingsListDataSource) Schema(_ context.Context, _
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description: "The max count in result entry (count per page)",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The max count in result entry (count per page)",
+				MarkdownDescription: "The max count in result entry (count per page)",
+				Optional:            true,
+				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description: "The offset of the result entry",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The offset of the result entry",
+				MarkdownDescription: "The offset of the result entry",
+				Optional:            true,
+				Computed:            true,
 			},
 
 			// Output.
 			"data": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `data` parameter.",
+				MarkdownDescription: "The `data` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"api_key": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `api_key` parameter.",
+							MarkdownDescription: "The `api_key` parameter.",
+							Computed:            true,
 						},
 						"captive_portal_redirect_ip_address": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `captive_portal_redirect_ip_address` parameter.",
+							MarkdownDescription: "The `captive_portal_redirect_ip_address` parameter.",
+							Computed:            true,
 						},
 						"egress_ip_notification_url": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `egress_ip_notification_url` parameter.",
+							MarkdownDescription: "The `egress_ip_notification_url` parameter.",
+							Computed:            true,
 						},
 						"infra_bgp_as": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `infra_bgp_as` parameter.",
+							MarkdownDescription: "The `infra_bgp_as` parameter.",
+							Computed:            true,
 						},
 						"infrastructure_subnet": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `infrastructure_subnet` parameter.",
+							MarkdownDescription: "The `infrastructure_subnet` parameter.",
+							Computed:            true,
 						},
 						"infrastructure_subnet_ipv6": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `infrastructure_subnet_ipv6` parameter.",
+							MarkdownDescription: "The `infrastructure_subnet_ipv6` parameter.",
+							Computed:            true,
 						},
 						"ipv6": dsschema.BoolAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `ipv6` parameter.",
+							MarkdownDescription: "The `ipv6` parameter.",
+							Computed:            true,
 						},
 						"loopback_ips": dsschema.ListAttribute{
-							Description: "",
-							Computed:    true,
-							ElementType: types.StringType,
+							Description:         "The `loopback_ips` parameter.",
+							MarkdownDescription: "The `loopback_ips` parameter.",
+							Computed:            true,
+							ElementType:         types.StringType,
 						},
 						"tunnel_monitor_ip_address": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `tunnel_monitor_ip_address` parameter.",
+							MarkdownDescription: "The `tunnel_monitor_ip_address` parameter.",
+							Computed:            true,
 						},
 					},
 				},
 			},
 			"total": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `total` parameter.",
+				MarkdownDescription: "The `total` parameter.",
+				Computed:            true,
 			},
 		},
 	}

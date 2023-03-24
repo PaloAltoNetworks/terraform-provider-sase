@@ -27,52 +27,52 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `alert` (List of String)
-- `allow` (List of String)
-- `block` (List of String)
-- `continue` (List of String)
-- `credential_enforcement` (Attributes) (see [below for nested schema](#nestedatt--data--credential_enforcement))
-- `description` (String)
-- `log_container_page_only` (Boolean)
-- `log_http_hdr_referer` (Boolean)
-- `log_http_hdr_user_agent` (Boolean)
-- `log_http_hdr_xff` (Boolean)
-- `mlav_category_exception` (List of String)
-- `mlav_engine_urlbased_enabled` (Attributes List) (see [below for nested schema](#nestedatt--data--mlav_engine_urlbased_enabled))
-- `name` (String)
-- `object_id` (String)
-- `safe_search_enforcement` (Boolean)
+- `alert` (List of String) The `alert` parameter.
+- `allow` (List of String) The `allow` parameter.
+- `block` (List of String) The `block` parameter.
+- `continue` (List of String) The `continue` parameter.
+- `credential_enforcement` (Attributes) The `credential_enforcement` parameter. (see [below for nested schema](#nestedatt--data--credential_enforcement))
+- `description` (String) The `description` parameter.
+- `log_container_page_only` (Boolean) The `log_container_page_only` parameter.
+- `log_http_hdr_referer` (Boolean) The `log_http_hdr_referer` parameter.
+- `log_http_hdr_user_agent` (Boolean) The `log_http_hdr_user_agent` parameter.
+- `log_http_hdr_xff` (Boolean) The `log_http_hdr_xff` parameter.
+- `mlav_category_exception` (List of String) The `mlav_category_exception` parameter.
+- `mlav_engine_urlbased_enabled` (Attributes List) The `mlav_engine_urlbased_enabled` parameter. (see [below for nested schema](#nestedatt--data--mlav_engine_urlbased_enabled))
+- `name` (String) The `name` parameter.
+- `object_id` (String) The `object_id` parameter.
+- `safe_search_enforcement` (Boolean) The `safe_search_enforcement` parameter.
 
 <a id="nestedatt--data--credential_enforcement"></a>
 ### Nested Schema for `data.credential_enforcement`
 
 Read-Only:
 
-- `alert` (List of String)
-- `allow` (List of String)
-- `block` (List of String)
-- `continue` (List of String)
-- `log_severity` (String)
-- `mode` (Attributes) (see [below for nested schema](#nestedatt--data--credential_enforcement--mode))
+- `alert` (List of String) The `alert` parameter.
+- `allow` (List of String) The `allow` parameter.
+- `block` (List of String) The `block` parameter.
+- `continue` (List of String) The `continue` parameter.
+- `log_severity` (String) The `log_severity` parameter.
+- `mode` (Attributes) The `mode` parameter. (see [below for nested schema](#nestedatt--data--credential_enforcement--mode))
 
 <a id="nestedatt--data--credential_enforcement--mode"></a>
 ### Nested Schema for `data.credential_enforcement.mode`
 
 Read-Only:
 
-- `disabled` (Boolean)
-- `domain_credentials` (Boolean)
-- `group_mapping` (String)
-- `ip_user` (Boolean)
+- `disabled` (Boolean) The `disabled` parameter.
+- `domain_credentials` (Boolean) The `domain_credentials` parameter.
+- `group_mapping` (String) The `group_mapping` parameter.
+- `ip_user` (Boolean) The `ip_user` parameter.
 
 
 
@@ -81,7 +81,7 @@ Read-Only:
 
 Read-Only:
 
-- `mlav_policy_action` (String)
-- `name` (String)
+- `mlav_policy_action` (String) The `mlav_policy_action` parameter.
+- `name` (String) The `name` parameter.
 
 

@@ -18,21 +18,21 @@ Retrieves config for a specific item.
 ### Required
 
 - `folder` (String) The folder of the entry
-- `name` (String)
+- `name` (String) The `name` parameter.
 
 ### Optional
 
-- `description` (String)
-- `fqdn` (String)
-- `ip_netmask` (String)
-- `ip_range` (String)
-- `ip_wildcard` (String)
-- `tag` (List of String)
+- `description` (String) The `description` parameter.
+- `fqdn` (String) The `fqdn` parameter.
+- `ip_netmask` (String) The `ip_netmask` parameter.
+- `ip_range` (String) The `ip_range` parameter.
+- `ip_wildcard` (String) The `ip_wildcard` parameter.
+- `tag` (List of String) The `tag` parameter.
 
 ### Read-Only
 
 - `id` (String) The object ID.
-- `object_id` (String)
-- `type` (String)
+- `object_id` (String) The `object_id` parameter.
+- `type` (String) The `type` parameter.
 
 

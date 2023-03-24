@@ -22,23 +22,23 @@ Retrieves config for a specific item.
 
 ### Read-Only
 
-- `allow_list` (List of String)
+- `allow_list` (List of String) The `allow_list` parameter.
 - `id` (String) The object ID.
-- `lockout` (Attributes) (see [below for nested schema](#nestedatt--lockout))
-- `method` (Attributes) (see [below for nested schema](#nestedatt--method))
-- `multi_factor_auth` (Attributes) (see [below for nested schema](#nestedatt--multi_factor_auth))
-- `name` (String)
-- `single_sign_on` (Attributes) (see [below for nested schema](#nestedatt--single_sign_on))
-- `user_domain` (String)
-- `username_modifier` (String)
+- `lockout` (Attributes) The `lockout` parameter. (see [below for nested schema](#nestedatt--lockout))
+- `method` (Attributes) The `method` parameter. (see [below for nested schema](#nestedatt--method))
+- `multi_factor_auth` (Attributes) The `multi_factor_auth` parameter. (see [below for nested schema](#nestedatt--multi_factor_auth))
+- `name` (String) The `name` parameter.
+- `single_sign_on` (Attributes) The `single_sign_on` parameter. (see [below for nested schema](#nestedatt--single_sign_on))
+- `user_domain` (String) The `user_domain` parameter.
+- `username_modifier` (String) The `username_modifier` parameter.
 
 <a id="nestedatt--lockout"></a>
 ### Nested Schema for `lockout`
 
 Read-Only:
 
-- `failed_attempts` (Number)
-- `lockout_time` (Number)
+- `failed_attempts` (Number) The `failed_attempts` parameter.
+- `lockout_time` (Number) The `lockout_time` parameter.
 
 
 <a id="nestedatt--method"></a>
@@ -46,20 +46,20 @@ Read-Only:
 
 Read-Only:
 
-- `kerberos` (Attributes) (see [below for nested schema](#nestedatt--method--kerberos))
-- `ldap` (Attributes) (see [below for nested schema](#nestedatt--method--ldap))
-- `local_database` (Boolean)
-- `radius` (Attributes) (see [below for nested schema](#nestedatt--method--radius))
-- `saml_idp` (Attributes) (see [below for nested schema](#nestedatt--method--saml_idp))
-- `tacplus` (Attributes) (see [below for nested schema](#nestedatt--method--tacplus))
+- `kerberos` (Attributes) The `kerberos` parameter. (see [below for nested schema](#nestedatt--method--kerberos))
+- `ldap` (Attributes) The `ldap` parameter. (see [below for nested schema](#nestedatt--method--ldap))
+- `local_database` (Boolean) The `local_database` parameter.
+- `radius` (Attributes) The `radius` parameter. (see [below for nested schema](#nestedatt--method--radius))
+- `saml_idp` (Attributes) The `saml_idp` parameter. (see [below for nested schema](#nestedatt--method--saml_idp))
+- `tacplus` (Attributes) The `tacplus` parameter. (see [below for nested schema](#nestedatt--method--tacplus))
 
 <a id="nestedatt--method--kerberos"></a>
 ### Nested Schema for `method.kerberos`
 
 Read-Only:
 
-- `realm` (String)
-- `server_profile` (String)
+- `realm` (String) The `realm` parameter.
+- `server_profile` (String) The `server_profile` parameter.
 
 
 <a id="nestedatt--method--ldap"></a>
@@ -67,9 +67,9 @@ Read-Only:
 
 Read-Only:
 
-- `login_attribute` (String)
-- `passwd_exp_days` (Number)
-- `server_profile` (String)
+- `login_attribute` (String) The `login_attribute` parameter.
+- `passwd_exp_days` (Number) The `passwd_exp_days` parameter.
+- `server_profile` (String) The `server_profile` parameter.
 
 
 <a id="nestedatt--method--radius"></a>
@@ -77,8 +77,8 @@ Read-Only:
 
 Read-Only:
 
-- `checkgroup` (Boolean)
-- `server_profile` (String)
+- `checkgroup` (Boolean) The `checkgroup` parameter.
+- `server_profile` (String) The `server_profile` parameter.
 
 
 <a id="nestedatt--method--saml_idp"></a>
@@ -86,12 +86,12 @@ Read-Only:
 
 Read-Only:
 
-- `attribute_name_usergroup` (String)
-- `attribute_name_username` (String)
-- `certificate_profile` (String)
-- `enable_single_logout` (Boolean)
-- `request_signing_certificate` (String)
-- `server_profile` (String)
+- `attribute_name_usergroup` (String) The `attribute_name_usergroup` parameter.
+- `attribute_name_username` (String) The `attribute_name_username` parameter.
+- `certificate_profile` (String) The `certificate_profile` parameter.
+- `enable_single_logout` (Boolean) The `enable_single_logout` parameter.
+- `request_signing_certificate` (String) The `request_signing_certificate` parameter.
+- `server_profile` (String) The `server_profile` parameter.
 
 
 <a id="nestedatt--method--tacplus"></a>
@@ -99,8 +99,8 @@ Read-Only:
 
 Read-Only:
 
-- `checkgroup` (Boolean)
-- `server_profile` (String)
+- `checkgroup` (Boolean) The `checkgroup` parameter.
+- `server_profile` (String) The `server_profile` parameter.
 
 
 
@@ -109,8 +109,8 @@ Read-Only:
 
 Read-Only:
 
-- `factors` (List of String)
-- `mfa_enable` (Boolean)
+- `factors` (List of String) The `factors` parameter.
+- `mfa_enable` (Boolean) The `mfa_enable` parameter.
 
 
 <a id="nestedatt--single_sign_on"></a>
@@ -118,7 +118,7 @@ Read-Only:
 
 Read-Only:
 
-- `kerberos_keytab` (String)
-- `realm` (String)
+- `kerberos_keytab` (String) The `kerberos_keytab` parameter.
+- `realm` (String) The `realm` parameter.
 
 

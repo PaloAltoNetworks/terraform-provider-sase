@@ -17,29 +17,29 @@ Retrieves config for a specific item.
 
 ### Required
 
-- `application` (String)
-- `destination` (List of String)
+- `application` (String) The `application` parameter.
+- `destination` (List of String) The `destination` parameter.
 - `folder` (String) The folder of the entry
-- `from` (List of String)
-- `name` (String)
-- `port` (Number)
+- `from` (List of String) The `from` parameter.
+- `name` (String) The `name` parameter.
+- `port` (Number) The `port` parameter.
 - `position` (String) The position of a security rule
-- `protocol` (String)
-- `source` (List of String)
-- `to` (List of String)
+- `protocol` (String) The `protocol` parameter.
+- `source` (List of String) The `source` parameter.
+- `to` (List of String) The `to` parameter.
 
 ### Optional
 
-- `description` (String)
-- `disabled` (Boolean)
-- `group_tag` (String)
-- `negate_destination` (Boolean)
-- `negate_source` (Boolean)
-- `tag` (List of String)
+- `description` (String) The `description` parameter.
+- `disabled` (Boolean) The `disabled` parameter.
+- `group_tag` (String) The `group_tag` parameter.
+- `negate_destination` (Boolean) The `negate_destination` parameter.
+- `negate_source` (Boolean) The `negate_source` parameter.
+- `tag` (List of String) The `tag` parameter.
 
 ### Read-Only
 
 - `id` (String) The object ID.
-- `object_id` (String)
+- `object_id` (String) The `object_id` parameter.
 
 

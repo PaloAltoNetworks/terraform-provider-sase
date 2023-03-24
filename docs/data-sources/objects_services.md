@@ -22,37 +22,37 @@ Retrieves config for a specific item.
 
 ### Read-Only
 
-- `description` (String)
+- `description` (String) The `description` parameter.
 - `id` (String) The object ID.
-- `name` (String)
-- `protocol` (Attributes) (see [below for nested schema](#nestedatt--protocol))
-- `tag` (List of String)
+- `name` (String) The `name` parameter.
+- `protocol` (Attributes) The `protocol` parameter. (see [below for nested schema](#nestedatt--protocol))
+- `tag` (List of String) The `tag` parameter.
 
 <a id="nestedatt--protocol"></a>
 ### Nested Schema for `protocol`
 
 Read-Only:
 
-- `tcp` (Attributes) (see [below for nested schema](#nestedatt--protocol--tcp))
-- `udp` (Attributes) (see [below for nested schema](#nestedatt--protocol--udp))
+- `tcp` (Attributes) The `tcp` parameter. (see [below for nested schema](#nestedatt--protocol--tcp))
+- `udp` (Attributes) The `udp` parameter. (see [below for nested schema](#nestedatt--protocol--udp))
 
 <a id="nestedatt--protocol--tcp"></a>
 ### Nested Schema for `protocol.tcp`
 
 Read-Only:
 
-- `override` (Attributes) (see [below for nested schema](#nestedatt--protocol--tcp--override))
-- `port` (String)
-- `source_port` (String)
+- `override` (Attributes) The `override` parameter. (see [below for nested schema](#nestedatt--protocol--tcp--override))
+- `port` (String) The `port` parameter.
+- `source_port` (String) The `source_port` parameter.
 
 <a id="nestedatt--protocol--tcp--override"></a>
 ### Nested Schema for `protocol.tcp.override`
 
 Read-Only:
 
-- `halfclose_timeout` (Number)
-- `timeout` (Number)
-- `timewait_timeout` (Number)
+- `halfclose_timeout` (Number) The `halfclose_timeout` parameter.
+- `timeout` (Number) The `timeout` parameter.
+- `timewait_timeout` (Number) The `timewait_timeout` parameter.
 
 
 
@@ -61,15 +61,15 @@ Read-Only:
 
 Read-Only:
 
-- `override` (Attributes) (see [below for nested schema](#nestedatt--protocol--udp--override))
-- `port` (String)
-- `source_port` (String)
+- `override` (Attributes) The `override` parameter. (see [below for nested schema](#nestedatt--protocol--udp--override))
+- `port` (String) The `port` parameter.
+- `source_port` (String) The `source_port` parameter.
 
 <a id="nestedatt--protocol--udp--override"></a>
 ### Nested Schema for `protocol.udp.override`
 
 Read-Only:
 
-- `timeout` (Number)
+- `timeout` (Number) The `timeout` parameter.
 
 

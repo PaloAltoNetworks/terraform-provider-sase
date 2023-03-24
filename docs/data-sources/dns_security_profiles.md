@@ -22,30 +22,30 @@ Retrieves config for a specific item.
 
 ### Read-Only
 
-- `botnet_domains` (Attributes) (see [below for nested schema](#nestedatt--botnet_domains))
-- `description` (String)
+- `botnet_domains` (Attributes) The `botnet_domains` parameter. (see [below for nested schema](#nestedatt--botnet_domains))
+- `description` (String) The `description` parameter.
 - `id` (String) The object ID.
-- `name` (String)
+- `name` (String) The `name` parameter.
 
 <a id="nestedatt--botnet_domains"></a>
 ### Nested Schema for `botnet_domains`
 
 Read-Only:
 
-- `dns_security_categories` (Attributes List) (see [below for nested schema](#nestedatt--botnet_domains--dns_security_categories))
-- `lists` (Attributes List) (see [below for nested schema](#nestedatt--botnet_domains--lists))
-- `sinkhole` (Attributes) (see [below for nested schema](#nestedatt--botnet_domains--sinkhole))
-- `whitelist` (Attributes List) (see [below for nested schema](#nestedatt--botnet_domains--whitelist))
+- `dns_security_categories` (Attributes List) The `dns_security_categories` parameter. (see [below for nested schema](#nestedatt--botnet_domains--dns_security_categories))
+- `lists` (Attributes List) The `lists` parameter. (see [below for nested schema](#nestedatt--botnet_domains--lists))
+- `sinkhole` (Attributes) The `sinkhole` parameter. (see [below for nested schema](#nestedatt--botnet_domains--sinkhole))
+- `whitelist` (Attributes List) The `whitelist` parameter. (see [below for nested schema](#nestedatt--botnet_domains--whitelist))
 
 <a id="nestedatt--botnet_domains--dns_security_categories"></a>
 ### Nested Schema for `botnet_domains.dns_security_categories`
 
 Read-Only:
 
-- `action` (String)
-- `log_level` (String)
-- `name` (String)
-- `packet_capture` (String)
+- `action` (String) The `action` parameter.
+- `log_level` (String) The `log_level` parameter.
+- `name` (String) The `name` parameter.
+- `packet_capture` (String) The `packet_capture` parameter.
 
 
 <a id="nestedatt--botnet_domains--lists"></a>
@@ -53,19 +53,19 @@ Read-Only:
 
 Read-Only:
 
-- `action` (Attributes) (see [below for nested schema](#nestedatt--botnet_domains--lists--action))
-- `name` (String)
-- `packet_capture` (String)
+- `action` (Attributes) The `action` parameter. (see [below for nested schema](#nestedatt--botnet_domains--lists--action))
+- `name` (String) The `name` parameter.
+- `packet_capture` (String) The `packet_capture` parameter.
 
 <a id="nestedatt--botnet_domains--lists--action"></a>
 ### Nested Schema for `botnet_domains.lists.action`
 
 Read-Only:
 
-- `alert` (Boolean)
-- `allow` (Boolean)
-- `block` (Boolean)
-- `sinkhole` (Boolean)
+- `alert` (Boolean) The `alert` parameter.
+- `allow` (Boolean) The `allow` parameter.
+- `block` (Boolean) The `block` parameter.
+- `sinkhole` (Boolean) The `sinkhole` parameter.
 
 
 
@@ -74,8 +74,8 @@ Read-Only:
 
 Read-Only:
 
-- `ipv4_address` (String)
-- `ipv6_address` (String)
+- `ipv4_address` (String) The `ipv4_address` parameter.
+- `ipv6_address` (String) The `ipv6_address` parameter.
 
 
 <a id="nestedatt--botnet_domains--whitelist"></a>
@@ -83,7 +83,7 @@ Read-Only:
 
 Read-Only:
 
-- `description` (String)
-- `name` (String)
+- `description` (String) The `description` parameter.
+- `name` (String) The `name` parameter.
 
 

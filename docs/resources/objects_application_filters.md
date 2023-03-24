@@ -18,40 +18,40 @@ Retrieves config for a specific item.
 ### Required
 
 - `folder` (String) The folder of the entry
-- `name` (String)
+- `name` (String) The `name` parameter.
 
 ### Optional
 
-- `category` (List of String)
-- `evasive` (Boolean)
-- `excessive_bandwidth_use` (Boolean)
-- `exclude` (List of String)
-- `has_known_vulnerabilities` (Boolean)
-- `is_saas` (Boolean)
-- `new_appid` (Boolean)
-- `pervasive` (Boolean)
-- `prone_to_misuse` (Boolean)
-- `risk` (List of Number)
-- `saas_certifications` (List of String)
-- `saas_risk` (List of String)
-- `subcategory` (List of String)
-- `tagging` (Attributes) (see [below for nested schema](#nestedatt--tagging))
-- `technology` (List of String)
-- `transfers_files` (Boolean)
-- `tunnels_other_apps` (Boolean)
-- `used_by_malware` (Boolean)
+- `category` (List of String) The `category` parameter.
+- `evasive` (Boolean) The `evasive` parameter.
+- `excessive_bandwidth_use` (Boolean) The `excessive_bandwidth_use` parameter.
+- `exclude` (List of String) The `exclude` parameter.
+- `has_known_vulnerabilities` (Boolean) The `has_known_vulnerabilities` parameter.
+- `is_saas` (Boolean) The `is_saas` parameter.
+- `new_appid` (Boolean) The `new_appid` parameter.
+- `pervasive` (Boolean) The `pervasive` parameter.
+- `prone_to_misuse` (Boolean) The `prone_to_misuse` parameter.
+- `risk` (List of Number) The `risk` parameter.
+- `saas_certifications` (List of String) The `saas_certifications` parameter.
+- `saas_risk` (List of String) The `saas_risk` parameter.
+- `subcategory` (List of String) The `subcategory` parameter.
+- `tagging` (Attributes) The `tagging` parameter. (see [below for nested schema](#nestedatt--tagging))
+- `technology` (List of String) The `technology` parameter.
+- `transfers_files` (Boolean) The `transfers_files` parameter.
+- `tunnels_other_apps` (Boolean) The `tunnels_other_apps` parameter.
+- `used_by_malware` (Boolean) The `used_by_malware` parameter.
 
 ### Read-Only
 
 - `id` (String) The object ID.
-- `object_id` (String)
+- `object_id` (String) The `object_id` parameter.
 
 <a id="nestedatt--tagging"></a>
 ### Nested Schema for `tagging`
 
 Optional:
 
-- `no_tag` (Boolean)
-- `tag` (List of String)
+- `no_tag` (Boolean) The `no_tag` parameter.
+- `tag` (List of String) The `tag` parameter.
 
 

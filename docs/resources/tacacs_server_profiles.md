@@ -18,27 +18,27 @@ Retrieves config for a specific item.
 ### Required
 
 - `folder` (String) The folder of the entry
-- `protocol` (String)
-- `server` (Attributes List) (see [below for nested schema](#nestedatt--server))
+- `protocol` (String) The `protocol` parameter.
+- `server` (Attributes List) The `server` parameter. (see [below for nested schema](#nestedatt--server))
 
 ### Optional
 
-- `timeout` (Number)
-- `use_single_connection` (Boolean)
+- `timeout` (Number) The `timeout` parameter.
+- `use_single_connection` (Boolean) The `use_single_connection` parameter.
 
 ### Read-Only
 
 - `id` (String) The object ID.
-- `object_id` (String)
+- `object_id` (String) The `object_id` parameter.
 
 <a id="nestedatt--server"></a>
 ### Nested Schema for `server`
 
 Optional:
 
-- `address` (String)
-- `name` (String)
-- `port` (Number)
-- `secret` (String)
+- `address` (String) The `address` parameter.
+- `name` (String) The `name` parameter.
+- `port` (Number) The `port` parameter.
+- `secret` (String) The `secret` parameter.
 
 

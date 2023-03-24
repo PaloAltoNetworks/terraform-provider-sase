@@ -63,14 +63,16 @@ func (d *mobileAgentLocationsListDataSource) Schema(_ context.Context, _ datasou
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"folder": dsschema.StringAttribute{
-				Description: "",
-				Required:    true,
+				Description:         "The `folder` parameter.",
+				MarkdownDescription: "The `folder` parameter.",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Mobile Users"),
 				},
@@ -78,23 +80,27 @@ func (d *mobileAgentLocationsListDataSource) Schema(_ context.Context, _ datasou
 
 			// Output.
 			"data": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `data` parameter.",
+				MarkdownDescription: "The `data` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"region": dsschema.ListNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `region` parameter.",
+							MarkdownDescription: "The `region` parameter.",
+							Computed:            true,
 							NestedObject: dsschema.NestedAttributeObject{
 								Attributes: map[string]dsschema.Attribute{
 									"locations": dsschema.ListAttribute{
-										Description: "",
-										Computed:    true,
-										ElementType: types.StringType,
+										Description:         "The `locations` parameter.",
+										MarkdownDescription: "The `locations` parameter.",
+										Computed:            true,
+										ElementType:         types.StringType,
 									},
 									"name": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `name` parameter.",
+										MarkdownDescription: "The `name` parameter.",
+										Computed:            true,
 									},
 								},
 							},
@@ -103,16 +109,19 @@ func (d *mobileAgentLocationsListDataSource) Schema(_ context.Context, _ datasou
 				},
 			},
 			"limit": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `limit` parameter.",
+				MarkdownDescription: "The `limit` parameter.",
+				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `offset` parameter.",
+				MarkdownDescription: "The `offset` parameter.",
+				Computed:            true,
 			},
 			"total": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `total` parameter.",
+				MarkdownDescription: "The `total` parameter.",
+				Computed:            true,
 			},
 		},
 	}

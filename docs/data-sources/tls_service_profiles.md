@@ -22,29 +22,29 @@ Retrieves config for a specific item.
 
 ### Read-Only
 
-- `certificate` (String)
+- `certificate` (String) The `certificate` parameter.
 - `id` (String) The object ID.
-- `name` (String)
-- `protocol_settings` (Attributes) (see [below for nested schema](#nestedatt--protocol_settings))
+- `name` (String) The `name` parameter.
+- `protocol_settings` (Attributes) The `protocol_settings` parameter. (see [below for nested schema](#nestedatt--protocol_settings))
 
 <a id="nestedatt--protocol_settings"></a>
 ### Nested Schema for `protocol_settings`
 
 Read-Only:
 
-- `auth_algo_sha1` (Boolean)
-- `auth_algo_sha256` (Boolean)
-- `auth_algo_sha384` (Boolean)
-- `enc_algo3des` (Boolean)
-- `enc_algo_aes128_cbc` (Boolean)
-- `enc_algo_aes128_gcm` (Boolean)
-- `enc_algo_aes256_cbc` (Boolean)
-- `enc_algo_aes256_gcm` (Boolean)
-- `enc_algo_rc4` (Boolean)
-- `keyxchg_algo_dhe` (Boolean)
-- `keyxchg_algo_ecdhe` (Boolean)
-- `keyxchg_algo_rsa` (Boolean)
-- `max_version` (String)
-- `min_version` (String)
+- `auth_algo_sha1` (Boolean) The `auth_algo_sha1` parameter.
+- `auth_algo_sha256` (Boolean) The `auth_algo_sha256` parameter.
+- `auth_algo_sha384` (Boolean) The `auth_algo_sha384` parameter.
+- `enc_algo3des` (Boolean) The `enc_algo3des` parameter.
+- `enc_algo_aes128_cbc` (Boolean) The `enc_algo_aes128_cbc` parameter.
+- `enc_algo_aes128_gcm` (Boolean) The `enc_algo_aes128_gcm` parameter.
+- `enc_algo_aes256_cbc` (Boolean) The `enc_algo_aes256_cbc` parameter.
+- `enc_algo_aes256_gcm` (Boolean) The `enc_algo_aes256_gcm` parameter.
+- `enc_algo_rc4` (Boolean) The `enc_algo_rc4` parameter.
+- `keyxchg_algo_dhe` (Boolean) The `keyxchg_algo_dhe` parameter.
+- `keyxchg_algo_ecdhe` (Boolean) The `keyxchg_algo_ecdhe` parameter.
+- `keyxchg_algo_rsa` (Boolean) The `keyxchg_algo_rsa` parameter.
+- `max_version` (String) The `max_version` parameter.
+- `min_version` (String) The `min_version` parameter.
 
 

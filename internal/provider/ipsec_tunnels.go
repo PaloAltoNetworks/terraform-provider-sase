@@ -115,28 +115,33 @@ func (d *ipsecTunnelsListDataSource) Schema(_ context.Context, _ datasource.Sche
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description: "The max count in result entry (count per page)",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The max count in result entry (count per page)",
+				MarkdownDescription: "The max count in result entry (count per page)",
+				Optional:            true,
+				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description: "The offset of the result entry",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The offset of the result entry",
+				MarkdownDescription: "The offset of the result entry",
+				Optional:            true,
+				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description: "The name of the entry",
-				Optional:    true,
+				Description:         "The name of the entry",
+				MarkdownDescription: "The name of the entry",
+				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -144,88 +149,106 @@ func (d *ipsecTunnelsListDataSource) Schema(_ context.Context, _ datasource.Sche
 
 			// Output.
 			"data": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `data` parameter.",
+				MarkdownDescription: "The `data` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"anti_replay": dsschema.BoolAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `anti_replay` parameter.",
+							MarkdownDescription: "The `anti_replay` parameter.",
+							Computed:            true,
 						},
 						"auto_key": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `auto_key` parameter.",
+							MarkdownDescription: "The `auto_key` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"ike_gateway": dsschema.ListNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `ike_gateway` parameter.",
+									MarkdownDescription: "The `ike_gateway` parameter.",
+									Computed:            true,
 									NestedObject: dsschema.NestedAttributeObject{
 										Attributes: map[string]dsschema.Attribute{
 											"name": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `name` parameter.",
+												MarkdownDescription: "The `name` parameter.",
+												Computed:            true,
 											},
 										},
 									},
 								},
 								"ipsec_crypto_profile": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `ipsec_crypto_profile` parameter.",
+									MarkdownDescription: "The `ipsec_crypto_profile` parameter.",
+									Computed:            true,
 								},
 								"proxy_id": dsschema.ListNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `proxy_id` parameter.",
+									MarkdownDescription: "The `proxy_id` parameter.",
+									Computed:            true,
 									NestedObject: dsschema.NestedAttributeObject{
 										Attributes: map[string]dsschema.Attribute{
 											"local": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `local` parameter.",
+												MarkdownDescription: "The `local` parameter.",
+												Computed:            true,
 											},
 											"name": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `name` parameter.",
+												MarkdownDescription: "The `name` parameter.",
+												Computed:            true,
 											},
 											"protocol": dsschema.SingleNestedAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `protocol` parameter.",
+												MarkdownDescription: "The `protocol` parameter.",
+												Computed:            true,
 												Attributes: map[string]dsschema.Attribute{
 													"number": dsschema.Int64Attribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `number` parameter.",
+														MarkdownDescription: "The `number` parameter.",
+														Computed:            true,
 													},
 													"tcp": dsschema.SingleNestedAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `tcp` parameter.",
+														MarkdownDescription: "The `tcp` parameter.",
+														Computed:            true,
 														Attributes: map[string]dsschema.Attribute{
 															"local_port": dsschema.Int64Attribute{
-																Description: "",
-																Computed:    true,
+																Description:         "The `local_port` parameter.",
+																MarkdownDescription: "The `local_port` parameter.",
+																Computed:            true,
 															},
 															"remote_port": dsschema.Int64Attribute{
-																Description: "",
-																Computed:    true,
+																Description:         "The `remote_port` parameter.",
+																MarkdownDescription: "The `remote_port` parameter.",
+																Computed:            true,
 															},
 														},
 													},
 													"udp": dsschema.SingleNestedAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `udp` parameter.",
+														MarkdownDescription: "The `udp` parameter.",
+														Computed:            true,
 														Attributes: map[string]dsschema.Attribute{
 															"local_port": dsschema.Int64Attribute{
-																Description: "",
-																Computed:    true,
+																Description:         "The `local_port` parameter.",
+																MarkdownDescription: "The `local_port` parameter.",
+																Computed:            true,
 															},
 															"remote_port": dsschema.Int64Attribute{
-																Description: "",
-																Computed:    true,
+																Description:         "The `remote_port` parameter.",
+																MarkdownDescription: "The `remote_port` parameter.",
+																Computed:            true,
 															},
 														},
 													},
 												},
 											},
 											"remote": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `remote` parameter.",
+												MarkdownDescription: "The `remote` parameter.",
+												Computed:            true,
 											},
 										},
 									},
@@ -233,36 +256,44 @@ func (d *ipsecTunnelsListDataSource) Schema(_ context.Context, _ datasource.Sche
 							},
 						},
 						"copy_tos": dsschema.BoolAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `copy_tos` parameter.",
+							MarkdownDescription: "The `copy_tos` parameter.",
+							Computed:            true,
 						},
 						"enable_gre_encapsulation": dsschema.BoolAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `enable_gre_encapsulation` parameter.",
+							MarkdownDescription: "The `enable_gre_encapsulation` parameter.",
+							Computed:            true,
 						},
 						"object_id": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `object_id` parameter.",
+							MarkdownDescription: "The `object_id` parameter.",
+							Computed:            true,
 						},
 						"name": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `name` parameter.",
+							MarkdownDescription: "The `name` parameter.",
+							Computed:            true,
 						},
 						"tunnel_monitor": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `tunnel_monitor` parameter.",
+							MarkdownDescription: "The `tunnel_monitor` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"destination_ip": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `destination_ip` parameter.",
+									MarkdownDescription: "The `destination_ip` parameter.",
+									Computed:            true,
 								},
 								"enable": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `enable` parameter.",
+									MarkdownDescription: "The `enable` parameter.",
+									Computed:            true,
 								},
 								"proxy_id": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `proxy_id` parameter.",
+									MarkdownDescription: "The `proxy_id` parameter.",
+									Computed:            true,
 								},
 							},
 						},
@@ -270,8 +301,9 @@ func (d *ipsecTunnelsListDataSource) Schema(_ context.Context, _ datasource.Sche
 				},
 			},
 			"total": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `total` parameter.",
+				MarkdownDescription: "The `total` parameter.",
+				Computed:            true,
 			},
 		},
 	}
@@ -513,18 +545,21 @@ func (d *ipsecTunnelsDataSource) Schema(_ context.Context, _ datasource.SchemaRe
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description: "The uuid of the resource",
-				Required:    true,
+				Description:         "The uuid of the resource",
+				MarkdownDescription: "The uuid of the resource",
+				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -532,83 +567,100 @@ func (d *ipsecTunnelsDataSource) Schema(_ context.Context, _ datasource.SchemaRe
 
 			// Output.
 			"anti_replay": dsschema.BoolAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `anti_replay` parameter.",
+				MarkdownDescription: "The `anti_replay` parameter.",
+				Computed:            true,
 			},
 			"auto_key": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `auto_key` parameter.",
+				MarkdownDescription: "The `auto_key` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"ike_gateway": dsschema.ListNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `ike_gateway` parameter.",
+						MarkdownDescription: "The `ike_gateway` parameter.",
+						Computed:            true,
 						NestedObject: dsschema.NestedAttributeObject{
 							Attributes: map[string]dsschema.Attribute{
 								"name": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `name` parameter.",
+									MarkdownDescription: "The `name` parameter.",
+									Computed:            true,
 								},
 							},
 						},
 					},
 					"ipsec_crypto_profile": dsschema.StringAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `ipsec_crypto_profile` parameter.",
+						MarkdownDescription: "The `ipsec_crypto_profile` parameter.",
+						Computed:            true,
 					},
 					"proxy_id": dsschema.ListNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `proxy_id` parameter.",
+						MarkdownDescription: "The `proxy_id` parameter.",
+						Computed:            true,
 						NestedObject: dsschema.NestedAttributeObject{
 							Attributes: map[string]dsschema.Attribute{
 								"local": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `local` parameter.",
+									MarkdownDescription: "The `local` parameter.",
+									Computed:            true,
 								},
 								"name": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `name` parameter.",
+									MarkdownDescription: "The `name` parameter.",
+									Computed:            true,
 								},
 								"protocol": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `protocol` parameter.",
+									MarkdownDescription: "The `protocol` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"number": dsschema.Int64Attribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `number` parameter.",
+											MarkdownDescription: "The `number` parameter.",
+											Computed:            true,
 										},
 										"tcp": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `tcp` parameter.",
+											MarkdownDescription: "The `tcp` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"local_port": dsschema.Int64Attribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `local_port` parameter.",
+													MarkdownDescription: "The `local_port` parameter.",
+													Computed:            true,
 												},
 												"remote_port": dsschema.Int64Attribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `remote_port` parameter.",
+													MarkdownDescription: "The `remote_port` parameter.",
+													Computed:            true,
 												},
 											},
 										},
 										"udp": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `udp` parameter.",
+											MarkdownDescription: "The `udp` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"local_port": dsschema.Int64Attribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `local_port` parameter.",
+													MarkdownDescription: "The `local_port` parameter.",
+													Computed:            true,
 												},
 												"remote_port": dsschema.Int64Attribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `remote_port` parameter.",
+													MarkdownDescription: "The `remote_port` parameter.",
+													Computed:            true,
 												},
 											},
 										},
 									},
 								},
 								"remote": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `remote` parameter.",
+									MarkdownDescription: "The `remote` parameter.",
+									Computed:            true,
 								},
 							},
 						},
@@ -616,32 +668,39 @@ func (d *ipsecTunnelsDataSource) Schema(_ context.Context, _ datasource.SchemaRe
 				},
 			},
 			"copy_tos": dsschema.BoolAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `copy_tos` parameter.",
+				MarkdownDescription: "The `copy_tos` parameter.",
+				Computed:            true,
 			},
 			"enable_gre_encapsulation": dsschema.BoolAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `enable_gre_encapsulation` parameter.",
+				MarkdownDescription: "The `enable_gre_encapsulation` parameter.",
+				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `name` parameter.",
+				MarkdownDescription: "The `name` parameter.",
+				Computed:            true,
 			},
 			"tunnel_monitor": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `tunnel_monitor` parameter.",
+				MarkdownDescription: "The `tunnel_monitor` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"destination_ip": dsschema.StringAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `destination_ip` parameter.",
+						MarkdownDescription: "The `destination_ip` parameter.",
+						Computed:            true,
 					},
 					"enable": dsschema.BoolAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `enable` parameter.",
+						MarkdownDescription: "The `enable` parameter.",
+						Computed:            true,
 					},
 					"proxy_id": dsschema.StringAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `proxy_id` parameter.",
+						MarkdownDescription: "The `proxy_id` parameter.",
+						Computed:            true,
 					},
 				},
 			},
@@ -841,8 +900,9 @@ func (r *ipsecTunnelsResource) Schema(_ context.Context, _ resource.SchemaReques
 
 		Attributes: map[string]rsschema.Attribute{
 			"id": rsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
@@ -850,34 +910,39 @@ func (r *ipsecTunnelsResource) Schema(_ context.Context, _ resource.SchemaReques
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
 			},
 
 			"anti_replay": rsschema.BoolAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `anti_replay` parameter.",
+				MarkdownDescription: "The `anti_replay` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.Bool{
 					DefaultBool(false),
 				},
 			},
 			"auto_key": rsschema.SingleNestedAttribute{
-				Description: "",
-				Required:    true,
+				Description:         "The `auto_key` parameter.",
+				MarkdownDescription: "The `auto_key` parameter.",
+				Required:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"ike_gateway": rsschema.ListNestedAttribute{
-						Description: "",
-						Required:    true,
+						Description:         "The `ike_gateway` parameter.",
+						MarkdownDescription: "The `ike_gateway` parameter.",
+						Required:            true,
 						NestedObject: rsschema.NestedAttributeObject{
 							Attributes: map[string]rsschema.Attribute{
 								"name": rsschema.StringAttribute{
-									Description: "",
-									Optional:    true,
-									Computed:    true,
+									Description:         "The `name` parameter.",
+									MarkdownDescription: "The `name` parameter.",
+									Optional:            true,
+									Computed:            true,
 									PlanModifiers: []planmodifier.String{
 										DefaultString(""),
 									},
@@ -886,34 +951,40 @@ func (r *ipsecTunnelsResource) Schema(_ context.Context, _ resource.SchemaReques
 						},
 					},
 					"ipsec_crypto_profile": rsschema.StringAttribute{
-						Description: "",
-						Required:    true,
+						Description:         "The `ipsec_crypto_profile` parameter.",
+						MarkdownDescription: "The `ipsec_crypto_profile` parameter.",
+						Required:            true,
 					},
 					"proxy_id": rsschema.ListNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `proxy_id` parameter.",
+						MarkdownDescription: "The `proxy_id` parameter.",
+						Optional:            true,
 						NestedObject: rsschema.NestedAttributeObject{
 							Attributes: map[string]rsschema.Attribute{
 								"local": rsschema.StringAttribute{
-									Description: "",
-									Optional:    true,
-									Computed:    true,
+									Description:         "The `local` parameter.",
+									MarkdownDescription: "The `local` parameter.",
+									Optional:            true,
+									Computed:            true,
 									PlanModifiers: []planmodifier.String{
 										DefaultString(""),
 									},
 								},
 								"name": rsschema.StringAttribute{
-									Description: "",
-									Required:    true,
+									Description:         "The `name` parameter.",
+									MarkdownDescription: "The `name` parameter.",
+									Required:            true,
 								},
 								"protocol": rsschema.SingleNestedAttribute{
-									Description: "",
-									Optional:    true,
+									Description:         "The `protocol` parameter.",
+									MarkdownDescription: "The `protocol` parameter.",
+									Optional:            true,
 									Attributes: map[string]rsschema.Attribute{
 										"number": rsschema.Int64Attribute{
-											Description: "",
-											Optional:    true,
-											Computed:    true,
+											Description:         "The `number` parameter.",
+											MarkdownDescription: "The `number` parameter.",
+											Optional:            true,
+											Computed:            true,
 											PlanModifiers: []planmodifier.Int64{
 												DefaultInt64(0),
 											},
@@ -922,13 +993,15 @@ func (r *ipsecTunnelsResource) Schema(_ context.Context, _ resource.SchemaReques
 											},
 										},
 										"tcp": rsschema.SingleNestedAttribute{
-											Description: "",
-											Optional:    true,
+											Description:         "The `tcp` parameter.",
+											MarkdownDescription: "The `tcp` parameter.",
+											Optional:            true,
 											Attributes: map[string]rsschema.Attribute{
 												"local_port": rsschema.Int64Attribute{
-													Description: "",
-													Optional:    true,
-													Computed:    true,
+													Description:         "The `local_port` parameter.",
+													MarkdownDescription: "The `local_port` parameter.",
+													Optional:            true,
+													Computed:            true,
 													PlanModifiers: []planmodifier.Int64{
 														DefaultInt64(0),
 													},
@@ -937,9 +1010,10 @@ func (r *ipsecTunnelsResource) Schema(_ context.Context, _ resource.SchemaReques
 													},
 												},
 												"remote_port": rsschema.Int64Attribute{
-													Description: "",
-													Optional:    true,
-													Computed:    true,
+													Description:         "The `remote_port` parameter.",
+													MarkdownDescription: "The `remote_port` parameter.",
+													Optional:            true,
+													Computed:            true,
 													PlanModifiers: []planmodifier.Int64{
 														DefaultInt64(0),
 													},
@@ -950,13 +1024,15 @@ func (r *ipsecTunnelsResource) Schema(_ context.Context, _ resource.SchemaReques
 											},
 										},
 										"udp": rsschema.SingleNestedAttribute{
-											Description: "",
-											Optional:    true,
+											Description:         "The `udp` parameter.",
+											MarkdownDescription: "The `udp` parameter.",
+											Optional:            true,
 											Attributes: map[string]rsschema.Attribute{
 												"local_port": rsschema.Int64Attribute{
-													Description: "",
-													Optional:    true,
-													Computed:    true,
+													Description:         "The `local_port` parameter.",
+													MarkdownDescription: "The `local_port` parameter.",
+													Optional:            true,
+													Computed:            true,
 													PlanModifiers: []planmodifier.Int64{
 														DefaultInt64(0),
 													},
@@ -965,9 +1041,10 @@ func (r *ipsecTunnelsResource) Schema(_ context.Context, _ resource.SchemaReques
 													},
 												},
 												"remote_port": rsschema.Int64Attribute{
-													Description: "",
-													Optional:    true,
-													Computed:    true,
+													Description:         "The `remote_port` parameter.",
+													MarkdownDescription: "The `remote_port` parameter.",
+													Optional:            true,
+													Computed:            true,
 													PlanModifiers: []planmodifier.Int64{
 														DefaultInt64(0),
 													},
@@ -980,9 +1057,10 @@ func (r *ipsecTunnelsResource) Schema(_ context.Context, _ resource.SchemaReques
 									},
 								},
 								"remote": rsschema.StringAttribute{
-									Description: "",
-									Optional:    true,
-									Computed:    true,
+									Description:         "The `remote` parameter.",
+									MarkdownDescription: "The `remote` parameter.",
+									Optional:            true,
+									Computed:            true,
 									PlanModifiers: []planmodifier.String{
 										DefaultString(""),
 									},
@@ -993,55 +1071,63 @@ func (r *ipsecTunnelsResource) Schema(_ context.Context, _ resource.SchemaReques
 				},
 			},
 			"copy_tos": rsschema.BoolAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `copy_tos` parameter.",
+				MarkdownDescription: "The `copy_tos` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.Bool{
 					DefaultBool(false),
 				},
 			},
 			"enable_gre_encapsulation": rsschema.BoolAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `enable_gre_encapsulation` parameter.",
+				MarkdownDescription: "The `enable_gre_encapsulation` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.Bool{
 					DefaultBool(false),
 				},
 			},
 			"object_id": rsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `object_id` parameter.",
+				MarkdownDescription: "The `object_id` parameter.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
 			},
 			"name": rsschema.StringAttribute{
-				Description: "",
-				Required:    true,
+				Description:         "The `name` parameter.",
+				MarkdownDescription: "The `name` parameter.",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(63),
 				},
 			},
 			"tunnel_monitor": rsschema.SingleNestedAttribute{
-				Description: "",
-				Optional:    true,
+				Description:         "The `tunnel_monitor` parameter.",
+				MarkdownDescription: "The `tunnel_monitor` parameter.",
+				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"destination_ip": rsschema.StringAttribute{
-						Description: "",
-						Required:    true,
+						Description:         "The `destination_ip` parameter.",
+						MarkdownDescription: "The `destination_ip` parameter.",
+						Required:            true,
 					},
 					"enable": rsschema.BoolAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `enable` parameter.",
+						MarkdownDescription: "The `enable` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
 							DefaultBool(true),
 						},
 					},
 					"proxy_id": rsschema.StringAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `proxy_id` parameter.",
+						MarkdownDescription: "The `proxy_id` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.String{
 							DefaultString(""),
 						},

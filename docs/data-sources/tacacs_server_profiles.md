@@ -23,19 +23,19 @@ Retrieves config for a specific item.
 ### Read-Only
 
 - `id` (String) The object ID.
-- `protocol` (String)
-- `server` (Attributes List) (see [below for nested schema](#nestedatt--server))
-- `timeout` (Number)
-- `use_single_connection` (Boolean)
+- `protocol` (String) The `protocol` parameter.
+- `server` (Attributes List) The `server` parameter. (see [below for nested schema](#nestedatt--server))
+- `timeout` (Number) The `timeout` parameter.
+- `use_single_connection` (Boolean) The `use_single_connection` parameter.
 
 <a id="nestedatt--server"></a>
 ### Nested Schema for `server`
 
 Read-Only:
 
-- `address` (String)
-- `name` (String)
-- `port` (Number)
-- `secret` (String)
+- `address` (String) The `address` parameter.
+- `name` (String) The `name` parameter.
+- `port` (Number) The `port` parameter.
+- `secret` (String) The `secret` parameter.
 
 

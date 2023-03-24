@@ -44,7 +44,8 @@ func (p *SaseProvider) Metadata(_ context.Context, _ provider.MetadataRequest, r
 // Schema defines the provider-level schema for configuration data.
 func (p *SaseProvider) Schema(_ context.Context, _ provider.SchemaRequest, resp *provider.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		Description: "Terraform provider to interact with Palo Alto Networks SASE API.",
+		Description:         "Terraform provider to interact with Palo Alto Networks SASE API.",
+		MarkdownDescription: "Terraform provider to interact with Palo Alto Networks SASE API.",
 		Attributes: map[string]schema.Attribute{
 			"host": schema.StringAttribute{
 				Description: ProviderParamDescription(

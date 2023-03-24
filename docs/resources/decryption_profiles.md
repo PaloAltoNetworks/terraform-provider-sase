@@ -18,36 +18,36 @@ Retrieves config for a specific item.
 ### Required
 
 - `folder` (String) The folder of the entry
-- `name` (String)
+- `name` (String) The `name` parameter.
 
 ### Optional
 
-- `ssl_forward_proxy` (Attributes) (see [below for nested schema](#nestedatt--ssl_forward_proxy))
-- `ssl_inbound_proxy` (Attributes) (see [below for nested schema](#nestedatt--ssl_inbound_proxy))
-- `ssl_no_proxy` (Attributes) (see [below for nested schema](#nestedatt--ssl_no_proxy))
-- `ssl_protocol_settings` (Attributes) (see [below for nested schema](#nestedatt--ssl_protocol_settings))
+- `ssl_forward_proxy` (Attributes) The `ssl_forward_proxy` parameter. (see [below for nested schema](#nestedatt--ssl_forward_proxy))
+- `ssl_inbound_proxy` (Attributes) The `ssl_inbound_proxy` parameter. (see [below for nested schema](#nestedatt--ssl_inbound_proxy))
+- `ssl_no_proxy` (Attributes) The `ssl_no_proxy` parameter. (see [below for nested schema](#nestedatt--ssl_no_proxy))
+- `ssl_protocol_settings` (Attributes) The `ssl_protocol_settings` parameter. (see [below for nested schema](#nestedatt--ssl_protocol_settings))
 
 ### Read-Only
 
 - `id` (String) The object ID.
-- `object_id` (String)
+- `object_id` (String) The `object_id` parameter.
 
 <a id="nestedatt--ssl_forward_proxy"></a>
 ### Nested Schema for `ssl_forward_proxy`
 
 Optional:
 
-- `auto_include_altname` (Boolean)
-- `block_client_cert` (Boolean)
-- `block_expired_certificate` (Boolean)
-- `block_timeout_cert` (Boolean)
-- `block_tls13_downgrade_no_resource` (Boolean)
-- `block_unknown_cert` (Boolean)
-- `block_unsupported_cipher` (Boolean)
-- `block_unsupported_version` (Boolean)
-- `block_untrusted_issuer` (Boolean)
-- `restrict_cert_exts` (Boolean)
-- `strip_alpn` (Boolean)
+- `auto_include_altname` (Boolean) The `auto_include_altname` parameter.
+- `block_client_cert` (Boolean) The `block_client_cert` parameter.
+- `block_expired_certificate` (Boolean) The `block_expired_certificate` parameter.
+- `block_timeout_cert` (Boolean) The `block_timeout_cert` parameter.
+- `block_tls13_downgrade_no_resource` (Boolean) The `block_tls13_downgrade_no_resource` parameter.
+- `block_unknown_cert` (Boolean) The `block_unknown_cert` parameter.
+- `block_unsupported_cipher` (Boolean) The `block_unsupported_cipher` parameter.
+- `block_unsupported_version` (Boolean) The `block_unsupported_version` parameter.
+- `block_untrusted_issuer` (Boolean) The `block_untrusted_issuer` parameter.
+- `restrict_cert_exts` (Boolean) The `restrict_cert_exts` parameter.
+- `strip_alpn` (Boolean) The `strip_alpn` parameter.
 
 
 <a id="nestedatt--ssl_inbound_proxy"></a>
@@ -55,10 +55,10 @@ Optional:
 
 Optional:
 
-- `block_if_hsm_unavailable` (Boolean)
-- `block_if_no_resource` (Boolean)
-- `block_unsupported_cipher` (Boolean)
-- `block_unsupported_version` (Boolean)
+- `block_if_hsm_unavailable` (Boolean) The `block_if_hsm_unavailable` parameter.
+- `block_if_no_resource` (Boolean) The `block_if_no_resource` parameter.
+- `block_unsupported_cipher` (Boolean) The `block_unsupported_cipher` parameter.
+- `block_unsupported_version` (Boolean) The `block_unsupported_version` parameter.
 
 
 <a id="nestedatt--ssl_no_proxy"></a>
@@ -66,8 +66,8 @@ Optional:
 
 Optional:
 
-- `block_expired_certificate` (Boolean)
-- `block_untrusted_issuer` (Boolean)
+- `block_expired_certificate` (Boolean) The `block_expired_certificate` parameter.
+- `block_untrusted_issuer` (Boolean) The `block_untrusted_issuer` parameter.
 
 
 <a id="nestedatt--ssl_protocol_settings"></a>
@@ -75,21 +75,21 @@ Optional:
 
 Optional:
 
-- `auth_algo_md5` (Boolean)
-- `auth_algo_sha1` (Boolean)
-- `auth_algo_sha256` (Boolean)
-- `auth_algo_sha384` (Boolean)
-- `enc_algo3des` (Boolean)
-- `enc_algo_aes128_cbc` (Boolean)
-- `enc_algo_aes128_gcm` (Boolean)
-- `enc_algo_aes256_cbc` (Boolean)
-- `enc_algo_aes256_gcm` (Boolean)
-- `enc_algo_chacha20_poly1305` (Boolean)
-- `enc_algo_rc4` (Boolean)
-- `keyxchg_algo_dhe` (Boolean)
-- `keyxchg_algo_ecdhe` (Boolean)
-- `keyxchg_algo_rsa` (Boolean)
-- `max_version` (String)
-- `min_version` (String)
+- `auth_algo_md5` (Boolean) The `auth_algo_md5` parameter.
+- `auth_algo_sha1` (Boolean) The `auth_algo_sha1` parameter.
+- `auth_algo_sha256` (Boolean) The `auth_algo_sha256` parameter.
+- `auth_algo_sha384` (Boolean) The `auth_algo_sha384` parameter.
+- `enc_algo3des` (Boolean) The `enc_algo3des` parameter.
+- `enc_algo_aes128_cbc` (Boolean) The `enc_algo_aes128_cbc` parameter.
+- `enc_algo_aes128_gcm` (Boolean) The `enc_algo_aes128_gcm` parameter.
+- `enc_algo_aes256_cbc` (Boolean) The `enc_algo_aes256_cbc` parameter.
+- `enc_algo_aes256_gcm` (Boolean) The `enc_algo_aes256_gcm` parameter.
+- `enc_algo_chacha20_poly1305` (Boolean) The `enc_algo_chacha20_poly1305` parameter.
+- `enc_algo_rc4` (Boolean) The `enc_algo_rc4` parameter.
+- `keyxchg_algo_dhe` (Boolean) The `keyxchg_algo_dhe` parameter.
+- `keyxchg_algo_ecdhe` (Boolean) The `keyxchg_algo_ecdhe` parameter.
+- `keyxchg_algo_rsa` (Boolean) The `keyxchg_algo_rsa` parameter.
+- `max_version` (String) The `max_version` parameter.
+- `min_version` (String) The `min_version` parameter.
 
 

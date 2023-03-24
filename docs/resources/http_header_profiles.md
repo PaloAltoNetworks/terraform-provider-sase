@@ -18,46 +18,46 @@ Retrieves config for a specific item.
 ### Required
 
 - `folder` (String) The folder of the entry
-- `name` (String)
+- `name` (String) The `name` parameter.
 
 ### Optional
 
-- `description` (String)
-- `http_header_insertion` (Attributes List) (see [below for nested schema](#nestedatt--http_header_insertion))
+- `description` (String) The `description` parameter.
+- `http_header_insertion` (Attributes List) The `http_header_insertion` parameter. (see [below for nested schema](#nestedatt--http_header_insertion))
 
 ### Read-Only
 
 - `id` (String) The object ID.
-- `object_id` (String)
+- `object_id` (String) The `object_id` parameter.
 
 <a id="nestedatt--http_header_insertion"></a>
 ### Nested Schema for `http_header_insertion`
 
 Required:
 
-- `name` (String)
-- `type` (Attributes List) (see [below for nested schema](#nestedatt--http_header_insertion--type))
+- `name` (String) The `name` parameter.
+- `type` (Attributes List) The `type` parameter. (see [below for nested schema](#nestedatt--http_header_insertion--type))
 
 <a id="nestedatt--http_header_insertion--type"></a>
 ### Nested Schema for `http_header_insertion.type`
 
 Required:
 
-- `domains` (List of String)
-- `headers` (Attributes List) (see [below for nested schema](#nestedatt--http_header_insertion--type--headers))
-- `name` (String)
+- `domains` (List of String) The `domains` parameter.
+- `headers` (Attributes List) The `headers` parameter. (see [below for nested schema](#nestedatt--http_header_insertion--type--headers))
+- `name` (String) The `name` parameter.
 
 <a id="nestedatt--http_header_insertion--type--headers"></a>
 ### Nested Schema for `http_header_insertion.type.headers`
 
 Required:
 
-- `header` (String)
-- `name` (String)
-- `value` (String)
+- `header` (String) The `header` parameter.
+- `name` (String) The `name` parameter.
+- `value` (String) The `value` parameter.
 
 Optional:
 
-- `log` (Boolean)
+- `log` (Boolean) The `log` parameter.
 
 

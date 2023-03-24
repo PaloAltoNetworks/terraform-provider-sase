@@ -22,20 +22,20 @@ Retrieves config for a specific item.
 
 ### Read-Only
 
-- `description` (String)
+- `description` (String) The `description` parameter.
 - `id` (String) The object ID.
-- `name` (String)
-- `rules` (Attributes List) (see [below for nested schema](#nestedatt--rules))
+- `name` (String) The `name` parameter.
+- `rules` (Attributes List) The `rules` parameter. (see [below for nested schema](#nestedatt--rules))
 
 <a id="nestedatt--rules"></a>
 ### Nested Schema for `rules`
 
 Read-Only:
 
-- `action` (String)
-- `application` (List of String)
-- `direction` (String)
-- `file_type` (List of String)
-- `name` (String)
+- `action` (String) The `action` parameter.
+- `application` (List of String) The `application` parameter.
+- `direction` (String) The `direction` parameter.
+- `file_type` (List of String) The `file_type` parameter.
+- `name` (String) The `name` parameter.
 
 

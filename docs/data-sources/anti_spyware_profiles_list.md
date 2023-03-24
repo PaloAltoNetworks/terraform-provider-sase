@@ -27,53 +27,53 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `description` (String)
-- `name` (String)
-- `object_id` (String)
-- `rules` (Attributes List) (see [below for nested schema](#nestedatt--data--rules))
-- `threat_exception` (Attributes List) (see [below for nested schema](#nestedatt--data--threat_exception))
+- `description` (String) The `description` parameter.
+- `name` (String) The `name` parameter.
+- `object_id` (String) The `object_id` parameter.
+- `rules` (Attributes List) The `rules` parameter. (see [below for nested schema](#nestedatt--data--rules))
+- `threat_exception` (Attributes List) The `threat_exception` parameter. (see [below for nested schema](#nestedatt--data--threat_exception))
 
 <a id="nestedatt--data--rules"></a>
 ### Nested Schema for `data.rules`
 
 Read-Only:
 
-- `action` (Attributes) (see [below for nested schema](#nestedatt--data--rules--action))
-- `category` (String)
-- `name` (String)
-- `packet_capture` (String)
-- `severity` (List of String)
-- `threat_name` (String)
+- `action` (Attributes) The `action` parameter. (see [below for nested schema](#nestedatt--data--rules--action))
+- `category` (String) The `category` parameter.
+- `name` (String) The `name` parameter.
+- `packet_capture` (String) The `packet_capture` parameter.
+- `severity` (List of String) The `severity` parameter.
+- `threat_name` (String) The `threat_name` parameter.
 
 <a id="nestedatt--data--rules--action"></a>
 ### Nested Schema for `data.rules.action`
 
 Read-Only:
 
-- `alert` (Boolean)
-- `allow` (Boolean)
-- `block_ip` (Attributes) (see [below for nested schema](#nestedatt--data--rules--action--block_ip))
-- `drop` (Boolean)
-- `reset_both` (Boolean)
-- `reset_client` (Boolean)
-- `reset_server` (Boolean)
+- `alert` (Boolean) The `alert` parameter.
+- `allow` (Boolean) The `allow` parameter.
+- `block_ip` (Attributes) The `block_ip` parameter. (see [below for nested schema](#nestedatt--data--rules--action--block_ip))
+- `drop` (Boolean) The `drop` parameter.
+- `reset_both` (Boolean) The `reset_both` parameter.
+- `reset_client` (Boolean) The `reset_client` parameter.
+- `reset_server` (Boolean) The `reset_server` parameter.
 
 <a id="nestedatt--data--rules--action--block_ip"></a>
 ### Nested Schema for `data.rules.action.reset_server`
 
 Read-Only:
 
-- `duration` (Number)
-- `track_by` (String)
+- `duration` (Number) The `duration` parameter.
+- `track_by` (String) The `track_by` parameter.
 
 
 
@@ -83,33 +83,33 @@ Read-Only:
 
 Read-Only:
 
-- `action` (Attributes) (see [below for nested schema](#nestedatt--data--threat_exception--action))
-- `exempt_ip` (Attributes List) (see [below for nested schema](#nestedatt--data--threat_exception--exempt_ip))
-- `name` (String)
-- `notes` (String)
-- `packet_capture` (String)
+- `action` (Attributes) The `action` parameter. (see [below for nested schema](#nestedatt--data--threat_exception--action))
+- `exempt_ip` (Attributes List) The `exempt_ip` parameter. (see [below for nested schema](#nestedatt--data--threat_exception--exempt_ip))
+- `name` (String) The `name` parameter.
+- `notes` (String) The `notes` parameter.
+- `packet_capture` (String) The `packet_capture` parameter.
 
 <a id="nestedatt--data--threat_exception--action"></a>
 ### Nested Schema for `data.threat_exception.action`
 
 Read-Only:
 
-- `alert` (Boolean)
-- `allow` (Boolean)
-- `block_ip` (Attributes) (see [below for nested schema](#nestedatt--data--threat_exception--action--block_ip))
-- `default` (Boolean)
-- `drop` (Boolean)
-- `reset_both` (Boolean)
-- `reset_client` (Boolean)
-- `reset_server` (Boolean)
+- `alert` (Boolean) The `alert` parameter.
+- `allow` (Boolean) The `allow` parameter.
+- `block_ip` (Attributes) The `block_ip` parameter. (see [below for nested schema](#nestedatt--data--threat_exception--action--block_ip))
+- `default` (Boolean) The `default` parameter.
+- `drop` (Boolean) The `drop` parameter.
+- `reset_both` (Boolean) The `reset_both` parameter.
+- `reset_client` (Boolean) The `reset_client` parameter.
+- `reset_server` (Boolean) The `reset_server` parameter.
 
 <a id="nestedatt--data--threat_exception--action--block_ip"></a>
 ### Nested Schema for `data.threat_exception.action.reset_server`
 
 Read-Only:
 
-- `duration` (Number)
-- `track_by` (String)
+- `duration` (Number) The `duration` parameter.
+- `track_by` (String) The `track_by` parameter.
 
 
 
@@ -118,6 +118,6 @@ Read-Only:
 
 Read-Only:
 
-- `name` (String)
+- `name` (String) The `name` parameter.
 
 

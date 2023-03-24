@@ -22,19 +22,19 @@ Retrieves config for a specific item.
 
 ### Read-Only
 
-- `action` (Attributes) (see [below for nested schema](#nestedatt--action))
-- `description` (String)
-- `dscp_tos` (Attributes) (see [below for nested schema](#nestedatt--dscp_tos))
+- `action` (Attributes) The `action` parameter. (see [below for nested schema](#nestedatt--action))
+- `description` (String) The `description` parameter.
+- `dscp_tos` (Attributes) The `dscp_tos` parameter. (see [below for nested schema](#nestedatt--dscp_tos))
 - `id` (String) The object ID.
-- `name` (String)
-- `schedule` (String)
+- `name` (String) The `name` parameter.
+- `schedule` (String) The `schedule` parameter.
 
 <a id="nestedatt--action"></a>
 ### Nested Schema for `action`
 
 Read-Only:
 
-- `class` (String)
+- `class` (String) The `class` parameter.
 
 
 <a id="nestedatt--dscp_tos"></a>
@@ -42,33 +42,33 @@ Read-Only:
 
 Read-Only:
 
-- `codepoints` (Attributes List) (see [below for nested schema](#nestedatt--dscp_tos--codepoints))
+- `codepoints` (Attributes List) The `codepoints` parameter. (see [below for nested schema](#nestedatt--dscp_tos--codepoints))
 
 <a id="nestedatt--dscp_tos--codepoints"></a>
 ### Nested Schema for `dscp_tos.codepoints`
 
 Read-Only:
 
-- `name` (String)
-- `type` (Attributes) (see [below for nested schema](#nestedatt--dscp_tos--codepoints--type))
+- `name` (String) The `name` parameter.
+- `type` (Attributes) The `type` parameter. (see [below for nested schema](#nestedatt--dscp_tos--codepoints--type))
 
 <a id="nestedatt--dscp_tos--codepoints--type"></a>
 ### Nested Schema for `dscp_tos.codepoints.type`
 
 Read-Only:
 
-- `af` (Attributes) (see [below for nested schema](#nestedatt--dscp_tos--codepoints--type--af))
-- `cs` (Attributes) (see [below for nested schema](#nestedatt--dscp_tos--codepoints--type--cs))
-- `custom` (Attributes) (see [below for nested schema](#nestedatt--dscp_tos--codepoints--type--custom))
-- `ef` (Boolean)
-- `tos` (Attributes) (see [below for nested schema](#nestedatt--dscp_tos--codepoints--type--tos))
+- `af` (Attributes) The `af` parameter. (see [below for nested schema](#nestedatt--dscp_tos--codepoints--type--af))
+- `cs` (Attributes) The `cs` parameter. (see [below for nested schema](#nestedatt--dscp_tos--codepoints--type--cs))
+- `custom` (Attributes) The `custom` parameter. (see [below for nested schema](#nestedatt--dscp_tos--codepoints--type--custom))
+- `ef` (Boolean) The `ef` parameter.
+- `tos` (Attributes) The `tos` parameter. (see [below for nested schema](#nestedatt--dscp_tos--codepoints--type--tos))
 
 <a id="nestedatt--dscp_tos--codepoints--type--af"></a>
 ### Nested Schema for `dscp_tos.codepoints.type.tos`
 
 Read-Only:
 
-- `codepoint` (String)
+- `codepoint` (String) The `codepoint` parameter.
 
 
 <a id="nestedatt--dscp_tos--codepoints--type--cs"></a>
@@ -76,7 +76,7 @@ Read-Only:
 
 Read-Only:
 
-- `codepoint` (String)
+- `codepoint` (String) The `codepoint` parameter.
 
 
 <a id="nestedatt--dscp_tos--codepoints--type--custom"></a>
@@ -84,15 +84,15 @@ Read-Only:
 
 Read-Only:
 
-- `codepoint` (Attributes) (see [below for nested schema](#nestedatt--dscp_tos--codepoints--type--tos--codepoint))
+- `codepoint` (Attributes) The `codepoint` parameter. (see [below for nested schema](#nestedatt--dscp_tos--codepoints--type--tos--codepoint))
 
 <a id="nestedatt--dscp_tos--codepoints--type--tos--codepoint"></a>
 ### Nested Schema for `dscp_tos.codepoints.type.tos.codepoint`
 
 Read-Only:
 
-- `binary_value` (String)
-- `codepoint_name` (String)
+- `binary_value` (String) The `binary_value` parameter.
+- `codepoint_name` (String) The `codepoint_name` parameter.
 
 
 
@@ -101,6 +101,6 @@ Read-Only:
 
 Read-Only:
 
-- `codepoint` (String)
+- `codepoint` (String) The `codepoint` parameter.
 
 

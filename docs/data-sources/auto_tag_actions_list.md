@@ -27,47 +27,47 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `actions` (Attributes List) (see [below for nested schema](#nestedatt--data--actions))
-- `description` (String)
-- `filter` (String)
-- `log_type` (String)
-- `name` (String)
-- `object_id` (String)
-- `quarantine` (Boolean)
-- `send_to_panorama` (Boolean)
+- `actions` (Attributes List) The `actions` parameter. (see [below for nested schema](#nestedatt--data--actions))
+- `description` (String) The `description` parameter.
+- `filter` (String) The `filter` parameter.
+- `log_type` (String) The `log_type` parameter.
+- `name` (String) The `name` parameter.
+- `object_id` (String) The `object_id` parameter.
+- `quarantine` (Boolean) The `quarantine` parameter.
+- `send_to_panorama` (Boolean) The `send_to_panorama` parameter.
 
 <a id="nestedatt--data--actions"></a>
 ### Nested Schema for `data.actions`
 
 Read-Only:
 
-- `name` (String)
-- `type` (Attributes) (see [below for nested schema](#nestedatt--data--actions--type))
+- `name` (String) The `name` parameter.
+- `type` (Attributes) The `type` parameter. (see [below for nested schema](#nestedatt--data--actions--type))
 
 <a id="nestedatt--data--actions--type"></a>
 ### Nested Schema for `data.actions.type`
 
 Read-Only:
 
-- `tagging` (Attributes) (see [below for nested schema](#nestedatt--data--actions--type--tagging))
+- `tagging` (Attributes) The `tagging` parameter. (see [below for nested schema](#nestedatt--data--actions--type--tagging))
 
 <a id="nestedatt--data--actions--type--tagging"></a>
 ### Nested Schema for `data.actions.type.tagging`
 
 Read-Only:
 
-- `action` (String)
-- `tags` (List of String)
-- `target` (String)
-- `timeout` (Number)
+- `action` (String) The `action` parameter.
+- `tags` (List of String) The `tags` parameter.
+- `target` (String) The `target` parameter.
+- `timeout` (Number) The `timeout` parameter.
 
 

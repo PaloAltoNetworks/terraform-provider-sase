@@ -27,31 +27,31 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `description` (String)
-- `mlav_exception` (Attributes List) (see [below for nested schema](#nestedatt--data--mlav_exception))
-- `name` (String)
-- `object_id` (String)
-- `packet_capture` (Boolean)
-- `rules` (Attributes List) (see [below for nested schema](#nestedatt--data--rules))
-- `threat_exception` (Attributes List) (see [below for nested schema](#nestedatt--data--threat_exception))
+- `description` (String) The `description` parameter.
+- `mlav_exception` (Attributes List) The `mlav_exception` parameter. (see [below for nested schema](#nestedatt--data--mlav_exception))
+- `name` (String) The `name` parameter.
+- `object_id` (String) The `object_id` parameter.
+- `packet_capture` (Boolean) The `packet_capture` parameter.
+- `rules` (Attributes List) The `rules` parameter. (see [below for nested schema](#nestedatt--data--rules))
+- `threat_exception` (Attributes List) The `threat_exception` parameter. (see [below for nested schema](#nestedatt--data--threat_exception))
 
 <a id="nestedatt--data--mlav_exception"></a>
 ### Nested Schema for `data.mlav_exception`
 
 Read-Only:
 
-- `description` (String)
-- `filename` (String)
-- `name` (String)
+- `description` (String) The `description` parameter.
+- `filename` (String) The `filename` parameter.
+- `name` (String) The `name` parameter.
 
 
 <a id="nestedatt--data--rules"></a>
@@ -59,11 +59,11 @@ Read-Only:
 
 Read-Only:
 
-- `analysis` (String)
-- `application` (List of String)
-- `direction` (String)
-- `file_type` (List of String)
-- `name` (String)
+- `analysis` (String) The `analysis` parameter.
+- `application` (List of String) The `application` parameter.
+- `direction` (String) The `direction` parameter.
+- `file_type` (List of String) The `file_type` parameter.
+- `name` (String) The `name` parameter.
 
 
 <a id="nestedatt--data--threat_exception"></a>
@@ -71,7 +71,7 @@ Read-Only:
 
 Read-Only:
 
-- `name` (String)
-- `notes` (String)
+- `name` (String) The `name` parameter.
+- `notes` (String) The `notes` parameter.
 
 

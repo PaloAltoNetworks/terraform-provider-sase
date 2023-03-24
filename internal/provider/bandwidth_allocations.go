@@ -70,73 +70,87 @@ func (d *bandwidthAllocationsListDataSource) Schema(_ context.Context, _ datasou
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description: "The max count in result entry (count per page)",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The max count in result entry (count per page)",
+				MarkdownDescription: "The max count in result entry (count per page)",
+				Optional:            true,
+				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description: "The offset of the result entry",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The offset of the result entry",
+				MarkdownDescription: "The offset of the result entry",
+				Optional:            true,
+				Computed:            true,
 			},
 
 			// Output.
 			"data": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `data` parameter.",
+				MarkdownDescription: "The `data` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"allocated_bandwidth": dsschema.Int64Attribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `allocated_bandwidth` parameter.",
+							MarkdownDescription: "The `allocated_bandwidth` parameter.",
+							Computed:            true,
 						},
 						"object_id": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `object_id` parameter.",
+							MarkdownDescription: "The `object_id` parameter.",
+							Computed:            true,
 						},
 						"name": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `name` parameter.",
+							MarkdownDescription: "The `name` parameter.",
+							Computed:            true,
 						},
 						"qos": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `qos` parameter.",
+							MarkdownDescription: "The `qos` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"customized": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `customized` parameter.",
+									MarkdownDescription: "The `customized` parameter.",
+									Computed:            true,
 								},
 								"enabled": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `enabled` parameter.",
+									MarkdownDescription: "The `enabled` parameter.",
+									Computed:            true,
 								},
 								"guaranteed_ratio": dsschema.Int64Attribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `guaranteed_ratio` parameter.",
+									MarkdownDescription: "The `guaranteed_ratio` parameter.",
+									Computed:            true,
 								},
 								"profile": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `profile` parameter.",
+									MarkdownDescription: "The `profile` parameter.",
+									Computed:            true,
 								},
 							},
 						},
 						"spn_name_list": dsschema.ListAttribute{
-							Description: "",
-							Computed:    true,
-							ElementType: types.StringType,
+							Description:         "The `spn_name_list` parameter.",
+							MarkdownDescription: "The `spn_name_list` parameter.",
+							Computed:            true,
+							ElementType:         types.StringType,
 						},
 					},
 				},
 			},
 			"total": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `total` parameter.",
+				MarkdownDescription: "The `total` parameter.",
+				Computed:            true,
 			},
 		},
 	}

@@ -21,9 +21,9 @@ Retrieves config for a specific item.
 
 ### Read-Only
 
-- `authentication_profiles` (List of String)
+- `authentication_profiles` (List of String) The `authentication_profiles` parameter.
 - `id` (String) The object ID.
-- `name` (String)
-- `use_domain_find_profile` (Boolean)
+- `name` (String) The `name` parameter.
+- `use_domain_find_profile` (Boolean) The `use_domain_find_profile` parameter.
 
 

@@ -168,28 +168,33 @@ func (d *objectsExternalDynamicListsListDataSource) Schema(_ context.Context, _ 
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description: "The max count in result entry (count per page)",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The max count in result entry (count per page)",
+				MarkdownDescription: "The max count in result entry (count per page)",
+				Optional:            true,
+				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description: "The offset of the result entry",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The offset of the result entry",
+				MarkdownDescription: "The offset of the result entry",
+				Optional:            true,
+				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description: "The name of the entry",
-				Optional:    true,
+				Description:         "The name of the entry",
+				MarkdownDescription: "The name of the entry",
+				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -197,506 +202,614 @@ func (d *objectsExternalDynamicListsListDataSource) Schema(_ context.Context, _ 
 
 			// Output.
 			"data": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `data` parameter.",
+				MarkdownDescription: "The `data` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"object_id": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `object_id` parameter.",
+							MarkdownDescription: "The `object_id` parameter.",
+							Computed:            true,
 						},
 						"name": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `name` parameter.",
+							MarkdownDescription: "The `name` parameter.",
+							Computed:            true,
 						},
 						"type": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `type` parameter.",
+							MarkdownDescription: "The `type` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"domain": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `domain` parameter.",
+									MarkdownDescription: "The `domain` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"auth": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `auth` parameter.",
+											MarkdownDescription: "The `auth` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"password": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `password` parameter.",
+													MarkdownDescription: "The `password` parameter.",
+													Computed:            true,
 												},
 												"username": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `username` parameter.",
+													MarkdownDescription: "The `username` parameter.",
+													Computed:            true,
 												},
 											},
 										},
 										"certificate_profile": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `certificate_profile` parameter.",
+											MarkdownDescription: "The `certificate_profile` parameter.",
+											Computed:            true,
 										},
 										"description": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `description` parameter.",
+											MarkdownDescription: "The `description` parameter.",
+											Computed:            true,
 										},
 										"exception_list": dsschema.ListAttribute{
-											Description: "",
-											Computed:    true,
-											ElementType: types.StringType,
+											Description:         "The `exception_list` parameter.",
+											MarkdownDescription: "The `exception_list` parameter.",
+											Computed:            true,
+											ElementType:         types.StringType,
 										},
 										"expand_domain": dsschema.BoolAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `expand_domain` parameter.",
+											MarkdownDescription: "The `expand_domain` parameter.",
+											Computed:            true,
 										},
 										"recurring": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `recurring` parameter.",
+											MarkdownDescription: "The `recurring` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"daily": dsschema.SingleNestedAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `daily` parameter.",
+													MarkdownDescription: "The `daily` parameter.",
+													Computed:            true,
 													Attributes: map[string]dsschema.Attribute{
 														"at": dsschema.StringAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `at` parameter.",
+															MarkdownDescription: "The `at` parameter.",
+															Computed:            true,
 														},
 													},
 												},
 												"five_minute": dsschema.BoolAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `five_minute` parameter.",
+													MarkdownDescription: "The `five_minute` parameter.",
+													Computed:            true,
 												},
 												"hourly": dsschema.BoolAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `hourly` parameter.",
+													MarkdownDescription: "The `hourly` parameter.",
+													Computed:            true,
 												},
 												"monthly": dsschema.SingleNestedAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `monthly` parameter.",
+													MarkdownDescription: "The `monthly` parameter.",
+													Computed:            true,
 													Attributes: map[string]dsschema.Attribute{
 														"at": dsschema.StringAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `at` parameter.",
+															MarkdownDescription: "The `at` parameter.",
+															Computed:            true,
 														},
 														"day_of_month": dsschema.Int64Attribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `day_of_month` parameter.",
+															MarkdownDescription: "The `day_of_month` parameter.",
+															Computed:            true,
 														},
 													},
 												},
 												"weekly": dsschema.SingleNestedAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `weekly` parameter.",
+													MarkdownDescription: "The `weekly` parameter.",
+													Computed:            true,
 													Attributes: map[string]dsschema.Attribute{
 														"at": dsschema.StringAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `at` parameter.",
+															MarkdownDescription: "The `at` parameter.",
+															Computed:            true,
 														},
 														"day_of_week": dsschema.StringAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `day_of_week` parameter.",
+															MarkdownDescription: "The `day_of_week` parameter.",
+															Computed:            true,
 														},
 													},
 												},
 											},
 										},
 										"url": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `url` parameter.",
+											MarkdownDescription: "The `url` parameter.",
+											Computed:            true,
 										},
 									},
 								},
 								"imei": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `imei` parameter.",
+									MarkdownDescription: "The `imei` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"auth": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `auth` parameter.",
+											MarkdownDescription: "The `auth` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"password": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `password` parameter.",
+													MarkdownDescription: "The `password` parameter.",
+													Computed:            true,
 												},
 												"username": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `username` parameter.",
+													MarkdownDescription: "The `username` parameter.",
+													Computed:            true,
 												},
 											},
 										},
 										"certificate_profile": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `certificate_profile` parameter.",
+											MarkdownDescription: "The `certificate_profile` parameter.",
+											Computed:            true,
 										},
 										"description": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `description` parameter.",
+											MarkdownDescription: "The `description` parameter.",
+											Computed:            true,
 										},
 										"exception_list": dsschema.ListAttribute{
-											Description: "",
-											Computed:    true,
-											ElementType: types.StringType,
+											Description:         "The `exception_list` parameter.",
+											MarkdownDescription: "The `exception_list` parameter.",
+											Computed:            true,
+											ElementType:         types.StringType,
 										},
 										"recurring": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `recurring` parameter.",
+											MarkdownDescription: "The `recurring` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"daily": dsschema.SingleNestedAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `daily` parameter.",
+													MarkdownDescription: "The `daily` parameter.",
+													Computed:            true,
 													Attributes: map[string]dsschema.Attribute{
 														"at": dsschema.StringAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `at` parameter.",
+															MarkdownDescription: "The `at` parameter.",
+															Computed:            true,
 														},
 													},
 												},
 												"five_minute": dsschema.BoolAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `five_minute` parameter.",
+													MarkdownDescription: "The `five_minute` parameter.",
+													Computed:            true,
 												},
 												"hourly": dsschema.BoolAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `hourly` parameter.",
+													MarkdownDescription: "The `hourly` parameter.",
+													Computed:            true,
 												},
 												"monthly": dsschema.SingleNestedAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `monthly` parameter.",
+													MarkdownDescription: "The `monthly` parameter.",
+													Computed:            true,
 													Attributes: map[string]dsschema.Attribute{
 														"at": dsschema.StringAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `at` parameter.",
+															MarkdownDescription: "The `at` parameter.",
+															Computed:            true,
 														},
 														"day_of_month": dsschema.Int64Attribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `day_of_month` parameter.",
+															MarkdownDescription: "The `day_of_month` parameter.",
+															Computed:            true,
 														},
 													},
 												},
 												"weekly": dsschema.SingleNestedAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `weekly` parameter.",
+													MarkdownDescription: "The `weekly` parameter.",
+													Computed:            true,
 													Attributes: map[string]dsschema.Attribute{
 														"at": dsschema.StringAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `at` parameter.",
+															MarkdownDescription: "The `at` parameter.",
+															Computed:            true,
 														},
 														"day_of_week": dsschema.StringAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `day_of_week` parameter.",
+															MarkdownDescription: "The `day_of_week` parameter.",
+															Computed:            true,
 														},
 													},
 												},
 											},
 										},
 										"url": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `url` parameter.",
+											MarkdownDescription: "The `url` parameter.",
+											Computed:            true,
 										},
 									},
 								},
 								"imsi": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `imsi` parameter.",
+									MarkdownDescription: "The `imsi` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"auth": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `auth` parameter.",
+											MarkdownDescription: "The `auth` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"password": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `password` parameter.",
+													MarkdownDescription: "The `password` parameter.",
+													Computed:            true,
 												},
 												"username": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `username` parameter.",
+													MarkdownDescription: "The `username` parameter.",
+													Computed:            true,
 												},
 											},
 										},
 										"certificate_profile": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `certificate_profile` parameter.",
+											MarkdownDescription: "The `certificate_profile` parameter.",
+											Computed:            true,
 										},
 										"description": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `description` parameter.",
+											MarkdownDescription: "The `description` parameter.",
+											Computed:            true,
 										},
 										"exception_list": dsschema.ListAttribute{
-											Description: "",
-											Computed:    true,
-											ElementType: types.StringType,
+											Description:         "The `exception_list` parameter.",
+											MarkdownDescription: "The `exception_list` parameter.",
+											Computed:            true,
+											ElementType:         types.StringType,
 										},
 										"recurring": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `recurring` parameter.",
+											MarkdownDescription: "The `recurring` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"daily": dsschema.SingleNestedAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `daily` parameter.",
+													MarkdownDescription: "The `daily` parameter.",
+													Computed:            true,
 													Attributes: map[string]dsschema.Attribute{
 														"at": dsschema.StringAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `at` parameter.",
+															MarkdownDescription: "The `at` parameter.",
+															Computed:            true,
 														},
 													},
 												},
 												"five_minute": dsschema.BoolAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `five_minute` parameter.",
+													MarkdownDescription: "The `five_minute` parameter.",
+													Computed:            true,
 												},
 												"hourly": dsschema.BoolAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `hourly` parameter.",
+													MarkdownDescription: "The `hourly` parameter.",
+													Computed:            true,
 												},
 												"monthly": dsschema.SingleNestedAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `monthly` parameter.",
+													MarkdownDescription: "The `monthly` parameter.",
+													Computed:            true,
 													Attributes: map[string]dsschema.Attribute{
 														"at": dsschema.StringAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `at` parameter.",
+															MarkdownDescription: "The `at` parameter.",
+															Computed:            true,
 														},
 														"day_of_month": dsschema.Int64Attribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `day_of_month` parameter.",
+															MarkdownDescription: "The `day_of_month` parameter.",
+															Computed:            true,
 														},
 													},
 												},
 												"weekly": dsschema.SingleNestedAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `weekly` parameter.",
+													MarkdownDescription: "The `weekly` parameter.",
+													Computed:            true,
 													Attributes: map[string]dsschema.Attribute{
 														"at": dsschema.StringAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `at` parameter.",
+															MarkdownDescription: "The `at` parameter.",
+															Computed:            true,
 														},
 														"day_of_week": dsschema.StringAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `day_of_week` parameter.",
+															MarkdownDescription: "The `day_of_week` parameter.",
+															Computed:            true,
 														},
 													},
 												},
 											},
 										},
 										"url": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `url` parameter.",
+											MarkdownDescription: "The `url` parameter.",
+											Computed:            true,
 										},
 									},
 								},
 								"ip": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `ip` parameter.",
+									MarkdownDescription: "The `ip` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"auth": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `auth` parameter.",
+											MarkdownDescription: "The `auth` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"password": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `password` parameter.",
+													MarkdownDescription: "The `password` parameter.",
+													Computed:            true,
 												},
 												"username": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `username` parameter.",
+													MarkdownDescription: "The `username` parameter.",
+													Computed:            true,
 												},
 											},
 										},
 										"certificate_profile": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `certificate_profile` parameter.",
+											MarkdownDescription: "The `certificate_profile` parameter.",
+											Computed:            true,
 										},
 										"description": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `description` parameter.",
+											MarkdownDescription: "The `description` parameter.",
+											Computed:            true,
 										},
 										"exception_list": dsschema.ListAttribute{
-											Description: "",
-											Computed:    true,
-											ElementType: types.StringType,
+											Description:         "The `exception_list` parameter.",
+											MarkdownDescription: "The `exception_list` parameter.",
+											Computed:            true,
+											ElementType:         types.StringType,
 										},
 										"recurring": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `recurring` parameter.",
+											MarkdownDescription: "The `recurring` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"daily": dsschema.SingleNestedAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `daily` parameter.",
+													MarkdownDescription: "The `daily` parameter.",
+													Computed:            true,
 													Attributes: map[string]dsschema.Attribute{
 														"at": dsschema.StringAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `at` parameter.",
+															MarkdownDescription: "The `at` parameter.",
+															Computed:            true,
 														},
 													},
 												},
 												"five_minute": dsschema.BoolAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `five_minute` parameter.",
+													MarkdownDescription: "The `five_minute` parameter.",
+													Computed:            true,
 												},
 												"hourly": dsschema.BoolAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `hourly` parameter.",
+													MarkdownDescription: "The `hourly` parameter.",
+													Computed:            true,
 												},
 												"monthly": dsschema.SingleNestedAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `monthly` parameter.",
+													MarkdownDescription: "The `monthly` parameter.",
+													Computed:            true,
 													Attributes: map[string]dsschema.Attribute{
 														"at": dsschema.StringAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `at` parameter.",
+															MarkdownDescription: "The `at` parameter.",
+															Computed:            true,
 														},
 														"day_of_month": dsschema.Int64Attribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `day_of_month` parameter.",
+															MarkdownDescription: "The `day_of_month` parameter.",
+															Computed:            true,
 														},
 													},
 												},
 												"weekly": dsschema.SingleNestedAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `weekly` parameter.",
+													MarkdownDescription: "The `weekly` parameter.",
+													Computed:            true,
 													Attributes: map[string]dsschema.Attribute{
 														"at": dsschema.StringAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `at` parameter.",
+															MarkdownDescription: "The `at` parameter.",
+															Computed:            true,
 														},
 														"day_of_week": dsschema.StringAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `day_of_week` parameter.",
+															MarkdownDescription: "The `day_of_week` parameter.",
+															Computed:            true,
 														},
 													},
 												},
 											},
 										},
 										"url": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `url` parameter.",
+											MarkdownDescription: "The `url` parameter.",
+											Computed:            true,
 										},
 									},
 								},
 								"predefined_ip": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `predefined_ip` parameter.",
+									MarkdownDescription: "The `predefined_ip` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"description": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `description` parameter.",
+											MarkdownDescription: "The `description` parameter.",
+											Computed:            true,
 										},
 										"exception_list": dsschema.ListAttribute{
-											Description: "",
-											Computed:    true,
-											ElementType: types.StringType,
+											Description:         "The `exception_list` parameter.",
+											MarkdownDescription: "The `exception_list` parameter.",
+											Computed:            true,
+											ElementType:         types.StringType,
 										},
 										"url": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `url` parameter.",
+											MarkdownDescription: "The `url` parameter.",
+											Computed:            true,
 										},
 									},
 								},
 								"predefined_url": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `predefined_url` parameter.",
+									MarkdownDescription: "The `predefined_url` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"description": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `description` parameter.",
+											MarkdownDescription: "The `description` parameter.",
+											Computed:            true,
 										},
 										"exception_list": dsschema.ListAttribute{
-											Description: "",
-											Computed:    true,
-											ElementType: types.StringType,
+											Description:         "The `exception_list` parameter.",
+											MarkdownDescription: "The `exception_list` parameter.",
+											Computed:            true,
+											ElementType:         types.StringType,
 										},
 										"url": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `url` parameter.",
+											MarkdownDescription: "The `url` parameter.",
+											Computed:            true,
 										},
 									},
 								},
 								"url": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `url` parameter.",
+									MarkdownDescription: "The `url` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"auth": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `auth` parameter.",
+											MarkdownDescription: "The `auth` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"password": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `password` parameter.",
+													MarkdownDescription: "The `password` parameter.",
+													Computed:            true,
 												},
 												"username": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `username` parameter.",
+													MarkdownDescription: "The `username` parameter.",
+													Computed:            true,
 												},
 											},
 										},
 										"certificate_profile": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `certificate_profile` parameter.",
+											MarkdownDescription: "The `certificate_profile` parameter.",
+											Computed:            true,
 										},
 										"description": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `description` parameter.",
+											MarkdownDescription: "The `description` parameter.",
+											Computed:            true,
 										},
 										"exception_list": dsschema.ListAttribute{
-											Description: "",
-											Computed:    true,
-											ElementType: types.StringType,
+											Description:         "The `exception_list` parameter.",
+											MarkdownDescription: "The `exception_list` parameter.",
+											Computed:            true,
+											ElementType:         types.StringType,
 										},
 										"recurring": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `recurring` parameter.",
+											MarkdownDescription: "The `recurring` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"daily": dsschema.SingleNestedAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `daily` parameter.",
+													MarkdownDescription: "The `daily` parameter.",
+													Computed:            true,
 													Attributes: map[string]dsschema.Attribute{
 														"at": dsschema.StringAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `at` parameter.",
+															MarkdownDescription: "The `at` parameter.",
+															Computed:            true,
 														},
 													},
 												},
 												"five_minute": dsschema.BoolAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `five_minute` parameter.",
+													MarkdownDescription: "The `five_minute` parameter.",
+													Computed:            true,
 												},
 												"hourly": dsschema.BoolAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `hourly` parameter.",
+													MarkdownDescription: "The `hourly` parameter.",
+													Computed:            true,
 												},
 												"monthly": dsschema.SingleNestedAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `monthly` parameter.",
+													MarkdownDescription: "The `monthly` parameter.",
+													Computed:            true,
 													Attributes: map[string]dsschema.Attribute{
 														"at": dsschema.StringAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `at` parameter.",
+															MarkdownDescription: "The `at` parameter.",
+															Computed:            true,
 														},
 														"day_of_month": dsschema.Int64Attribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `day_of_month` parameter.",
+															MarkdownDescription: "The `day_of_month` parameter.",
+															Computed:            true,
 														},
 													},
 												},
 												"weekly": dsschema.SingleNestedAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `weekly` parameter.",
+													MarkdownDescription: "The `weekly` parameter.",
+													Computed:            true,
 													Attributes: map[string]dsschema.Attribute{
 														"at": dsschema.StringAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `at` parameter.",
+															MarkdownDescription: "The `at` parameter.",
+															Computed:            true,
 														},
 														"day_of_week": dsschema.StringAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `day_of_week` parameter.",
+															MarkdownDescription: "The `day_of_week` parameter.",
+															Computed:            true,
 														},
 													},
 												},
 											},
 										},
 										"url": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `url` parameter.",
+											MarkdownDescription: "The `url` parameter.",
+											Computed:            true,
 										},
 									},
 								},
@@ -706,8 +819,9 @@ func (d *objectsExternalDynamicListsListDataSource) Schema(_ context.Context, _ 
 				},
 			},
 			"total": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `total` parameter.",
+				MarkdownDescription: "The `total` parameter.",
+				Computed:            true,
 			},
 		},
 	}
@@ -1182,18 +1296,21 @@ func (d *objectsExternalDynamicListsDataSource) Schema(_ context.Context, _ data
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description: "The uuid of the resource",
-				Required:    true,
+				Description:         "The uuid of the resource",
+				MarkdownDescription: "The uuid of the resource",
+				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -1201,497 +1318,603 @@ func (d *objectsExternalDynamicListsDataSource) Schema(_ context.Context, _ data
 
 			// Output.
 			"name": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `name` parameter.",
+				MarkdownDescription: "The `name` parameter.",
+				Computed:            true,
 			},
 			"type": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `type` parameter.",
+				MarkdownDescription: "The `type` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"domain": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `domain` parameter.",
+						MarkdownDescription: "The `domain` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"auth": dsschema.SingleNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `auth` parameter.",
+								MarkdownDescription: "The `auth` parameter.",
+								Computed:            true,
 								Attributes: map[string]dsschema.Attribute{
 									"password": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `password` parameter.",
+										MarkdownDescription: "The `password` parameter.",
+										Computed:            true,
 									},
 									"username": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `username` parameter.",
+										MarkdownDescription: "The `username` parameter.",
+										Computed:            true,
 									},
 								},
 							},
 							"certificate_profile": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `certificate_profile` parameter.",
+								MarkdownDescription: "The `certificate_profile` parameter.",
+								Computed:            true,
 							},
 							"description": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `description` parameter.",
+								MarkdownDescription: "The `description` parameter.",
+								Computed:            true,
 							},
 							"exception_list": dsschema.ListAttribute{
-								Description: "",
-								Computed:    true,
-								ElementType: types.StringType,
+								Description:         "The `exception_list` parameter.",
+								MarkdownDescription: "The `exception_list` parameter.",
+								Computed:            true,
+								ElementType:         types.StringType,
 							},
 							"expand_domain": dsschema.BoolAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `expand_domain` parameter.",
+								MarkdownDescription: "The `expand_domain` parameter.",
+								Computed:            true,
 							},
 							"recurring": dsschema.SingleNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `recurring` parameter.",
+								MarkdownDescription: "The `recurring` parameter.",
+								Computed:            true,
 								Attributes: map[string]dsschema.Attribute{
 									"daily": dsschema.SingleNestedAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `daily` parameter.",
+										MarkdownDescription: "The `daily` parameter.",
+										Computed:            true,
 										Attributes: map[string]dsschema.Attribute{
 											"at": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `at` parameter.",
+												MarkdownDescription: "The `at` parameter.",
+												Computed:            true,
 											},
 										},
 									},
 									"five_minute": dsschema.BoolAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `five_minute` parameter.",
+										MarkdownDescription: "The `five_minute` parameter.",
+										Computed:            true,
 									},
 									"hourly": dsschema.BoolAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `hourly` parameter.",
+										MarkdownDescription: "The `hourly` parameter.",
+										Computed:            true,
 									},
 									"monthly": dsschema.SingleNestedAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `monthly` parameter.",
+										MarkdownDescription: "The `monthly` parameter.",
+										Computed:            true,
 										Attributes: map[string]dsschema.Attribute{
 											"at": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `at` parameter.",
+												MarkdownDescription: "The `at` parameter.",
+												Computed:            true,
 											},
 											"day_of_month": dsschema.Int64Attribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `day_of_month` parameter.",
+												MarkdownDescription: "The `day_of_month` parameter.",
+												Computed:            true,
 											},
 										},
 									},
 									"weekly": dsschema.SingleNestedAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `weekly` parameter.",
+										MarkdownDescription: "The `weekly` parameter.",
+										Computed:            true,
 										Attributes: map[string]dsschema.Attribute{
 											"at": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `at` parameter.",
+												MarkdownDescription: "The `at` parameter.",
+												Computed:            true,
 											},
 											"day_of_week": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `day_of_week` parameter.",
+												MarkdownDescription: "The `day_of_week` parameter.",
+												Computed:            true,
 											},
 										},
 									},
 								},
 							},
 							"url": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `url` parameter.",
+								MarkdownDescription: "The `url` parameter.",
+								Computed:            true,
 							},
 						},
 					},
 					"imei": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `imei` parameter.",
+						MarkdownDescription: "The `imei` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"auth": dsschema.SingleNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `auth` parameter.",
+								MarkdownDescription: "The `auth` parameter.",
+								Computed:            true,
 								Attributes: map[string]dsschema.Attribute{
 									"password": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `password` parameter.",
+										MarkdownDescription: "The `password` parameter.",
+										Computed:            true,
 									},
 									"username": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `username` parameter.",
+										MarkdownDescription: "The `username` parameter.",
+										Computed:            true,
 									},
 								},
 							},
 							"certificate_profile": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `certificate_profile` parameter.",
+								MarkdownDescription: "The `certificate_profile` parameter.",
+								Computed:            true,
 							},
 							"description": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `description` parameter.",
+								MarkdownDescription: "The `description` parameter.",
+								Computed:            true,
 							},
 							"exception_list": dsschema.ListAttribute{
-								Description: "",
-								Computed:    true,
-								ElementType: types.StringType,
+								Description:         "The `exception_list` parameter.",
+								MarkdownDescription: "The `exception_list` parameter.",
+								Computed:            true,
+								ElementType:         types.StringType,
 							},
 							"recurring": dsschema.SingleNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `recurring` parameter.",
+								MarkdownDescription: "The `recurring` parameter.",
+								Computed:            true,
 								Attributes: map[string]dsschema.Attribute{
 									"daily": dsschema.SingleNestedAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `daily` parameter.",
+										MarkdownDescription: "The `daily` parameter.",
+										Computed:            true,
 										Attributes: map[string]dsschema.Attribute{
 											"at": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `at` parameter.",
+												MarkdownDescription: "The `at` parameter.",
+												Computed:            true,
 											},
 										},
 									},
 									"five_minute": dsschema.BoolAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `five_minute` parameter.",
+										MarkdownDescription: "The `five_minute` parameter.",
+										Computed:            true,
 									},
 									"hourly": dsschema.BoolAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `hourly` parameter.",
+										MarkdownDescription: "The `hourly` parameter.",
+										Computed:            true,
 									},
 									"monthly": dsschema.SingleNestedAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `monthly` parameter.",
+										MarkdownDescription: "The `monthly` parameter.",
+										Computed:            true,
 										Attributes: map[string]dsschema.Attribute{
 											"at": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `at` parameter.",
+												MarkdownDescription: "The `at` parameter.",
+												Computed:            true,
 											},
 											"day_of_month": dsschema.Int64Attribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `day_of_month` parameter.",
+												MarkdownDescription: "The `day_of_month` parameter.",
+												Computed:            true,
 											},
 										},
 									},
 									"weekly": dsschema.SingleNestedAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `weekly` parameter.",
+										MarkdownDescription: "The `weekly` parameter.",
+										Computed:            true,
 										Attributes: map[string]dsschema.Attribute{
 											"at": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `at` parameter.",
+												MarkdownDescription: "The `at` parameter.",
+												Computed:            true,
 											},
 											"day_of_week": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `day_of_week` parameter.",
+												MarkdownDescription: "The `day_of_week` parameter.",
+												Computed:            true,
 											},
 										},
 									},
 								},
 							},
 							"url": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `url` parameter.",
+								MarkdownDescription: "The `url` parameter.",
+								Computed:            true,
 							},
 						},
 					},
 					"imsi": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `imsi` parameter.",
+						MarkdownDescription: "The `imsi` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"auth": dsschema.SingleNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `auth` parameter.",
+								MarkdownDescription: "The `auth` parameter.",
+								Computed:            true,
 								Attributes: map[string]dsschema.Attribute{
 									"password": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `password` parameter.",
+										MarkdownDescription: "The `password` parameter.",
+										Computed:            true,
 									},
 									"username": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `username` parameter.",
+										MarkdownDescription: "The `username` parameter.",
+										Computed:            true,
 									},
 								},
 							},
 							"certificate_profile": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `certificate_profile` parameter.",
+								MarkdownDescription: "The `certificate_profile` parameter.",
+								Computed:            true,
 							},
 							"description": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `description` parameter.",
+								MarkdownDescription: "The `description` parameter.",
+								Computed:            true,
 							},
 							"exception_list": dsschema.ListAttribute{
-								Description: "",
-								Computed:    true,
-								ElementType: types.StringType,
+								Description:         "The `exception_list` parameter.",
+								MarkdownDescription: "The `exception_list` parameter.",
+								Computed:            true,
+								ElementType:         types.StringType,
 							},
 							"recurring": dsschema.SingleNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `recurring` parameter.",
+								MarkdownDescription: "The `recurring` parameter.",
+								Computed:            true,
 								Attributes: map[string]dsschema.Attribute{
 									"daily": dsschema.SingleNestedAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `daily` parameter.",
+										MarkdownDescription: "The `daily` parameter.",
+										Computed:            true,
 										Attributes: map[string]dsschema.Attribute{
 											"at": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `at` parameter.",
+												MarkdownDescription: "The `at` parameter.",
+												Computed:            true,
 											},
 										},
 									},
 									"five_minute": dsschema.BoolAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `five_minute` parameter.",
+										MarkdownDescription: "The `five_minute` parameter.",
+										Computed:            true,
 									},
 									"hourly": dsschema.BoolAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `hourly` parameter.",
+										MarkdownDescription: "The `hourly` parameter.",
+										Computed:            true,
 									},
 									"monthly": dsschema.SingleNestedAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `monthly` parameter.",
+										MarkdownDescription: "The `monthly` parameter.",
+										Computed:            true,
 										Attributes: map[string]dsschema.Attribute{
 											"at": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `at` parameter.",
+												MarkdownDescription: "The `at` parameter.",
+												Computed:            true,
 											},
 											"day_of_month": dsschema.Int64Attribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `day_of_month` parameter.",
+												MarkdownDescription: "The `day_of_month` parameter.",
+												Computed:            true,
 											},
 										},
 									},
 									"weekly": dsschema.SingleNestedAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `weekly` parameter.",
+										MarkdownDescription: "The `weekly` parameter.",
+										Computed:            true,
 										Attributes: map[string]dsschema.Attribute{
 											"at": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `at` parameter.",
+												MarkdownDescription: "The `at` parameter.",
+												Computed:            true,
 											},
 											"day_of_week": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `day_of_week` parameter.",
+												MarkdownDescription: "The `day_of_week` parameter.",
+												Computed:            true,
 											},
 										},
 									},
 								},
 							},
 							"url": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `url` parameter.",
+								MarkdownDescription: "The `url` parameter.",
+								Computed:            true,
 							},
 						},
 					},
 					"ip": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `ip` parameter.",
+						MarkdownDescription: "The `ip` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"auth": dsschema.SingleNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `auth` parameter.",
+								MarkdownDescription: "The `auth` parameter.",
+								Computed:            true,
 								Attributes: map[string]dsschema.Attribute{
 									"password": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `password` parameter.",
+										MarkdownDescription: "The `password` parameter.",
+										Computed:            true,
 									},
 									"username": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `username` parameter.",
+										MarkdownDescription: "The `username` parameter.",
+										Computed:            true,
 									},
 								},
 							},
 							"certificate_profile": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `certificate_profile` parameter.",
+								MarkdownDescription: "The `certificate_profile` parameter.",
+								Computed:            true,
 							},
 							"description": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `description` parameter.",
+								MarkdownDescription: "The `description` parameter.",
+								Computed:            true,
 							},
 							"exception_list": dsschema.ListAttribute{
-								Description: "",
-								Computed:    true,
-								ElementType: types.StringType,
+								Description:         "The `exception_list` parameter.",
+								MarkdownDescription: "The `exception_list` parameter.",
+								Computed:            true,
+								ElementType:         types.StringType,
 							},
 							"recurring": dsschema.SingleNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `recurring` parameter.",
+								MarkdownDescription: "The `recurring` parameter.",
+								Computed:            true,
 								Attributes: map[string]dsschema.Attribute{
 									"daily": dsschema.SingleNestedAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `daily` parameter.",
+										MarkdownDescription: "The `daily` parameter.",
+										Computed:            true,
 										Attributes: map[string]dsschema.Attribute{
 											"at": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `at` parameter.",
+												MarkdownDescription: "The `at` parameter.",
+												Computed:            true,
 											},
 										},
 									},
 									"five_minute": dsschema.BoolAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `five_minute` parameter.",
+										MarkdownDescription: "The `five_minute` parameter.",
+										Computed:            true,
 									},
 									"hourly": dsschema.BoolAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `hourly` parameter.",
+										MarkdownDescription: "The `hourly` parameter.",
+										Computed:            true,
 									},
 									"monthly": dsschema.SingleNestedAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `monthly` parameter.",
+										MarkdownDescription: "The `monthly` parameter.",
+										Computed:            true,
 										Attributes: map[string]dsschema.Attribute{
 											"at": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `at` parameter.",
+												MarkdownDescription: "The `at` parameter.",
+												Computed:            true,
 											},
 											"day_of_month": dsschema.Int64Attribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `day_of_month` parameter.",
+												MarkdownDescription: "The `day_of_month` parameter.",
+												Computed:            true,
 											},
 										},
 									},
 									"weekly": dsschema.SingleNestedAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `weekly` parameter.",
+										MarkdownDescription: "The `weekly` parameter.",
+										Computed:            true,
 										Attributes: map[string]dsschema.Attribute{
 											"at": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `at` parameter.",
+												MarkdownDescription: "The `at` parameter.",
+												Computed:            true,
 											},
 											"day_of_week": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `day_of_week` parameter.",
+												MarkdownDescription: "The `day_of_week` parameter.",
+												Computed:            true,
 											},
 										},
 									},
 								},
 							},
 							"url": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `url` parameter.",
+								MarkdownDescription: "The `url` parameter.",
+								Computed:            true,
 							},
 						},
 					},
 					"predefined_ip": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `predefined_ip` parameter.",
+						MarkdownDescription: "The `predefined_ip` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"description": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `description` parameter.",
+								MarkdownDescription: "The `description` parameter.",
+								Computed:            true,
 							},
 							"exception_list": dsschema.ListAttribute{
-								Description: "",
-								Computed:    true,
-								ElementType: types.StringType,
+								Description:         "The `exception_list` parameter.",
+								MarkdownDescription: "The `exception_list` parameter.",
+								Computed:            true,
+								ElementType:         types.StringType,
 							},
 							"url": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `url` parameter.",
+								MarkdownDescription: "The `url` parameter.",
+								Computed:            true,
 							},
 						},
 					},
 					"predefined_url": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `predefined_url` parameter.",
+						MarkdownDescription: "The `predefined_url` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"description": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `description` parameter.",
+								MarkdownDescription: "The `description` parameter.",
+								Computed:            true,
 							},
 							"exception_list": dsschema.ListAttribute{
-								Description: "",
-								Computed:    true,
-								ElementType: types.StringType,
+								Description:         "The `exception_list` parameter.",
+								MarkdownDescription: "The `exception_list` parameter.",
+								Computed:            true,
+								ElementType:         types.StringType,
 							},
 							"url": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `url` parameter.",
+								MarkdownDescription: "The `url` parameter.",
+								Computed:            true,
 							},
 						},
 					},
 					"url": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `url` parameter.",
+						MarkdownDescription: "The `url` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"auth": dsschema.SingleNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `auth` parameter.",
+								MarkdownDescription: "The `auth` parameter.",
+								Computed:            true,
 								Attributes: map[string]dsschema.Attribute{
 									"password": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `password` parameter.",
+										MarkdownDescription: "The `password` parameter.",
+										Computed:            true,
 									},
 									"username": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `username` parameter.",
+										MarkdownDescription: "The `username` parameter.",
+										Computed:            true,
 									},
 								},
 							},
 							"certificate_profile": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `certificate_profile` parameter.",
+								MarkdownDescription: "The `certificate_profile` parameter.",
+								Computed:            true,
 							},
 							"description": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `description` parameter.",
+								MarkdownDescription: "The `description` parameter.",
+								Computed:            true,
 							},
 							"exception_list": dsschema.ListAttribute{
-								Description: "",
-								Computed:    true,
-								ElementType: types.StringType,
+								Description:         "The `exception_list` parameter.",
+								MarkdownDescription: "The `exception_list` parameter.",
+								Computed:            true,
+								ElementType:         types.StringType,
 							},
 							"recurring": dsschema.SingleNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `recurring` parameter.",
+								MarkdownDescription: "The `recurring` parameter.",
+								Computed:            true,
 								Attributes: map[string]dsschema.Attribute{
 									"daily": dsschema.SingleNestedAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `daily` parameter.",
+										MarkdownDescription: "The `daily` parameter.",
+										Computed:            true,
 										Attributes: map[string]dsschema.Attribute{
 											"at": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `at` parameter.",
+												MarkdownDescription: "The `at` parameter.",
+												Computed:            true,
 											},
 										},
 									},
 									"five_minute": dsschema.BoolAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `five_minute` parameter.",
+										MarkdownDescription: "The `five_minute` parameter.",
+										Computed:            true,
 									},
 									"hourly": dsschema.BoolAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `hourly` parameter.",
+										MarkdownDescription: "The `hourly` parameter.",
+										Computed:            true,
 									},
 									"monthly": dsschema.SingleNestedAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `monthly` parameter.",
+										MarkdownDescription: "The `monthly` parameter.",
+										Computed:            true,
 										Attributes: map[string]dsschema.Attribute{
 											"at": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `at` parameter.",
+												MarkdownDescription: "The `at` parameter.",
+												Computed:            true,
 											},
 											"day_of_month": dsschema.Int64Attribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `day_of_month` parameter.",
+												MarkdownDescription: "The `day_of_month` parameter.",
+												Computed:            true,
 											},
 										},
 									},
 									"weekly": dsschema.SingleNestedAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `weekly` parameter.",
+										MarkdownDescription: "The `weekly` parameter.",
+										Computed:            true,
 										Attributes: map[string]dsschema.Attribute{
 											"at": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `at` parameter.",
+												MarkdownDescription: "The `at` parameter.",
+												Computed:            true,
 											},
 											"day_of_week": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `day_of_week` parameter.",
+												MarkdownDescription: "The `day_of_week` parameter.",
+												Computed:            true,
 											},
 										},
 									},
 								},
 							},
 							"url": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `url` parameter.",
+								MarkdownDescription: "The `url` parameter.",
+								Computed:            true,
 							},
 						},
 					},
@@ -2126,8 +2349,9 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 
 		Attributes: map[string]rsschema.Attribute{
 			"id": rsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
@@ -2135,49 +2359,57 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
 			},
 
 			"object_id": rsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `object_id` parameter.",
+				MarkdownDescription: "The `object_id` parameter.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
 			},
 			"name": rsschema.StringAttribute{
-				Description: "",
-				Required:    true,
+				Description:         "The `name` parameter.",
+				MarkdownDescription: "The `name` parameter.",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(63),
 				},
 			},
 			"type": rsschema.SingleNestedAttribute{
-				Description: "",
-				Required:    true,
+				Description:         "The `type` parameter.",
+				MarkdownDescription: "The `type` parameter.",
+				Required:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"domain": rsschema.SingleNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `domain` parameter.",
+						MarkdownDescription: "The `domain` parameter.",
+						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"auth": rsschema.SingleNestedAttribute{
-								Description: "",
-								Optional:    true,
+								Description:         "The `auth` parameter.",
+								MarkdownDescription: "The `auth` parameter.",
+								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"password": rsschema.StringAttribute{
-										Description: "",
-										Required:    true,
+										Description:         "The `password` parameter.",
+										MarkdownDescription: "The `password` parameter.",
+										Required:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthAtMost(255),
 										},
 									},
 									"username": rsschema.StringAttribute{
-										Description: "",
-										Required:    true,
+										Description:         "The `username` parameter.",
+										MarkdownDescription: "The `username` parameter.",
+										Required:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(1, 255),
 										},
@@ -2185,17 +2417,19 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								},
 							},
 							"certificate_profile": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `certificate_profile` parameter.",
+								MarkdownDescription: "The `certificate_profile` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString("None"),
 								},
 							},
 							"description": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `description` parameter.",
+								MarkdownDescription: "The `description` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString(""),
 								},
@@ -2204,29 +2438,34 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								},
 							},
 							"exception_list": rsschema.ListAttribute{
-								Description: "",
-								Optional:    true,
-								ElementType: types.StringType,
+								Description:         "The `exception_list` parameter.",
+								MarkdownDescription: "The `exception_list` parameter.",
+								Optional:            true,
+								ElementType:         types.StringType,
 							},
 							"expand_domain": rsschema.BoolAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `expand_domain` parameter.",
+								MarkdownDescription: "The `expand_domain` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.Bool{
 									DefaultBool(false),
 								},
 							},
 							"recurring": rsschema.SingleNestedAttribute{
-								Description: "",
-								Required:    true,
+								Description:         "The `recurring` parameter.",
+								MarkdownDescription: "The `recurring` parameter.",
+								Required:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"daily": rsschema.SingleNestedAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `daily` parameter.",
+										MarkdownDescription: "The `daily` parameter.",
+										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"at": rsschema.StringAttribute{
-												Description: "",
-												Required:    true,
+												Description:         "The `at` parameter.",
+												MarkdownDescription: "The `at` parameter.",
+												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
@@ -2234,8 +2473,9 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										},
 									},
 									"five_minute": rsschema.BoolAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `five_minute` parameter.",
+										MarkdownDescription: "The `five_minute` parameter.",
+										Optional:            true,
 										Validators: []validator.Bool{
 											boolvalidator.ConflictsWith(
 												path.MatchRelative().AtParent().AtName("daily"),
@@ -2246,8 +2486,9 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										},
 									},
 									"hourly": rsschema.BoolAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `hourly` parameter.",
+										MarkdownDescription: "The `hourly` parameter.",
+										Optional:            true,
 										Validators: []validator.Bool{
 											boolvalidator.ConflictsWith(
 												path.MatchRelative().AtParent().AtName("daily"),
@@ -2258,19 +2499,22 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										},
 									},
 									"monthly": rsschema.SingleNestedAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `monthly` parameter.",
+										MarkdownDescription: "The `monthly` parameter.",
+										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"at": rsschema.StringAttribute{
-												Description: "",
-												Required:    true,
+												Description:         "The `at` parameter.",
+												MarkdownDescription: "The `at` parameter.",
+												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
 											},
 											"day_of_month": rsschema.Int64Attribute{
-												Description: "",
-												Required:    true,
+												Description:         "The `day_of_month` parameter.",
+												MarkdownDescription: "The `day_of_month` parameter.",
+												Required:            true,
 												Validators: []validator.Int64{
 													int64validator.Between(1, 31),
 												},
@@ -2278,19 +2522,22 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										},
 									},
 									"weekly": rsschema.SingleNestedAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `weekly` parameter.",
+										MarkdownDescription: "The `weekly` parameter.",
+										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"at": rsschema.StringAttribute{
-												Description: "",
-												Required:    true,
+												Description:         "The `at` parameter.",
+												MarkdownDescription: "The `at` parameter.",
+												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
 											},
 											"day_of_week": rsschema.StringAttribute{
-												Description: "",
-												Required:    true,
+												Description:         "The `day_of_week` parameter.",
+												MarkdownDescription: "The `day_of_week` parameter.",
+												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.OneOf("sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"),
 												},
@@ -2300,8 +2547,9 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								},
 							},
 							"url": rsschema.StringAttribute{
-								Description: "",
-								Required:    true,
+								Description:         "The `url` parameter.",
+								MarkdownDescription: "The `url` parameter.",
+								Required:            true,
 								Validators: []validator.String{
 									stringvalidator.LengthBetween(0, 255),
 								},
@@ -2309,23 +2557,27 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 						},
 					},
 					"imei": rsschema.SingleNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `imei` parameter.",
+						MarkdownDescription: "The `imei` parameter.",
+						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"auth": rsschema.SingleNestedAttribute{
-								Description: "",
-								Optional:    true,
+								Description:         "The `auth` parameter.",
+								MarkdownDescription: "The `auth` parameter.",
+								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"password": rsschema.StringAttribute{
-										Description: "",
-										Required:    true,
+										Description:         "The `password` parameter.",
+										MarkdownDescription: "The `password` parameter.",
+										Required:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthAtMost(255),
 										},
 									},
 									"username": rsschema.StringAttribute{
-										Description: "",
-										Required:    true,
+										Description:         "The `username` parameter.",
+										MarkdownDescription: "The `username` parameter.",
+										Required:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(1, 255),
 										},
@@ -2333,17 +2585,19 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								},
 							},
 							"certificate_profile": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `certificate_profile` parameter.",
+								MarkdownDescription: "The `certificate_profile` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString("None"),
 								},
 							},
 							"description": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `description` parameter.",
+								MarkdownDescription: "The `description` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString(""),
 								},
@@ -2352,21 +2606,25 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								},
 							},
 							"exception_list": rsschema.ListAttribute{
-								Description: "",
-								Optional:    true,
-								ElementType: types.StringType,
+								Description:         "The `exception_list` parameter.",
+								MarkdownDescription: "The `exception_list` parameter.",
+								Optional:            true,
+								ElementType:         types.StringType,
 							},
 							"recurring": rsschema.SingleNestedAttribute{
-								Description: "",
-								Required:    true,
+								Description:         "The `recurring` parameter.",
+								MarkdownDescription: "The `recurring` parameter.",
+								Required:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"daily": rsschema.SingleNestedAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `daily` parameter.",
+										MarkdownDescription: "The `daily` parameter.",
+										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"at": rsschema.StringAttribute{
-												Description: "",
-												Required:    true,
+												Description:         "The `at` parameter.",
+												MarkdownDescription: "The `at` parameter.",
+												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
@@ -2374,8 +2632,9 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										},
 									},
 									"five_minute": rsschema.BoolAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `five_minute` parameter.",
+										MarkdownDescription: "The `five_minute` parameter.",
+										Optional:            true,
 										Validators: []validator.Bool{
 											boolvalidator.ConflictsWith(
 												path.MatchRelative().AtParent().AtName("daily"),
@@ -2386,8 +2645,9 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										},
 									},
 									"hourly": rsschema.BoolAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `hourly` parameter.",
+										MarkdownDescription: "The `hourly` parameter.",
+										Optional:            true,
 										Validators: []validator.Bool{
 											boolvalidator.ConflictsWith(
 												path.MatchRelative().AtParent().AtName("daily"),
@@ -2398,19 +2658,22 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										},
 									},
 									"monthly": rsschema.SingleNestedAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `monthly` parameter.",
+										MarkdownDescription: "The `monthly` parameter.",
+										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"at": rsschema.StringAttribute{
-												Description: "",
-												Required:    true,
+												Description:         "The `at` parameter.",
+												MarkdownDescription: "The `at` parameter.",
+												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
 											},
 											"day_of_month": rsschema.Int64Attribute{
-												Description: "",
-												Required:    true,
+												Description:         "The `day_of_month` parameter.",
+												MarkdownDescription: "The `day_of_month` parameter.",
+												Required:            true,
 												Validators: []validator.Int64{
 													int64validator.Between(1, 31),
 												},
@@ -2418,19 +2681,22 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										},
 									},
 									"weekly": rsschema.SingleNestedAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `weekly` parameter.",
+										MarkdownDescription: "The `weekly` parameter.",
+										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"at": rsschema.StringAttribute{
-												Description: "",
-												Required:    true,
+												Description:         "The `at` parameter.",
+												MarkdownDescription: "The `at` parameter.",
+												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
 											},
 											"day_of_week": rsschema.StringAttribute{
-												Description: "",
-												Required:    true,
+												Description:         "The `day_of_week` parameter.",
+												MarkdownDescription: "The `day_of_week` parameter.",
+												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.OneOf("sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"),
 												},
@@ -2440,8 +2706,9 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								},
 							},
 							"url": rsschema.StringAttribute{
-								Description: "",
-								Required:    true,
+								Description:         "The `url` parameter.",
+								MarkdownDescription: "The `url` parameter.",
+								Required:            true,
 								Validators: []validator.String{
 									stringvalidator.LengthBetween(0, 255),
 								},
@@ -2449,23 +2716,27 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 						},
 					},
 					"imsi": rsschema.SingleNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `imsi` parameter.",
+						MarkdownDescription: "The `imsi` parameter.",
+						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"auth": rsschema.SingleNestedAttribute{
-								Description: "",
-								Optional:    true,
+								Description:         "The `auth` parameter.",
+								MarkdownDescription: "The `auth` parameter.",
+								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"password": rsschema.StringAttribute{
-										Description: "",
-										Required:    true,
+										Description:         "The `password` parameter.",
+										MarkdownDescription: "The `password` parameter.",
+										Required:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthAtMost(255),
 										},
 									},
 									"username": rsschema.StringAttribute{
-										Description: "",
-										Required:    true,
+										Description:         "The `username` parameter.",
+										MarkdownDescription: "The `username` parameter.",
+										Required:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(1, 255),
 										},
@@ -2473,17 +2744,19 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								},
 							},
 							"certificate_profile": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `certificate_profile` parameter.",
+								MarkdownDescription: "The `certificate_profile` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString("None"),
 								},
 							},
 							"description": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `description` parameter.",
+								MarkdownDescription: "The `description` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString(""),
 								},
@@ -2492,21 +2765,25 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								},
 							},
 							"exception_list": rsschema.ListAttribute{
-								Description: "",
-								Optional:    true,
-								ElementType: types.StringType,
+								Description:         "The `exception_list` parameter.",
+								MarkdownDescription: "The `exception_list` parameter.",
+								Optional:            true,
+								ElementType:         types.StringType,
 							},
 							"recurring": rsschema.SingleNestedAttribute{
-								Description: "",
-								Required:    true,
+								Description:         "The `recurring` parameter.",
+								MarkdownDescription: "The `recurring` parameter.",
+								Required:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"daily": rsschema.SingleNestedAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `daily` parameter.",
+										MarkdownDescription: "The `daily` parameter.",
+										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"at": rsschema.StringAttribute{
-												Description: "",
-												Required:    true,
+												Description:         "The `at` parameter.",
+												MarkdownDescription: "The `at` parameter.",
+												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
@@ -2514,8 +2791,9 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										},
 									},
 									"five_minute": rsschema.BoolAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `five_minute` parameter.",
+										MarkdownDescription: "The `five_minute` parameter.",
+										Optional:            true,
 										Validators: []validator.Bool{
 											boolvalidator.ConflictsWith(
 												path.MatchRelative().AtParent().AtName("daily"),
@@ -2526,8 +2804,9 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										},
 									},
 									"hourly": rsschema.BoolAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `hourly` parameter.",
+										MarkdownDescription: "The `hourly` parameter.",
+										Optional:            true,
 										Validators: []validator.Bool{
 											boolvalidator.ConflictsWith(
 												path.MatchRelative().AtParent().AtName("daily"),
@@ -2538,19 +2817,22 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										},
 									},
 									"monthly": rsschema.SingleNestedAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `monthly` parameter.",
+										MarkdownDescription: "The `monthly` parameter.",
+										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"at": rsschema.StringAttribute{
-												Description: "",
-												Required:    true,
+												Description:         "The `at` parameter.",
+												MarkdownDescription: "The `at` parameter.",
+												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
 											},
 											"day_of_month": rsschema.Int64Attribute{
-												Description: "",
-												Required:    true,
+												Description:         "The `day_of_month` parameter.",
+												MarkdownDescription: "The `day_of_month` parameter.",
+												Required:            true,
 												Validators: []validator.Int64{
 													int64validator.Between(1, 31),
 												},
@@ -2558,19 +2840,22 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										},
 									},
 									"weekly": rsschema.SingleNestedAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `weekly` parameter.",
+										MarkdownDescription: "The `weekly` parameter.",
+										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"at": rsschema.StringAttribute{
-												Description: "",
-												Required:    true,
+												Description:         "The `at` parameter.",
+												MarkdownDescription: "The `at` parameter.",
+												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
 											},
 											"day_of_week": rsschema.StringAttribute{
-												Description: "",
-												Required:    true,
+												Description:         "The `day_of_week` parameter.",
+												MarkdownDescription: "The `day_of_week` parameter.",
+												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.OneOf("sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"),
 												},
@@ -2580,8 +2865,9 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								},
 							},
 							"url": rsschema.StringAttribute{
-								Description: "",
-								Required:    true,
+								Description:         "The `url` parameter.",
+								MarkdownDescription: "The `url` parameter.",
+								Required:            true,
 								Validators: []validator.String{
 									stringvalidator.LengthBetween(0, 255),
 								},
@@ -2589,23 +2875,27 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 						},
 					},
 					"ip": rsschema.SingleNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `ip` parameter.",
+						MarkdownDescription: "The `ip` parameter.",
+						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"auth": rsschema.SingleNestedAttribute{
-								Description: "",
-								Optional:    true,
+								Description:         "The `auth` parameter.",
+								MarkdownDescription: "The `auth` parameter.",
+								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"password": rsschema.StringAttribute{
-										Description: "",
-										Required:    true,
+										Description:         "The `password` parameter.",
+										MarkdownDescription: "The `password` parameter.",
+										Required:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthAtMost(255),
 										},
 									},
 									"username": rsschema.StringAttribute{
-										Description: "",
-										Required:    true,
+										Description:         "The `username` parameter.",
+										MarkdownDescription: "The `username` parameter.",
+										Required:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(1, 255),
 										},
@@ -2613,17 +2903,19 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								},
 							},
 							"certificate_profile": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `certificate_profile` parameter.",
+								MarkdownDescription: "The `certificate_profile` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString("None"),
 								},
 							},
 							"description": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `description` parameter.",
+								MarkdownDescription: "The `description` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString(""),
 								},
@@ -2632,21 +2924,25 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								},
 							},
 							"exception_list": rsschema.ListAttribute{
-								Description: "",
-								Optional:    true,
-								ElementType: types.StringType,
+								Description:         "The `exception_list` parameter.",
+								MarkdownDescription: "The `exception_list` parameter.",
+								Optional:            true,
+								ElementType:         types.StringType,
 							},
 							"recurring": rsschema.SingleNestedAttribute{
-								Description: "",
-								Required:    true,
+								Description:         "The `recurring` parameter.",
+								MarkdownDescription: "The `recurring` parameter.",
+								Required:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"daily": rsschema.SingleNestedAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `daily` parameter.",
+										MarkdownDescription: "The `daily` parameter.",
+										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"at": rsschema.StringAttribute{
-												Description: "",
-												Required:    true,
+												Description:         "The `at` parameter.",
+												MarkdownDescription: "The `at` parameter.",
+												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
@@ -2654,8 +2950,9 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										},
 									},
 									"five_minute": rsschema.BoolAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `five_minute` parameter.",
+										MarkdownDescription: "The `five_minute` parameter.",
+										Optional:            true,
 										Validators: []validator.Bool{
 											boolvalidator.ConflictsWith(
 												path.MatchRelative().AtParent().AtName("daily"),
@@ -2666,8 +2963,9 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										},
 									},
 									"hourly": rsschema.BoolAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `hourly` parameter.",
+										MarkdownDescription: "The `hourly` parameter.",
+										Optional:            true,
 										Validators: []validator.Bool{
 											boolvalidator.ConflictsWith(
 												path.MatchRelative().AtParent().AtName("daily"),
@@ -2678,19 +2976,22 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										},
 									},
 									"monthly": rsschema.SingleNestedAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `monthly` parameter.",
+										MarkdownDescription: "The `monthly` parameter.",
+										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"at": rsschema.StringAttribute{
-												Description: "",
-												Required:    true,
+												Description:         "The `at` parameter.",
+												MarkdownDescription: "The `at` parameter.",
+												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
 											},
 											"day_of_month": rsschema.Int64Attribute{
-												Description: "",
-												Required:    true,
+												Description:         "The `day_of_month` parameter.",
+												MarkdownDescription: "The `day_of_month` parameter.",
+												Required:            true,
 												Validators: []validator.Int64{
 													int64validator.Between(1, 31),
 												},
@@ -2698,19 +2999,22 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										},
 									},
 									"weekly": rsschema.SingleNestedAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `weekly` parameter.",
+										MarkdownDescription: "The `weekly` parameter.",
+										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"at": rsschema.StringAttribute{
-												Description: "",
-												Required:    true,
+												Description:         "The `at` parameter.",
+												MarkdownDescription: "The `at` parameter.",
+												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
 											},
 											"day_of_week": rsschema.StringAttribute{
-												Description: "",
-												Required:    true,
+												Description:         "The `day_of_week` parameter.",
+												MarkdownDescription: "The `day_of_week` parameter.",
+												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.OneOf("sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"),
 												},
@@ -2720,8 +3024,9 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								},
 							},
 							"url": rsschema.StringAttribute{
-								Description: "",
-								Required:    true,
+								Description:         "The `url` parameter.",
+								MarkdownDescription: "The `url` parameter.",
+								Required:            true,
 								Validators: []validator.String{
 									stringvalidator.LengthBetween(0, 255),
 								},
@@ -2729,13 +3034,15 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 						},
 					},
 					"predefined_ip": rsschema.SingleNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `predefined_ip` parameter.",
+						MarkdownDescription: "The `predefined_ip` parameter.",
+						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"description": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `description` parameter.",
+								MarkdownDescription: "The `description` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString(""),
 								},
@@ -2744,24 +3051,28 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								},
 							},
 							"exception_list": rsschema.ListAttribute{
-								Description: "",
-								Optional:    true,
-								ElementType: types.StringType,
+								Description:         "The `exception_list` parameter.",
+								MarkdownDescription: "The `exception_list` parameter.",
+								Optional:            true,
+								ElementType:         types.StringType,
 							},
 							"url": rsschema.StringAttribute{
-								Description: "",
-								Required:    true,
+								Description:         "The `url` parameter.",
+								MarkdownDescription: "The `url` parameter.",
+								Required:            true,
 							},
 						},
 					},
 					"predefined_url": rsschema.SingleNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `predefined_url` parameter.",
+						MarkdownDescription: "The `predefined_url` parameter.",
+						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"description": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `description` parameter.",
+								MarkdownDescription: "The `description` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString(""),
 								},
@@ -2770,34 +3081,40 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								},
 							},
 							"exception_list": rsschema.ListAttribute{
-								Description: "",
-								Optional:    true,
-								ElementType: types.StringType,
+								Description:         "The `exception_list` parameter.",
+								MarkdownDescription: "The `exception_list` parameter.",
+								Optional:            true,
+								ElementType:         types.StringType,
 							},
 							"url": rsschema.StringAttribute{
-								Description: "",
-								Required:    true,
+								Description:         "The `url` parameter.",
+								MarkdownDescription: "The `url` parameter.",
+								Required:            true,
 							},
 						},
 					},
 					"url": rsschema.SingleNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `url` parameter.",
+						MarkdownDescription: "The `url` parameter.",
+						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"auth": rsschema.SingleNestedAttribute{
-								Description: "",
-								Optional:    true,
+								Description:         "The `auth` parameter.",
+								MarkdownDescription: "The `auth` parameter.",
+								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"password": rsschema.StringAttribute{
-										Description: "",
-										Required:    true,
+										Description:         "The `password` parameter.",
+										MarkdownDescription: "The `password` parameter.",
+										Required:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthAtMost(255),
 										},
 									},
 									"username": rsschema.StringAttribute{
-										Description: "",
-										Required:    true,
+										Description:         "The `username` parameter.",
+										MarkdownDescription: "The `username` parameter.",
+										Required:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(1, 255),
 										},
@@ -2805,17 +3122,19 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								},
 							},
 							"certificate_profile": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `certificate_profile` parameter.",
+								MarkdownDescription: "The `certificate_profile` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString("None"),
 								},
 							},
 							"description": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `description` parameter.",
+								MarkdownDescription: "The `description` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString(""),
 								},
@@ -2824,21 +3143,25 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								},
 							},
 							"exception_list": rsschema.ListAttribute{
-								Description: "",
-								Optional:    true,
-								ElementType: types.StringType,
+								Description:         "The `exception_list` parameter.",
+								MarkdownDescription: "The `exception_list` parameter.",
+								Optional:            true,
+								ElementType:         types.StringType,
 							},
 							"recurring": rsschema.SingleNestedAttribute{
-								Description: "",
-								Required:    true,
+								Description:         "The `recurring` parameter.",
+								MarkdownDescription: "The `recurring` parameter.",
+								Required:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"daily": rsschema.SingleNestedAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `daily` parameter.",
+										MarkdownDescription: "The `daily` parameter.",
+										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"at": rsschema.StringAttribute{
-												Description: "",
-												Required:    true,
+												Description:         "The `at` parameter.",
+												MarkdownDescription: "The `at` parameter.",
+												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
@@ -2846,8 +3169,9 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										},
 									},
 									"five_minute": rsschema.BoolAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `five_minute` parameter.",
+										MarkdownDescription: "The `five_minute` parameter.",
+										Optional:            true,
 										Validators: []validator.Bool{
 											boolvalidator.ConflictsWith(
 												path.MatchRelative().AtParent().AtName("daily"),
@@ -2858,8 +3182,9 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										},
 									},
 									"hourly": rsschema.BoolAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `hourly` parameter.",
+										MarkdownDescription: "The `hourly` parameter.",
+										Optional:            true,
 										Validators: []validator.Bool{
 											boolvalidator.ConflictsWith(
 												path.MatchRelative().AtParent().AtName("daily"),
@@ -2870,19 +3195,22 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										},
 									},
 									"monthly": rsschema.SingleNestedAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `monthly` parameter.",
+										MarkdownDescription: "The `monthly` parameter.",
+										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"at": rsschema.StringAttribute{
-												Description: "",
-												Required:    true,
+												Description:         "The `at` parameter.",
+												MarkdownDescription: "The `at` parameter.",
+												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
 											},
 											"day_of_month": rsschema.Int64Attribute{
-												Description: "",
-												Required:    true,
+												Description:         "The `day_of_month` parameter.",
+												MarkdownDescription: "The `day_of_month` parameter.",
+												Required:            true,
 												Validators: []validator.Int64{
 													int64validator.Between(1, 31),
 												},
@@ -2890,19 +3218,22 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										},
 									},
 									"weekly": rsschema.SingleNestedAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `weekly` parameter.",
+										MarkdownDescription: "The `weekly` parameter.",
+										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"at": rsschema.StringAttribute{
-												Description: "",
-												Required:    true,
+												Description:         "The `at` parameter.",
+												MarkdownDescription: "The `at` parameter.",
+												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
 											},
 											"day_of_week": rsschema.StringAttribute{
-												Description: "",
-												Required:    true,
+												Description:         "The `day_of_week` parameter.",
+												MarkdownDescription: "The `day_of_week` parameter.",
+												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.OneOf("sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"),
 												},
@@ -2912,8 +3243,9 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								},
 							},
 							"url": rsschema.StringAttribute{
-								Description: "",
-								Required:    true,
+								Description:         "The `url` parameter.",
+								MarkdownDescription: "The `url` parameter.",
+								Required:            true,
 								Validators: []validator.String{
 									stringvalidator.LengthBetween(0, 255),
 								},

@@ -17,29 +17,29 @@ Retrieves a listing of config items.
 
 ### Required
 
-- `folder` (String)
+- `folder` (String) The `folder` parameter.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `limit` (Number)
-- `offset` (Number)
-- `total` (Number)
+- `limit` (Number) The `limit` parameter.
+- `offset` (Number) The `offset` parameter.
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `region` (Attributes List) (see [below for nested schema](#nestedatt--data--region))
+- `region` (Attributes List) The `region` parameter. (see [below for nested schema](#nestedatt--data--region))
 
 <a id="nestedatt--data--region"></a>
 ### Nested Schema for `data.region`
 
 Read-Only:
 
-- `locations` (List of String)
-- `name` (String)
+- `locations` (List of String) The `locations` parameter.
+- `name` (String) The `name` parameter.
 
 

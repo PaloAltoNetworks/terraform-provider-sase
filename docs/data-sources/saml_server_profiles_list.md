@@ -27,23 +27,23 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `certificate` (String)
-- `entity_id` (String)
-- `max_clock_skew` (Number)
-- `object_id` (String)
-- `slo_bindings` (String)
-- `sso_bindings` (String)
-- `sso_url` (String)
-- `validate_idp_certificate` (Boolean)
-- `want_auth_requests_signed` (Boolean)
+- `certificate` (String) The `certificate` parameter.
+- `entity_id` (String) The `entity_id` parameter.
+- `max_clock_skew` (Number) The `max_clock_skew` parameter.
+- `object_id` (String) The `object_id` parameter.
+- `slo_bindings` (String) The `slo_bindings` parameter.
+- `sso_bindings` (String) The `sso_bindings` parameter.
+- `sso_url` (String) The `sso_url` parameter.
+- `validate_idp_certificate` (Boolean) The `validate_idp_certificate` parameter.
+- `want_auth_requests_signed` (Boolean) The `want_auth_requests_signed` parameter.
 
 

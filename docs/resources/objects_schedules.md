@@ -18,41 +18,41 @@ Retrieves config for a specific item.
 ### Required
 
 - `folder` (String) The folder of the entry
-- `name` (String)
-- `schedule_type` (Attributes) (see [below for nested schema](#nestedatt--schedule_type))
+- `name` (String) The `name` parameter.
+- `schedule_type` (Attributes) The `schedule_type` parameter. (see [below for nested schema](#nestedatt--schedule_type))
 
 ### Read-Only
 
 - `id` (String) The object ID.
-- `object_id` (String)
+- `object_id` (String) The `object_id` parameter.
 
 <a id="nestedatt--schedule_type"></a>
 ### Nested Schema for `schedule_type`
 
 Optional:
 
-- `non_recurring` (List of String)
-- `recurring` (Attributes) (see [below for nested schema](#nestedatt--schedule_type--recurring))
+- `non_recurring` (List of String) The `non_recurring` parameter.
+- `recurring` (Attributes) The `recurring` parameter. (see [below for nested schema](#nestedatt--schedule_type--recurring))
 
 <a id="nestedatt--schedule_type--recurring"></a>
 ### Nested Schema for `schedule_type.recurring`
 
 Optional:
 
-- `daily` (List of String)
-- `weekly` (Attributes) (see [below for nested schema](#nestedatt--schedule_type--recurring--weekly))
+- `daily` (List of String) The `daily` parameter.
+- `weekly` (Attributes) The `weekly` parameter. (see [below for nested schema](#nestedatt--schedule_type--recurring--weekly))
 
 <a id="nestedatt--schedule_type--recurring--weekly"></a>
 ### Nested Schema for `schedule_type.recurring.weekly`
 
 Optional:
 
-- `friday` (List of String)
-- `monday` (List of String)
-- `saturday` (List of String)
-- `sunday` (List of String)
-- `thursday` (List of String)
-- `tuesday` (List of String)
-- `wednesday` (List of String)
+- `friday` (List of String) The `friday` parameter.
+- `monday` (List of String) The `monday` parameter.
+- `saturday` (List of String) The `saturday` parameter.
+- `sunday` (List of String) The `sunday` parameter.
+- `thursday` (List of String) The `thursday` parameter.
+- `tuesday` (List of String) The `tuesday` parameter.
+- `wednesday` (List of String) The `wednesday` parameter.
 
 

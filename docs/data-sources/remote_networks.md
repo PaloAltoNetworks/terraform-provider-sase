@@ -22,33 +22,33 @@ Retrieves config for a specific item.
 
 ### Read-Only
 
-- `ecmp_load_balancing` (String)
-- `ecmp_tunnels` (Attributes List) (see [below for nested schema](#nestedatt--ecmp_tunnels))
+- `ecmp_load_balancing` (String) The `ecmp_load_balancing` parameter.
+- `ecmp_tunnels` (Attributes List) The `ecmp_tunnels` parameter. (see [below for nested schema](#nestedatt--ecmp_tunnels))
 - `id` (String) The object ID.
-- `ipsec_tunnel` (String)
-- `license_type` (String)
-- `name` (String)
-- `protocol` (Attributes) (see [below for nested schema](#nestedatt--protocol))
-- `region` (String)
-- `secondary_ipsec_tunnel` (String)
-- `spn_name` (String)
-- `subnets` (List of String)
+- `ipsec_tunnel` (String) The `ipsec_tunnel` parameter.
+- `license_type` (String) The `license_type` parameter.
+- `name` (String) The `name` parameter.
+- `protocol` (Attributes) The `protocol` parameter. (see [below for nested schema](#nestedatt--protocol))
+- `region` (String) The `region` parameter.
+- `secondary_ipsec_tunnel` (String) The `secondary_ipsec_tunnel` parameter.
+- `spn_name` (String) The `spn_name` parameter.
+- `subnets` (List of String) The `subnets` parameter.
 
 <a id="nestedatt--ecmp_tunnels"></a>
 ### Nested Schema for `ecmp_tunnels`
 
 Read-Only:
 
-- `do_not_export_routes` (Boolean)
-- `ipsec_tunnel` (String)
-- `local_ip_address` (String)
-- `name` (String)
-- `originate_default_route` (Boolean)
-- `peer_as` (String)
-- `peer_ip_address` (String)
-- `peering_type` (String)
-- `secret` (String)
-- `summarize_mobile_user_routes` (Boolean)
+- `do_not_export_routes` (Boolean) The `do_not_export_routes` parameter.
+- `ipsec_tunnel` (String) The `ipsec_tunnel` parameter.
+- `local_ip_address` (String) The `local_ip_address` parameter.
+- `name` (String) The `name` parameter.
+- `originate_default_route` (Boolean) The `originate_default_route` parameter.
+- `peer_as` (String) The `peer_as` parameter.
+- `peer_ip_address` (String) The `peer_ip_address` parameter.
+- `peering_type` (String) The `peering_type` parameter.
+- `secret` (String) The `secret` parameter.
+- `summarize_mobile_user_routes` (Boolean) The `summarize_mobile_user_routes` parameter.
 
 
 <a id="nestedatt--protocol"></a>
@@ -56,23 +56,23 @@ Read-Only:
 
 Read-Only:
 
-- `bgp` (Attributes) (see [below for nested schema](#nestedatt--protocol--bgp))
-- `bgp_peer` (Attributes) (see [below for nested schema](#nestedatt--protocol--bgp_peer))
+- `bgp` (Attributes) The `bgp` parameter. (see [below for nested schema](#nestedatt--protocol--bgp))
+- `bgp_peer` (Attributes) The `bgp_peer` parameter. (see [below for nested schema](#nestedatt--protocol--bgp_peer))
 
 <a id="nestedatt--protocol--bgp"></a>
 ### Nested Schema for `protocol.bgp`
 
 Read-Only:
 
-- `do_not_export_routes` (Boolean)
-- `enable` (Boolean)
-- `local_ip_address` (String)
-- `originate_default_route` (Boolean)
-- `peer_as` (String)
-- `peer_ip_address` (String)
-- `peering_type` (String)
-- `secret` (String)
-- `summarize_mobile_user_routes` (Boolean)
+- `do_not_export_routes` (Boolean) The `do_not_export_routes` parameter.
+- `enable` (Boolean) The `enable` parameter.
+- `local_ip_address` (String) The `local_ip_address` parameter.
+- `originate_default_route` (Boolean) The `originate_default_route` parameter.
+- `peer_as` (String) The `peer_as` parameter.
+- `peer_ip_address` (String) The `peer_ip_address` parameter.
+- `peering_type` (String) The `peering_type` parameter.
+- `secret` (String) The `secret` parameter.
+- `summarize_mobile_user_routes` (Boolean) The `summarize_mobile_user_routes` parameter.
 
 
 <a id="nestedatt--protocol--bgp_peer"></a>
@@ -80,8 +80,8 @@ Read-Only:
 
 Read-Only:
 
-- `local_ip_address` (String)
-- `peer_ip_address` (String)
-- `secret` (String)
+- `local_ip_address` (String) The `local_ip_address` parameter.
+- `peer_ip_address` (String) The `peer_ip_address` parameter.
+- `secret` (String) The `secret` parameter.
 
 

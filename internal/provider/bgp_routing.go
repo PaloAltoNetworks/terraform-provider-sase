@@ -72,24 +72,28 @@ func (d *bgpRoutingListDataSource) Schema(_ context.Context, _ datasource.Schema
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description: "The max count in result entry (count per page)",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The max count in result entry (count per page)",
+				MarkdownDescription: "The max count in result entry (count per page)",
+				Optional:            true,
+				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description: "The offset of the result entry",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The offset of the result entry",
+				MarkdownDescription: "The offset of the result entry",
+				Optional:            true,
+				Computed:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -97,51 +101,61 @@ func (d *bgpRoutingListDataSource) Schema(_ context.Context, _ datasource.Schema
 
 			// Output.
 			"data": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `data` parameter.",
+				MarkdownDescription: "The `data` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"accept_route_over_s_c": dsschema.BoolAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `accept_route_over_s_c` parameter.",
+							MarkdownDescription: "The `accept_route_over_s_c` parameter.",
+							Computed:            true,
 						},
 						"add_host_route_to_ike_peer": dsschema.BoolAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `add_host_route_to_ike_peer` parameter.",
+							MarkdownDescription: "The `add_host_route_to_ike_peer` parameter.",
+							Computed:            true,
 						},
 						"backbone_routing": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `backbone_routing` parameter.",
+							MarkdownDescription: "The `backbone_routing` parameter.",
+							Computed:            true,
 						},
 						"outbound_routes_for_services": dsschema.ListAttribute{
-							Description: "",
-							Computed:    true,
-							ElementType: types.StringType,
+							Description:         "The `outbound_routes_for_services` parameter.",
+							MarkdownDescription: "The `outbound_routes_for_services` parameter.",
+							Computed:            true,
+							ElementType:         types.StringType,
 						},
 						"routing_preference": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `routing_preference` parameter.",
+							MarkdownDescription: "The `routing_preference` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"default": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `default` parameter.",
+									MarkdownDescription: "The `default` parameter.",
+									Computed:            true,
 								},
 								"hot_potato_routing": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `hot_potato_routing` parameter.",
+									MarkdownDescription: "The `hot_potato_routing` parameter.",
+									Computed:            true,
 								},
 							},
 						},
 						"withdraw_static_route": dsschema.BoolAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `withdraw_static_route` parameter.",
+							MarkdownDescription: "The `withdraw_static_route` parameter.",
+							Computed:            true,
 						},
 					},
 				},
 			},
 			"total": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `total` parameter.",
+				MarkdownDescription: "The `total` parameter.",
+				Computed:            true,
 			},
 		},
 	}

@@ -91,28 +91,33 @@ func (d *objectsSchedulesListDataSource) Schema(_ context.Context, _ datasource.
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description: "The max count in result entry (count per page)",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The max count in result entry (count per page)",
+				MarkdownDescription: "The max count in result entry (count per page)",
+				Optional:            true,
+				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description: "The offset of the result entry",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The offset of the result entry",
+				MarkdownDescription: "The offset of the result entry",
+				Optional:            true,
+				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description: "The name of the entry",
-				Optional:    true,
+				Description:         "The name of the entry",
+				MarkdownDescription: "The name of the entry",
+				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -120,74 +125,89 @@ func (d *objectsSchedulesListDataSource) Schema(_ context.Context, _ datasource.
 
 			// Output.
 			"data": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `data` parameter.",
+				MarkdownDescription: "The `data` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"object_id": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `object_id` parameter.",
+							MarkdownDescription: "The `object_id` parameter.",
+							Computed:            true,
 						},
 						"name": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `name` parameter.",
+							MarkdownDescription: "The `name` parameter.",
+							Computed:            true,
 						},
 						"schedule_type": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `schedule_type` parameter.",
+							MarkdownDescription: "The `schedule_type` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"non_recurring": dsschema.ListAttribute{
-									Description: "",
-									Computed:    true,
-									ElementType: types.StringType,
+									Description:         "The `non_recurring` parameter.",
+									MarkdownDescription: "The `non_recurring` parameter.",
+									Computed:            true,
+									ElementType:         types.StringType,
 								},
 								"recurring": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `recurring` parameter.",
+									MarkdownDescription: "The `recurring` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"daily": dsschema.ListAttribute{
-											Description: "",
-											Computed:    true,
-											ElementType: types.StringType,
+											Description:         "The `daily` parameter.",
+											MarkdownDescription: "The `daily` parameter.",
+											Computed:            true,
+											ElementType:         types.StringType,
 										},
 										"weekly": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `weekly` parameter.",
+											MarkdownDescription: "The `weekly` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"friday": dsschema.ListAttribute{
-													Description: "",
-													Computed:    true,
-													ElementType: types.StringType,
+													Description:         "The `friday` parameter.",
+													MarkdownDescription: "The `friday` parameter.",
+													Computed:            true,
+													ElementType:         types.StringType,
 												},
 												"monday": dsschema.ListAttribute{
-													Description: "",
-													Computed:    true,
-													ElementType: types.StringType,
+													Description:         "The `monday` parameter.",
+													MarkdownDescription: "The `monday` parameter.",
+													Computed:            true,
+													ElementType:         types.StringType,
 												},
 												"saturday": dsschema.ListAttribute{
-													Description: "",
-													Computed:    true,
-													ElementType: types.StringType,
+													Description:         "The `saturday` parameter.",
+													MarkdownDescription: "The `saturday` parameter.",
+													Computed:            true,
+													ElementType:         types.StringType,
 												},
 												"sunday": dsschema.ListAttribute{
-													Description: "",
-													Computed:    true,
-													ElementType: types.StringType,
+													Description:         "The `sunday` parameter.",
+													MarkdownDescription: "The `sunday` parameter.",
+													Computed:            true,
+													ElementType:         types.StringType,
 												},
 												"thursday": dsschema.ListAttribute{
-													Description: "",
-													Computed:    true,
-													ElementType: types.StringType,
+													Description:         "The `thursday` parameter.",
+													MarkdownDescription: "The `thursday` parameter.",
+													Computed:            true,
+													ElementType:         types.StringType,
 												},
 												"tuesday": dsschema.ListAttribute{
-													Description: "",
-													Computed:    true,
-													ElementType: types.StringType,
+													Description:         "The `tuesday` parameter.",
+													MarkdownDescription: "The `tuesday` parameter.",
+													Computed:            true,
+													ElementType:         types.StringType,
 												},
 												"wednesday": dsschema.ListAttribute{
-													Description: "",
-													Computed:    true,
-													ElementType: types.StringType,
+													Description:         "The `wednesday` parameter.",
+													MarkdownDescription: "The `wednesday` parameter.",
+													Computed:            true,
+													ElementType:         types.StringType,
 												},
 											},
 										},
@@ -199,8 +219,9 @@ func (d *objectsSchedulesListDataSource) Schema(_ context.Context, _ datasource.
 				},
 			},
 			"total": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `total` parameter.",
+				MarkdownDescription: "The `total` parameter.",
+				Computed:            true,
 			},
 		},
 	}
@@ -382,18 +403,21 @@ func (d *objectsSchedulesDataSource) Schema(_ context.Context, _ datasource.Sche
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description: "The uuid of the resource",
-				Required:    true,
+				Description:         "The uuid of the resource",
+				MarkdownDescription: "The uuid of the resource",
+				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -401,65 +425,78 @@ func (d *objectsSchedulesDataSource) Schema(_ context.Context, _ datasource.Sche
 
 			// Output.
 			"name": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `name` parameter.",
+				MarkdownDescription: "The `name` parameter.",
+				Computed:            true,
 			},
 			"schedule_type": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `schedule_type` parameter.",
+				MarkdownDescription: "The `schedule_type` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"non_recurring": dsschema.ListAttribute{
-						Description: "",
-						Computed:    true,
-						ElementType: types.StringType,
+						Description:         "The `non_recurring` parameter.",
+						MarkdownDescription: "The `non_recurring` parameter.",
+						Computed:            true,
+						ElementType:         types.StringType,
 					},
 					"recurring": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `recurring` parameter.",
+						MarkdownDescription: "The `recurring` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"daily": dsschema.ListAttribute{
-								Description: "",
-								Computed:    true,
-								ElementType: types.StringType,
+								Description:         "The `daily` parameter.",
+								MarkdownDescription: "The `daily` parameter.",
+								Computed:            true,
+								ElementType:         types.StringType,
 							},
 							"weekly": dsschema.SingleNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `weekly` parameter.",
+								MarkdownDescription: "The `weekly` parameter.",
+								Computed:            true,
 								Attributes: map[string]dsschema.Attribute{
 									"friday": dsschema.ListAttribute{
-										Description: "",
-										Computed:    true,
-										ElementType: types.StringType,
+										Description:         "The `friday` parameter.",
+										MarkdownDescription: "The `friday` parameter.",
+										Computed:            true,
+										ElementType:         types.StringType,
 									},
 									"monday": dsschema.ListAttribute{
-										Description: "",
-										Computed:    true,
-										ElementType: types.StringType,
+										Description:         "The `monday` parameter.",
+										MarkdownDescription: "The `monday` parameter.",
+										Computed:            true,
+										ElementType:         types.StringType,
 									},
 									"saturday": dsschema.ListAttribute{
-										Description: "",
-										Computed:    true,
-										ElementType: types.StringType,
+										Description:         "The `saturday` parameter.",
+										MarkdownDescription: "The `saturday` parameter.",
+										Computed:            true,
+										ElementType:         types.StringType,
 									},
 									"sunday": dsschema.ListAttribute{
-										Description: "",
-										Computed:    true,
-										ElementType: types.StringType,
+										Description:         "The `sunday` parameter.",
+										MarkdownDescription: "The `sunday` parameter.",
+										Computed:            true,
+										ElementType:         types.StringType,
 									},
 									"thursday": dsschema.ListAttribute{
-										Description: "",
-										Computed:    true,
-										ElementType: types.StringType,
+										Description:         "The `thursday` parameter.",
+										MarkdownDescription: "The `thursday` parameter.",
+										Computed:            true,
+										ElementType:         types.StringType,
 									},
 									"tuesday": dsschema.ListAttribute{
-										Description: "",
-										Computed:    true,
-										ElementType: types.StringType,
+										Description:         "The `tuesday` parameter.",
+										MarkdownDescription: "The `tuesday` parameter.",
+										Computed:            true,
+										ElementType:         types.StringType,
 									},
 									"wednesday": dsschema.ListAttribute{
-										Description: "",
-										Computed:    true,
-										ElementType: types.StringType,
+										Description:         "The `wednesday` parameter.",
+										MarkdownDescription: "The `wednesday` parameter.",
+										Computed:            true,
+										ElementType:         types.StringType,
 									},
 								},
 							},
@@ -603,8 +640,9 @@ func (r *objectsSchedulesResource) Schema(_ context.Context, _ resource.SchemaRe
 
 		Attributes: map[string]rsschema.Attribute{
 			"id": rsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
@@ -612,83 +650,98 @@ func (r *objectsSchedulesResource) Schema(_ context.Context, _ resource.SchemaRe
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
 			},
 
 			"object_id": rsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `object_id` parameter.",
+				MarkdownDescription: "The `object_id` parameter.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
 			},
 			"name": rsschema.StringAttribute{
-				Description: "",
-				Required:    true,
+				Description:         "The `name` parameter.",
+				MarkdownDescription: "The `name` parameter.",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(31),
 				},
 			},
 			"schedule_type": rsschema.SingleNestedAttribute{
-				Description: "",
-				Required:    true,
+				Description:         "The `schedule_type` parameter.",
+				MarkdownDescription: "The `schedule_type` parameter.",
+				Required:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"non_recurring": rsschema.ListAttribute{
-						Description: "",
-						Optional:    true,
-						ElementType: types.StringType,
+						Description:         "The `non_recurring` parameter.",
+						MarkdownDescription: "The `non_recurring` parameter.",
+						Optional:            true,
+						ElementType:         types.StringType,
 					},
 					"recurring": rsschema.SingleNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `recurring` parameter.",
+						MarkdownDescription: "The `recurring` parameter.",
+						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"daily": rsschema.ListAttribute{
-								Description: "",
-								Optional:    true,
-								ElementType: types.StringType,
+								Description:         "The `daily` parameter.",
+								MarkdownDescription: "The `daily` parameter.",
+								Optional:            true,
+								ElementType:         types.StringType,
 							},
 							"weekly": rsschema.SingleNestedAttribute{
-								Description: "",
-								Optional:    true,
+								Description:         "The `weekly` parameter.",
+								MarkdownDescription: "The `weekly` parameter.",
+								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"friday": rsschema.ListAttribute{
-										Description: "",
-										Optional:    true,
-										ElementType: types.StringType,
+										Description:         "The `friday` parameter.",
+										MarkdownDescription: "The `friday` parameter.",
+										Optional:            true,
+										ElementType:         types.StringType,
 									},
 									"monday": rsschema.ListAttribute{
-										Description: "",
-										Optional:    true,
-										ElementType: types.StringType,
+										Description:         "The `monday` parameter.",
+										MarkdownDescription: "The `monday` parameter.",
+										Optional:            true,
+										ElementType:         types.StringType,
 									},
 									"saturday": rsschema.ListAttribute{
-										Description: "",
-										Optional:    true,
-										ElementType: types.StringType,
+										Description:         "The `saturday` parameter.",
+										MarkdownDescription: "The `saturday` parameter.",
+										Optional:            true,
+										ElementType:         types.StringType,
 									},
 									"sunday": rsschema.ListAttribute{
-										Description: "",
-										Optional:    true,
-										ElementType: types.StringType,
+										Description:         "The `sunday` parameter.",
+										MarkdownDescription: "The `sunday` parameter.",
+										Optional:            true,
+										ElementType:         types.StringType,
 									},
 									"thursday": rsschema.ListAttribute{
-										Description: "",
-										Optional:    true,
-										ElementType: types.StringType,
+										Description:         "The `thursday` parameter.",
+										MarkdownDescription: "The `thursday` parameter.",
+										Optional:            true,
+										ElementType:         types.StringType,
 									},
 									"tuesday": rsschema.ListAttribute{
-										Description: "",
-										Optional:    true,
-										ElementType: types.StringType,
+										Description:         "The `tuesday` parameter.",
+										MarkdownDescription: "The `tuesday` parameter.",
+										Optional:            true,
+										ElementType:         types.StringType,
 									},
 									"wednesday": rsschema.ListAttribute{
-										Description: "",
-										Optional:    true,
-										ElementType: types.StringType,
+										Description:         "The `wednesday` parameter.",
+										MarkdownDescription: "The `wednesday` parameter.",
+										Optional:            true,
+										ElementType:         types.StringType,
 									},
 								},
 							},

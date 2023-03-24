@@ -27,18 +27,18 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `authentication_profiles` (List of String)
-- `name` (String)
-- `object_id` (String)
-- `use_domain_find_profile` (Boolean)
+- `authentication_profiles` (List of String) The `authentication_profiles` parameter.
+- `name` (String) The `name` parameter.
+- `object_id` (String) The `object_id` parameter.
+- `use_domain_find_profile` (Boolean) The `use_domain_find_profile` parameter.
 
 

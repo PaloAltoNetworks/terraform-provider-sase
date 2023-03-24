@@ -143,28 +143,33 @@ func (d *ikeGatewaysListDataSource) Schema(_ context.Context, _ datasource.Schem
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description: "The max count in result entry (count per page)",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The max count in result entry (count per page)",
+				MarkdownDescription: "The max count in result entry (count per page)",
+				Optional:            true,
+				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description: "The offset of the result entry",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The offset of the result entry",
+				MarkdownDescription: "The offset of the result entry",
+				Optional:            true,
+				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description: "The name of the entry",
-				Optional:    true,
+				Description:         "The name of the entry",
+				MarkdownDescription: "The name of the entry",
+				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -172,183 +177,221 @@ func (d *ikeGatewaysListDataSource) Schema(_ context.Context, _ datasource.Schem
 
 			// Output.
 			"data": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `data` parameter.",
+				MarkdownDescription: "The `data` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"authentication": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `authentication` parameter.",
+							MarkdownDescription: "The `authentication` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"allow_id_payload_mismatch": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `allow_id_payload_mismatch` parameter.",
+									MarkdownDescription: "The `allow_id_payload_mismatch` parameter.",
+									Computed:            true,
 								},
 								"certificate_profile": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `certificate_profile` parameter.",
+									MarkdownDescription: "The `certificate_profile` parameter.",
+									Computed:            true,
 								},
 								"local_certificate": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `local_certificate` parameter.",
+									MarkdownDescription: "The `local_certificate` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"local_certificate_name": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `local_certificate_name` parameter.",
+											MarkdownDescription: "The `local_certificate_name` parameter.",
+											Computed:            true,
 										},
 									},
 								},
 								"pre_shared_key": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `pre_shared_key` parameter.",
+									MarkdownDescription: "The `pre_shared_key` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"key": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `key` parameter.",
+											MarkdownDescription: "The `key` parameter.",
+											Computed:            true,
 										},
 									},
 								},
 								"strict_validation_revocation": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `strict_validation_revocation` parameter.",
+									MarkdownDescription: "The `strict_validation_revocation` parameter.",
+									Computed:            true,
 								},
 								"use_management_as_source": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `use_management_as_source` parameter.",
+									MarkdownDescription: "The `use_management_as_source` parameter.",
+									Computed:            true,
 								},
 							},
 						},
 						"object_id": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `object_id` parameter.",
+							MarkdownDescription: "The `object_id` parameter.",
+							Computed:            true,
 						},
 						"local_id": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `local_id` parameter.",
+							MarkdownDescription: "The `local_id` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"object_id": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `object_id` parameter.",
+									MarkdownDescription: "The `object_id` parameter.",
+									Computed:            true,
 								},
 								"type": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `type` parameter.",
+									MarkdownDescription: "The `type` parameter.",
+									Computed:            true,
 								},
 							},
 						},
 						"name": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `name` parameter.",
+							MarkdownDescription: "The `name` parameter.",
+							Computed:            true,
 						},
 						"peer_address": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `peer_address` parameter.",
+							MarkdownDescription: "The `peer_address` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"dynamic_value": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `dynamic_value` parameter.",
+									MarkdownDescription: "The `dynamic_value` parameter.",
+									Computed:            true,
 								},
 								"fqdn": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `fqdn` parameter.",
+									MarkdownDescription: "The `fqdn` parameter.",
+									Computed:            true,
 								},
 								"ip": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `ip` parameter.",
+									MarkdownDescription: "The `ip` parameter.",
+									Computed:            true,
 								},
 							},
 						},
 						"peer_id": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `peer_id` parameter.",
+							MarkdownDescription: "The `peer_id` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"object_id": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `object_id` parameter.",
+									MarkdownDescription: "The `object_id` parameter.",
+									Computed:            true,
 								},
 								"type": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `type` parameter.",
+									MarkdownDescription: "The `type` parameter.",
+									Computed:            true,
 								},
 							},
 						},
 						"protocol": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `protocol` parameter.",
+							MarkdownDescription: "The `protocol` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"ikev1": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `ikev1` parameter.",
+									MarkdownDescription: "The `ikev1` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"dpd": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `dpd` parameter.",
+											MarkdownDescription: "The `dpd` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"enable": dsschema.BoolAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `enable` parameter.",
+													MarkdownDescription: "The `enable` parameter.",
+													Computed:            true,
 												},
 											},
 										},
 										"ike_crypto_profile": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `ike_crypto_profile` parameter.",
+											MarkdownDescription: "The `ike_crypto_profile` parameter.",
+											Computed:            true,
 										},
 									},
 								},
 								"ikev2": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `ikev2` parameter.",
+									MarkdownDescription: "The `ikev2` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"dpd": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `dpd` parameter.",
+											MarkdownDescription: "The `dpd` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"enable": dsschema.BoolAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `enable` parameter.",
+													MarkdownDescription: "The `enable` parameter.",
+													Computed:            true,
 												},
 											},
 										},
 										"ike_crypto_profile": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `ike_crypto_profile` parameter.",
+											MarkdownDescription: "The `ike_crypto_profile` parameter.",
+											Computed:            true,
 										},
 									},
 								},
 								"version": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `version` parameter.",
+									MarkdownDescription: "The `version` parameter.",
+									Computed:            true,
 								},
 							},
 						},
 						"protocol_common": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `protocol_common` parameter.",
+							MarkdownDescription: "The `protocol_common` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"fragmentation": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `fragmentation` parameter.",
+									MarkdownDescription: "The `fragmentation` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"enable": dsschema.BoolAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `enable` parameter.",
+											MarkdownDescription: "The `enable` parameter.",
+											Computed:            true,
 										},
 									},
 								},
 								"nat_traversal": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `nat_traversal` parameter.",
+									MarkdownDescription: "The `nat_traversal` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"enable": dsschema.BoolAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `enable` parameter.",
+											MarkdownDescription: "The `enable` parameter.",
+											Computed:            true,
 										},
 									},
 								},
 								"passive_mode": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `passive_mode` parameter.",
+									MarkdownDescription: "The `passive_mode` parameter.",
+									Computed:            true,
 								},
 							},
 						},
@@ -356,8 +399,9 @@ func (d *ikeGatewaysListDataSource) Schema(_ context.Context, _ datasource.Schem
 				},
 			},
 			"total": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `total` parameter.",
+				MarkdownDescription: "The `total` parameter.",
+				Computed:            true,
 			},
 		},
 	}
@@ -654,18 +698,21 @@ func (d *ikeGatewaysDataSource) Schema(_ context.Context, _ datasource.SchemaReq
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description: "The uuid of the resource",
-				Required:    true,
+				Description:         "The uuid of the resource",
+				MarkdownDescription: "The uuid of the resource",
+				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -673,174 +720,210 @@ func (d *ikeGatewaysDataSource) Schema(_ context.Context, _ datasource.SchemaReq
 
 			// Output.
 			"authentication": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `authentication` parameter.",
+				MarkdownDescription: "The `authentication` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"allow_id_payload_mismatch": dsschema.BoolAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `allow_id_payload_mismatch` parameter.",
+						MarkdownDescription: "The `allow_id_payload_mismatch` parameter.",
+						Computed:            true,
 					},
 					"certificate_profile": dsschema.StringAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `certificate_profile` parameter.",
+						MarkdownDescription: "The `certificate_profile` parameter.",
+						Computed:            true,
 					},
 					"local_certificate": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `local_certificate` parameter.",
+						MarkdownDescription: "The `local_certificate` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"local_certificate_name": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `local_certificate_name` parameter.",
+								MarkdownDescription: "The `local_certificate_name` parameter.",
+								Computed:            true,
 							},
 						},
 					},
 					"pre_shared_key": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `pre_shared_key` parameter.",
+						MarkdownDescription: "The `pre_shared_key` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"key": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `key` parameter.",
+								MarkdownDescription: "The `key` parameter.",
+								Computed:            true,
 							},
 						},
 					},
 					"strict_validation_revocation": dsschema.BoolAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `strict_validation_revocation` parameter.",
+						MarkdownDescription: "The `strict_validation_revocation` parameter.",
+						Computed:            true,
 					},
 					"use_management_as_source": dsschema.BoolAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `use_management_as_source` parameter.",
+						MarkdownDescription: "The `use_management_as_source` parameter.",
+						Computed:            true,
 					},
 				},
 			},
 			"local_id": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `local_id` parameter.",
+				MarkdownDescription: "The `local_id` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"object_id": dsschema.StringAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `object_id` parameter.",
+						MarkdownDescription: "The `object_id` parameter.",
+						Computed:            true,
 					},
 					"type": dsschema.StringAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `type` parameter.",
+						MarkdownDescription: "The `type` parameter.",
+						Computed:            true,
 					},
 				},
 			},
 			"name": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `name` parameter.",
+				MarkdownDescription: "The `name` parameter.",
+				Computed:            true,
 			},
 			"peer_address": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `peer_address` parameter.",
+				MarkdownDescription: "The `peer_address` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"dynamic_value": dsschema.BoolAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `dynamic_value` parameter.",
+						MarkdownDescription: "The `dynamic_value` parameter.",
+						Computed:            true,
 					},
 					"fqdn": dsschema.StringAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `fqdn` parameter.",
+						MarkdownDescription: "The `fqdn` parameter.",
+						Computed:            true,
 					},
 					"ip": dsschema.StringAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `ip` parameter.",
+						MarkdownDescription: "The `ip` parameter.",
+						Computed:            true,
 					},
 				},
 			},
 			"peer_id": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `peer_id` parameter.",
+				MarkdownDescription: "The `peer_id` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"object_id": dsschema.StringAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `object_id` parameter.",
+						MarkdownDescription: "The `object_id` parameter.",
+						Computed:            true,
 					},
 					"type": dsschema.StringAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `type` parameter.",
+						MarkdownDescription: "The `type` parameter.",
+						Computed:            true,
 					},
 				},
 			},
 			"protocol": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `protocol` parameter.",
+				MarkdownDescription: "The `protocol` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"ikev1": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `ikev1` parameter.",
+						MarkdownDescription: "The `ikev1` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"dpd": dsschema.SingleNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `dpd` parameter.",
+								MarkdownDescription: "The `dpd` parameter.",
+								Computed:            true,
 								Attributes: map[string]dsschema.Attribute{
 									"enable": dsschema.BoolAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `enable` parameter.",
+										MarkdownDescription: "The `enable` parameter.",
+										Computed:            true,
 									},
 								},
 							},
 							"ike_crypto_profile": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `ike_crypto_profile` parameter.",
+								MarkdownDescription: "The `ike_crypto_profile` parameter.",
+								Computed:            true,
 							},
 						},
 					},
 					"ikev2": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `ikev2` parameter.",
+						MarkdownDescription: "The `ikev2` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"dpd": dsschema.SingleNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `dpd` parameter.",
+								MarkdownDescription: "The `dpd` parameter.",
+								Computed:            true,
 								Attributes: map[string]dsschema.Attribute{
 									"enable": dsschema.BoolAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `enable` parameter.",
+										MarkdownDescription: "The `enable` parameter.",
+										Computed:            true,
 									},
 								},
 							},
 							"ike_crypto_profile": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `ike_crypto_profile` parameter.",
+								MarkdownDescription: "The `ike_crypto_profile` parameter.",
+								Computed:            true,
 							},
 						},
 					},
 					"version": dsschema.StringAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `version` parameter.",
+						MarkdownDescription: "The `version` parameter.",
+						Computed:            true,
 					},
 				},
 			},
 			"protocol_common": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `protocol_common` parameter.",
+				MarkdownDescription: "The `protocol_common` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"fragmentation": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `fragmentation` parameter.",
+						MarkdownDescription: "The `fragmentation` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"enable": dsschema.BoolAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `enable` parameter.",
+								MarkdownDescription: "The `enable` parameter.",
+								Computed:            true,
 							},
 						},
 					},
 					"nat_traversal": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `nat_traversal` parameter.",
+						MarkdownDescription: "The `nat_traversal` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"enable": dsschema.BoolAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `enable` parameter.",
+								MarkdownDescription: "The `enable` parameter.",
+								Computed:            true,
 							},
 						},
 					},
 					"passive_mode": dsschema.BoolAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `passive_mode` parameter.",
+						MarkdownDescription: "The `passive_mode` parameter.",
+						Computed:            true,
 					},
 				},
 			},
@@ -1095,8 +1178,9 @@ func (r *ikeGatewaysResource) Schema(_ context.Context, _ resource.SchemaRequest
 
 		Attributes: map[string]rsschema.Attribute{
 			"id": rsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
@@ -1104,41 +1188,47 @@ func (r *ikeGatewaysResource) Schema(_ context.Context, _ resource.SchemaRequest
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
 			},
 
 			"authentication": rsschema.SingleNestedAttribute{
-				Description: "",
-				Required:    true,
+				Description:         "The `authentication` parameter.",
+				MarkdownDescription: "The `authentication` parameter.",
+				Required:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"allow_id_payload_mismatch": rsschema.BoolAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `allow_id_payload_mismatch` parameter.",
+						MarkdownDescription: "The `allow_id_payload_mismatch` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
 							DefaultBool(false),
 						},
 					},
 					"certificate_profile": rsschema.StringAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `certificate_profile` parameter.",
+						MarkdownDescription: "The `certificate_profile` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.String{
 							DefaultString(""),
 						},
 					},
 					"local_certificate": rsschema.SingleNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `local_certificate` parameter.",
+						MarkdownDescription: "The `local_certificate` parameter.",
+						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"local_certificate_name": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `local_certificate_name` parameter.",
+								MarkdownDescription: "The `local_certificate_name` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString(""),
 								},
@@ -1146,13 +1236,15 @@ func (r *ikeGatewaysResource) Schema(_ context.Context, _ resource.SchemaRequest
 						},
 					},
 					"pre_shared_key": rsschema.SingleNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `pre_shared_key` parameter.",
+						MarkdownDescription: "The `pre_shared_key` parameter.",
+						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"key": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `key` parameter.",
+								MarkdownDescription: "The `key` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString(""),
 								},
@@ -1160,17 +1252,19 @@ func (r *ikeGatewaysResource) Schema(_ context.Context, _ resource.SchemaRequest
 						},
 					},
 					"strict_validation_revocation": rsschema.BoolAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `strict_validation_revocation` parameter.",
+						MarkdownDescription: "The `strict_validation_revocation` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
 							DefaultBool(false),
 						},
 					},
 					"use_management_as_source": rsschema.BoolAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `use_management_as_source` parameter.",
+						MarkdownDescription: "The `use_management_as_source` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
 							DefaultBool(false),
 						},
@@ -1178,20 +1272,23 @@ func (r *ikeGatewaysResource) Schema(_ context.Context, _ resource.SchemaRequest
 				},
 			},
 			"object_id": rsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `object_id` parameter.",
+				MarkdownDescription: "The `object_id` parameter.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
 			},
 			"local_id": rsschema.SingleNestedAttribute{
-				Description: "",
-				Optional:    true,
+				Description:         "The `local_id` parameter.",
+				MarkdownDescription: "The `local_id` parameter.",
+				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"object_id": rsschema.StringAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `object_id` parameter.",
+						MarkdownDescription: "The `object_id` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.String{
 							DefaultString(""),
 						},
@@ -1200,9 +1297,10 @@ func (r *ikeGatewaysResource) Schema(_ context.Context, _ resource.SchemaRequest
 						},
 					},
 					"type": rsschema.StringAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `type` parameter.",
+						MarkdownDescription: "The `type` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.String{
 							DefaultString(""),
 						},
@@ -1210,24 +1308,28 @@ func (r *ikeGatewaysResource) Schema(_ context.Context, _ resource.SchemaRequest
 				},
 			},
 			"name": rsschema.StringAttribute{
-				Description: "",
-				Required:    true,
+				Description:         "The `name` parameter.",
+				MarkdownDescription: "The `name` parameter.",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(63),
 				},
 			},
 			"peer_address": rsschema.SingleNestedAttribute{
-				Description: "",
-				Required:    true,
+				Description:         "The `peer_address` parameter.",
+				MarkdownDescription: "The `peer_address` parameter.",
+				Required:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"dynamic_value": rsschema.BoolAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `dynamic_value` parameter.",
+						MarkdownDescription: "The `dynamic_value` parameter.",
+						Optional:            true,
 					},
 					"fqdn": rsschema.StringAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `fqdn` parameter.",
+						MarkdownDescription: "The `fqdn` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.String{
 							DefaultString(""),
 						},
@@ -1236,9 +1338,10 @@ func (r *ikeGatewaysResource) Schema(_ context.Context, _ resource.SchemaRequest
 						},
 					},
 					"ip": rsschema.StringAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `ip` parameter.",
+						MarkdownDescription: "The `ip` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.String{
 							DefaultString(""),
 						},
@@ -1246,13 +1349,15 @@ func (r *ikeGatewaysResource) Schema(_ context.Context, _ resource.SchemaRequest
 				},
 			},
 			"peer_id": rsschema.SingleNestedAttribute{
-				Description: "",
-				Optional:    true,
+				Description:         "The `peer_id` parameter.",
+				MarkdownDescription: "The `peer_id` parameter.",
+				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"object_id": rsschema.StringAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `object_id` parameter.",
+						MarkdownDescription: "The `object_id` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.String{
 							DefaultString(""),
 						},
@@ -1261,9 +1366,10 @@ func (r *ikeGatewaysResource) Schema(_ context.Context, _ resource.SchemaRequest
 						},
 					},
 					"type": rsschema.StringAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `type` parameter.",
+						MarkdownDescription: "The `type` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.String{
 							DefaultString(""),
 						},
@@ -1274,21 +1380,25 @@ func (r *ikeGatewaysResource) Schema(_ context.Context, _ resource.SchemaRequest
 				},
 			},
 			"protocol": rsschema.SingleNestedAttribute{
-				Description: "",
-				Required:    true,
+				Description:         "The `protocol` parameter.",
+				MarkdownDescription: "The `protocol` parameter.",
+				Required:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"ikev1": rsschema.SingleNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `ikev1` parameter.",
+						MarkdownDescription: "The `ikev1` parameter.",
+						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"dpd": rsschema.SingleNestedAttribute{
-								Description: "",
-								Optional:    true,
+								Description:         "The `dpd` parameter.",
+								MarkdownDescription: "The `dpd` parameter.",
+								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"enable": rsschema.BoolAttribute{
-										Description: "",
-										Optional:    true,
-										Computed:    true,
+										Description:         "The `enable` parameter.",
+										MarkdownDescription: "The `enable` parameter.",
+										Optional:            true,
+										Computed:            true,
 										PlanModifiers: []planmodifier.Bool{
 											DefaultBool(false),
 										},
@@ -1296,9 +1406,10 @@ func (r *ikeGatewaysResource) Schema(_ context.Context, _ resource.SchemaRequest
 								},
 							},
 							"ike_crypto_profile": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `ike_crypto_profile` parameter.",
+								MarkdownDescription: "The `ike_crypto_profile` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString(""),
 								},
@@ -1306,17 +1417,20 @@ func (r *ikeGatewaysResource) Schema(_ context.Context, _ resource.SchemaRequest
 						},
 					},
 					"ikev2": rsschema.SingleNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `ikev2` parameter.",
+						MarkdownDescription: "The `ikev2` parameter.",
+						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"dpd": rsschema.SingleNestedAttribute{
-								Description: "",
-								Optional:    true,
+								Description:         "The `dpd` parameter.",
+								MarkdownDescription: "The `dpd` parameter.",
+								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"enable": rsschema.BoolAttribute{
-										Description: "",
-										Optional:    true,
-										Computed:    true,
+										Description:         "The `enable` parameter.",
+										MarkdownDescription: "The `enable` parameter.",
+										Optional:            true,
+										Computed:            true,
 										PlanModifiers: []planmodifier.Bool{
 											DefaultBool(false),
 										},
@@ -1324,9 +1438,10 @@ func (r *ikeGatewaysResource) Schema(_ context.Context, _ resource.SchemaRequest
 								},
 							},
 							"ike_crypto_profile": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `ike_crypto_profile` parameter.",
+								MarkdownDescription: "The `ike_crypto_profile` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString(""),
 								},
@@ -1334,9 +1449,10 @@ func (r *ikeGatewaysResource) Schema(_ context.Context, _ resource.SchemaRequest
 						},
 					},
 					"version": rsschema.StringAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `version` parameter.",
+						MarkdownDescription: "The `version` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.String{
 							DefaultString("ikev2-preferred"),
 						},
@@ -1347,17 +1463,20 @@ func (r *ikeGatewaysResource) Schema(_ context.Context, _ resource.SchemaRequest
 				},
 			},
 			"protocol_common": rsschema.SingleNestedAttribute{
-				Description: "",
-				Optional:    true,
+				Description:         "The `protocol_common` parameter.",
+				MarkdownDescription: "The `protocol_common` parameter.",
+				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"fragmentation": rsschema.SingleNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `fragmentation` parameter.",
+						MarkdownDescription: "The `fragmentation` parameter.",
+						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"enable": rsschema.BoolAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `enable` parameter.",
+								MarkdownDescription: "The `enable` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.Bool{
 									DefaultBool(false),
 								},
@@ -1365,13 +1484,15 @@ func (r *ikeGatewaysResource) Schema(_ context.Context, _ resource.SchemaRequest
 						},
 					},
 					"nat_traversal": rsschema.SingleNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `nat_traversal` parameter.",
+						MarkdownDescription: "The `nat_traversal` parameter.",
+						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"enable": rsschema.BoolAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `enable` parameter.",
+								MarkdownDescription: "The `enable` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.Bool{
 									DefaultBool(false),
 								},
@@ -1379,9 +1500,10 @@ func (r *ikeGatewaysResource) Schema(_ context.Context, _ resource.SchemaRequest
 						},
 					},
 					"passive_mode": rsschema.BoolAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `passive_mode` parameter.",
+						MarkdownDescription: "The `passive_mode` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
 							DefaultBool(false),
 						},

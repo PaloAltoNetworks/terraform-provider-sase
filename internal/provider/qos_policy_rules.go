@@ -117,35 +117,41 @@ func (d *qosPolicyRulesListDataSource) Schema(_ context.Context, _ datasource.Sc
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description: "The max count in result entry (count per page)",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The max count in result entry (count per page)",
+				MarkdownDescription: "The max count in result entry (count per page)",
+				Optional:            true,
+				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description: "The offset of the result entry",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The offset of the result entry",
+				MarkdownDescription: "The offset of the result entry",
+				Optional:            true,
+				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description: "The name of the entry",
-				Optional:    true,
+				Description:         "The name of the entry",
+				MarkdownDescription: "The name of the entry",
+				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
 			},
 			"position": dsschema.StringAttribute{
-				Description: "The position of a security rule",
-				Required:    true,
+				Description:         "The position of a security rule",
+				MarkdownDescription: "The position of a security rule",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("pre", "post"),
 				},
@@ -153,92 +159,111 @@ func (d *qosPolicyRulesListDataSource) Schema(_ context.Context, _ datasource.Sc
 
 			// Output.
 			"data": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `data` parameter.",
+				MarkdownDescription: "The `data` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"action": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `action` parameter.",
+							MarkdownDescription: "The `action` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"class": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `class` parameter.",
+									MarkdownDescription: "The `class` parameter.",
+									Computed:            true,
 								},
 							},
 						},
 						"description": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `description` parameter.",
+							MarkdownDescription: "The `description` parameter.",
+							Computed:            true,
 						},
 						"dscp_tos": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `dscp_tos` parameter.",
+							MarkdownDescription: "The `dscp_tos` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"codepoints": dsschema.ListNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `codepoints` parameter.",
+									MarkdownDescription: "The `codepoints` parameter.",
+									Computed:            true,
 									NestedObject: dsschema.NestedAttributeObject{
 										Attributes: map[string]dsschema.Attribute{
 											"name": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `name` parameter.",
+												MarkdownDescription: "The `name` parameter.",
+												Computed:            true,
 											},
 											"type": dsschema.SingleNestedAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `type` parameter.",
+												MarkdownDescription: "The `type` parameter.",
+												Computed:            true,
 												Attributes: map[string]dsschema.Attribute{
 													"af": dsschema.SingleNestedAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `af` parameter.",
+														MarkdownDescription: "The `af` parameter.",
+														Computed:            true,
 														Attributes: map[string]dsschema.Attribute{
 															"codepoint": dsschema.StringAttribute{
-																Description: "",
-																Computed:    true,
+																Description:         "The `codepoint` parameter.",
+																MarkdownDescription: "The `codepoint` parameter.",
+																Computed:            true,
 															},
 														},
 													},
 													"cs": dsschema.SingleNestedAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `cs` parameter.",
+														MarkdownDescription: "The `cs` parameter.",
+														Computed:            true,
 														Attributes: map[string]dsschema.Attribute{
 															"codepoint": dsschema.StringAttribute{
-																Description: "",
-																Computed:    true,
+																Description:         "The `codepoint` parameter.",
+																MarkdownDescription: "The `codepoint` parameter.",
+																Computed:            true,
 															},
 														},
 													},
 													"custom": dsschema.SingleNestedAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `custom` parameter.",
+														MarkdownDescription: "The `custom` parameter.",
+														Computed:            true,
 														Attributes: map[string]dsschema.Attribute{
 															"codepoint": dsschema.SingleNestedAttribute{
-																Description: "",
-																Computed:    true,
+																Description:         "The `codepoint` parameter.",
+																MarkdownDescription: "The `codepoint` parameter.",
+																Computed:            true,
 																Attributes: map[string]dsschema.Attribute{
 																	"binary_value": dsschema.StringAttribute{
-																		Description: "",
-																		Computed:    true,
+																		Description:         "The `binary_value` parameter.",
+																		MarkdownDescription: "The `binary_value` parameter.",
+																		Computed:            true,
 																	},
 																	"codepoint_name": dsschema.StringAttribute{
-																		Description: "",
-																		Computed:    true,
+																		Description:         "The `codepoint_name` parameter.",
+																		MarkdownDescription: "The `codepoint_name` parameter.",
+																		Computed:            true,
 																	},
 																},
 															},
 														},
 													},
 													"ef": dsschema.BoolAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `ef` parameter.",
+														MarkdownDescription: "The `ef` parameter.",
+														Computed:            true,
 													},
 													"tos": dsschema.SingleNestedAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `tos` parameter.",
+														MarkdownDescription: "The `tos` parameter.",
+														Computed:            true,
 														Attributes: map[string]dsschema.Attribute{
 															"codepoint": dsschema.StringAttribute{
-																Description: "",
-																Computed:    true,
+																Description:         "The `codepoint` parameter.",
+																MarkdownDescription: "The `codepoint` parameter.",
+																Computed:            true,
 															},
 														},
 													},
@@ -250,23 +275,27 @@ func (d *qosPolicyRulesListDataSource) Schema(_ context.Context, _ datasource.Sc
 							},
 						},
 						"object_id": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `object_id` parameter.",
+							MarkdownDescription: "The `object_id` parameter.",
+							Computed:            true,
 						},
 						"name": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `name` parameter.",
+							MarkdownDescription: "The `name` parameter.",
+							Computed:            true,
 						},
 						"schedule": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `schedule` parameter.",
+							MarkdownDescription: "The `schedule` parameter.",
+							Computed:            true,
 						},
 					},
 				},
 			},
 			"total": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `total` parameter.",
+				MarkdownDescription: "The `total` parameter.",
+				Computed:            true,
 			},
 		},
 	}
@@ -515,18 +544,21 @@ func (d *qosPolicyRulesDataSource) Schema(_ context.Context, _ datasource.Schema
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description: "The uuid of the resource",
-				Required:    true,
+				Description:         "The uuid of the resource",
+				MarkdownDescription: "The uuid of the resource",
+				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -534,87 +566,105 @@ func (d *qosPolicyRulesDataSource) Schema(_ context.Context, _ datasource.Schema
 
 			// Output.
 			"action": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `action` parameter.",
+				MarkdownDescription: "The `action` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"class": dsschema.StringAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `class` parameter.",
+						MarkdownDescription: "The `class` parameter.",
+						Computed:            true,
 					},
 				},
 			},
 			"description": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `description` parameter.",
+				MarkdownDescription: "The `description` parameter.",
+				Computed:            true,
 			},
 			"dscp_tos": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `dscp_tos` parameter.",
+				MarkdownDescription: "The `dscp_tos` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"codepoints": dsschema.ListNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `codepoints` parameter.",
+						MarkdownDescription: "The `codepoints` parameter.",
+						Computed:            true,
 						NestedObject: dsschema.NestedAttributeObject{
 							Attributes: map[string]dsschema.Attribute{
 								"name": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `name` parameter.",
+									MarkdownDescription: "The `name` parameter.",
+									Computed:            true,
 								},
 								"type": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `type` parameter.",
+									MarkdownDescription: "The `type` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"af": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `af` parameter.",
+											MarkdownDescription: "The `af` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"codepoint": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `codepoint` parameter.",
+													MarkdownDescription: "The `codepoint` parameter.",
+													Computed:            true,
 												},
 											},
 										},
 										"cs": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `cs` parameter.",
+											MarkdownDescription: "The `cs` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"codepoint": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `codepoint` parameter.",
+													MarkdownDescription: "The `codepoint` parameter.",
+													Computed:            true,
 												},
 											},
 										},
 										"custom": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `custom` parameter.",
+											MarkdownDescription: "The `custom` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"codepoint": dsschema.SingleNestedAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `codepoint` parameter.",
+													MarkdownDescription: "The `codepoint` parameter.",
+													Computed:            true,
 													Attributes: map[string]dsschema.Attribute{
 														"binary_value": dsschema.StringAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `binary_value` parameter.",
+															MarkdownDescription: "The `binary_value` parameter.",
+															Computed:            true,
 														},
 														"codepoint_name": dsschema.StringAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `codepoint_name` parameter.",
+															MarkdownDescription: "The `codepoint_name` parameter.",
+															Computed:            true,
 														},
 													},
 												},
 											},
 										},
 										"ef": dsschema.BoolAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `ef` parameter.",
+											MarkdownDescription: "The `ef` parameter.",
+											Computed:            true,
 										},
 										"tos": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `tos` parameter.",
+											MarkdownDescription: "The `tos` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"codepoint": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `codepoint` parameter.",
+													MarkdownDescription: "The `codepoint` parameter.",
+													Computed:            true,
 												},
 											},
 										},
@@ -626,12 +676,14 @@ func (d *qosPolicyRulesDataSource) Schema(_ context.Context, _ datasource.Schema
 				},
 			},
 			"name": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `name` parameter.",
+				MarkdownDescription: "The `name` parameter.",
+				Computed:            true,
 			},
 			"schedule": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `schedule` parameter.",
+				MarkdownDescription: "The `schedule` parameter.",
+				Computed:            true,
 			},
 		},
 	}
@@ -833,8 +885,9 @@ func (r *qosPolicyRulesResource) Schema(_ context.Context, _ resource.SchemaRequ
 
 		Attributes: map[string]rsschema.Attribute{
 			"id": rsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
@@ -842,28 +895,32 @@ func (r *qosPolicyRulesResource) Schema(_ context.Context, _ resource.SchemaRequ
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
 			},
 			"position": rsschema.StringAttribute{
-				Description: "The position of a security rule",
-				Required:    true,
+				Description:         "The position of a security rule",
+				MarkdownDescription: "The position of a security rule",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("pre", "post"),
 				},
 			},
 
 			"action": rsschema.SingleNestedAttribute{
-				Description: "",
-				Required:    true,
+				Description:         "The `action` parameter.",
+				MarkdownDescription: "The `action` parameter.",
+				Required:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"class": rsschema.StringAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `class` parameter.",
+						MarkdownDescription: "The `class` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.String{
 							DefaultString(""),
 						},
@@ -871,42 +928,49 @@ func (r *qosPolicyRulesResource) Schema(_ context.Context, _ resource.SchemaRequ
 				},
 			},
 			"description": rsschema.StringAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `description` parameter.",
+				MarkdownDescription: "The `description` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					DefaultString(""),
 				},
 			},
 			"dscp_tos": rsschema.SingleNestedAttribute{
-				Description: "",
-				Optional:    true,
+				Description:         "The `dscp_tos` parameter.",
+				MarkdownDescription: "The `dscp_tos` parameter.",
+				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"codepoints": rsschema.ListNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `codepoints` parameter.",
+						MarkdownDescription: "The `codepoints` parameter.",
+						Optional:            true,
 						NestedObject: rsschema.NestedAttributeObject{
 							Attributes: map[string]rsschema.Attribute{
 								"name": rsschema.StringAttribute{
-									Description: "",
-									Optional:    true,
-									Computed:    true,
+									Description:         "The `name` parameter.",
+									MarkdownDescription: "The `name` parameter.",
+									Optional:            true,
+									Computed:            true,
 									PlanModifiers: []planmodifier.String{
 										DefaultString(""),
 									},
 								},
 								"type": rsschema.SingleNestedAttribute{
-									Description: "",
-									Optional:    true,
+									Description:         "The `type` parameter.",
+									MarkdownDescription: "The `type` parameter.",
+									Optional:            true,
 									Attributes: map[string]rsschema.Attribute{
 										"af": rsschema.SingleNestedAttribute{
-											Description: "",
-											Optional:    true,
+											Description:         "The `af` parameter.",
+											MarkdownDescription: "The `af` parameter.",
+											Optional:            true,
 											Attributes: map[string]rsschema.Attribute{
 												"codepoint": rsschema.StringAttribute{
-													Description: "",
-													Optional:    true,
-													Computed:    true,
+													Description:         "The `codepoint` parameter.",
+													MarkdownDescription: "The `codepoint` parameter.",
+													Optional:            true,
+													Computed:            true,
 													PlanModifiers: []planmodifier.String{
 														DefaultString(""),
 													},
@@ -914,13 +978,15 @@ func (r *qosPolicyRulesResource) Schema(_ context.Context, _ resource.SchemaRequ
 											},
 										},
 										"cs": rsschema.SingleNestedAttribute{
-											Description: "",
-											Optional:    true,
+											Description:         "The `cs` parameter.",
+											MarkdownDescription: "The `cs` parameter.",
+											Optional:            true,
 											Attributes: map[string]rsschema.Attribute{
 												"codepoint": rsschema.StringAttribute{
-													Description: "",
-													Optional:    true,
-													Computed:    true,
+													Description:         "The `codepoint` parameter.",
+													MarkdownDescription: "The `codepoint` parameter.",
+													Optional:            true,
+													Computed:            true,
 													PlanModifiers: []planmodifier.String{
 														DefaultString(""),
 													},
@@ -928,25 +994,29 @@ func (r *qosPolicyRulesResource) Schema(_ context.Context, _ resource.SchemaRequ
 											},
 										},
 										"custom": rsschema.SingleNestedAttribute{
-											Description: "",
-											Optional:    true,
+											Description:         "The `custom` parameter.",
+											MarkdownDescription: "The `custom` parameter.",
+											Optional:            true,
 											Attributes: map[string]rsschema.Attribute{
 												"codepoint": rsschema.SingleNestedAttribute{
-													Description: "",
-													Optional:    true,
+													Description:         "The `codepoint` parameter.",
+													MarkdownDescription: "The `codepoint` parameter.",
+													Optional:            true,
 													Attributes: map[string]rsschema.Attribute{
 														"binary_value": rsschema.StringAttribute{
-															Description: "",
-															Optional:    true,
-															Computed:    true,
+															Description:         "The `binary_value` parameter.",
+															MarkdownDescription: "The `binary_value` parameter.",
+															Optional:            true,
+															Computed:            true,
 															PlanModifiers: []planmodifier.String{
 																DefaultString(""),
 															},
 														},
 														"codepoint_name": rsschema.StringAttribute{
-															Description: "",
-															Optional:    true,
-															Computed:    true,
+															Description:         "The `codepoint_name` parameter.",
+															MarkdownDescription: "The `codepoint_name` parameter.",
+															Optional:            true,
+															Computed:            true,
 															PlanModifiers: []planmodifier.String{
 																DefaultString(""),
 															},
@@ -956,17 +1026,20 @@ func (r *qosPolicyRulesResource) Schema(_ context.Context, _ resource.SchemaRequ
 											},
 										},
 										"ef": rsschema.BoolAttribute{
-											Description: "",
-											Optional:    true,
+											Description:         "The `ef` parameter.",
+											MarkdownDescription: "The `ef` parameter.",
+											Optional:            true,
 										},
 										"tos": rsschema.SingleNestedAttribute{
-											Description: "",
-											Optional:    true,
+											Description:         "The `tos` parameter.",
+											MarkdownDescription: "The `tos` parameter.",
+											Optional:            true,
 											Attributes: map[string]rsschema.Attribute{
 												"codepoint": rsschema.StringAttribute{
-													Description: "",
-													Optional:    true,
-													Computed:    true,
+													Description:         "The `codepoint` parameter.",
+													MarkdownDescription: "The `codepoint` parameter.",
+													Optional:            true,
+													Computed:            true,
 													PlanModifiers: []planmodifier.String{
 														DefaultString(""),
 													},
@@ -981,20 +1054,23 @@ func (r *qosPolicyRulesResource) Schema(_ context.Context, _ resource.SchemaRequ
 				},
 			},
 			"object_id": rsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `object_id` parameter.",
+				MarkdownDescription: "The `object_id` parameter.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
 			},
 			"name": rsschema.StringAttribute{
-				Description: "",
-				Required:    true,
+				Description:         "The `name` parameter.",
+				MarkdownDescription: "The `name` parameter.",
+				Required:            true,
 			},
 			"schedule": rsschema.StringAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `schedule` parameter.",
+				MarkdownDescription: "The `schedule` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					DefaultString(""),
 				},

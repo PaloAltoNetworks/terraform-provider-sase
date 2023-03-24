@@ -18,27 +18,27 @@ Retrieves config for a specific item.
 ### Required
 
 - `folder` (String) The folder of the entry
-- `name` (String)
+- `name` (String) The `name` parameter.
 
 ### Optional
 
-- `description` (String)
-- `rules` (Attributes List) (see [below for nested schema](#nestedatt--rules))
+- `description` (String) The `description` parameter.
+- `rules` (Attributes List) The `rules` parameter. (see [below for nested schema](#nestedatt--rules))
 
 ### Read-Only
 
 - `id` (String) The object ID.
-- `object_id` (String)
+- `object_id` (String) The `object_id` parameter.
 
 <a id="nestedatt--rules"></a>
 ### Nested Schema for `rules`
 
 Required:
 
-- `action` (String)
-- `application` (List of String)
-- `direction` (String)
-- `file_type` (List of String)
-- `name` (String)
+- `action` (String) The `action` parameter.
+- `application` (List of String) The `application` parameter.
+- `direction` (String) The `direction` parameter.
+- `file_type` (List of String) The `file_type` parameter.
+- `name` (String) The `name` parameter.
 
 

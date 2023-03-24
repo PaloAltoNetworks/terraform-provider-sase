@@ -27,29 +27,29 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `ah` (Attributes) (see [below for nested schema](#nestedatt--data--ah))
-- `dh_group` (String)
-- `esp` (Attributes) (see [below for nested schema](#nestedatt--data--esp))
-- `lifesize` (Attributes) (see [below for nested schema](#nestedatt--data--lifesize))
-- `lifetime` (Attributes) (see [below for nested schema](#nestedatt--data--lifetime))
-- `name` (String)
-- `object_id` (String)
+- `ah` (Attributes) The `ah` parameter. (see [below for nested schema](#nestedatt--data--ah))
+- `dh_group` (String) The `dh_group` parameter.
+- `esp` (Attributes) The `esp` parameter. (see [below for nested schema](#nestedatt--data--esp))
+- `lifesize` (Attributes) The `lifesize` parameter. (see [below for nested schema](#nestedatt--data--lifesize))
+- `lifetime` (Attributes) The `lifetime` parameter. (see [below for nested schema](#nestedatt--data--lifetime))
+- `name` (String) The `name` parameter.
+- `object_id` (String) The `object_id` parameter.
 
 <a id="nestedatt--data--ah"></a>
 ### Nested Schema for `data.ah`
 
 Read-Only:
 
-- `authentication` (List of String)
+- `authentication` (List of String) The `authentication` parameter.
 
 
 <a id="nestedatt--data--esp"></a>
@@ -57,8 +57,8 @@ Read-Only:
 
 Read-Only:
 
-- `authentication` (List of String)
-- `encryption` (List of String)
+- `authentication` (List of String) The `authentication` parameter.
+- `encryption` (List of String) The `encryption` parameter.
 
 
 <a id="nestedatt--data--lifesize"></a>
@@ -66,10 +66,10 @@ Read-Only:
 
 Read-Only:
 
-- `gb` (Number)
-- `kb` (Number)
-- `mb` (Number)
-- `tb` (Number)
+- `gb` (Number) The `gb` parameter.
+- `kb` (Number) The `kb` parameter.
+- `mb` (Number) The `mb` parameter.
+- `tb` (Number) The `tb` parameter.
 
 
 <a id="nestedatt--data--lifetime"></a>
@@ -77,9 +77,9 @@ Read-Only:
 
 Read-Only:
 
-- `days` (Number)
-- `hours` (Number)
-- `minutes` (Number)
-- `seconds` (Number)
+- `days` (Number) The `days` parameter.
+- `hours` (Number) The `hours` parameter.
+- `minutes` (Number) The `minutes` parameter.
+- `seconds` (Number) The `seconds` parameter.
 
 

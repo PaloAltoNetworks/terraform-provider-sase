@@ -465,28 +465,33 @@ func (d *objectsHipObjectsListDataSource) Schema(_ context.Context, _ datasource
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description: "The max count in result entry (count per page)",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The max count in result entry (count per page)",
+				MarkdownDescription: "The max count in result entry (count per page)",
+				Optional:            true,
+				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description: "The offset of the result entry",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The offset of the result entry",
+				MarkdownDescription: "The offset of the result entry",
+				Optional:            true,
+				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description: "The name of the entry",
-				Optional:    true,
+				Description:         "The name of the entry",
+				MarkdownDescription: "The name of the entry",
+				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -494,147 +499,179 @@ func (d *objectsHipObjectsListDataSource) Schema(_ context.Context, _ datasource
 
 			// Output.
 			"data": dsschema.ListNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `data` parameter.",
+				MarkdownDescription: "The `data` parameter.",
+				Computed:            true,
 				NestedObject: dsschema.NestedAttributeObject{
 					Attributes: map[string]dsschema.Attribute{
 						"anti_malware": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `anti_malware` parameter.",
+							MarkdownDescription: "The `anti_malware` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"criteria": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `criteria` parameter.",
+									MarkdownDescription: "The `criteria` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"is_installed": dsschema.BoolAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `is_installed` parameter.",
+											MarkdownDescription: "The `is_installed` parameter.",
+											Computed:            true,
 										},
 										"last_scan_time": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `last_scan_time` parameter.",
+											MarkdownDescription: "The `last_scan_time` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"not_available": dsschema.BoolAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `not_available` parameter.",
+													MarkdownDescription: "The `not_available` parameter.",
+													Computed:            true,
 												},
 												"not_within": dsschema.SingleNestedAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `not_within` parameter.",
+													MarkdownDescription: "The `not_within` parameter.",
+													Computed:            true,
 													Attributes: map[string]dsschema.Attribute{
 														"days": dsschema.Int64Attribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `days` parameter.",
+															MarkdownDescription: "The `days` parameter.",
+															Computed:            true,
 														},
 														"hours": dsschema.Int64Attribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `hours` parameter.",
+															MarkdownDescription: "The `hours` parameter.",
+															Computed:            true,
 														},
 													},
 												},
 												"within": dsschema.SingleNestedAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `within` parameter.",
+													MarkdownDescription: "The `within` parameter.",
+													Computed:            true,
 													Attributes: map[string]dsschema.Attribute{
 														"days": dsschema.Int64Attribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `days` parameter.",
+															MarkdownDescription: "The `days` parameter.",
+															Computed:            true,
 														},
 														"hours": dsschema.Int64Attribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `hours` parameter.",
+															MarkdownDescription: "The `hours` parameter.",
+															Computed:            true,
 														},
 													},
 												},
 											},
 										},
 										"product_version": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `product_version` parameter.",
+											MarkdownDescription: "The `product_version` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"contains": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `contains` parameter.",
+													MarkdownDescription: "The `contains` parameter.",
+													Computed:            true,
 												},
 												"greater_equal": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `greater_equal` parameter.",
+													MarkdownDescription: "The `greater_equal` parameter.",
+													Computed:            true,
 												},
 												"greater_than": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `greater_than` parameter.",
+													MarkdownDescription: "The `greater_than` parameter.",
+													Computed:            true,
 												},
 												"is": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `is` parameter.",
+													MarkdownDescription: "The `is` parameter.",
+													Computed:            true,
 												},
 												"is_not": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `is_not` parameter.",
+													MarkdownDescription: "The `is_not` parameter.",
+													Computed:            true,
 												},
 												"less_equal": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `less_equal` parameter.",
+													MarkdownDescription: "The `less_equal` parameter.",
+													Computed:            true,
 												},
 												"less_than": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `less_than` parameter.",
+													MarkdownDescription: "The `less_than` parameter.",
+													Computed:            true,
 												},
 												"not_within": dsschema.SingleNestedAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `not_within` parameter.",
+													MarkdownDescription: "The `not_within` parameter.",
+													Computed:            true,
 													Attributes: map[string]dsschema.Attribute{
 														"versions": dsschema.Int64Attribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `versions` parameter.",
+															MarkdownDescription: "The `versions` parameter.",
+															Computed:            true,
 														},
 													},
 												},
 												"within": dsschema.SingleNestedAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `within` parameter.",
+													MarkdownDescription: "The `within` parameter.",
+													Computed:            true,
 													Attributes: map[string]dsschema.Attribute{
 														"versions": dsschema.Int64Attribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `versions` parameter.",
+															MarkdownDescription: "The `versions` parameter.",
+															Computed:            true,
 														},
 													},
 												},
 											},
 										},
 										"real_time_protection": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `real_time_protection` parameter.",
+											MarkdownDescription: "The `real_time_protection` parameter.",
+											Computed:            true,
 										},
 										"virdef_version": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `virdef_version` parameter.",
+											MarkdownDescription: "The `virdef_version` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"not_within": dsschema.SingleNestedAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `not_within` parameter.",
+													MarkdownDescription: "The `not_within` parameter.",
+													Computed:            true,
 													Attributes: map[string]dsschema.Attribute{
 														"days": dsschema.Int64Attribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `days` parameter.",
+															MarkdownDescription: "The `days` parameter.",
+															Computed:            true,
 														},
 														"versions": dsschema.Int64Attribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `versions` parameter.",
+															MarkdownDescription: "The `versions` parameter.",
+															Computed:            true,
 														},
 													},
 												},
 												"within": dsschema.SingleNestedAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `within` parameter.",
+													MarkdownDescription: "The `within` parameter.",
+													Computed:            true,
 													Attributes: map[string]dsschema.Attribute{
 														"days": dsschema.Int64Attribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `days` parameter.",
+															MarkdownDescription: "The `days` parameter.",
+															Computed:            true,
 														},
 														"versions": dsschema.Int64Attribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `versions` parameter.",
+															MarkdownDescription: "The `versions` parameter.",
+															Computed:            true,
 														},
 													},
 												},
@@ -643,22 +680,26 @@ func (d *objectsHipObjectsListDataSource) Schema(_ context.Context, _ datasource
 									},
 								},
 								"exclude_vendor": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `exclude_vendor` parameter.",
+									MarkdownDescription: "The `exclude_vendor` parameter.",
+									Computed:            true,
 								},
 								"vendor": dsschema.ListNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `vendor` parameter.",
+									MarkdownDescription: "The `vendor` parameter.",
+									Computed:            true,
 									NestedObject: dsschema.NestedAttributeObject{
 										Attributes: map[string]dsschema.Attribute{
 											"name": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `name` parameter.",
+												MarkdownDescription: "The `name` parameter.",
+												Computed:            true,
 											},
 											"product": dsschema.ListAttribute{
-												Description: "",
-												Computed:    true,
-												ElementType: types.StringType,
+												Description:         "The `product` parameter.",
+												MarkdownDescription: "The `product` parameter.",
+												Computed:            true,
+												ElementType:         types.StringType,
 											},
 										},
 									},
@@ -666,130 +707,156 @@ func (d *objectsHipObjectsListDataSource) Schema(_ context.Context, _ datasource
 							},
 						},
 						"certificate": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `certificate` parameter.",
+							MarkdownDescription: "The `certificate` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"criteria": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `criteria` parameter.",
+									MarkdownDescription: "The `criteria` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"certificate_attributes": dsschema.ListNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `certificate_attributes` parameter.",
+											MarkdownDescription: "The `certificate_attributes` parameter.",
+											Computed:            true,
 											NestedObject: dsschema.NestedAttributeObject{
 												Attributes: map[string]dsschema.Attribute{
 													"name": dsschema.StringAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `name` parameter.",
+														MarkdownDescription: "The `name` parameter.",
+														Computed:            true,
 													},
 													"value": dsschema.StringAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `value` parameter.",
+														MarkdownDescription: "The `value` parameter.",
+														Computed:            true,
 													},
 												},
 											},
 										},
 										"certificate_profile": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `certificate_profile` parameter.",
+											MarkdownDescription: "The `certificate_profile` parameter.",
+											Computed:            true,
 										},
 									},
 								},
 							},
 						},
 						"custom_checks": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `custom_checks` parameter.",
+							MarkdownDescription: "The `custom_checks` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"criteria": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `criteria` parameter.",
+									MarkdownDescription: "The `criteria` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"plist": dsschema.ListNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `plist` parameter.",
+											MarkdownDescription: "The `plist` parameter.",
+											Computed:            true,
 											NestedObject: dsschema.NestedAttributeObject{
 												Attributes: map[string]dsschema.Attribute{
 													"key": dsschema.ListNestedAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `key` parameter.",
+														MarkdownDescription: "The `key` parameter.",
+														Computed:            true,
 														NestedObject: dsschema.NestedAttributeObject{
 															Attributes: map[string]dsschema.Attribute{
 																"name": dsschema.StringAttribute{
-																	Description: "",
-																	Computed:    true,
+																	Description:         "The `name` parameter.",
+																	MarkdownDescription: "The `name` parameter.",
+																	Computed:            true,
 																},
 																"negate": dsschema.BoolAttribute{
-																	Description: "",
-																	Computed:    true,
+																	Description:         "The `negate` parameter.",
+																	MarkdownDescription: "The `negate` parameter.",
+																	Computed:            true,
 																},
 																"value": dsschema.StringAttribute{
-																	Description: "",
-																	Computed:    true,
+																	Description:         "The `value` parameter.",
+																	MarkdownDescription: "The `value` parameter.",
+																	Computed:            true,
 																},
 															},
 														},
 													},
 													"name": dsschema.StringAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `name` parameter.",
+														MarkdownDescription: "The `name` parameter.",
+														Computed:            true,
 													},
 													"negate": dsschema.BoolAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `negate` parameter.",
+														MarkdownDescription: "The `negate` parameter.",
+														Computed:            true,
 													},
 												},
 											},
 										},
 										"process_list": dsschema.ListNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `process_list` parameter.",
+											MarkdownDescription: "The `process_list` parameter.",
+											Computed:            true,
 											NestedObject: dsschema.NestedAttributeObject{
 												Attributes: map[string]dsschema.Attribute{
 													"name": dsschema.StringAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `name` parameter.",
+														MarkdownDescription: "The `name` parameter.",
+														Computed:            true,
 													},
 													"running": dsschema.BoolAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `running` parameter.",
+														MarkdownDescription: "The `running` parameter.",
+														Computed:            true,
 													},
 												},
 											},
 										},
 										"registry_key": dsschema.ListNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `registry_key` parameter.",
+											MarkdownDescription: "The `registry_key` parameter.",
+											Computed:            true,
 											NestedObject: dsschema.NestedAttributeObject{
 												Attributes: map[string]dsschema.Attribute{
 													"default_value_data": dsschema.StringAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `default_value_data` parameter.",
+														MarkdownDescription: "The `default_value_data` parameter.",
+														Computed:            true,
 													},
 													"name": dsschema.StringAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `name` parameter.",
+														MarkdownDescription: "The `name` parameter.",
+														Computed:            true,
 													},
 													"negate": dsschema.BoolAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `negate` parameter.",
+														MarkdownDescription: "The `negate` parameter.",
+														Computed:            true,
 													},
 													"registry_value": dsschema.ListNestedAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `registry_value` parameter.",
+														MarkdownDescription: "The `registry_value` parameter.",
+														Computed:            true,
 														NestedObject: dsschema.NestedAttributeObject{
 															Attributes: map[string]dsschema.Attribute{
 																"name": dsschema.StringAttribute{
-																	Description: "",
-																	Computed:    true,
+																	Description:         "The `name` parameter.",
+																	MarkdownDescription: "The `name` parameter.",
+																	Computed:            true,
 																},
 																"negate": dsschema.BoolAttribute{
-																	Description: "",
-																	Computed:    true,
+																	Description:         "The `negate` parameter.",
+																	MarkdownDescription: "The `negate` parameter.",
+																	Computed:            true,
 																},
 																"value_data": dsschema.StringAttribute{
-																	Description: "",
-																	Computed:    true,
+																	Description:         "The `value_data` parameter.",
+																	MarkdownDescription: "The `value_data` parameter.",
+																	Computed:            true,
 																},
 															},
 														},
@@ -802,40 +869,48 @@ func (d *objectsHipObjectsListDataSource) Schema(_ context.Context, _ datasource
 							},
 						},
 						"data_loss_prevention": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `data_loss_prevention` parameter.",
+							MarkdownDescription: "The `data_loss_prevention` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"criteria": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `criteria` parameter.",
+									MarkdownDescription: "The `criteria` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"is_enabled": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `is_enabled` parameter.",
+											MarkdownDescription: "The `is_enabled` parameter.",
+											Computed:            true,
 										},
 										"is_installed": dsschema.BoolAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `is_installed` parameter.",
+											MarkdownDescription: "The `is_installed` parameter.",
+											Computed:            true,
 										},
 									},
 								},
 								"exclude_vendor": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `exclude_vendor` parameter.",
+									MarkdownDescription: "The `exclude_vendor` parameter.",
+									Computed:            true,
 								},
 								"vendor": dsschema.ListNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `vendor` parameter.",
+									MarkdownDescription: "The `vendor` parameter.",
+									Computed:            true,
 									NestedObject: dsschema.NestedAttributeObject{
 										Attributes: map[string]dsschema.Attribute{
 											"name": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `name` parameter.",
+												MarkdownDescription: "The `name` parameter.",
+												Computed:            true,
 											},
 											"product": dsschema.ListAttribute{
-												Description: "",
-												Computed:    true,
-												ElementType: types.StringType,
+												Description:         "The `product` parameter.",
+												MarkdownDescription: "The `product` parameter.",
+												Computed:            true,
+												ElementType:         types.StringType,
 											},
 										},
 									},
@@ -843,54 +918,66 @@ func (d *objectsHipObjectsListDataSource) Schema(_ context.Context, _ datasource
 							},
 						},
 						"description": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `description` parameter.",
+							MarkdownDescription: "The `description` parameter.",
+							Computed:            true,
 						},
 						"disk_backup": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `disk_backup` parameter.",
+							MarkdownDescription: "The `disk_backup` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"criteria": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `criteria` parameter.",
+									MarkdownDescription: "The `criteria` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"is_installed": dsschema.BoolAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `is_installed` parameter.",
+											MarkdownDescription: "The `is_installed` parameter.",
+											Computed:            true,
 										},
 										"last_backup_time": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `last_backup_time` parameter.",
+											MarkdownDescription: "The `last_backup_time` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"not_available": dsschema.BoolAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `not_available` parameter.",
+													MarkdownDescription: "The `not_available` parameter.",
+													Computed:            true,
 												},
 												"not_within": dsschema.SingleNestedAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `not_within` parameter.",
+													MarkdownDescription: "The `not_within` parameter.",
+													Computed:            true,
 													Attributes: map[string]dsschema.Attribute{
 														"days": dsschema.Int64Attribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `days` parameter.",
+															MarkdownDescription: "The `days` parameter.",
+															Computed:            true,
 														},
 														"hours": dsschema.Int64Attribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `hours` parameter.",
+															MarkdownDescription: "The `hours` parameter.",
+															Computed:            true,
 														},
 													},
 												},
 												"within": dsschema.SingleNestedAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `within` parameter.",
+													MarkdownDescription: "The `within` parameter.",
+													Computed:            true,
 													Attributes: map[string]dsschema.Attribute{
 														"days": dsschema.Int64Attribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `days` parameter.",
+															MarkdownDescription: "The `days` parameter.",
+															Computed:            true,
 														},
 														"hours": dsschema.Int64Attribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `hours` parameter.",
+															MarkdownDescription: "The `hours` parameter.",
+															Computed:            true,
 														},
 													},
 												},
@@ -899,22 +986,26 @@ func (d *objectsHipObjectsListDataSource) Schema(_ context.Context, _ datasource
 									},
 								},
 								"exclude_vendor": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `exclude_vendor` parameter.",
+									MarkdownDescription: "The `exclude_vendor` parameter.",
+									Computed:            true,
 								},
 								"vendor": dsschema.ListNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `vendor` parameter.",
+									MarkdownDescription: "The `vendor` parameter.",
+									Computed:            true,
 									NestedObject: dsschema.NestedAttributeObject{
 										Attributes: map[string]dsschema.Attribute{
 											"name": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `name` parameter.",
+												MarkdownDescription: "The `name` parameter.",
+												Computed:            true,
 											},
 											"product": dsschema.ListAttribute{
-												Description: "",
-												Computed:    true,
-												ElementType: types.StringType,
+												Description:         "The `product` parameter.",
+												MarkdownDescription: "The `product` parameter.",
+												Computed:            true,
+												ElementType:         types.StringType,
 											},
 										},
 									},
@@ -922,62 +1013,74 @@ func (d *objectsHipObjectsListDataSource) Schema(_ context.Context, _ datasource
 							},
 						},
 						"disk_encryption": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `disk_encryption` parameter.",
+							MarkdownDescription: "The `disk_encryption` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"criteria": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `criteria` parameter.",
+									MarkdownDescription: "The `criteria` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"encrypted_locations": dsschema.ListNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `encrypted_locations` parameter.",
+											MarkdownDescription: "The `encrypted_locations` parameter.",
+											Computed:            true,
 											NestedObject: dsschema.NestedAttributeObject{
 												Attributes: map[string]dsschema.Attribute{
 													"encryption_state": dsschema.SingleNestedAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `encryption_state` parameter.",
+														MarkdownDescription: "The `encryption_state` parameter.",
+														Computed:            true,
 														Attributes: map[string]dsschema.Attribute{
 															"is": dsschema.StringAttribute{
-																Description: "",
-																Computed:    true,
+																Description:         "The `is` parameter.",
+																MarkdownDescription: "The `is` parameter.",
+																Computed:            true,
 															},
 															"is_not": dsschema.StringAttribute{
-																Description: "",
-																Computed:    true,
+																Description:         "The `is_not` parameter.",
+																MarkdownDescription: "The `is_not` parameter.",
+																Computed:            true,
 															},
 														},
 													},
 													"name": dsschema.StringAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `name` parameter.",
+														MarkdownDescription: "The `name` parameter.",
+														Computed:            true,
 													},
 												},
 											},
 										},
 										"is_installed": dsschema.BoolAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `is_installed` parameter.",
+											MarkdownDescription: "The `is_installed` parameter.",
+											Computed:            true,
 										},
 									},
 								},
 								"exclude_vendor": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `exclude_vendor` parameter.",
+									MarkdownDescription: "The `exclude_vendor` parameter.",
+									Computed:            true,
 								},
 								"vendor": dsschema.ListNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `vendor` parameter.",
+									MarkdownDescription: "The `vendor` parameter.",
+									Computed:            true,
 									NestedObject: dsschema.NestedAttributeObject{
 										Attributes: map[string]dsschema.Attribute{
 											"name": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `name` parameter.",
+												MarkdownDescription: "The `name` parameter.",
+												Computed:            true,
 											},
 											"product": dsschema.ListAttribute{
-												Description: "",
-												Computed:    true,
-												ElementType: types.StringType,
+												Description:         "The `product` parameter.",
+												MarkdownDescription: "The `product` parameter.",
+												Computed:            true,
+												ElementType:         types.StringType,
 											},
 										},
 									},
@@ -985,40 +1088,48 @@ func (d *objectsHipObjectsListDataSource) Schema(_ context.Context, _ datasource
 							},
 						},
 						"firewall": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `firewall` parameter.",
+							MarkdownDescription: "The `firewall` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"criteria": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `criteria` parameter.",
+									MarkdownDescription: "The `criteria` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"is_enabled": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `is_enabled` parameter.",
+											MarkdownDescription: "The `is_enabled` parameter.",
+											Computed:            true,
 										},
 										"is_installed": dsschema.BoolAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `is_installed` parameter.",
+											MarkdownDescription: "The `is_installed` parameter.",
+											Computed:            true,
 										},
 									},
 								},
 								"exclude_vendor": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `exclude_vendor` parameter.",
+									MarkdownDescription: "The `exclude_vendor` parameter.",
+									Computed:            true,
 								},
 								"vendor": dsschema.ListNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `vendor` parameter.",
+									MarkdownDescription: "The `vendor` parameter.",
+									Computed:            true,
 									NestedObject: dsschema.NestedAttributeObject{
 										Attributes: map[string]dsschema.Attribute{
 											"name": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `name` parameter.",
+												MarkdownDescription: "The `name` parameter.",
+												Computed:            true,
 											},
 											"product": dsschema.ListAttribute{
-												Description: "",
-												Computed:    true,
-												ElementType: types.StringType,
+												Description:         "The `product` parameter.",
+												MarkdownDescription: "The `product` parameter.",
+												Computed:            true,
+												ElementType:         types.StringType,
 											},
 										},
 									},
@@ -1026,136 +1137,166 @@ func (d *objectsHipObjectsListDataSource) Schema(_ context.Context, _ datasource
 							},
 						},
 						"host_info": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `host_info` parameter.",
+							MarkdownDescription: "The `host_info` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"criteria": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `criteria` parameter.",
+									MarkdownDescription: "The `criteria` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"client_version": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `client_version` parameter.",
+											MarkdownDescription: "The `client_version` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"contains": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `contains` parameter.",
+													MarkdownDescription: "The `contains` parameter.",
+													Computed:            true,
 												},
 												"is": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `is` parameter.",
+													MarkdownDescription: "The `is` parameter.",
+													Computed:            true,
 												},
 												"is_not": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `is_not` parameter.",
+													MarkdownDescription: "The `is_not` parameter.",
+													Computed:            true,
 												},
 											},
 										},
 										"domain": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `domain` parameter.",
+											MarkdownDescription: "The `domain` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"contains": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `contains` parameter.",
+													MarkdownDescription: "The `contains` parameter.",
+													Computed:            true,
 												},
 												"is": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `is` parameter.",
+													MarkdownDescription: "The `is` parameter.",
+													Computed:            true,
 												},
 												"is_not": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `is_not` parameter.",
+													MarkdownDescription: "The `is_not` parameter.",
+													Computed:            true,
 												},
 											},
 										},
 										"host_id": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `host_id` parameter.",
+											MarkdownDescription: "The `host_id` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"contains": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `contains` parameter.",
+													MarkdownDescription: "The `contains` parameter.",
+													Computed:            true,
 												},
 												"is": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `is` parameter.",
+													MarkdownDescription: "The `is` parameter.",
+													Computed:            true,
 												},
 												"is_not": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `is_not` parameter.",
+													MarkdownDescription: "The `is_not` parameter.",
+													Computed:            true,
 												},
 											},
 										},
 										"host_name": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `host_name` parameter.",
+											MarkdownDescription: "The `host_name` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"contains": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `contains` parameter.",
+													MarkdownDescription: "The `contains` parameter.",
+													Computed:            true,
 												},
 												"is": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `is` parameter.",
+													MarkdownDescription: "The `is` parameter.",
+													Computed:            true,
 												},
 												"is_not": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `is_not` parameter.",
+													MarkdownDescription: "The `is_not` parameter.",
+													Computed:            true,
 												},
 											},
 										},
 										"managed": dsschema.BoolAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `managed` parameter.",
+											MarkdownDescription: "The `managed` parameter.",
+											Computed:            true,
 										},
 										"os": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `os` parameter.",
+											MarkdownDescription: "The `os` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"contains": dsschema.SingleNestedAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `contains` parameter.",
+													MarkdownDescription: "The `contains` parameter.",
+													Computed:            true,
 													Attributes: map[string]dsschema.Attribute{
 														"apple": dsschema.StringAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `apple` parameter.",
+															MarkdownDescription: "The `apple` parameter.",
+															Computed:            true,
 														},
 														"google": dsschema.StringAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `google` parameter.",
+															MarkdownDescription: "The `google` parameter.",
+															Computed:            true,
 														},
 														"linux": dsschema.StringAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `linux` parameter.",
+															MarkdownDescription: "The `linux` parameter.",
+															Computed:            true,
 														},
 														"microsoft": dsschema.StringAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `microsoft` parameter.",
+															MarkdownDescription: "The `microsoft` parameter.",
+															Computed:            true,
 														},
 														"other": dsschema.StringAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `other` parameter.",
+															MarkdownDescription: "The `other` parameter.",
+															Computed:            true,
 														},
 													},
 												},
 											},
 										},
 										"serial_number": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `serial_number` parameter.",
+											MarkdownDescription: "The `serial_number` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"contains": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `contains` parameter.",
+													MarkdownDescription: "The `contains` parameter.",
+													Computed:            true,
 												},
 												"is": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `is` parameter.",
+													MarkdownDescription: "The `is` parameter.",
+													Computed:            true,
 												},
 												"is_not": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `is_not` parameter.",
+													MarkdownDescription: "The `is_not` parameter.",
+													Computed:            true,
 												},
 											},
 										},
@@ -1164,49 +1305,60 @@ func (d *objectsHipObjectsListDataSource) Schema(_ context.Context, _ datasource
 							},
 						},
 						"object_id": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `object_id` parameter.",
+							MarkdownDescription: "The `object_id` parameter.",
+							Computed:            true,
 						},
 						"mobile_device": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `mobile_device` parameter.",
+							MarkdownDescription: "The `mobile_device` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"criteria": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `criteria` parameter.",
+									MarkdownDescription: "The `criteria` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"applications": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `applications` parameter.",
+											MarkdownDescription: "The `applications` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"has_malware": dsschema.SingleNestedAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `has_malware` parameter.",
+													MarkdownDescription: "The `has_malware` parameter.",
+													Computed:            true,
 													Attributes: map[string]dsschema.Attribute{
 														"no": dsschema.BoolAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `no` parameter.",
+															MarkdownDescription: "The `no` parameter.",
+															Computed:            true,
 														},
 														"yes": dsschema.SingleNestedAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `yes` parameter.",
+															MarkdownDescription: "The `yes` parameter.",
+															Computed:            true,
 															Attributes: map[string]dsschema.Attribute{
 																"excludes": dsschema.ListNestedAttribute{
-																	Description: "",
-																	Computed:    true,
+																	Description:         "The `excludes` parameter.",
+																	MarkdownDescription: "The `excludes` parameter.",
+																	Computed:            true,
 																	NestedObject: dsschema.NestedAttributeObject{
 																		Attributes: map[string]dsschema.Attribute{
 																			"hash": dsschema.StringAttribute{
-																				Description: "",
-																				Computed:    true,
+																				Description:         "The `hash` parameter.",
+																				MarkdownDescription: "The `hash` parameter.",
+																				Computed:            true,
 																			},
 																			"name": dsschema.StringAttribute{
-																				Description: "",
-																				Computed:    true,
+																				Description:         "The `name` parameter.",
+																				MarkdownDescription: "The `name` parameter.",
+																				Computed:            true,
 																			},
 																			"package": dsschema.StringAttribute{
-																				Description: "",
-																				Computed:    true,
+																				Description:         "The `package` parameter.",
+																				MarkdownDescription: "The `package` parameter.",
+																				Computed:            true,
 																			},
 																		},
 																	},
@@ -1216,25 +1368,30 @@ func (d *objectsHipObjectsListDataSource) Schema(_ context.Context, _ datasource
 													},
 												},
 												"has_unmanaged_app": dsschema.BoolAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `has_unmanaged_app` parameter.",
+													MarkdownDescription: "The `has_unmanaged_app` parameter.",
+													Computed:            true,
 												},
 												"includes": dsschema.ListNestedAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `includes` parameter.",
+													MarkdownDescription: "The `includes` parameter.",
+													Computed:            true,
 													NestedObject: dsschema.NestedAttributeObject{
 														Attributes: map[string]dsschema.Attribute{
 															"hash": dsschema.StringAttribute{
-																Description: "",
-																Computed:    true,
+																Description:         "The `hash` parameter.",
+																MarkdownDescription: "The `hash` parameter.",
+																Computed:            true,
 															},
 															"name": dsschema.StringAttribute{
-																Description: "",
-																Computed:    true,
+																Description:         "The `name` parameter.",
+																MarkdownDescription: "The `name` parameter.",
+																Computed:            true,
 															},
 															"package": dsschema.StringAttribute{
-																Description: "",
-																Computed:    true,
+																Description:         "The `package` parameter.",
+																MarkdownDescription: "The `package` parameter.",
+																Computed:            true,
 															},
 														},
 													},
@@ -1242,112 +1399,136 @@ func (d *objectsHipObjectsListDataSource) Schema(_ context.Context, _ datasource
 											},
 										},
 										"disk_encrypted": dsschema.BoolAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `disk_encrypted` parameter.",
+											MarkdownDescription: "The `disk_encrypted` parameter.",
+											Computed:            true,
 										},
 										"imei": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `imei` parameter.",
+											MarkdownDescription: "The `imei` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"contains": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `contains` parameter.",
+													MarkdownDescription: "The `contains` parameter.",
+													Computed:            true,
 												},
 												"is": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `is` parameter.",
+													MarkdownDescription: "The `is` parameter.",
+													Computed:            true,
 												},
 												"is_not": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `is_not` parameter.",
+													MarkdownDescription: "The `is_not` parameter.",
+													Computed:            true,
 												},
 											},
 										},
 										"jailbroken": dsschema.BoolAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `jailbroken` parameter.",
+											MarkdownDescription: "The `jailbroken` parameter.",
+											Computed:            true,
 										},
 										"last_checkin_time": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `last_checkin_time` parameter.",
+											MarkdownDescription: "The `last_checkin_time` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"not_within": dsschema.SingleNestedAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `not_within` parameter.",
+													MarkdownDescription: "The `not_within` parameter.",
+													Computed:            true,
 													Attributes: map[string]dsschema.Attribute{
 														"days": dsschema.Int64Attribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `days` parameter.",
+															MarkdownDescription: "The `days` parameter.",
+															Computed:            true,
 														},
 													},
 												},
 												"within": dsschema.SingleNestedAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `within` parameter.",
+													MarkdownDescription: "The `within` parameter.",
+													Computed:            true,
 													Attributes: map[string]dsschema.Attribute{
 														"days": dsschema.Int64Attribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `days` parameter.",
+															MarkdownDescription: "The `days` parameter.",
+															Computed:            true,
 														},
 													},
 												},
 											},
 										},
 										"model": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `model` parameter.",
+											MarkdownDescription: "The `model` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"contains": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `contains` parameter.",
+													MarkdownDescription: "The `contains` parameter.",
+													Computed:            true,
 												},
 												"is": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `is` parameter.",
+													MarkdownDescription: "The `is` parameter.",
+													Computed:            true,
 												},
 												"is_not": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `is_not` parameter.",
+													MarkdownDescription: "The `is_not` parameter.",
+													Computed:            true,
 												},
 											},
 										},
 										"passcode_set": dsschema.BoolAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `passcode_set` parameter.",
+											MarkdownDescription: "The `passcode_set` parameter.",
+											Computed:            true,
 										},
 										"phone_number": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `phone_number` parameter.",
+											MarkdownDescription: "The `phone_number` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"contains": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `contains` parameter.",
+													MarkdownDescription: "The `contains` parameter.",
+													Computed:            true,
 												},
 												"is": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `is` parameter.",
+													MarkdownDescription: "The `is` parameter.",
+													Computed:            true,
 												},
 												"is_not": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `is_not` parameter.",
+													MarkdownDescription: "The `is_not` parameter.",
+													Computed:            true,
 												},
 											},
 										},
 										"tag": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `tag` parameter.",
+											MarkdownDescription: "The `tag` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"contains": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `contains` parameter.",
+													MarkdownDescription: "The `contains` parameter.",
+													Computed:            true,
 												},
 												"is": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `is` parameter.",
+													MarkdownDescription: "The `is` parameter.",
+													Computed:            true,
 												},
 												"is_not": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `is_not` parameter.",
+													MarkdownDescription: "The `is_not` parameter.",
+													Computed:            true,
 												},
 											},
 										},
@@ -1356,80 +1537,97 @@ func (d *objectsHipObjectsListDataSource) Schema(_ context.Context, _ datasource
 							},
 						},
 						"name": dsschema.StringAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `name` parameter.",
+							MarkdownDescription: "The `name` parameter.",
+							Computed:            true,
 						},
 						"network_info": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `network_info` parameter.",
+							MarkdownDescription: "The `network_info` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"criteria": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `criteria` parameter.",
+									MarkdownDescription: "The `criteria` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"network": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `network` parameter.",
+											MarkdownDescription: "The `network` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"is": dsschema.SingleNestedAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `is` parameter.",
+													MarkdownDescription: "The `is` parameter.",
+													Computed:            true,
 													Attributes: map[string]dsschema.Attribute{
 														"mobile": dsschema.SingleNestedAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `mobile` parameter.",
+															MarkdownDescription: "The `mobile` parameter.",
+															Computed:            true,
 															Attributes: map[string]dsschema.Attribute{
 																"carrier": dsschema.StringAttribute{
-																	Description: "",
-																	Computed:    true,
+																	Description:         "The `carrier` parameter.",
+																	MarkdownDescription: "The `carrier` parameter.",
+																	Computed:            true,
 																},
 															},
 														},
 														"unknown": dsschema.BoolAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `unknown` parameter.",
+															MarkdownDescription: "The `unknown` parameter.",
+															Computed:            true,
 														},
 														"wifi": dsschema.SingleNestedAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `wifi` parameter.",
+															MarkdownDescription: "The `wifi` parameter.",
+															Computed:            true,
 															Attributes: map[string]dsschema.Attribute{
 																"ssid": dsschema.StringAttribute{
-																	Description: "",
-																	Computed:    true,
+																	Description:         "The `ssid` parameter.",
+																	MarkdownDescription: "The `ssid` parameter.",
+																	Computed:            true,
 																},
 															},
 														},
 													},
 												},
 												"is_not": dsschema.SingleNestedAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `is_not` parameter.",
+													MarkdownDescription: "The `is_not` parameter.",
+													Computed:            true,
 													Attributes: map[string]dsschema.Attribute{
 														"ethernet": dsschema.BoolAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `ethernet` parameter.",
+															MarkdownDescription: "The `ethernet` parameter.",
+															Computed:            true,
 														},
 														"mobile": dsschema.SingleNestedAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `mobile` parameter.",
+															MarkdownDescription: "The `mobile` parameter.",
+															Computed:            true,
 															Attributes: map[string]dsschema.Attribute{
 																"carrier": dsschema.StringAttribute{
-																	Description: "",
-																	Computed:    true,
+																	Description:         "The `carrier` parameter.",
+																	MarkdownDescription: "The `carrier` parameter.",
+																	Computed:            true,
 																},
 															},
 														},
 														"unknown": dsschema.BoolAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `unknown` parameter.",
+															MarkdownDescription: "The `unknown` parameter.",
+															Computed:            true,
 														},
 														"wifi": dsschema.SingleNestedAttribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `wifi` parameter.",
+															MarkdownDescription: "The `wifi` parameter.",
+															Computed:            true,
 															Attributes: map[string]dsschema.Attribute{
 																"ssid": dsschema.StringAttribute{
-																	Description: "",
-																	Computed:    true,
+																	Description:         "The `ssid` parameter.",
+																	MarkdownDescription: "The `ssid` parameter.",
+																	Computed:            true,
 																},
 															},
 														},
@@ -1442,61 +1640,75 @@ func (d *objectsHipObjectsListDataSource) Schema(_ context.Context, _ datasource
 							},
 						},
 						"patch_management": dsschema.SingleNestedAttribute{
-							Description: "",
-							Computed:    true,
+							Description:         "The `patch_management` parameter.",
+							MarkdownDescription: "The `patch_management` parameter.",
+							Computed:            true,
 							Attributes: map[string]dsschema.Attribute{
 								"criteria": dsschema.SingleNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `criteria` parameter.",
+									MarkdownDescription: "The `criteria` parameter.",
+									Computed:            true,
 									Attributes: map[string]dsschema.Attribute{
 										"is_enabled": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `is_enabled` parameter.",
+											MarkdownDescription: "The `is_enabled` parameter.",
+											Computed:            true,
 										},
 										"is_installed": dsschema.BoolAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `is_installed` parameter.",
+											MarkdownDescription: "The `is_installed` parameter.",
+											Computed:            true,
 										},
 										"missing_patches": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `missing_patches` parameter.",
+											MarkdownDescription: "The `missing_patches` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"check": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `check` parameter.",
+													MarkdownDescription: "The `check` parameter.",
+													Computed:            true,
 												},
 												"patches": dsschema.ListAttribute{
-													Description: "",
-													Computed:    true,
-													ElementType: types.StringType,
+													Description:         "The `patches` parameter.",
+													MarkdownDescription: "The `patches` parameter.",
+													Computed:            true,
+													ElementType:         types.StringType,
 												},
 												"severity": dsschema.SingleNestedAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `severity` parameter.",
+													MarkdownDescription: "The `severity` parameter.",
+													Computed:            true,
 													Attributes: map[string]dsschema.Attribute{
 														"greater_equal": dsschema.Int64Attribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `greater_equal` parameter.",
+															MarkdownDescription: "The `greater_equal` parameter.",
+															Computed:            true,
 														},
 														"greater_than": dsschema.Int64Attribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `greater_than` parameter.",
+															MarkdownDescription: "The `greater_than` parameter.",
+															Computed:            true,
 														},
 														"is": dsschema.Int64Attribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `is` parameter.",
+															MarkdownDescription: "The `is` parameter.",
+															Computed:            true,
 														},
 														"is_not": dsschema.Int64Attribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `is_not` parameter.",
+															MarkdownDescription: "The `is_not` parameter.",
+															Computed:            true,
 														},
 														"less_equal": dsschema.Int64Attribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `less_equal` parameter.",
+															MarkdownDescription: "The `less_equal` parameter.",
+															Computed:            true,
 														},
 														"less_than": dsschema.Int64Attribute{
-															Description: "",
-															Computed:    true,
+															Description:         "The `less_than` parameter.",
+															MarkdownDescription: "The `less_than` parameter.",
+															Computed:            true,
 														},
 													},
 												},
@@ -1505,22 +1717,26 @@ func (d *objectsHipObjectsListDataSource) Schema(_ context.Context, _ datasource
 									},
 								},
 								"exclude_vendor": dsschema.BoolAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `exclude_vendor` parameter.",
+									MarkdownDescription: "The `exclude_vendor` parameter.",
+									Computed:            true,
 								},
 								"vendor": dsschema.ListNestedAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `vendor` parameter.",
+									MarkdownDescription: "The `vendor` parameter.",
+									Computed:            true,
 									NestedObject: dsschema.NestedAttributeObject{
 										Attributes: map[string]dsschema.Attribute{
 											"name": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `name` parameter.",
+												MarkdownDescription: "The `name` parameter.",
+												Computed:            true,
 											},
 											"product": dsschema.ListAttribute{
-												Description: "",
-												Computed:    true,
-												ElementType: types.StringType,
+												Description:         "The `product` parameter.",
+												MarkdownDescription: "The `product` parameter.",
+												Computed:            true,
+												ElementType:         types.StringType,
 											},
 										},
 									},
@@ -1531,8 +1747,9 @@ func (d *objectsHipObjectsListDataSource) Schema(_ context.Context, _ datasource
 				},
 			},
 			"total": dsschema.Int64Attribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `total` parameter.",
+				MarkdownDescription: "The `total` parameter.",
+				Computed:            true,
 			},
 		},
 	}
@@ -2658,18 +2875,21 @@ func (d *objectsHipObjectsDataSource) Schema(_ context.Context, _ datasource.Sch
 
 		Attributes: map[string]dsschema.Attribute{
 			"id": dsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 			},
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description: "The uuid of the resource",
-				Required:    true,
+				Description:         "The uuid of the resource",
+				MarkdownDescription: "The uuid of the resource",
+				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
@@ -2677,142 +2897,173 @@ func (d *objectsHipObjectsDataSource) Schema(_ context.Context, _ datasource.Sch
 
 			// Output.
 			"anti_malware": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `anti_malware` parameter.",
+				MarkdownDescription: "The `anti_malware` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"criteria": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `criteria` parameter.",
+						MarkdownDescription: "The `criteria` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"is_installed": dsschema.BoolAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `is_installed` parameter.",
+								MarkdownDescription: "The `is_installed` parameter.",
+								Computed:            true,
 							},
 							"last_scan_time": dsschema.SingleNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `last_scan_time` parameter.",
+								MarkdownDescription: "The `last_scan_time` parameter.",
+								Computed:            true,
 								Attributes: map[string]dsschema.Attribute{
 									"not_available": dsschema.BoolAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `not_available` parameter.",
+										MarkdownDescription: "The `not_available` parameter.",
+										Computed:            true,
 									},
 									"not_within": dsschema.SingleNestedAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `not_within` parameter.",
+										MarkdownDescription: "The `not_within` parameter.",
+										Computed:            true,
 										Attributes: map[string]dsschema.Attribute{
 											"days": dsschema.Int64Attribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `days` parameter.",
+												MarkdownDescription: "The `days` parameter.",
+												Computed:            true,
 											},
 											"hours": dsschema.Int64Attribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `hours` parameter.",
+												MarkdownDescription: "The `hours` parameter.",
+												Computed:            true,
 											},
 										},
 									},
 									"within": dsschema.SingleNestedAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `within` parameter.",
+										MarkdownDescription: "The `within` parameter.",
+										Computed:            true,
 										Attributes: map[string]dsschema.Attribute{
 											"days": dsschema.Int64Attribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `days` parameter.",
+												MarkdownDescription: "The `days` parameter.",
+												Computed:            true,
 											},
 											"hours": dsschema.Int64Attribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `hours` parameter.",
+												MarkdownDescription: "The `hours` parameter.",
+												Computed:            true,
 											},
 										},
 									},
 								},
 							},
 							"product_version": dsschema.SingleNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `product_version` parameter.",
+								MarkdownDescription: "The `product_version` parameter.",
+								Computed:            true,
 								Attributes: map[string]dsschema.Attribute{
 									"contains": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `contains` parameter.",
+										MarkdownDescription: "The `contains` parameter.",
+										Computed:            true,
 									},
 									"greater_equal": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `greater_equal` parameter.",
+										MarkdownDescription: "The `greater_equal` parameter.",
+										Computed:            true,
 									},
 									"greater_than": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `greater_than` parameter.",
+										MarkdownDescription: "The `greater_than` parameter.",
+										Computed:            true,
 									},
 									"is": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `is` parameter.",
+										MarkdownDescription: "The `is` parameter.",
+										Computed:            true,
 									},
 									"is_not": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `is_not` parameter.",
+										MarkdownDescription: "The `is_not` parameter.",
+										Computed:            true,
 									},
 									"less_equal": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `less_equal` parameter.",
+										MarkdownDescription: "The `less_equal` parameter.",
+										Computed:            true,
 									},
 									"less_than": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `less_than` parameter.",
+										MarkdownDescription: "The `less_than` parameter.",
+										Computed:            true,
 									},
 									"not_within": dsschema.SingleNestedAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `not_within` parameter.",
+										MarkdownDescription: "The `not_within` parameter.",
+										Computed:            true,
 										Attributes: map[string]dsschema.Attribute{
 											"versions": dsschema.Int64Attribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `versions` parameter.",
+												MarkdownDescription: "The `versions` parameter.",
+												Computed:            true,
 											},
 										},
 									},
 									"within": dsschema.SingleNestedAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `within` parameter.",
+										MarkdownDescription: "The `within` parameter.",
+										Computed:            true,
 										Attributes: map[string]dsschema.Attribute{
 											"versions": dsschema.Int64Attribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `versions` parameter.",
+												MarkdownDescription: "The `versions` parameter.",
+												Computed:            true,
 											},
 										},
 									},
 								},
 							},
 							"real_time_protection": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `real_time_protection` parameter.",
+								MarkdownDescription: "The `real_time_protection` parameter.",
+								Computed:            true,
 							},
 							"virdef_version": dsschema.SingleNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `virdef_version` parameter.",
+								MarkdownDescription: "The `virdef_version` parameter.",
+								Computed:            true,
 								Attributes: map[string]dsschema.Attribute{
 									"not_within": dsschema.SingleNestedAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `not_within` parameter.",
+										MarkdownDescription: "The `not_within` parameter.",
+										Computed:            true,
 										Attributes: map[string]dsschema.Attribute{
 											"days": dsschema.Int64Attribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `days` parameter.",
+												MarkdownDescription: "The `days` parameter.",
+												Computed:            true,
 											},
 											"versions": dsschema.Int64Attribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `versions` parameter.",
+												MarkdownDescription: "The `versions` parameter.",
+												Computed:            true,
 											},
 										},
 									},
 									"within": dsschema.SingleNestedAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `within` parameter.",
+										MarkdownDescription: "The `within` parameter.",
+										Computed:            true,
 										Attributes: map[string]dsschema.Attribute{
 											"days": dsschema.Int64Attribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `days` parameter.",
+												MarkdownDescription: "The `days` parameter.",
+												Computed:            true,
 											},
 											"versions": dsschema.Int64Attribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `versions` parameter.",
+												MarkdownDescription: "The `versions` parameter.",
+												Computed:            true,
 											},
 										},
 									},
@@ -2821,22 +3072,26 @@ func (d *objectsHipObjectsDataSource) Schema(_ context.Context, _ datasource.Sch
 						},
 					},
 					"exclude_vendor": dsschema.BoolAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `exclude_vendor` parameter.",
+						MarkdownDescription: "The `exclude_vendor` parameter.",
+						Computed:            true,
 					},
 					"vendor": dsschema.ListNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `vendor` parameter.",
+						MarkdownDescription: "The `vendor` parameter.",
+						Computed:            true,
 						NestedObject: dsschema.NestedAttributeObject{
 							Attributes: map[string]dsschema.Attribute{
 								"name": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `name` parameter.",
+									MarkdownDescription: "The `name` parameter.",
+									Computed:            true,
 								},
 								"product": dsschema.ListAttribute{
-									Description: "",
-									Computed:    true,
-									ElementType: types.StringType,
+									Description:         "The `product` parameter.",
+									MarkdownDescription: "The `product` parameter.",
+									Computed:            true,
+									ElementType:         types.StringType,
 								},
 							},
 						},
@@ -2844,130 +3099,156 @@ func (d *objectsHipObjectsDataSource) Schema(_ context.Context, _ datasource.Sch
 				},
 			},
 			"certificate": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `certificate` parameter.",
+				MarkdownDescription: "The `certificate` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"criteria": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `criteria` parameter.",
+						MarkdownDescription: "The `criteria` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"certificate_attributes": dsschema.ListNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `certificate_attributes` parameter.",
+								MarkdownDescription: "The `certificate_attributes` parameter.",
+								Computed:            true,
 								NestedObject: dsschema.NestedAttributeObject{
 									Attributes: map[string]dsschema.Attribute{
 										"name": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `name` parameter.",
+											MarkdownDescription: "The `name` parameter.",
+											Computed:            true,
 										},
 										"value": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `value` parameter.",
+											MarkdownDescription: "The `value` parameter.",
+											Computed:            true,
 										},
 									},
 								},
 							},
 							"certificate_profile": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `certificate_profile` parameter.",
+								MarkdownDescription: "The `certificate_profile` parameter.",
+								Computed:            true,
 							},
 						},
 					},
 				},
 			},
 			"custom_checks": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `custom_checks` parameter.",
+				MarkdownDescription: "The `custom_checks` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"criteria": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `criteria` parameter.",
+						MarkdownDescription: "The `criteria` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"plist": dsschema.ListNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `plist` parameter.",
+								MarkdownDescription: "The `plist` parameter.",
+								Computed:            true,
 								NestedObject: dsschema.NestedAttributeObject{
 									Attributes: map[string]dsschema.Attribute{
 										"key": dsschema.ListNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `key` parameter.",
+											MarkdownDescription: "The `key` parameter.",
+											Computed:            true,
 											NestedObject: dsschema.NestedAttributeObject{
 												Attributes: map[string]dsschema.Attribute{
 													"name": dsschema.StringAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `name` parameter.",
+														MarkdownDescription: "The `name` parameter.",
+														Computed:            true,
 													},
 													"negate": dsschema.BoolAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `negate` parameter.",
+														MarkdownDescription: "The `negate` parameter.",
+														Computed:            true,
 													},
 													"value": dsschema.StringAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `value` parameter.",
+														MarkdownDescription: "The `value` parameter.",
+														Computed:            true,
 													},
 												},
 											},
 										},
 										"name": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `name` parameter.",
+											MarkdownDescription: "The `name` parameter.",
+											Computed:            true,
 										},
 										"negate": dsschema.BoolAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `negate` parameter.",
+											MarkdownDescription: "The `negate` parameter.",
+											Computed:            true,
 										},
 									},
 								},
 							},
 							"process_list": dsschema.ListNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `process_list` parameter.",
+								MarkdownDescription: "The `process_list` parameter.",
+								Computed:            true,
 								NestedObject: dsschema.NestedAttributeObject{
 									Attributes: map[string]dsschema.Attribute{
 										"name": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `name` parameter.",
+											MarkdownDescription: "The `name` parameter.",
+											Computed:            true,
 										},
 										"running": dsschema.BoolAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `running` parameter.",
+											MarkdownDescription: "The `running` parameter.",
+											Computed:            true,
 										},
 									},
 								},
 							},
 							"registry_key": dsschema.ListNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `registry_key` parameter.",
+								MarkdownDescription: "The `registry_key` parameter.",
+								Computed:            true,
 								NestedObject: dsschema.NestedAttributeObject{
 									Attributes: map[string]dsschema.Attribute{
 										"default_value_data": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `default_value_data` parameter.",
+											MarkdownDescription: "The `default_value_data` parameter.",
+											Computed:            true,
 										},
 										"name": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `name` parameter.",
+											MarkdownDescription: "The `name` parameter.",
+											Computed:            true,
 										},
 										"negate": dsschema.BoolAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `negate` parameter.",
+											MarkdownDescription: "The `negate` parameter.",
+											Computed:            true,
 										},
 										"registry_value": dsschema.ListNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `registry_value` parameter.",
+											MarkdownDescription: "The `registry_value` parameter.",
+											Computed:            true,
 											NestedObject: dsschema.NestedAttributeObject{
 												Attributes: map[string]dsschema.Attribute{
 													"name": dsschema.StringAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `name` parameter.",
+														MarkdownDescription: "The `name` parameter.",
+														Computed:            true,
 													},
 													"negate": dsschema.BoolAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `negate` parameter.",
+														MarkdownDescription: "The `negate` parameter.",
+														Computed:            true,
 													},
 													"value_data": dsschema.StringAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `value_data` parameter.",
+														MarkdownDescription: "The `value_data` parameter.",
+														Computed:            true,
 													},
 												},
 											},
@@ -2980,40 +3261,48 @@ func (d *objectsHipObjectsDataSource) Schema(_ context.Context, _ datasource.Sch
 				},
 			},
 			"data_loss_prevention": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `data_loss_prevention` parameter.",
+				MarkdownDescription: "The `data_loss_prevention` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"criteria": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `criteria` parameter.",
+						MarkdownDescription: "The `criteria` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"is_enabled": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `is_enabled` parameter.",
+								MarkdownDescription: "The `is_enabled` parameter.",
+								Computed:            true,
 							},
 							"is_installed": dsschema.BoolAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `is_installed` parameter.",
+								MarkdownDescription: "The `is_installed` parameter.",
+								Computed:            true,
 							},
 						},
 					},
 					"exclude_vendor": dsschema.BoolAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `exclude_vendor` parameter.",
+						MarkdownDescription: "The `exclude_vendor` parameter.",
+						Computed:            true,
 					},
 					"vendor": dsschema.ListNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `vendor` parameter.",
+						MarkdownDescription: "The `vendor` parameter.",
+						Computed:            true,
 						NestedObject: dsschema.NestedAttributeObject{
 							Attributes: map[string]dsschema.Attribute{
 								"name": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `name` parameter.",
+									MarkdownDescription: "The `name` parameter.",
+									Computed:            true,
 								},
 								"product": dsschema.ListAttribute{
-									Description: "",
-									Computed:    true,
-									ElementType: types.StringType,
+									Description:         "The `product` parameter.",
+									MarkdownDescription: "The `product` parameter.",
+									Computed:            true,
+									ElementType:         types.StringType,
 								},
 							},
 						},
@@ -3021,54 +3310,66 @@ func (d *objectsHipObjectsDataSource) Schema(_ context.Context, _ datasource.Sch
 				},
 			},
 			"description": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `description` parameter.",
+				MarkdownDescription: "The `description` parameter.",
+				Computed:            true,
 			},
 			"disk_backup": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `disk_backup` parameter.",
+				MarkdownDescription: "The `disk_backup` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"criteria": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `criteria` parameter.",
+						MarkdownDescription: "The `criteria` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"is_installed": dsschema.BoolAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `is_installed` parameter.",
+								MarkdownDescription: "The `is_installed` parameter.",
+								Computed:            true,
 							},
 							"last_backup_time": dsschema.SingleNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `last_backup_time` parameter.",
+								MarkdownDescription: "The `last_backup_time` parameter.",
+								Computed:            true,
 								Attributes: map[string]dsschema.Attribute{
 									"not_available": dsschema.BoolAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `not_available` parameter.",
+										MarkdownDescription: "The `not_available` parameter.",
+										Computed:            true,
 									},
 									"not_within": dsschema.SingleNestedAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `not_within` parameter.",
+										MarkdownDescription: "The `not_within` parameter.",
+										Computed:            true,
 										Attributes: map[string]dsschema.Attribute{
 											"days": dsschema.Int64Attribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `days` parameter.",
+												MarkdownDescription: "The `days` parameter.",
+												Computed:            true,
 											},
 											"hours": dsschema.Int64Attribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `hours` parameter.",
+												MarkdownDescription: "The `hours` parameter.",
+												Computed:            true,
 											},
 										},
 									},
 									"within": dsschema.SingleNestedAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `within` parameter.",
+										MarkdownDescription: "The `within` parameter.",
+										Computed:            true,
 										Attributes: map[string]dsschema.Attribute{
 											"days": dsschema.Int64Attribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `days` parameter.",
+												MarkdownDescription: "The `days` parameter.",
+												Computed:            true,
 											},
 											"hours": dsschema.Int64Attribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `hours` parameter.",
+												MarkdownDescription: "The `hours` parameter.",
+												Computed:            true,
 											},
 										},
 									},
@@ -3077,22 +3378,26 @@ func (d *objectsHipObjectsDataSource) Schema(_ context.Context, _ datasource.Sch
 						},
 					},
 					"exclude_vendor": dsschema.BoolAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `exclude_vendor` parameter.",
+						MarkdownDescription: "The `exclude_vendor` parameter.",
+						Computed:            true,
 					},
 					"vendor": dsschema.ListNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `vendor` parameter.",
+						MarkdownDescription: "The `vendor` parameter.",
+						Computed:            true,
 						NestedObject: dsschema.NestedAttributeObject{
 							Attributes: map[string]dsschema.Attribute{
 								"name": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `name` parameter.",
+									MarkdownDescription: "The `name` parameter.",
+									Computed:            true,
 								},
 								"product": dsschema.ListAttribute{
-									Description: "",
-									Computed:    true,
-									ElementType: types.StringType,
+									Description:         "The `product` parameter.",
+									MarkdownDescription: "The `product` parameter.",
+									Computed:            true,
+									ElementType:         types.StringType,
 								},
 							},
 						},
@@ -3100,62 +3405,74 @@ func (d *objectsHipObjectsDataSource) Schema(_ context.Context, _ datasource.Sch
 				},
 			},
 			"disk_encryption": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `disk_encryption` parameter.",
+				MarkdownDescription: "The `disk_encryption` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"criteria": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `criteria` parameter.",
+						MarkdownDescription: "The `criteria` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"encrypted_locations": dsschema.ListNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `encrypted_locations` parameter.",
+								MarkdownDescription: "The `encrypted_locations` parameter.",
+								Computed:            true,
 								NestedObject: dsschema.NestedAttributeObject{
 									Attributes: map[string]dsschema.Attribute{
 										"encryption_state": dsschema.SingleNestedAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `encryption_state` parameter.",
+											MarkdownDescription: "The `encryption_state` parameter.",
+											Computed:            true,
 											Attributes: map[string]dsschema.Attribute{
 												"is": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `is` parameter.",
+													MarkdownDescription: "The `is` parameter.",
+													Computed:            true,
 												},
 												"is_not": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `is_not` parameter.",
+													MarkdownDescription: "The `is_not` parameter.",
+													Computed:            true,
 												},
 											},
 										},
 										"name": dsschema.StringAttribute{
-											Description: "",
-											Computed:    true,
+											Description:         "The `name` parameter.",
+											MarkdownDescription: "The `name` parameter.",
+											Computed:            true,
 										},
 									},
 								},
 							},
 							"is_installed": dsschema.BoolAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `is_installed` parameter.",
+								MarkdownDescription: "The `is_installed` parameter.",
+								Computed:            true,
 							},
 						},
 					},
 					"exclude_vendor": dsschema.BoolAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `exclude_vendor` parameter.",
+						MarkdownDescription: "The `exclude_vendor` parameter.",
+						Computed:            true,
 					},
 					"vendor": dsschema.ListNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `vendor` parameter.",
+						MarkdownDescription: "The `vendor` parameter.",
+						Computed:            true,
 						NestedObject: dsschema.NestedAttributeObject{
 							Attributes: map[string]dsschema.Attribute{
 								"name": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `name` parameter.",
+									MarkdownDescription: "The `name` parameter.",
+									Computed:            true,
 								},
 								"product": dsschema.ListAttribute{
-									Description: "",
-									Computed:    true,
-									ElementType: types.StringType,
+									Description:         "The `product` parameter.",
+									MarkdownDescription: "The `product` parameter.",
+									Computed:            true,
+									ElementType:         types.StringType,
 								},
 							},
 						},
@@ -3163,40 +3480,48 @@ func (d *objectsHipObjectsDataSource) Schema(_ context.Context, _ datasource.Sch
 				},
 			},
 			"firewall": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `firewall` parameter.",
+				MarkdownDescription: "The `firewall` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"criteria": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `criteria` parameter.",
+						MarkdownDescription: "The `criteria` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"is_enabled": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `is_enabled` parameter.",
+								MarkdownDescription: "The `is_enabled` parameter.",
+								Computed:            true,
 							},
 							"is_installed": dsschema.BoolAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `is_installed` parameter.",
+								MarkdownDescription: "The `is_installed` parameter.",
+								Computed:            true,
 							},
 						},
 					},
 					"exclude_vendor": dsschema.BoolAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `exclude_vendor` parameter.",
+						MarkdownDescription: "The `exclude_vendor` parameter.",
+						Computed:            true,
 					},
 					"vendor": dsschema.ListNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `vendor` parameter.",
+						MarkdownDescription: "The `vendor` parameter.",
+						Computed:            true,
 						NestedObject: dsschema.NestedAttributeObject{
 							Attributes: map[string]dsschema.Attribute{
 								"name": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `name` parameter.",
+									MarkdownDescription: "The `name` parameter.",
+									Computed:            true,
 								},
 								"product": dsschema.ListAttribute{
-									Description: "",
-									Computed:    true,
-									ElementType: types.StringType,
+									Description:         "The `product` parameter.",
+									MarkdownDescription: "The `product` parameter.",
+									Computed:            true,
+									ElementType:         types.StringType,
 								},
 							},
 						},
@@ -3204,136 +3529,166 @@ func (d *objectsHipObjectsDataSource) Schema(_ context.Context, _ datasource.Sch
 				},
 			},
 			"host_info": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `host_info` parameter.",
+				MarkdownDescription: "The `host_info` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"criteria": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `criteria` parameter.",
+						MarkdownDescription: "The `criteria` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"client_version": dsschema.SingleNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `client_version` parameter.",
+								MarkdownDescription: "The `client_version` parameter.",
+								Computed:            true,
 								Attributes: map[string]dsschema.Attribute{
 									"contains": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `contains` parameter.",
+										MarkdownDescription: "The `contains` parameter.",
+										Computed:            true,
 									},
 									"is": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `is` parameter.",
+										MarkdownDescription: "The `is` parameter.",
+										Computed:            true,
 									},
 									"is_not": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `is_not` parameter.",
+										MarkdownDescription: "The `is_not` parameter.",
+										Computed:            true,
 									},
 								},
 							},
 							"domain": dsschema.SingleNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `domain` parameter.",
+								MarkdownDescription: "The `domain` parameter.",
+								Computed:            true,
 								Attributes: map[string]dsschema.Attribute{
 									"contains": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `contains` parameter.",
+										MarkdownDescription: "The `contains` parameter.",
+										Computed:            true,
 									},
 									"is": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `is` parameter.",
+										MarkdownDescription: "The `is` parameter.",
+										Computed:            true,
 									},
 									"is_not": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `is_not` parameter.",
+										MarkdownDescription: "The `is_not` parameter.",
+										Computed:            true,
 									},
 								},
 							},
 							"host_id": dsschema.SingleNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `host_id` parameter.",
+								MarkdownDescription: "The `host_id` parameter.",
+								Computed:            true,
 								Attributes: map[string]dsschema.Attribute{
 									"contains": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `contains` parameter.",
+										MarkdownDescription: "The `contains` parameter.",
+										Computed:            true,
 									},
 									"is": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `is` parameter.",
+										MarkdownDescription: "The `is` parameter.",
+										Computed:            true,
 									},
 									"is_not": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `is_not` parameter.",
+										MarkdownDescription: "The `is_not` parameter.",
+										Computed:            true,
 									},
 								},
 							},
 							"host_name": dsschema.SingleNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `host_name` parameter.",
+								MarkdownDescription: "The `host_name` parameter.",
+								Computed:            true,
 								Attributes: map[string]dsschema.Attribute{
 									"contains": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `contains` parameter.",
+										MarkdownDescription: "The `contains` parameter.",
+										Computed:            true,
 									},
 									"is": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `is` parameter.",
+										MarkdownDescription: "The `is` parameter.",
+										Computed:            true,
 									},
 									"is_not": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `is_not` parameter.",
+										MarkdownDescription: "The `is_not` parameter.",
+										Computed:            true,
 									},
 								},
 							},
 							"managed": dsschema.BoolAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `managed` parameter.",
+								MarkdownDescription: "The `managed` parameter.",
+								Computed:            true,
 							},
 							"os": dsschema.SingleNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `os` parameter.",
+								MarkdownDescription: "The `os` parameter.",
+								Computed:            true,
 								Attributes: map[string]dsschema.Attribute{
 									"contains": dsschema.SingleNestedAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `contains` parameter.",
+										MarkdownDescription: "The `contains` parameter.",
+										Computed:            true,
 										Attributes: map[string]dsschema.Attribute{
 											"apple": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `apple` parameter.",
+												MarkdownDescription: "The `apple` parameter.",
+												Computed:            true,
 											},
 											"google": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `google` parameter.",
+												MarkdownDescription: "The `google` parameter.",
+												Computed:            true,
 											},
 											"linux": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `linux` parameter.",
+												MarkdownDescription: "The `linux` parameter.",
+												Computed:            true,
 											},
 											"microsoft": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `microsoft` parameter.",
+												MarkdownDescription: "The `microsoft` parameter.",
+												Computed:            true,
 											},
 											"other": dsschema.StringAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `other` parameter.",
+												MarkdownDescription: "The `other` parameter.",
+												Computed:            true,
 											},
 										},
 									},
 								},
 							},
 							"serial_number": dsschema.SingleNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `serial_number` parameter.",
+								MarkdownDescription: "The `serial_number` parameter.",
+								Computed:            true,
 								Attributes: map[string]dsschema.Attribute{
 									"contains": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `contains` parameter.",
+										MarkdownDescription: "The `contains` parameter.",
+										Computed:            true,
 									},
 									"is": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `is` parameter.",
+										MarkdownDescription: "The `is` parameter.",
+										Computed:            true,
 									},
 									"is_not": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `is_not` parameter.",
+										MarkdownDescription: "The `is_not` parameter.",
+										Computed:            true,
 									},
 								},
 							},
@@ -3342,45 +3697,55 @@ func (d *objectsHipObjectsDataSource) Schema(_ context.Context, _ datasource.Sch
 				},
 			},
 			"mobile_device": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `mobile_device` parameter.",
+				MarkdownDescription: "The `mobile_device` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"criteria": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `criteria` parameter.",
+						MarkdownDescription: "The `criteria` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"applications": dsschema.SingleNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `applications` parameter.",
+								MarkdownDescription: "The `applications` parameter.",
+								Computed:            true,
 								Attributes: map[string]dsschema.Attribute{
 									"has_malware": dsschema.SingleNestedAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `has_malware` parameter.",
+										MarkdownDescription: "The `has_malware` parameter.",
+										Computed:            true,
 										Attributes: map[string]dsschema.Attribute{
 											"no": dsschema.BoolAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `no` parameter.",
+												MarkdownDescription: "The `no` parameter.",
+												Computed:            true,
 											},
 											"yes": dsschema.SingleNestedAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `yes` parameter.",
+												MarkdownDescription: "The `yes` parameter.",
+												Computed:            true,
 												Attributes: map[string]dsschema.Attribute{
 													"excludes": dsschema.ListNestedAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `excludes` parameter.",
+														MarkdownDescription: "The `excludes` parameter.",
+														Computed:            true,
 														NestedObject: dsschema.NestedAttributeObject{
 															Attributes: map[string]dsschema.Attribute{
 																"hash": dsschema.StringAttribute{
-																	Description: "",
-																	Computed:    true,
+																	Description:         "The `hash` parameter.",
+																	MarkdownDescription: "The `hash` parameter.",
+																	Computed:            true,
 																},
 																"name": dsschema.StringAttribute{
-																	Description: "",
-																	Computed:    true,
+																	Description:         "The `name` parameter.",
+																	MarkdownDescription: "The `name` parameter.",
+																	Computed:            true,
 																},
 																"package": dsschema.StringAttribute{
-																	Description: "",
-																	Computed:    true,
+																	Description:         "The `package` parameter.",
+																	MarkdownDescription: "The `package` parameter.",
+																	Computed:            true,
 																},
 															},
 														},
@@ -3390,25 +3755,30 @@ func (d *objectsHipObjectsDataSource) Schema(_ context.Context, _ datasource.Sch
 										},
 									},
 									"has_unmanaged_app": dsschema.BoolAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `has_unmanaged_app` parameter.",
+										MarkdownDescription: "The `has_unmanaged_app` parameter.",
+										Computed:            true,
 									},
 									"includes": dsschema.ListNestedAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `includes` parameter.",
+										MarkdownDescription: "The `includes` parameter.",
+										Computed:            true,
 										NestedObject: dsschema.NestedAttributeObject{
 											Attributes: map[string]dsschema.Attribute{
 												"hash": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `hash` parameter.",
+													MarkdownDescription: "The `hash` parameter.",
+													Computed:            true,
 												},
 												"name": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `name` parameter.",
+													MarkdownDescription: "The `name` parameter.",
+													Computed:            true,
 												},
 												"package": dsschema.StringAttribute{
-													Description: "",
-													Computed:    true,
+													Description:         "The `package` parameter.",
+													MarkdownDescription: "The `package` parameter.",
+													Computed:            true,
 												},
 											},
 										},
@@ -3416,112 +3786,136 @@ func (d *objectsHipObjectsDataSource) Schema(_ context.Context, _ datasource.Sch
 								},
 							},
 							"disk_encrypted": dsschema.BoolAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `disk_encrypted` parameter.",
+								MarkdownDescription: "The `disk_encrypted` parameter.",
+								Computed:            true,
 							},
 							"imei": dsschema.SingleNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `imei` parameter.",
+								MarkdownDescription: "The `imei` parameter.",
+								Computed:            true,
 								Attributes: map[string]dsschema.Attribute{
 									"contains": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `contains` parameter.",
+										MarkdownDescription: "The `contains` parameter.",
+										Computed:            true,
 									},
 									"is": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `is` parameter.",
+										MarkdownDescription: "The `is` parameter.",
+										Computed:            true,
 									},
 									"is_not": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `is_not` parameter.",
+										MarkdownDescription: "The `is_not` parameter.",
+										Computed:            true,
 									},
 								},
 							},
 							"jailbroken": dsschema.BoolAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `jailbroken` parameter.",
+								MarkdownDescription: "The `jailbroken` parameter.",
+								Computed:            true,
 							},
 							"last_checkin_time": dsschema.SingleNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `last_checkin_time` parameter.",
+								MarkdownDescription: "The `last_checkin_time` parameter.",
+								Computed:            true,
 								Attributes: map[string]dsschema.Attribute{
 									"not_within": dsschema.SingleNestedAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `not_within` parameter.",
+										MarkdownDescription: "The `not_within` parameter.",
+										Computed:            true,
 										Attributes: map[string]dsschema.Attribute{
 											"days": dsschema.Int64Attribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `days` parameter.",
+												MarkdownDescription: "The `days` parameter.",
+												Computed:            true,
 											},
 										},
 									},
 									"within": dsschema.SingleNestedAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `within` parameter.",
+										MarkdownDescription: "The `within` parameter.",
+										Computed:            true,
 										Attributes: map[string]dsschema.Attribute{
 											"days": dsschema.Int64Attribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `days` parameter.",
+												MarkdownDescription: "The `days` parameter.",
+												Computed:            true,
 											},
 										},
 									},
 								},
 							},
 							"model": dsschema.SingleNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `model` parameter.",
+								MarkdownDescription: "The `model` parameter.",
+								Computed:            true,
 								Attributes: map[string]dsschema.Attribute{
 									"contains": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `contains` parameter.",
+										MarkdownDescription: "The `contains` parameter.",
+										Computed:            true,
 									},
 									"is": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `is` parameter.",
+										MarkdownDescription: "The `is` parameter.",
+										Computed:            true,
 									},
 									"is_not": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `is_not` parameter.",
+										MarkdownDescription: "The `is_not` parameter.",
+										Computed:            true,
 									},
 								},
 							},
 							"passcode_set": dsschema.BoolAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `passcode_set` parameter.",
+								MarkdownDescription: "The `passcode_set` parameter.",
+								Computed:            true,
 							},
 							"phone_number": dsschema.SingleNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `phone_number` parameter.",
+								MarkdownDescription: "The `phone_number` parameter.",
+								Computed:            true,
 								Attributes: map[string]dsschema.Attribute{
 									"contains": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `contains` parameter.",
+										MarkdownDescription: "The `contains` parameter.",
+										Computed:            true,
 									},
 									"is": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `is` parameter.",
+										MarkdownDescription: "The `is` parameter.",
+										Computed:            true,
 									},
 									"is_not": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `is_not` parameter.",
+										MarkdownDescription: "The `is_not` parameter.",
+										Computed:            true,
 									},
 								},
 							},
 							"tag": dsschema.SingleNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `tag` parameter.",
+								MarkdownDescription: "The `tag` parameter.",
+								Computed:            true,
 								Attributes: map[string]dsschema.Attribute{
 									"contains": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `contains` parameter.",
+										MarkdownDescription: "The `contains` parameter.",
+										Computed:            true,
 									},
 									"is": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `is` parameter.",
+										MarkdownDescription: "The `is` parameter.",
+										Computed:            true,
 									},
 									"is_not": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `is_not` parameter.",
+										MarkdownDescription: "The `is_not` parameter.",
+										Computed:            true,
 									},
 								},
 							},
@@ -3530,80 +3924,97 @@ func (d *objectsHipObjectsDataSource) Schema(_ context.Context, _ datasource.Sch
 				},
 			},
 			"name": dsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `name` parameter.",
+				MarkdownDescription: "The `name` parameter.",
+				Computed:            true,
 			},
 			"network_info": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `network_info` parameter.",
+				MarkdownDescription: "The `network_info` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"criteria": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `criteria` parameter.",
+						MarkdownDescription: "The `criteria` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"network": dsschema.SingleNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `network` parameter.",
+								MarkdownDescription: "The `network` parameter.",
+								Computed:            true,
 								Attributes: map[string]dsschema.Attribute{
 									"is": dsschema.SingleNestedAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `is` parameter.",
+										MarkdownDescription: "The `is` parameter.",
+										Computed:            true,
 										Attributes: map[string]dsschema.Attribute{
 											"mobile": dsschema.SingleNestedAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `mobile` parameter.",
+												MarkdownDescription: "The `mobile` parameter.",
+												Computed:            true,
 												Attributes: map[string]dsschema.Attribute{
 													"carrier": dsschema.StringAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `carrier` parameter.",
+														MarkdownDescription: "The `carrier` parameter.",
+														Computed:            true,
 													},
 												},
 											},
 											"unknown": dsschema.BoolAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `unknown` parameter.",
+												MarkdownDescription: "The `unknown` parameter.",
+												Computed:            true,
 											},
 											"wifi": dsschema.SingleNestedAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `wifi` parameter.",
+												MarkdownDescription: "The `wifi` parameter.",
+												Computed:            true,
 												Attributes: map[string]dsschema.Attribute{
 													"ssid": dsschema.StringAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `ssid` parameter.",
+														MarkdownDescription: "The `ssid` parameter.",
+														Computed:            true,
 													},
 												},
 											},
 										},
 									},
 									"is_not": dsschema.SingleNestedAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `is_not` parameter.",
+										MarkdownDescription: "The `is_not` parameter.",
+										Computed:            true,
 										Attributes: map[string]dsschema.Attribute{
 											"ethernet": dsschema.BoolAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `ethernet` parameter.",
+												MarkdownDescription: "The `ethernet` parameter.",
+												Computed:            true,
 											},
 											"mobile": dsschema.SingleNestedAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `mobile` parameter.",
+												MarkdownDescription: "The `mobile` parameter.",
+												Computed:            true,
 												Attributes: map[string]dsschema.Attribute{
 													"carrier": dsschema.StringAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `carrier` parameter.",
+														MarkdownDescription: "The `carrier` parameter.",
+														Computed:            true,
 													},
 												},
 											},
 											"unknown": dsschema.BoolAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `unknown` parameter.",
+												MarkdownDescription: "The `unknown` parameter.",
+												Computed:            true,
 											},
 											"wifi": dsschema.SingleNestedAttribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `wifi` parameter.",
+												MarkdownDescription: "The `wifi` parameter.",
+												Computed:            true,
 												Attributes: map[string]dsschema.Attribute{
 													"ssid": dsschema.StringAttribute{
-														Description: "",
-														Computed:    true,
+														Description:         "The `ssid` parameter.",
+														MarkdownDescription: "The `ssid` parameter.",
+														Computed:            true,
 													},
 												},
 											},
@@ -3616,61 +4027,75 @@ func (d *objectsHipObjectsDataSource) Schema(_ context.Context, _ datasource.Sch
 				},
 			},
 			"patch_management": dsschema.SingleNestedAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `patch_management` parameter.",
+				MarkdownDescription: "The `patch_management` parameter.",
+				Computed:            true,
 				Attributes: map[string]dsschema.Attribute{
 					"criteria": dsschema.SingleNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `criteria` parameter.",
+						MarkdownDescription: "The `criteria` parameter.",
+						Computed:            true,
 						Attributes: map[string]dsschema.Attribute{
 							"is_enabled": dsschema.StringAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `is_enabled` parameter.",
+								MarkdownDescription: "The `is_enabled` parameter.",
+								Computed:            true,
 							},
 							"is_installed": dsschema.BoolAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `is_installed` parameter.",
+								MarkdownDescription: "The `is_installed` parameter.",
+								Computed:            true,
 							},
 							"missing_patches": dsschema.SingleNestedAttribute{
-								Description: "",
-								Computed:    true,
+								Description:         "The `missing_patches` parameter.",
+								MarkdownDescription: "The `missing_patches` parameter.",
+								Computed:            true,
 								Attributes: map[string]dsschema.Attribute{
 									"check": dsschema.StringAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `check` parameter.",
+										MarkdownDescription: "The `check` parameter.",
+										Computed:            true,
 									},
 									"patches": dsschema.ListAttribute{
-										Description: "",
-										Computed:    true,
-										ElementType: types.StringType,
+										Description:         "The `patches` parameter.",
+										MarkdownDescription: "The `patches` parameter.",
+										Computed:            true,
+										ElementType:         types.StringType,
 									},
 									"severity": dsschema.SingleNestedAttribute{
-										Description: "",
-										Computed:    true,
+										Description:         "The `severity` parameter.",
+										MarkdownDescription: "The `severity` parameter.",
+										Computed:            true,
 										Attributes: map[string]dsschema.Attribute{
 											"greater_equal": dsschema.Int64Attribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `greater_equal` parameter.",
+												MarkdownDescription: "The `greater_equal` parameter.",
+												Computed:            true,
 											},
 											"greater_than": dsschema.Int64Attribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `greater_than` parameter.",
+												MarkdownDescription: "The `greater_than` parameter.",
+												Computed:            true,
 											},
 											"is": dsschema.Int64Attribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `is` parameter.",
+												MarkdownDescription: "The `is` parameter.",
+												Computed:            true,
 											},
 											"is_not": dsschema.Int64Attribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `is_not` parameter.",
+												MarkdownDescription: "The `is_not` parameter.",
+												Computed:            true,
 											},
 											"less_equal": dsschema.Int64Attribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `less_equal` parameter.",
+												MarkdownDescription: "The `less_equal` parameter.",
+												Computed:            true,
 											},
 											"less_than": dsschema.Int64Attribute{
-												Description: "",
-												Computed:    true,
+												Description:         "The `less_than` parameter.",
+												MarkdownDescription: "The `less_than` parameter.",
+												Computed:            true,
 											},
 										},
 									},
@@ -3679,22 +4104,26 @@ func (d *objectsHipObjectsDataSource) Schema(_ context.Context, _ datasource.Sch
 						},
 					},
 					"exclude_vendor": dsschema.BoolAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `exclude_vendor` parameter.",
+						MarkdownDescription: "The `exclude_vendor` parameter.",
+						Computed:            true,
 					},
 					"vendor": dsschema.ListNestedAttribute{
-						Description: "",
-						Computed:    true,
+						Description:         "The `vendor` parameter.",
+						MarkdownDescription: "The `vendor` parameter.",
+						Computed:            true,
 						NestedObject: dsschema.NestedAttributeObject{
 							Attributes: map[string]dsschema.Attribute{
 								"name": dsschema.StringAttribute{
-									Description: "",
-									Computed:    true,
+									Description:         "The `name` parameter.",
+									MarkdownDescription: "The `name` parameter.",
+									Computed:            true,
 								},
 								"product": dsschema.ListAttribute{
-									Description: "",
-									Computed:    true,
-									ElementType: types.StringType,
+									Description:         "The `product` parameter.",
+									MarkdownDescription: "The `product` parameter.",
+									Computed:            true,
+									ElementType:         types.StringType,
 								},
 							},
 						},
@@ -4781,8 +5210,9 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 
 		Attributes: map[string]rsschema.Attribute{
 			"id": rsschema.StringAttribute{
-				Description: "The object ID.",
-				Computed:    true,
+				Description:         "The object ID.",
+				MarkdownDescription: "The object ID.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
@@ -4790,36 +5220,42 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description: "The folder of the entry",
-				Required:    true,
+				Description:         "The folder of the entry",
+				MarkdownDescription: "The folder of the entry",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
 			},
 
 			"anti_malware": rsschema.SingleNestedAttribute{
-				Description: "",
-				Optional:    true,
+				Description:         "The `anti_malware` parameter.",
+				MarkdownDescription: "The `anti_malware` parameter.",
+				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"criteria": rsschema.SingleNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `criteria` parameter.",
+						MarkdownDescription: "The `criteria` parameter.",
+						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"is_installed": rsschema.BoolAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `is_installed` parameter.",
+								MarkdownDescription: "The `is_installed` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.Bool{
 									DefaultBool(true),
 								},
 							},
 							"last_scan_time": rsschema.SingleNestedAttribute{
-								Description: "",
-								Optional:    true,
+								Description:         "The `last_scan_time` parameter.",
+								MarkdownDescription: "The `last_scan_time` parameter.",
+								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"not_available": rsschema.BoolAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `not_available` parameter.",
+										MarkdownDescription: "The `not_available` parameter.",
+										Optional:            true,
 										Validators: []validator.Bool{
 											boolvalidator.ConflictsWith(
 												path.MatchRelative().AtParent().AtName("not_within"),
@@ -4828,13 +5264,15 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"not_within": rsschema.SingleNestedAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `not_within` parameter.",
+										MarkdownDescription: "The `not_within` parameter.",
+										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"days": rsschema.Int64Attribute{
-												Description: "",
-												Optional:    true,
-												Computed:    true,
+												Description:         "The `days` parameter.",
+												MarkdownDescription: "The `days` parameter.",
+												Optional:            true,
+												Computed:            true,
 												PlanModifiers: []planmodifier.Int64{
 													DefaultInt64(1),
 												},
@@ -4843,9 +5281,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												},
 											},
 											"hours": rsschema.Int64Attribute{
-												Description: "",
-												Optional:    true,
-												Computed:    true,
+												Description:         "The `hours` parameter.",
+												MarkdownDescription: "The `hours` parameter.",
+												Optional:            true,
+												Computed:            true,
 												PlanModifiers: []planmodifier.Int64{
 													DefaultInt64(24),
 												},
@@ -4856,13 +5295,15 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"within": rsschema.SingleNestedAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `within` parameter.",
+										MarkdownDescription: "The `within` parameter.",
+										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"days": rsschema.Int64Attribute{
-												Description: "",
-												Optional:    true,
-												Computed:    true,
+												Description:         "The `days` parameter.",
+												MarkdownDescription: "The `days` parameter.",
+												Optional:            true,
+												Computed:            true,
 												PlanModifiers: []planmodifier.Int64{
 													DefaultInt64(1),
 												},
@@ -4871,9 +5312,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												},
 											},
 											"hours": rsschema.Int64Attribute{
-												Description: "",
-												Optional:    true,
-												Computed:    true,
+												Description:         "The `hours` parameter.",
+												MarkdownDescription: "The `hours` parameter.",
+												Optional:            true,
+												Computed:            true,
 												PlanModifiers: []planmodifier.Int64{
 													DefaultInt64(24),
 												},
@@ -4886,13 +5328,15 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								},
 							},
 							"product_version": rsschema.SingleNestedAttribute{
-								Description: "",
-								Optional:    true,
+								Description:         "The `product_version` parameter.",
+								MarkdownDescription: "The `product_version` parameter.",
+								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"contains": rsschema.StringAttribute{
-										Description: "",
-										Optional:    true,
-										Computed:    true,
+										Description:         "The `contains` parameter.",
+										MarkdownDescription: "The `contains` parameter.",
+										Optional:            true,
+										Computed:            true,
 										PlanModifiers: []planmodifier.String{
 											DefaultString(""),
 										},
@@ -4911,9 +5355,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"greater_equal": rsschema.StringAttribute{
-										Description: "",
-										Optional:    true,
-										Computed:    true,
+										Description:         "The `greater_equal` parameter.",
+										MarkdownDescription: "The `greater_equal` parameter.",
+										Optional:            true,
+										Computed:            true,
 										PlanModifiers: []planmodifier.String{
 											DefaultString(""),
 										},
@@ -4932,9 +5377,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"greater_than": rsschema.StringAttribute{
-										Description: "",
-										Optional:    true,
-										Computed:    true,
+										Description:         "The `greater_than` parameter.",
+										MarkdownDescription: "The `greater_than` parameter.",
+										Optional:            true,
+										Computed:            true,
 										PlanModifiers: []planmodifier.String{
 											DefaultString(""),
 										},
@@ -4953,9 +5399,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is": rsschema.StringAttribute{
-										Description: "",
-										Optional:    true,
-										Computed:    true,
+										Description:         "The `is` parameter.",
+										MarkdownDescription: "The `is` parameter.",
+										Optional:            true,
+										Computed:            true,
 										PlanModifiers: []planmodifier.String{
 											DefaultString(""),
 										},
@@ -4974,9 +5421,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is_not": rsschema.StringAttribute{
-										Description: "",
-										Optional:    true,
-										Computed:    true,
+										Description:         "The `is_not` parameter.",
+										MarkdownDescription: "The `is_not` parameter.",
+										Optional:            true,
+										Computed:            true,
 										PlanModifiers: []planmodifier.String{
 											DefaultString(""),
 										},
@@ -4995,9 +5443,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"less_equal": rsschema.StringAttribute{
-										Description: "",
-										Optional:    true,
-										Computed:    true,
+										Description:         "The `less_equal` parameter.",
+										MarkdownDescription: "The `less_equal` parameter.",
+										Optional:            true,
+										Computed:            true,
 										PlanModifiers: []planmodifier.String{
 											DefaultString(""),
 										},
@@ -5016,9 +5465,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"less_than": rsschema.StringAttribute{
-										Description: "",
-										Optional:    true,
-										Computed:    true,
+										Description:         "The `less_than` parameter.",
+										MarkdownDescription: "The `less_than` parameter.",
+										Optional:            true,
+										Computed:            true,
 										PlanModifiers: []planmodifier.String{
 											DefaultString(""),
 										},
@@ -5037,12 +5487,14 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"not_within": rsschema.SingleNestedAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `not_within` parameter.",
+										MarkdownDescription: "The `not_within` parameter.",
+										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"versions": rsschema.Int64Attribute{
-												Description: "",
-												Required:    true,
+												Description:         "The `versions` parameter.",
+												MarkdownDescription: "The `versions` parameter.",
+												Required:            true,
 												Validators: []validator.Int64{
 													int64validator.Between(1, 65535),
 												},
@@ -5050,12 +5502,14 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"within": rsschema.SingleNestedAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `within` parameter.",
+										MarkdownDescription: "The `within` parameter.",
+										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"versions": rsschema.Int64Attribute{
-												Description: "",
-												Required:    true,
+												Description:         "The `versions` parameter.",
+												MarkdownDescription: "The `versions` parameter.",
+												Required:            true,
 												Validators: []validator.Int64{
 													int64validator.Between(1, 65535),
 												},
@@ -5065,9 +5519,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								},
 							},
 							"real_time_protection": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `real_time_protection` parameter.",
+								MarkdownDescription: "The `real_time_protection` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString(""),
 								},
@@ -5076,17 +5531,20 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								},
 							},
 							"virdef_version": rsschema.SingleNestedAttribute{
-								Description: "",
-								Optional:    true,
+								Description:         "The `virdef_version` parameter.",
+								MarkdownDescription: "The `virdef_version` parameter.",
+								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"not_within": rsschema.SingleNestedAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `not_within` parameter.",
+										MarkdownDescription: "The `not_within` parameter.",
+										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"days": rsschema.Int64Attribute{
-												Description: "",
-												Optional:    true,
-												Computed:    true,
+												Description:         "The `days` parameter.",
+												MarkdownDescription: "The `days` parameter.",
+												Optional:            true,
+												Computed:            true,
 												PlanModifiers: []planmodifier.Int64{
 													DefaultInt64(1),
 												},
@@ -5095,9 +5553,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												},
 											},
 											"versions": rsschema.Int64Attribute{
-												Description: "",
-												Optional:    true,
-												Computed:    true,
+												Description:         "The `versions` parameter.",
+												MarkdownDescription: "The `versions` parameter.",
+												Optional:            true,
+												Computed:            true,
 												PlanModifiers: []planmodifier.Int64{
 													DefaultInt64(1),
 												},
@@ -5108,13 +5567,15 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"within": rsschema.SingleNestedAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `within` parameter.",
+										MarkdownDescription: "The `within` parameter.",
+										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"days": rsschema.Int64Attribute{
-												Description: "",
-												Optional:    true,
-												Computed:    true,
+												Description:         "The `days` parameter.",
+												MarkdownDescription: "The `days` parameter.",
+												Optional:            true,
+												Computed:            true,
 												PlanModifiers: []planmodifier.Int64{
 													DefaultInt64(1),
 												},
@@ -5123,9 +5584,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												},
 											},
 											"versions": rsschema.Int64Attribute{
-												Description: "",
-												Optional:    true,
-												Computed:    true,
+												Description:         "The `versions` parameter.",
+												MarkdownDescription: "The `versions` parameter.",
+												Optional:            true,
+												Computed:            true,
 												PlanModifiers: []planmodifier.Int64{
 													DefaultInt64(1),
 												},
@@ -5140,29 +5602,33 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 						},
 					},
 					"exclude_vendor": rsschema.BoolAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `exclude_vendor` parameter.",
+						MarkdownDescription: "The `exclude_vendor` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
 							DefaultBool(false),
 						},
 					},
 					"vendor": rsschema.ListNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `vendor` parameter.",
+						MarkdownDescription: "The `vendor` parameter.",
+						Optional:            true,
 						NestedObject: rsschema.NestedAttributeObject{
 							Attributes: map[string]rsschema.Attribute{
 								"name": rsschema.StringAttribute{
-									Description: "",
-									Required:    true,
+									Description:         "The `name` parameter.",
+									MarkdownDescription: "The `name` parameter.",
+									Required:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(103),
 									},
 								},
 								"product": rsschema.ListAttribute{
-									Description: "",
-									Optional:    true,
-									ElementType: types.StringType,
+									Description:         "The `product` parameter.",
+									MarkdownDescription: "The `product` parameter.",
+									Optional:            true,
+									ElementType:         types.StringType,
 								},
 							},
 						},
@@ -5170,26 +5636,31 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 				},
 			},
 			"certificate": rsschema.SingleNestedAttribute{
-				Description: "",
-				Optional:    true,
+				Description:         "The `certificate` parameter.",
+				MarkdownDescription: "The `certificate` parameter.",
+				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"criteria": rsschema.SingleNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `criteria` parameter.",
+						MarkdownDescription: "The `criteria` parameter.",
+						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"certificate_attributes": rsschema.ListNestedAttribute{
-								Description: "",
-								Optional:    true,
+								Description:         "The `certificate_attributes` parameter.",
+								MarkdownDescription: "The `certificate_attributes` parameter.",
+								Optional:            true,
 								NestedObject: rsschema.NestedAttributeObject{
 									Attributes: map[string]rsschema.Attribute{
 										"name": rsschema.StringAttribute{
-											Description: "",
-											Required:    true,
+											Description:         "The `name` parameter.",
+											MarkdownDescription: "The `name` parameter.",
+											Required:            true,
 										},
 										"value": rsschema.StringAttribute{
-											Description: "",
-											Optional:    true,
-											Computed:    true,
+											Description:         "The `value` parameter.",
+											MarkdownDescription: "The `value` parameter.",
+											Optional:            true,
+											Computed:            true,
 											PlanModifiers: []planmodifier.String{
 												DefaultString(""),
 											},
@@ -5201,9 +5672,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								},
 							},
 							"certificate_profile": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `certificate_profile` parameter.",
+								MarkdownDescription: "The `certificate_profile` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString(""),
 								},
@@ -5213,42 +5685,49 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 				},
 			},
 			"custom_checks": rsschema.SingleNestedAttribute{
-				Description: "",
-				Optional:    true,
+				Description:         "The `custom_checks` parameter.",
+				MarkdownDescription: "The `custom_checks` parameter.",
+				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"criteria": rsschema.SingleNestedAttribute{
-						Description: "",
-						Required:    true,
+						Description:         "The `criteria` parameter.",
+						MarkdownDescription: "The `criteria` parameter.",
+						Required:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"plist": rsschema.ListNestedAttribute{
-								Description: "",
-								Optional:    true,
+								Description:         "The `plist` parameter.",
+								MarkdownDescription: "The `plist` parameter.",
+								Optional:            true,
 								NestedObject: rsschema.NestedAttributeObject{
 									Attributes: map[string]rsschema.Attribute{
 										"key": rsschema.ListNestedAttribute{
-											Description: "",
-											Optional:    true,
+											Description:         "The `key` parameter.",
+											MarkdownDescription: "The `key` parameter.",
+											Optional:            true,
 											NestedObject: rsschema.NestedAttributeObject{
 												Attributes: map[string]rsschema.Attribute{
 													"name": rsschema.StringAttribute{
-														Description: "",
-														Required:    true,
+														Description:         "The `name` parameter.",
+														MarkdownDescription: "The `name` parameter.",
+														Required:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthAtMost(1023),
 														},
 													},
 													"negate": rsschema.BoolAttribute{
-														Description: "",
-														Optional:    true,
-														Computed:    true,
+														Description:         "The `negate` parameter.",
+														MarkdownDescription: "The `negate` parameter.",
+														Optional:            true,
+														Computed:            true,
 														PlanModifiers: []planmodifier.Bool{
 															DefaultBool(false),
 														},
 													},
 													"value": rsschema.StringAttribute{
-														Description: "",
-														Optional:    true,
-														Computed:    true,
+														Description:         "The `value` parameter.",
+														MarkdownDescription: "The `value` parameter.",
+														Optional:            true,
+														Computed:            true,
 														PlanModifiers: []planmodifier.String{
 															DefaultString(""),
 														},
@@ -5260,16 +5739,18 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 											},
 										},
 										"name": rsschema.StringAttribute{
-											Description: "",
-											Required:    true,
+											Description:         "The `name` parameter.",
+											MarkdownDescription: "The `name` parameter.",
+											Required:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(1023),
 											},
 										},
 										"negate": rsschema.BoolAttribute{
-											Description: "",
-											Optional:    true,
-											Computed:    true,
+											Description:         "The `negate` parameter.",
+											MarkdownDescription: "The `negate` parameter.",
+											Optional:            true,
+											Computed:            true,
 											PlanModifiers: []planmodifier.Bool{
 												DefaultBool(false),
 											},
@@ -5278,21 +5759,24 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								},
 							},
 							"process_list": rsschema.ListNestedAttribute{
-								Description: "",
-								Optional:    true,
+								Description:         "The `process_list` parameter.",
+								MarkdownDescription: "The `process_list` parameter.",
+								Optional:            true,
 								NestedObject: rsschema.NestedAttributeObject{
 									Attributes: map[string]rsschema.Attribute{
 										"name": rsschema.StringAttribute{
-											Description: "",
-											Required:    true,
+											Description:         "The `name` parameter.",
+											MarkdownDescription: "The `name` parameter.",
+											Required:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(1023),
 											},
 										},
 										"running": rsschema.BoolAttribute{
-											Description: "",
-											Optional:    true,
-											Computed:    true,
+											Description:         "The `running` parameter.",
+											MarkdownDescription: "The `running` parameter.",
+											Optional:            true,
+											Computed:            true,
 											PlanModifiers: []planmodifier.Bool{
 												DefaultBool(true),
 											},
@@ -5301,14 +5785,16 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								},
 							},
 							"registry_key": rsschema.ListNestedAttribute{
-								Description: "",
-								Optional:    true,
+								Description:         "The `registry_key` parameter.",
+								MarkdownDescription: "The `registry_key` parameter.",
+								Optional:            true,
 								NestedObject: rsschema.NestedAttributeObject{
 									Attributes: map[string]rsschema.Attribute{
 										"default_value_data": rsschema.StringAttribute{
-											Description: "",
-											Optional:    true,
-											Computed:    true,
+											Description:         "The `default_value_data` parameter.",
+											MarkdownDescription: "The `default_value_data` parameter.",
+											Optional:            true,
+											Computed:            true,
 											PlanModifiers: []planmodifier.String{
 												DefaultString(""),
 											},
@@ -5317,44 +5803,50 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 											},
 										},
 										"name": rsschema.StringAttribute{
-											Description: "",
-											Required:    true,
+											Description:         "The `name` parameter.",
+											MarkdownDescription: "The `name` parameter.",
+											Required:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(1023),
 											},
 										},
 										"negate": rsschema.BoolAttribute{
-											Description: "",
-											Optional:    true,
-											Computed:    true,
+											Description:         "The `negate` parameter.",
+											MarkdownDescription: "The `negate` parameter.",
+											Optional:            true,
+											Computed:            true,
 											PlanModifiers: []planmodifier.Bool{
 												DefaultBool(false),
 											},
 										},
 										"registry_value": rsschema.ListNestedAttribute{
-											Description: "",
-											Optional:    true,
+											Description:         "The `registry_value` parameter.",
+											MarkdownDescription: "The `registry_value` parameter.",
+											Optional:            true,
 											NestedObject: rsschema.NestedAttributeObject{
 												Attributes: map[string]rsschema.Attribute{
 													"name": rsschema.StringAttribute{
-														Description: "",
-														Required:    true,
+														Description:         "The `name` parameter.",
+														MarkdownDescription: "The `name` parameter.",
+														Required:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthAtMost(1023),
 														},
 													},
 													"negate": rsschema.BoolAttribute{
-														Description: "",
-														Optional:    true,
-														Computed:    true,
+														Description:         "The `negate` parameter.",
+														MarkdownDescription: "The `negate` parameter.",
+														Optional:            true,
+														Computed:            true,
 														PlanModifiers: []planmodifier.Bool{
 															DefaultBool(false),
 														},
 													},
 													"value_data": rsschema.StringAttribute{
-														Description: "",
-														Optional:    true,
-														Computed:    true,
+														Description:         "The `value_data` parameter.",
+														MarkdownDescription: "The `value_data` parameter.",
+														Optional:            true,
+														Computed:            true,
 														PlanModifiers: []planmodifier.String{
 															DefaultString(""),
 														},
@@ -5373,17 +5865,20 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 				},
 			},
 			"data_loss_prevention": rsschema.SingleNestedAttribute{
-				Description: "",
-				Optional:    true,
+				Description:         "The `data_loss_prevention` parameter.",
+				MarkdownDescription: "The `data_loss_prevention` parameter.",
+				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"criteria": rsschema.SingleNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `criteria` parameter.",
+						MarkdownDescription: "The `criteria` parameter.",
+						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"is_enabled": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `is_enabled` parameter.",
+								MarkdownDescription: "The `is_enabled` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString(""),
 								},
@@ -5392,9 +5887,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								},
 							},
 							"is_installed": rsschema.BoolAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `is_installed` parameter.",
+								MarkdownDescription: "The `is_installed` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.Bool{
 									DefaultBool(true),
 								},
@@ -5402,29 +5898,33 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 						},
 					},
 					"exclude_vendor": rsschema.BoolAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `exclude_vendor` parameter.",
+						MarkdownDescription: "The `exclude_vendor` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
 							DefaultBool(false),
 						},
 					},
 					"vendor": rsschema.ListNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `vendor` parameter.",
+						MarkdownDescription: "The `vendor` parameter.",
+						Optional:            true,
 						NestedObject: rsschema.NestedAttributeObject{
 							Attributes: map[string]rsschema.Attribute{
 								"name": rsschema.StringAttribute{
-									Description: "",
-									Required:    true,
+									Description:         "The `name` parameter.",
+									MarkdownDescription: "The `name` parameter.",
+									Required:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(103),
 									},
 								},
 								"product": rsschema.ListAttribute{
-									Description: "",
-									Optional:    true,
-									ElementType: types.StringType,
+									Description:         "The `product` parameter.",
+									MarkdownDescription: "The `product` parameter.",
+									Optional:            true,
+									ElementType:         types.StringType,
 								},
 							},
 						},
@@ -5432,9 +5932,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 				},
 			},
 			"description": rsschema.StringAttribute{
-				Description: "",
-				Optional:    true,
-				Computed:    true,
+				Description:         "The `description` parameter.",
+				MarkdownDescription: "The `description` parameter.",
+				Optional:            true,
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					DefaultString(""),
 				},
@@ -5443,28 +5944,33 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 				},
 			},
 			"disk_backup": rsschema.SingleNestedAttribute{
-				Description: "",
-				Optional:    true,
+				Description:         "The `disk_backup` parameter.",
+				MarkdownDescription: "The `disk_backup` parameter.",
+				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"criteria": rsschema.SingleNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `criteria` parameter.",
+						MarkdownDescription: "The `criteria` parameter.",
+						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"is_installed": rsschema.BoolAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `is_installed` parameter.",
+								MarkdownDescription: "The `is_installed` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.Bool{
 									DefaultBool(true),
 								},
 							},
 							"last_backup_time": rsschema.SingleNestedAttribute{
-								Description: "",
-								Optional:    true,
+								Description:         "The `last_backup_time` parameter.",
+								MarkdownDescription: "The `last_backup_time` parameter.",
+								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"not_available": rsschema.BoolAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `not_available` parameter.",
+										MarkdownDescription: "The `not_available` parameter.",
+										Optional:            true,
 										Validators: []validator.Bool{
 											boolvalidator.ConflictsWith(
 												path.MatchRelative().AtParent().AtName("not_within"),
@@ -5473,13 +5979,15 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"not_within": rsschema.SingleNestedAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `not_within` parameter.",
+										MarkdownDescription: "The `not_within` parameter.",
+										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"days": rsschema.Int64Attribute{
-												Description: "",
-												Optional:    true,
-												Computed:    true,
+												Description:         "The `days` parameter.",
+												MarkdownDescription: "The `days` parameter.",
+												Optional:            true,
+												Computed:            true,
 												PlanModifiers: []planmodifier.Int64{
 													DefaultInt64(1),
 												},
@@ -5488,9 +5996,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												},
 											},
 											"hours": rsschema.Int64Attribute{
-												Description: "",
-												Optional:    true,
-												Computed:    true,
+												Description:         "The `hours` parameter.",
+												MarkdownDescription: "The `hours` parameter.",
+												Optional:            true,
+												Computed:            true,
 												PlanModifiers: []planmodifier.Int64{
 													DefaultInt64(24),
 												},
@@ -5501,13 +6010,15 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"within": rsschema.SingleNestedAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `within` parameter.",
+										MarkdownDescription: "The `within` parameter.",
+										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"days": rsschema.Int64Attribute{
-												Description: "",
-												Optional:    true,
-												Computed:    true,
+												Description:         "The `days` parameter.",
+												MarkdownDescription: "The `days` parameter.",
+												Optional:            true,
+												Computed:            true,
 												PlanModifiers: []planmodifier.Int64{
 													DefaultInt64(1),
 												},
@@ -5516,9 +6027,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												},
 											},
 											"hours": rsschema.Int64Attribute{
-												Description: "",
-												Optional:    true,
-												Computed:    true,
+												Description:         "The `hours` parameter.",
+												MarkdownDescription: "The `hours` parameter.",
+												Optional:            true,
+												Computed:            true,
 												PlanModifiers: []planmodifier.Int64{
 													DefaultInt64(24),
 												},
@@ -5533,29 +6045,33 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 						},
 					},
 					"exclude_vendor": rsschema.BoolAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `exclude_vendor` parameter.",
+						MarkdownDescription: "The `exclude_vendor` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
 							DefaultBool(false),
 						},
 					},
 					"vendor": rsschema.ListNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `vendor` parameter.",
+						MarkdownDescription: "The `vendor` parameter.",
+						Optional:            true,
 						NestedObject: rsschema.NestedAttributeObject{
 							Attributes: map[string]rsschema.Attribute{
 								"name": rsschema.StringAttribute{
-									Description: "",
-									Required:    true,
+									Description:         "The `name` parameter.",
+									MarkdownDescription: "The `name` parameter.",
+									Required:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(103),
 									},
 								},
 								"product": rsschema.ListAttribute{
-									Description: "",
-									Optional:    true,
-									ElementType: types.StringType,
+									Description:         "The `product` parameter.",
+									MarkdownDescription: "The `product` parameter.",
+									Optional:            true,
+									ElementType:         types.StringType,
 								},
 							},
 						},
@@ -5563,26 +6079,31 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 				},
 			},
 			"disk_encryption": rsschema.SingleNestedAttribute{
-				Description: "",
-				Optional:    true,
+				Description:         "The `disk_encryption` parameter.",
+				MarkdownDescription: "The `disk_encryption` parameter.",
+				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"criteria": rsschema.SingleNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `criteria` parameter.",
+						MarkdownDescription: "The `criteria` parameter.",
+						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"encrypted_locations": rsschema.ListNestedAttribute{
-								Description: "",
-								Optional:    true,
+								Description:         "The `encrypted_locations` parameter.",
+								MarkdownDescription: "The `encrypted_locations` parameter.",
+								Optional:            true,
 								NestedObject: rsschema.NestedAttributeObject{
 									Attributes: map[string]rsschema.Attribute{
 										"encryption_state": rsschema.SingleNestedAttribute{
-											Description: "",
-											Optional:    true,
+											Description:         "The `encryption_state` parameter.",
+											MarkdownDescription: "The `encryption_state` parameter.",
+											Optional:            true,
 											Attributes: map[string]rsschema.Attribute{
 												"is": rsschema.StringAttribute{
-													Description: "",
-													Optional:    true,
-													Computed:    true,
+													Description:         "The `is` parameter.",
+													MarkdownDescription: "The `is` parameter.",
+													Optional:            true,
+													Computed:            true,
 													PlanModifiers: []planmodifier.String{
 														DefaultString("encrypted"),
 													},
@@ -5591,9 +6112,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 													},
 												},
 												"is_not": rsschema.StringAttribute{
-													Description: "",
-													Optional:    true,
-													Computed:    true,
+													Description:         "The `is_not` parameter.",
+													MarkdownDescription: "The `is_not` parameter.",
+													Optional:            true,
+													Computed:            true,
 													PlanModifiers: []planmodifier.String{
 														DefaultString("encrypted"),
 													},
@@ -5604,8 +6126,9 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 											},
 										},
 										"name": rsschema.StringAttribute{
-											Description: "",
-											Required:    true,
+											Description:         "The `name` parameter.",
+											MarkdownDescription: "The `name` parameter.",
+											Required:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(1023),
 											},
@@ -5614,9 +6137,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								},
 							},
 							"is_installed": rsschema.BoolAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `is_installed` parameter.",
+								MarkdownDescription: "The `is_installed` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.Bool{
 									DefaultBool(true),
 								},
@@ -5624,29 +6148,33 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 						},
 					},
 					"exclude_vendor": rsschema.BoolAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `exclude_vendor` parameter.",
+						MarkdownDescription: "The `exclude_vendor` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
 							DefaultBool(false),
 						},
 					},
 					"vendor": rsschema.ListNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `vendor` parameter.",
+						MarkdownDescription: "The `vendor` parameter.",
+						Optional:            true,
 						NestedObject: rsschema.NestedAttributeObject{
 							Attributes: map[string]rsschema.Attribute{
 								"name": rsschema.StringAttribute{
-									Description: "",
-									Required:    true,
+									Description:         "The `name` parameter.",
+									MarkdownDescription: "The `name` parameter.",
+									Required:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(103),
 									},
 								},
 								"product": rsschema.ListAttribute{
-									Description: "",
-									Optional:    true,
-									ElementType: types.StringType,
+									Description:         "The `product` parameter.",
+									MarkdownDescription: "The `product` parameter.",
+									Optional:            true,
+									ElementType:         types.StringType,
 								},
 							},
 						},
@@ -5654,17 +6182,20 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 				},
 			},
 			"firewall": rsschema.SingleNestedAttribute{
-				Description: "",
-				Optional:    true,
+				Description:         "The `firewall` parameter.",
+				MarkdownDescription: "The `firewall` parameter.",
+				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"criteria": rsschema.SingleNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `criteria` parameter.",
+						MarkdownDescription: "The `criteria` parameter.",
+						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"is_enabled": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `is_enabled` parameter.",
+								MarkdownDescription: "The `is_enabled` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString(""),
 								},
@@ -5673,9 +6204,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								},
 							},
 							"is_installed": rsschema.BoolAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `is_installed` parameter.",
+								MarkdownDescription: "The `is_installed` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.Bool{
 									DefaultBool(true),
 								},
@@ -5683,29 +6215,33 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 						},
 					},
 					"exclude_vendor": rsschema.BoolAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `exclude_vendor` parameter.",
+						MarkdownDescription: "The `exclude_vendor` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
 							DefaultBool(false),
 						},
 					},
 					"vendor": rsschema.ListNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `vendor` parameter.",
+						MarkdownDescription: "The `vendor` parameter.",
+						Optional:            true,
 						NestedObject: rsschema.NestedAttributeObject{
 							Attributes: map[string]rsschema.Attribute{
 								"name": rsschema.StringAttribute{
-									Description: "",
-									Required:    true,
+									Description:         "The `name` parameter.",
+									MarkdownDescription: "The `name` parameter.",
+									Required:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(103),
 									},
 								},
 								"product": rsschema.ListAttribute{
-									Description: "",
-									Optional:    true,
-									ElementType: types.StringType,
+									Description:         "The `product` parameter.",
+									MarkdownDescription: "The `product` parameter.",
+									Optional:            true,
+									ElementType:         types.StringType,
 								},
 							},
 						},
@@ -5713,21 +6249,25 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 				},
 			},
 			"host_info": rsschema.SingleNestedAttribute{
-				Description: "",
-				Optional:    true,
+				Description:         "The `host_info` parameter.",
+				MarkdownDescription: "The `host_info` parameter.",
+				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"criteria": rsschema.SingleNestedAttribute{
-						Description: "",
-						Required:    true,
+						Description:         "The `criteria` parameter.",
+						MarkdownDescription: "The `criteria` parameter.",
+						Required:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"client_version": rsschema.SingleNestedAttribute{
-								Description: "",
-								Optional:    true,
+								Description:         "The `client_version` parameter.",
+								MarkdownDescription: "The `client_version` parameter.",
+								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"contains": rsschema.StringAttribute{
-										Description: "",
-										Optional:    true,
-										Computed:    true,
+										Description:         "The `contains` parameter.",
+										MarkdownDescription: "The `contains` parameter.",
+										Optional:            true,
+										Computed:            true,
 										PlanModifiers: []planmodifier.String{
 											DefaultString(""),
 										},
@@ -5740,9 +6280,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is": rsschema.StringAttribute{
-										Description: "",
-										Optional:    true,
-										Computed:    true,
+										Description:         "The `is` parameter.",
+										MarkdownDescription: "The `is` parameter.",
+										Optional:            true,
+										Computed:            true,
 										PlanModifiers: []planmodifier.String{
 											DefaultString(""),
 										},
@@ -5755,9 +6296,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is_not": rsschema.StringAttribute{
-										Description: "",
-										Optional:    true,
-										Computed:    true,
+										Description:         "The `is_not` parameter.",
+										MarkdownDescription: "The `is_not` parameter.",
+										Optional:            true,
+										Computed:            true,
 										PlanModifiers: []planmodifier.String{
 											DefaultString(""),
 										},
@@ -5772,13 +6314,15 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								},
 							},
 							"domain": rsschema.SingleNestedAttribute{
-								Description: "",
-								Optional:    true,
+								Description:         "The `domain` parameter.",
+								MarkdownDescription: "The `domain` parameter.",
+								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"contains": rsschema.StringAttribute{
-										Description: "",
-										Optional:    true,
-										Computed:    true,
+										Description:         "The `contains` parameter.",
+										MarkdownDescription: "The `contains` parameter.",
+										Optional:            true,
+										Computed:            true,
 										PlanModifiers: []planmodifier.String{
 											DefaultString(""),
 										},
@@ -5791,9 +6335,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is": rsschema.StringAttribute{
-										Description: "",
-										Optional:    true,
-										Computed:    true,
+										Description:         "The `is` parameter.",
+										MarkdownDescription: "The `is` parameter.",
+										Optional:            true,
+										Computed:            true,
 										PlanModifiers: []planmodifier.String{
 											DefaultString(""),
 										},
@@ -5806,9 +6351,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is_not": rsschema.StringAttribute{
-										Description: "",
-										Optional:    true,
-										Computed:    true,
+										Description:         "The `is_not` parameter.",
+										MarkdownDescription: "The `is_not` parameter.",
+										Optional:            true,
+										Computed:            true,
 										PlanModifiers: []planmodifier.String{
 											DefaultString(""),
 										},
@@ -5823,13 +6369,15 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								},
 							},
 							"host_id": rsschema.SingleNestedAttribute{
-								Description: "",
-								Optional:    true,
+								Description:         "The `host_id` parameter.",
+								MarkdownDescription: "The `host_id` parameter.",
+								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"contains": rsschema.StringAttribute{
-										Description: "",
-										Optional:    true,
-										Computed:    true,
+										Description:         "The `contains` parameter.",
+										MarkdownDescription: "The `contains` parameter.",
+										Optional:            true,
+										Computed:            true,
 										PlanModifiers: []planmodifier.String{
 											DefaultString(""),
 										},
@@ -5842,9 +6390,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is": rsschema.StringAttribute{
-										Description: "",
-										Optional:    true,
-										Computed:    true,
+										Description:         "The `is` parameter.",
+										MarkdownDescription: "The `is` parameter.",
+										Optional:            true,
+										Computed:            true,
 										PlanModifiers: []planmodifier.String{
 											DefaultString(""),
 										},
@@ -5857,9 +6406,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is_not": rsschema.StringAttribute{
-										Description: "",
-										Optional:    true,
-										Computed:    true,
+										Description:         "The `is_not` parameter.",
+										MarkdownDescription: "The `is_not` parameter.",
+										Optional:            true,
+										Computed:            true,
 										PlanModifiers: []planmodifier.String{
 											DefaultString(""),
 										},
@@ -5874,13 +6424,15 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								},
 							},
 							"host_name": rsschema.SingleNestedAttribute{
-								Description: "",
-								Optional:    true,
+								Description:         "The `host_name` parameter.",
+								MarkdownDescription: "The `host_name` parameter.",
+								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"contains": rsschema.StringAttribute{
-										Description: "",
-										Optional:    true,
-										Computed:    true,
+										Description:         "The `contains` parameter.",
+										MarkdownDescription: "The `contains` parameter.",
+										Optional:            true,
+										Computed:            true,
 										PlanModifiers: []planmodifier.String{
 											DefaultString(""),
 										},
@@ -5893,9 +6445,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is": rsschema.StringAttribute{
-										Description: "",
-										Optional:    true,
-										Computed:    true,
+										Description:         "The `is` parameter.",
+										MarkdownDescription: "The `is` parameter.",
+										Optional:            true,
+										Computed:            true,
 										PlanModifiers: []planmodifier.String{
 											DefaultString(""),
 										},
@@ -5908,9 +6461,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is_not": rsschema.StringAttribute{
-										Description: "",
-										Optional:    true,
-										Computed:    true,
+										Description:         "The `is_not` parameter.",
+										MarkdownDescription: "The `is_not` parameter.",
+										Optional:            true,
+										Computed:            true,
 										PlanModifiers: []planmodifier.String{
 											DefaultString(""),
 										},
@@ -5925,25 +6479,29 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								},
 							},
 							"managed": rsschema.BoolAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `managed` parameter.",
+								MarkdownDescription: "The `managed` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.Bool{
 									DefaultBool(false),
 								},
 							},
 							"os": rsschema.SingleNestedAttribute{
-								Description: "",
-								Optional:    true,
+								Description:         "The `os` parameter.",
+								MarkdownDescription: "The `os` parameter.",
+								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"contains": rsschema.SingleNestedAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `contains` parameter.",
+										MarkdownDescription: "The `contains` parameter.",
+										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"apple": rsschema.StringAttribute{
-												Description: "",
-												Optional:    true,
-												Computed:    true,
+												Description:         "The `apple` parameter.",
+												MarkdownDescription: "The `apple` parameter.",
+												Optional:            true,
+												Computed:            true,
 												PlanModifiers: []planmodifier.String{
 													DefaultString("All"),
 												},
@@ -5958,9 +6516,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												},
 											},
 											"google": rsschema.StringAttribute{
-												Description: "",
-												Optional:    true,
-												Computed:    true,
+												Description:         "The `google` parameter.",
+												MarkdownDescription: "The `google` parameter.",
+												Optional:            true,
+												Computed:            true,
 												PlanModifiers: []planmodifier.String{
 													DefaultString("All"),
 												},
@@ -5975,9 +6534,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												},
 											},
 											"linux": rsschema.StringAttribute{
-												Description: "",
-												Optional:    true,
-												Computed:    true,
+												Description:         "The `linux` parameter.",
+												MarkdownDescription: "The `linux` parameter.",
+												Optional:            true,
+												Computed:            true,
 												PlanModifiers: []planmodifier.String{
 													DefaultString("All"),
 												},
@@ -5992,9 +6552,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												},
 											},
 											"microsoft": rsschema.StringAttribute{
-												Description: "",
-												Optional:    true,
-												Computed:    true,
+												Description:         "The `microsoft` parameter.",
+												MarkdownDescription: "The `microsoft` parameter.",
+												Optional:            true,
+												Computed:            true,
 												PlanModifiers: []planmodifier.String{
 													DefaultString("All"),
 												},
@@ -6009,9 +6570,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												},
 											},
 											"other": rsschema.StringAttribute{
-												Description: "",
-												Optional:    true,
-												Computed:    true,
+												Description:         "The `other` parameter.",
+												MarkdownDescription: "The `other` parameter.",
+												Optional:            true,
+												Computed:            true,
 												PlanModifiers: []planmodifier.String{
 													DefaultString(""),
 												},
@@ -6030,13 +6592,15 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								},
 							},
 							"serial_number": rsschema.SingleNestedAttribute{
-								Description: "",
-								Optional:    true,
+								Description:         "The `serial_number` parameter.",
+								MarkdownDescription: "The `serial_number` parameter.",
+								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"contains": rsschema.StringAttribute{
-										Description: "",
-										Optional:    true,
-										Computed:    true,
+										Description:         "The `contains` parameter.",
+										MarkdownDescription: "The `contains` parameter.",
+										Optional:            true,
+										Computed:            true,
 										PlanModifiers: []planmodifier.String{
 											DefaultString(""),
 										},
@@ -6049,9 +6613,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is": rsschema.StringAttribute{
-										Description: "",
-										Optional:    true,
-										Computed:    true,
+										Description:         "The `is` parameter.",
+										MarkdownDescription: "The `is` parameter.",
+										Optional:            true,
+										Computed:            true,
 										PlanModifiers: []planmodifier.String{
 											DefaultString(""),
 										},
@@ -6064,9 +6629,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is_not": rsschema.StringAttribute{
-										Description: "",
-										Optional:    true,
-										Computed:    true,
+										Description:         "The `is_not` parameter.",
+										MarkdownDescription: "The `is_not` parameter.",
+										Optional:            true,
+										Computed:            true,
 										PlanModifiers: []planmodifier.String{
 											DefaultString(""),
 										},
@@ -6085,45 +6651,54 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 				},
 			},
 			"object_id": rsschema.StringAttribute{
-				Description: "",
-				Computed:    true,
+				Description:         "The `object_id` parameter.",
+				MarkdownDescription: "The `object_id` parameter.",
+				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
 			},
 			"mobile_device": rsschema.SingleNestedAttribute{
-				Description: "",
-				Optional:    true,
+				Description:         "The `mobile_device` parameter.",
+				MarkdownDescription: "The `mobile_device` parameter.",
+				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"criteria": rsschema.SingleNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `criteria` parameter.",
+						MarkdownDescription: "The `criteria` parameter.",
+						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"applications": rsschema.SingleNestedAttribute{
-								Description: "",
-								Optional:    true,
+								Description:         "The `applications` parameter.",
+								MarkdownDescription: "The `applications` parameter.",
+								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"has_malware": rsschema.SingleNestedAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `has_malware` parameter.",
+										MarkdownDescription: "The `has_malware` parameter.",
+										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"no": rsschema.BoolAttribute{
-												Description: "",
-												Optional:    true,
+												Description:         "The `no` parameter.",
+												MarkdownDescription: "The `no` parameter.",
+												Optional:            true,
 											},
 											"yes": rsschema.SingleNestedAttribute{
-												Description: "",
-												Optional:    true,
+												Description:         "The `yes` parameter.",
+												MarkdownDescription: "The `yes` parameter.",
+												Optional:            true,
 												Attributes: map[string]rsschema.Attribute{
 													"excludes": rsschema.ListNestedAttribute{
-														Description: "",
-														Optional:    true,
+														Description:         "The `excludes` parameter.",
+														MarkdownDescription: "The `excludes` parameter.",
+														Optional:            true,
 														NestedObject: rsschema.NestedAttributeObject{
 															Attributes: map[string]rsschema.Attribute{
 																"hash": rsschema.StringAttribute{
-																	Description: "",
-																	Optional:    true,
-																	Computed:    true,
+																	Description:         "The `hash` parameter.",
+																	MarkdownDescription: "The `hash` parameter.",
+																	Optional:            true,
+																	Computed:            true,
 																	PlanModifiers: []planmodifier.String{
 																		DefaultString(""),
 																	},
@@ -6132,16 +6707,18 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 																	},
 																},
 																"name": rsschema.StringAttribute{
-																	Description: "",
-																	Required:    true,
+																	Description:         "The `name` parameter.",
+																	MarkdownDescription: "The `name` parameter.",
+																	Required:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthAtMost(31),
 																	},
 																},
 																"package": rsschema.StringAttribute{
-																	Description: "",
-																	Optional:    true,
-																	Computed:    true,
+																	Description:         "The `package` parameter.",
+																	MarkdownDescription: "The `package` parameter.",
+																	Optional:            true,
+																	Computed:            true,
 																	PlanModifiers: []planmodifier.String{
 																		DefaultString(""),
 																	},
@@ -6157,22 +6734,25 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"has_unmanaged_app": rsschema.BoolAttribute{
-										Description: "",
-										Optional:    true,
-										Computed:    true,
+										Description:         "The `has_unmanaged_app` parameter.",
+										MarkdownDescription: "The `has_unmanaged_app` parameter.",
+										Optional:            true,
+										Computed:            true,
 										PlanModifiers: []planmodifier.Bool{
 											DefaultBool(false),
 										},
 									},
 									"includes": rsschema.ListNestedAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `includes` parameter.",
+										MarkdownDescription: "The `includes` parameter.",
+										Optional:            true,
 										NestedObject: rsschema.NestedAttributeObject{
 											Attributes: map[string]rsschema.Attribute{
 												"hash": rsschema.StringAttribute{
-													Description: "",
-													Optional:    true,
-													Computed:    true,
+													Description:         "The `hash` parameter.",
+													MarkdownDescription: "The `hash` parameter.",
+													Optional:            true,
+													Computed:            true,
 													PlanModifiers: []planmodifier.String{
 														DefaultString(""),
 													},
@@ -6181,16 +6761,18 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 													},
 												},
 												"name": rsschema.StringAttribute{
-													Description: "",
-													Required:    true,
+													Description:         "The `name` parameter.",
+													MarkdownDescription: "The `name` parameter.",
+													Required:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(31),
 													},
 												},
 												"package": rsschema.StringAttribute{
-													Description: "",
-													Optional:    true,
-													Computed:    true,
+													Description:         "The `package` parameter.",
+													MarkdownDescription: "The `package` parameter.",
+													Optional:            true,
+													Computed:            true,
 													PlanModifiers: []planmodifier.String{
 														DefaultString(""),
 													},
@@ -6204,21 +6786,24 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								},
 							},
 							"disk_encrypted": rsschema.BoolAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `disk_encrypted` parameter.",
+								MarkdownDescription: "The `disk_encrypted` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.Bool{
 									DefaultBool(false),
 								},
 							},
 							"imei": rsschema.SingleNestedAttribute{
-								Description: "",
-								Optional:    true,
+								Description:         "The `imei` parameter.",
+								MarkdownDescription: "The `imei` parameter.",
+								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"contains": rsschema.StringAttribute{
-										Description: "",
-										Optional:    true,
-										Computed:    true,
+										Description:         "The `contains` parameter.",
+										MarkdownDescription: "The `contains` parameter.",
+										Optional:            true,
+										Computed:            true,
 										PlanModifiers: []planmodifier.String{
 											DefaultString(""),
 										},
@@ -6231,9 +6816,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is": rsschema.StringAttribute{
-										Description: "",
-										Optional:    true,
-										Computed:    true,
+										Description:         "The `is` parameter.",
+										MarkdownDescription: "The `is` parameter.",
+										Optional:            true,
+										Computed:            true,
 										PlanModifiers: []planmodifier.String{
 											DefaultString(""),
 										},
@@ -6246,9 +6832,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is_not": rsschema.StringAttribute{
-										Description: "",
-										Optional:    true,
-										Computed:    true,
+										Description:         "The `is_not` parameter.",
+										MarkdownDescription: "The `is_not` parameter.",
+										Optional:            true,
+										Computed:            true,
 										PlanModifiers: []planmodifier.String{
 											DefaultString(""),
 										},
@@ -6263,24 +6850,28 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								},
 							},
 							"jailbroken": rsschema.BoolAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `jailbroken` parameter.",
+								MarkdownDescription: "The `jailbroken` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.Bool{
 									DefaultBool(false),
 								},
 							},
 							"last_checkin_time": rsschema.SingleNestedAttribute{
-								Description: "",
-								Optional:    true,
+								Description:         "The `last_checkin_time` parameter.",
+								MarkdownDescription: "The `last_checkin_time` parameter.",
+								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"not_within": rsschema.SingleNestedAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `not_within` parameter.",
+										MarkdownDescription: "The `not_within` parameter.",
+										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"days": rsschema.Int64Attribute{
-												Description: "",
-												Required:    true,
+												Description:         "The `days` parameter.",
+												MarkdownDescription: "The `days` parameter.",
+												Required:            true,
 												Validators: []validator.Int64{
 													int64validator.Between(1, 365),
 												},
@@ -6288,12 +6879,14 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"within": rsschema.SingleNestedAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `within` parameter.",
+										MarkdownDescription: "The `within` parameter.",
+										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"days": rsschema.Int64Attribute{
-												Description: "",
-												Required:    true,
+												Description:         "The `days` parameter.",
+												MarkdownDescription: "The `days` parameter.",
+												Required:            true,
 												Validators: []validator.Int64{
 													int64validator.Between(1, 365),
 												},
@@ -6303,13 +6896,15 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								},
 							},
 							"model": rsschema.SingleNestedAttribute{
-								Description: "",
-								Optional:    true,
+								Description:         "The `model` parameter.",
+								MarkdownDescription: "The `model` parameter.",
+								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"contains": rsschema.StringAttribute{
-										Description: "",
-										Optional:    true,
-										Computed:    true,
+										Description:         "The `contains` parameter.",
+										MarkdownDescription: "The `contains` parameter.",
+										Optional:            true,
+										Computed:            true,
 										PlanModifiers: []planmodifier.String{
 											DefaultString(""),
 										},
@@ -6322,9 +6917,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is": rsschema.StringAttribute{
-										Description: "",
-										Optional:    true,
-										Computed:    true,
+										Description:         "The `is` parameter.",
+										MarkdownDescription: "The `is` parameter.",
+										Optional:            true,
+										Computed:            true,
 										PlanModifiers: []planmodifier.String{
 											DefaultString(""),
 										},
@@ -6337,9 +6933,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is_not": rsschema.StringAttribute{
-										Description: "",
-										Optional:    true,
-										Computed:    true,
+										Description:         "The `is_not` parameter.",
+										MarkdownDescription: "The `is_not` parameter.",
+										Optional:            true,
+										Computed:            true,
 										PlanModifiers: []planmodifier.String{
 											DefaultString(""),
 										},
@@ -6354,21 +6951,24 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								},
 							},
 							"passcode_set": rsschema.BoolAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `passcode_set` parameter.",
+								MarkdownDescription: "The `passcode_set` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.Bool{
 									DefaultBool(false),
 								},
 							},
 							"phone_number": rsschema.SingleNestedAttribute{
-								Description: "",
-								Optional:    true,
+								Description:         "The `phone_number` parameter.",
+								MarkdownDescription: "The `phone_number` parameter.",
+								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"contains": rsschema.StringAttribute{
-										Description: "",
-										Optional:    true,
-										Computed:    true,
+										Description:         "The `contains` parameter.",
+										MarkdownDescription: "The `contains` parameter.",
+										Optional:            true,
+										Computed:            true,
 										PlanModifiers: []planmodifier.String{
 											DefaultString(""),
 										},
@@ -6381,9 +6981,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is": rsschema.StringAttribute{
-										Description: "",
-										Optional:    true,
-										Computed:    true,
+										Description:         "The `is` parameter.",
+										MarkdownDescription: "The `is` parameter.",
+										Optional:            true,
+										Computed:            true,
 										PlanModifiers: []planmodifier.String{
 											DefaultString(""),
 										},
@@ -6396,9 +6997,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is_not": rsschema.StringAttribute{
-										Description: "",
-										Optional:    true,
-										Computed:    true,
+										Description:         "The `is_not` parameter.",
+										MarkdownDescription: "The `is_not` parameter.",
+										Optional:            true,
+										Computed:            true,
 										PlanModifiers: []planmodifier.String{
 											DefaultString(""),
 										},
@@ -6413,13 +7015,15 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								},
 							},
 							"tag": rsschema.SingleNestedAttribute{
-								Description: "",
-								Optional:    true,
+								Description:         "The `tag` parameter.",
+								MarkdownDescription: "The `tag` parameter.",
+								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"contains": rsschema.StringAttribute{
-										Description: "",
-										Optional:    true,
-										Computed:    true,
+										Description:         "The `contains` parameter.",
+										MarkdownDescription: "The `contains` parameter.",
+										Optional:            true,
+										Computed:            true,
 										PlanModifiers: []planmodifier.String{
 											DefaultString(""),
 										},
@@ -6432,9 +7036,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is": rsschema.StringAttribute{
-										Description: "",
-										Optional:    true,
-										Computed:    true,
+										Description:         "The `is` parameter.",
+										MarkdownDescription: "The `is` parameter.",
+										Optional:            true,
+										Computed:            true,
 										PlanModifiers: []planmodifier.String{
 											DefaultString(""),
 										},
@@ -6447,9 +7052,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is_not": rsschema.StringAttribute{
-										Description: "",
-										Optional:    true,
-										Computed:    true,
+										Description:         "The `is_not` parameter.",
+										MarkdownDescription: "The `is_not` parameter.",
+										Optional:            true,
+										Computed:            true,
 										PlanModifiers: []planmodifier.String{
 											DefaultString(""),
 										},
@@ -6468,36 +7074,43 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 				},
 			},
 			"name": rsschema.StringAttribute{
-				Description: "",
-				Required:    true,
+				Description:         "The `name` parameter.",
+				MarkdownDescription: "The `name` parameter.",
+				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(31),
 				},
 			},
 			"network_info": rsschema.SingleNestedAttribute{
-				Description: "",
-				Optional:    true,
+				Description:         "The `network_info` parameter.",
+				MarkdownDescription: "The `network_info` parameter.",
+				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"criteria": rsschema.SingleNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `criteria` parameter.",
+						MarkdownDescription: "The `criteria` parameter.",
+						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"network": rsschema.SingleNestedAttribute{
-								Description: "",
-								Optional:    true,
+								Description:         "The `network` parameter.",
+								MarkdownDescription: "The `network` parameter.",
+								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"is": rsschema.SingleNestedAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `is` parameter.",
+										MarkdownDescription: "The `is` parameter.",
+										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"mobile": rsschema.SingleNestedAttribute{
-												Description: "",
-												Optional:    true,
+												Description:         "The `mobile` parameter.",
+												MarkdownDescription: "The `mobile` parameter.",
+												Optional:            true,
 												Attributes: map[string]rsschema.Attribute{
 													"carrier": rsschema.StringAttribute{
-														Description: "",
-														Optional:    true,
-														Computed:    true,
+														Description:         "The `carrier` parameter.",
+														MarkdownDescription: "The `carrier` parameter.",
+														Optional:            true,
+														Computed:            true,
 														PlanModifiers: []planmodifier.String{
 															DefaultString(""),
 														},
@@ -6508,17 +7121,20 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												},
 											},
 											"unknown": rsschema.BoolAttribute{
-												Description: "",
-												Optional:    true,
+												Description:         "The `unknown` parameter.",
+												MarkdownDescription: "The `unknown` parameter.",
+												Optional:            true,
 											},
 											"wifi": rsschema.SingleNestedAttribute{
-												Description: "",
-												Optional:    true,
+												Description:         "The `wifi` parameter.",
+												MarkdownDescription: "The `wifi` parameter.",
+												Optional:            true,
 												Attributes: map[string]rsschema.Attribute{
 													"ssid": rsschema.StringAttribute{
-														Description: "",
-														Optional:    true,
-														Computed:    true,
+														Description:         "The `ssid` parameter.",
+														MarkdownDescription: "The `ssid` parameter.",
+														Optional:            true,
+														Computed:            true,
 														PlanModifiers: []planmodifier.String{
 															DefaultString(""),
 														},
@@ -6531,21 +7147,25 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is_not": rsschema.SingleNestedAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `is_not` parameter.",
+										MarkdownDescription: "The `is_not` parameter.",
+										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"ethernet": rsschema.BoolAttribute{
-												Description: "",
-												Optional:    true,
+												Description:         "The `ethernet` parameter.",
+												MarkdownDescription: "The `ethernet` parameter.",
+												Optional:            true,
 											},
 											"mobile": rsschema.SingleNestedAttribute{
-												Description: "",
-												Optional:    true,
+												Description:         "The `mobile` parameter.",
+												MarkdownDescription: "The `mobile` parameter.",
+												Optional:            true,
 												Attributes: map[string]rsschema.Attribute{
 													"carrier": rsschema.StringAttribute{
-														Description: "",
-														Optional:    true,
-														Computed:    true,
+														Description:         "The `carrier` parameter.",
+														MarkdownDescription: "The `carrier` parameter.",
+														Optional:            true,
+														Computed:            true,
 														PlanModifiers: []planmodifier.String{
 															DefaultString(""),
 														},
@@ -6556,17 +7176,20 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												},
 											},
 											"unknown": rsschema.BoolAttribute{
-												Description: "",
-												Optional:    true,
+												Description:         "The `unknown` parameter.",
+												MarkdownDescription: "The `unknown` parameter.",
+												Optional:            true,
 											},
 											"wifi": rsschema.SingleNestedAttribute{
-												Description: "",
-												Optional:    true,
+												Description:         "The `wifi` parameter.",
+												MarkdownDescription: "The `wifi` parameter.",
+												Optional:            true,
 												Attributes: map[string]rsschema.Attribute{
 													"ssid": rsschema.StringAttribute{
-														Description: "",
-														Optional:    true,
-														Computed:    true,
+														Description:         "The `ssid` parameter.",
+														MarkdownDescription: "The `ssid` parameter.",
+														Optional:            true,
+														Computed:            true,
 														PlanModifiers: []planmodifier.String{
 															DefaultString(""),
 														},
@@ -6585,17 +7208,20 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 				},
 			},
 			"patch_management": rsschema.SingleNestedAttribute{
-				Description: "",
-				Optional:    true,
+				Description:         "The `patch_management` parameter.",
+				MarkdownDescription: "The `patch_management` parameter.",
+				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"criteria": rsschema.SingleNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `criteria` parameter.",
+						MarkdownDescription: "The `criteria` parameter.",
+						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"is_enabled": rsschema.StringAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `is_enabled` parameter.",
+								MarkdownDescription: "The `is_enabled` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.String{
 									DefaultString(""),
 								},
@@ -6604,37 +7230,43 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								},
 							},
 							"is_installed": rsschema.BoolAttribute{
-								Description: "",
-								Optional:    true,
-								Computed:    true,
+								Description:         "The `is_installed` parameter.",
+								MarkdownDescription: "The `is_installed` parameter.",
+								Optional:            true,
+								Computed:            true,
 								PlanModifiers: []planmodifier.Bool{
 									DefaultBool(true),
 								},
 							},
 							"missing_patches": rsschema.SingleNestedAttribute{
-								Description: "",
-								Optional:    true,
+								Description:         "The `missing_patches` parameter.",
+								MarkdownDescription: "The `missing_patches` parameter.",
+								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"check": rsschema.StringAttribute{
-										Description: "",
-										Required:    true,
+										Description:         "The `check` parameter.",
+										MarkdownDescription: "The `check` parameter.",
+										Required:            true,
 										Validators: []validator.String{
 											stringvalidator.OneOf("has-any", "has-none", "has-all"),
 										},
 									},
 									"patches": rsschema.ListAttribute{
-										Description: "",
-										Optional:    true,
-										ElementType: types.StringType,
+										Description:         "The `patches` parameter.",
+										MarkdownDescription: "The `patches` parameter.",
+										Optional:            true,
+										ElementType:         types.StringType,
 									},
 									"severity": rsschema.SingleNestedAttribute{
-										Description: "",
-										Optional:    true,
+										Description:         "The `severity` parameter.",
+										MarkdownDescription: "The `severity` parameter.",
+										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"greater_equal": rsschema.Int64Attribute{
-												Description: "",
-												Optional:    true,
-												Computed:    true,
+												Description:         "The `greater_equal` parameter.",
+												MarkdownDescription: "The `greater_equal` parameter.",
+												Optional:            true,
+												Computed:            true,
 												PlanModifiers: []planmodifier.Int64{
 													DefaultInt64(0),
 												},
@@ -6650,9 +7282,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												},
 											},
 											"greater_than": rsschema.Int64Attribute{
-												Description: "",
-												Optional:    true,
-												Computed:    true,
+												Description:         "The `greater_than` parameter.",
+												MarkdownDescription: "The `greater_than` parameter.",
+												Optional:            true,
+												Computed:            true,
 												PlanModifiers: []planmodifier.Int64{
 													DefaultInt64(0),
 												},
@@ -6668,9 +7301,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												},
 											},
 											"is": rsschema.Int64Attribute{
-												Description: "",
-												Optional:    true,
-												Computed:    true,
+												Description:         "The `is` parameter.",
+												MarkdownDescription: "The `is` parameter.",
+												Optional:            true,
+												Computed:            true,
 												PlanModifiers: []planmodifier.Int64{
 													DefaultInt64(0),
 												},
@@ -6686,9 +7320,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												},
 											},
 											"is_not": rsschema.Int64Attribute{
-												Description: "",
-												Optional:    true,
-												Computed:    true,
+												Description:         "The `is_not` parameter.",
+												MarkdownDescription: "The `is_not` parameter.",
+												Optional:            true,
+												Computed:            true,
 												PlanModifiers: []planmodifier.Int64{
 													DefaultInt64(0),
 												},
@@ -6704,9 +7339,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												},
 											},
 											"less_equal": rsschema.Int64Attribute{
-												Description: "",
-												Optional:    true,
-												Computed:    true,
+												Description:         "The `less_equal` parameter.",
+												MarkdownDescription: "The `less_equal` parameter.",
+												Optional:            true,
+												Computed:            true,
 												PlanModifiers: []planmodifier.Int64{
 													DefaultInt64(0),
 												},
@@ -6722,9 +7358,10 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												},
 											},
 											"less_than": rsschema.Int64Attribute{
-												Description: "",
-												Optional:    true,
-												Computed:    true,
+												Description:         "The `less_than` parameter.",
+												MarkdownDescription: "The `less_than` parameter.",
+												Optional:            true,
+												Computed:            true,
 												PlanModifiers: []planmodifier.Int64{
 													DefaultInt64(0),
 												},
@@ -6746,29 +7383,33 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 						},
 					},
 					"exclude_vendor": rsschema.BoolAttribute{
-						Description: "",
-						Optional:    true,
-						Computed:    true,
+						Description:         "The `exclude_vendor` parameter.",
+						MarkdownDescription: "The `exclude_vendor` parameter.",
+						Optional:            true,
+						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
 							DefaultBool(false),
 						},
 					},
 					"vendor": rsschema.ListNestedAttribute{
-						Description: "",
-						Optional:    true,
+						Description:         "The `vendor` parameter.",
+						MarkdownDescription: "The `vendor` parameter.",
+						Optional:            true,
 						NestedObject: rsschema.NestedAttributeObject{
 							Attributes: map[string]rsschema.Attribute{
 								"name": rsschema.StringAttribute{
-									Description: "",
-									Required:    true,
+									Description:         "The `name` parameter.",
+									MarkdownDescription: "The `name` parameter.",
+									Required:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(103),
 									},
 								},
 								"product": rsschema.ListAttribute{
-									Description: "",
-									Optional:    true,
-									ElementType: types.StringType,
+									Description:         "The `product` parameter.",
+									MarkdownDescription: "The `product` parameter.",
+									Optional:            true,
+									ElementType:         types.StringType,
 								},
 							},
 						},

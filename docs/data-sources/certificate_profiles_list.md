@@ -27,39 +27,39 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `block_expired_cert` (Boolean)
-- `block_timeout_cert` (Boolean)
-- `block_unauthenticated_cert` (Boolean)
-- `block_unknown_cert` (Boolean)
-- `ca_certificates` (Attributes List) (see [below for nested schema](#nestedatt--data--ca_certificates))
-- `cert_status_timeout` (String)
-- `crl_receive_timeout` (String)
-- `domain` (String)
-- `name` (String)
-- `object_id` (String)
-- `ocsp_receive_timeout` (String)
-- `use_crl` (Boolean)
-- `use_ocsp` (Boolean)
-- `username_field` (Attributes) (see [below for nested schema](#nestedatt--data--username_field))
+- `block_expired_cert` (Boolean) The `block_expired_cert` parameter.
+- `block_timeout_cert` (Boolean) The `block_timeout_cert` parameter.
+- `block_unauthenticated_cert` (Boolean) The `block_unauthenticated_cert` parameter.
+- `block_unknown_cert` (Boolean) The `block_unknown_cert` parameter.
+- `ca_certificates` (Attributes List) The `ca_certificates` parameter. (see [below for nested schema](#nestedatt--data--ca_certificates))
+- `cert_status_timeout` (String) The `cert_status_timeout` parameter.
+- `crl_receive_timeout` (String) The `crl_receive_timeout` parameter.
+- `domain` (String) The `domain` parameter.
+- `name` (String) The `name` parameter.
+- `object_id` (String) The `object_id` parameter.
+- `ocsp_receive_timeout` (String) The `ocsp_receive_timeout` parameter.
+- `use_crl` (Boolean) The `use_crl` parameter.
+- `use_ocsp` (Boolean) The `use_ocsp` parameter.
+- `username_field` (Attributes) The `username_field` parameter. (see [below for nested schema](#nestedatt--data--username_field))
 
 <a id="nestedatt--data--ca_certificates"></a>
 ### Nested Schema for `data.ca_certificates`
 
 Read-Only:
 
-- `default_ocsp_url` (String)
-- `name` (String)
-- `ocsp_verify_cert` (String)
-- `template_name` (String)
+- `default_ocsp_url` (String) The `default_ocsp_url` parameter.
+- `name` (String) The `name` parameter.
+- `ocsp_verify_cert` (String) The `ocsp_verify_cert` parameter.
+- `template_name` (String) The `template_name` parameter.
 
 
 <a id="nestedatt--data--username_field"></a>
@@ -67,7 +67,7 @@ Read-Only:
 
 Read-Only:
 
-- `subject` (String)
-- `subject_alt` (String)
+- `subject` (String) The `subject` parameter.
+- `subject_alt` (String) The `subject_alt` parameter.
 
 

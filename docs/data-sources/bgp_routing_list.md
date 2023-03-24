@@ -26,28 +26,28 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `accept_route_over_s_c` (Boolean)
-- `add_host_route_to_ike_peer` (Boolean)
-- `backbone_routing` (String)
-- `outbound_routes_for_services` (List of String)
-- `routing_preference` (Attributes) (see [below for nested schema](#nestedatt--data--routing_preference))
-- `withdraw_static_route` (Boolean)
+- `accept_route_over_s_c` (Boolean) The `accept_route_over_s_c` parameter.
+- `add_host_route_to_ike_peer` (Boolean) The `add_host_route_to_ike_peer` parameter.
+- `backbone_routing` (String) The `backbone_routing` parameter.
+- `outbound_routes_for_services` (List of String) The `outbound_routes_for_services` parameter.
+- `routing_preference` (Attributes) The `routing_preference` parameter. (see [below for nested schema](#nestedatt--data--routing_preference))
+- `withdraw_static_route` (Boolean) The `withdraw_static_route` parameter.
 
 <a id="nestedatt--data--routing_preference"></a>
 ### Nested Schema for `data.routing_preference`
 
 Read-Only:
 
-- `default` (Boolean)
-- `hot_potato_routing` (Boolean)
+- `default` (Boolean) The `default` parameter.
+- `hot_potato_routing` (Boolean) The `hot_potato_routing` parameter.
 
 

@@ -22,29 +22,29 @@ Retrieves a listing of config items.
 
 ### Read-Only
 
-- `data` (Attributes List) (see [below for nested schema](#nestedatt--data))
+- `data` (Attributes List) The `data` parameter. (see [below for nested schema](#nestedatt--data))
 - `id` (String) The object ID.
-- `total` (Number)
+- `total` (Number) The `total` parameter.
 
 <a id="nestedatt--data"></a>
 ### Nested Schema for `data`
 
 Read-Only:
 
-- `allocated_bandwidth` (Number)
-- `name` (String)
-- `object_id` (String)
-- `qos` (Attributes) (see [below for nested schema](#nestedatt--data--qos))
-- `spn_name_list` (List of String)
+- `allocated_bandwidth` (Number) The `allocated_bandwidth` parameter.
+- `name` (String) The `name` parameter.
+- `object_id` (String) The `object_id` parameter.
+- `qos` (Attributes) The `qos` parameter. (see [below for nested schema](#nestedatt--data--qos))
+- `spn_name_list` (List of String) The `spn_name_list` parameter.
 
 <a id="nestedatt--data--qos"></a>
 ### Nested Schema for `data.qos`
 
 Read-Only:
 
-- `customized` (Boolean)
-- `enabled` (Boolean)
-- `guaranteed_ratio` (Number)
-- `profile` (String)
+- `customized` (Boolean) The `customized` parameter.
+- `enabled` (Boolean) The `enabled` parameter.
+- `guaranteed_ratio` (Number) The `guaranteed_ratio` parameter.
+- `profile` (String) The `profile` parameter.
 
 
