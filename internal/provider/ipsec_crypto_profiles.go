@@ -106,25 +106,25 @@ func (d *ipsecCryptoProfilesListDataSource) Schema(_ context.Context, _ datasour
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description:         "The max count in result entry (count per page)",
-				MarkdownDescription: "The max count in result entry (count per page)",
+				Description:         "The max count in result entry (count per page).",
+				MarkdownDescription: "The max count in result entry (count per page).",
 				Optional:            true,
 				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description:         "The offset of the result entry",
-				MarkdownDescription: "The offset of the result entry",
+				Description:         "The offset of the result entry.",
+				MarkdownDescription: "The offset of the result entry.",
 				Optional:            true,
 				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description:         "The name of the entry",
-				MarkdownDescription: "The name of the entry",
+				Description:         "The name of the entry.",
+				MarkdownDescription: "The name of the entry.",
 				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -449,13 +449,13 @@ func (d *ipsecCryptoProfilesDataSource) Schema(_ context.Context, _ datasource.S
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description:         "The uuid of the resource",
-				MarkdownDescription: "The uuid of the resource",
+				Description:         "The uuid of the resource.",
+				MarkdownDescription: "The uuid of the resource.",
 				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -720,8 +720,8 @@ func (r *ipsecCryptoProfilesResource) Schema(_ context.Context, _ resource.Schem
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -742,8 +742,8 @@ func (r *ipsecCryptoProfilesResource) Schema(_ context.Context, _ resource.Schem
 				},
 			},
 			"dh_group": rsschema.StringAttribute{
-				Description:         "The `dh_group` parameter.",
-				MarkdownDescription: "The `dh_group` parameter.",
+				Description:         "The `dh_group` parameter. Default: `%!q(*string=0xc000610170)`. Value must be one of: `\"no-pfs\"`, `\"group1\"`, `\"group2\"`, `\"group5\"`, `\"group14\"`, `\"group19\"`, `\"group20\"`.",
+				MarkdownDescription: "The `dh_group` parameter. Default: `%!q(*string=0xc000610170)`. Value must be one of: `\"no-pfs\"`, `\"group1\"`, `\"group2\"`, `\"group5\"`, `\"group14\"`, `\"group19\"`, `\"group20\"`.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.String{
@@ -786,8 +786,8 @@ func (r *ipsecCryptoProfilesResource) Schema(_ context.Context, _ resource.Schem
 				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"gb": rsschema.Int64Attribute{
-						Description:         "The `gb` parameter.",
-						MarkdownDescription: "The `gb` parameter.",
+						Description:         "The `gb` parameter. Value must be between 1 and 65535.",
+						MarkdownDescription: "The `gb` parameter. Value must be between 1 and 65535.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Int64{
@@ -798,8 +798,8 @@ func (r *ipsecCryptoProfilesResource) Schema(_ context.Context, _ resource.Schem
 						},
 					},
 					"kb": rsschema.Int64Attribute{
-						Description:         "The `kb` parameter.",
-						MarkdownDescription: "The `kb` parameter.",
+						Description:         "The `kb` parameter. Value must be between 1 and 65535.",
+						MarkdownDescription: "The `kb` parameter. Value must be between 1 and 65535.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Int64{
@@ -810,8 +810,8 @@ func (r *ipsecCryptoProfilesResource) Schema(_ context.Context, _ resource.Schem
 						},
 					},
 					"mb": rsschema.Int64Attribute{
-						Description:         "The `mb` parameter.",
-						MarkdownDescription: "The `mb` parameter.",
+						Description:         "The `mb` parameter. Value must be between 1 and 65535.",
+						MarkdownDescription: "The `mb` parameter. Value must be between 1 and 65535.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Int64{
@@ -822,8 +822,8 @@ func (r *ipsecCryptoProfilesResource) Schema(_ context.Context, _ resource.Schem
 						},
 					},
 					"tb": rsschema.Int64Attribute{
-						Description:         "The `tb` parameter.",
-						MarkdownDescription: "The `tb` parameter.",
+						Description:         "The `tb` parameter. Value must be between 1 and 65535.",
+						MarkdownDescription: "The `tb` parameter. Value must be between 1 and 65535.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Int64{
@@ -841,8 +841,8 @@ func (r *ipsecCryptoProfilesResource) Schema(_ context.Context, _ resource.Schem
 				Required:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"days": rsschema.Int64Attribute{
-						Description:         "The `days` parameter.",
-						MarkdownDescription: "The `days` parameter.",
+						Description:         "The `days` parameter. Value must be between 1 and 365.",
+						MarkdownDescription: "The `days` parameter. Value must be between 1 and 365.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Int64{
@@ -853,8 +853,8 @@ func (r *ipsecCryptoProfilesResource) Schema(_ context.Context, _ resource.Schem
 						},
 					},
 					"hours": rsschema.Int64Attribute{
-						Description:         "The `hours` parameter.",
-						MarkdownDescription: "The `hours` parameter.",
+						Description:         "The `hours` parameter. Value must be between 1 and 65535.",
+						MarkdownDescription: "The `hours` parameter. Value must be between 1 and 65535.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Int64{
@@ -865,8 +865,8 @@ func (r *ipsecCryptoProfilesResource) Schema(_ context.Context, _ resource.Schem
 						},
 					},
 					"minutes": rsschema.Int64Attribute{
-						Description:         "The `minutes` parameter.",
-						MarkdownDescription: "The `minutes` parameter.",
+						Description:         "The `minutes` parameter. Value must be between 3 and 65535.",
+						MarkdownDescription: "The `minutes` parameter. Value must be between 3 and 65535.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Int64{
@@ -877,8 +877,8 @@ func (r *ipsecCryptoProfilesResource) Schema(_ context.Context, _ resource.Schem
 						},
 					},
 					"seconds": rsschema.Int64Attribute{
-						Description:         "The `seconds` parameter.",
-						MarkdownDescription: "The `seconds` parameter.",
+						Description:         "The `seconds` parameter. Value must be between 180 and 65535.",
+						MarkdownDescription: "The `seconds` parameter. Value must be between 180 and 65535.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Int64{
@@ -891,8 +891,8 @@ func (r *ipsecCryptoProfilesResource) Schema(_ context.Context, _ resource.Schem
 				},
 			},
 			"name": rsschema.StringAttribute{
-				Description:         "The `name` parameter.",
-				MarkdownDescription: "The `name` parameter.",
+				Description:         "The `name` parameter. String length must be at most 31.",
+				MarkdownDescription: "The `name` parameter. String length must be at most 31.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(31),

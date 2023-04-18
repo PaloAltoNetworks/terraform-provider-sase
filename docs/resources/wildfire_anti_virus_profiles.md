@@ -17,7 +17,7 @@ Retrieves config for a specific item.
 
 ### Required
 
-- `folder` (String) The folder of the entry
+- `folder` (String) The folder of the entry. Value must be one of: `"Shared"`, `"Mobile Users"`, `"Remote Networks"`, `"Service Connections"`, `"Mobile Users Container"`, `"Mobile Users Explicit Proxy"`.
 - `name` (String) The `name` parameter.
 
 ### Optional
@@ -48,9 +48,9 @@ Optional:
 
 Optional:
 
-- `analysis` (String) The `analysis` parameter.
+- `analysis` (String) The `analysis` parameter. Value must be one of: `"public-cloud"`, `"private-cloud"`.
 - `application` (List of String) The `application` parameter.
-- `direction` (String) The `direction` parameter.
+- `direction` (String) The `direction` parameter. Value must be one of: `"download"`, `"upload"`, `"both"`.
 - `file_type` (List of String) The `file_type` parameter.
 - `name` (String) The `name` parameter.
 

@@ -84,25 +84,25 @@ func (d *objectsAddressesListDataSource) Schema(_ context.Context, _ datasource.
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description:         "The max count in result entry (count per page)",
-				MarkdownDescription: "The max count in result entry (count per page)",
+				Description:         "The max count in result entry (count per page).",
+				MarkdownDescription: "The max count in result entry (count per page).",
 				Optional:            true,
 				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description:         "The offset of the result entry",
-				MarkdownDescription: "The offset of the result entry",
+				Description:         "The offset of the result entry.",
+				MarkdownDescription: "The offset of the result entry.",
 				Optional:            true,
 				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description:         "The name of the entry",
-				MarkdownDescription: "The name of the entry",
+				Description:         "The name of the entry.",
+				MarkdownDescription: "The name of the entry.",
 				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -329,13 +329,13 @@ func (d *objectsAddressesDataSource) Schema(_ context.Context, _ datasource.Sche
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description:         "The uuid of the resource",
-				MarkdownDescription: "The uuid of the resource",
+				Description:         "The uuid of the resource.",
+				MarkdownDescription: "The uuid of the resource.",
 				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -502,8 +502,8 @@ func (r *objectsAddressesResource) Schema(_ context.Context, _ resource.SchemaRe
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -511,8 +511,8 @@ func (r *objectsAddressesResource) Schema(_ context.Context, _ resource.SchemaRe
 			},
 
 			"description": rsschema.StringAttribute{
-				Description:         "The `description` parameter.",
-				MarkdownDescription: "The `description` parameter.",
+				Description:         "The `description` parameter. String length must be between 0 and 1023.",
+				MarkdownDescription: "The `description` parameter. String length must be between 0 and 1023.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.String{
@@ -523,8 +523,8 @@ func (r *objectsAddressesResource) Schema(_ context.Context, _ resource.SchemaRe
 				},
 			},
 			"fqdn": rsschema.StringAttribute{
-				Description:         "The `fqdn` parameter.",
-				MarkdownDescription: "The `fqdn` parameter.",
+				Description:         "The `fqdn` parameter. String length must be between 1 and 255. Conflicts with: `ip_netmask`, `ip_range`, `ip_wildcard`.",
+				MarkdownDescription: "The `fqdn` parameter. String length must be between 1 and 255. Conflicts with: `ip_netmask`, `ip_range`, `ip_wildcard`.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.String{
@@ -548,8 +548,8 @@ func (r *objectsAddressesResource) Schema(_ context.Context, _ resource.SchemaRe
 				},
 			},
 			"ip_netmask": rsschema.StringAttribute{
-				Description:         "The `ip_netmask` parameter.",
-				MarkdownDescription: "The `ip_netmask` parameter.",
+				Description:         "The `ip_netmask` parameter. Conflicts with: `fqdn`, `ip_range`, `ip_wildcard`.",
+				MarkdownDescription: "The `ip_netmask` parameter. Conflicts with: `fqdn`, `ip_range`, `ip_wildcard`.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.String{
@@ -564,8 +564,8 @@ func (r *objectsAddressesResource) Schema(_ context.Context, _ resource.SchemaRe
 				},
 			},
 			"ip_range": rsschema.StringAttribute{
-				Description:         "The `ip_range` parameter.",
-				MarkdownDescription: "The `ip_range` parameter.",
+				Description:         "The `ip_range` parameter. Conflicts with: `fqdn`, `ip_netmask`, `ip_wildcard`.",
+				MarkdownDescription: "The `ip_range` parameter. Conflicts with: `fqdn`, `ip_netmask`, `ip_wildcard`.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.String{
@@ -580,8 +580,8 @@ func (r *objectsAddressesResource) Schema(_ context.Context, _ resource.SchemaRe
 				},
 			},
 			"ip_wildcard": rsschema.StringAttribute{
-				Description:         "The `ip_wildcard` parameter.",
-				MarkdownDescription: "The `ip_wildcard` parameter.",
+				Description:         "The `ip_wildcard` parameter. Conflicts with: `fqdn`, `ip_netmask`, `ip_range`.",
+				MarkdownDescription: "The `ip_wildcard` parameter. Conflicts with: `fqdn`, `ip_netmask`, `ip_range`.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.String{
@@ -596,8 +596,8 @@ func (r *objectsAddressesResource) Schema(_ context.Context, _ resource.SchemaRe
 				},
 			},
 			"name": rsschema.StringAttribute{
-				Description:         "The `name` parameter.",
-				MarkdownDescription: "The `name` parameter.",
+				Description:         "The `name` parameter. String length must be at most 63.",
+				MarkdownDescription: "The `name` parameter. String length must be at most 63.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(63),

@@ -126,25 +126,25 @@ func (d *decryptionProfilesListDataSource) Schema(_ context.Context, _ datasourc
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description:         "The max count in result entry (count per page)",
-				MarkdownDescription: "The max count in result entry (count per page)",
+				Description:         "The max count in result entry (count per page).",
+				MarkdownDescription: "The max count in result entry (count per page).",
 				Optional:            true,
 				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description:         "The offset of the result entry",
-				MarkdownDescription: "The offset of the result entry",
+				Description:         "The offset of the result entry.",
+				MarkdownDescription: "The offset of the result entry.",
 				Optional:            true,
 				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description:         "The name of the entry",
-				MarkdownDescription: "The name of the entry",
+				Description:         "The name of the entry.",
+				MarkdownDescription: "The name of the entry.",
 				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -616,13 +616,13 @@ func (d *decryptionProfilesDataSource) Schema(_ context.Context, _ datasource.Sc
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description:         "The uuid of the resource",
-				MarkdownDescription: "The uuid of the resource",
+				Description:         "The uuid of the resource.",
+				MarkdownDescription: "The uuid of the resource.",
 				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -1034,8 +1034,8 @@ func (r *decryptionProfilesResource) Schema(_ context.Context, _ resource.Schema
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -1061,8 +1061,8 @@ func (r *decryptionProfilesResource) Schema(_ context.Context, _ resource.Schema
 				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"auto_include_altname": rsschema.BoolAttribute{
-						Description:         "The `auto_include_altname` parameter.",
-						MarkdownDescription: "The `auto_include_altname` parameter.",
+						Description:         "The `auto_include_altname` parameter. Default: `false`.",
+						MarkdownDescription: "The `auto_include_altname` parameter. Default: `false`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
@@ -1070,8 +1070,8 @@ func (r *decryptionProfilesResource) Schema(_ context.Context, _ resource.Schema
 						},
 					},
 					"block_client_cert": rsschema.BoolAttribute{
-						Description:         "The `block_client_cert` parameter.",
-						MarkdownDescription: "The `block_client_cert` parameter.",
+						Description:         "The `block_client_cert` parameter. Default: `false`.",
+						MarkdownDescription: "The `block_client_cert` parameter. Default: `false`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
@@ -1079,8 +1079,8 @@ func (r *decryptionProfilesResource) Schema(_ context.Context, _ resource.Schema
 						},
 					},
 					"block_expired_certificate": rsschema.BoolAttribute{
-						Description:         "The `block_expired_certificate` parameter.",
-						MarkdownDescription: "The `block_expired_certificate` parameter.",
+						Description:         "The `block_expired_certificate` parameter. Default: `false`.",
+						MarkdownDescription: "The `block_expired_certificate` parameter. Default: `false`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
@@ -1088,8 +1088,8 @@ func (r *decryptionProfilesResource) Schema(_ context.Context, _ resource.Schema
 						},
 					},
 					"block_timeout_cert": rsschema.BoolAttribute{
-						Description:         "The `block_timeout_cert` parameter.",
-						MarkdownDescription: "The `block_timeout_cert` parameter.",
+						Description:         "The `block_timeout_cert` parameter. Default: `false`.",
+						MarkdownDescription: "The `block_timeout_cert` parameter. Default: `false`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
@@ -1097,8 +1097,8 @@ func (r *decryptionProfilesResource) Schema(_ context.Context, _ resource.Schema
 						},
 					},
 					"block_tls13_downgrade_no_resource": rsschema.BoolAttribute{
-						Description:         "The `block_tls13_downgrade_no_resource` parameter.",
-						MarkdownDescription: "The `block_tls13_downgrade_no_resource` parameter.",
+						Description:         "The `block_tls13_downgrade_no_resource` parameter. Default: `false`.",
+						MarkdownDescription: "The `block_tls13_downgrade_no_resource` parameter. Default: `false`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
@@ -1106,8 +1106,8 @@ func (r *decryptionProfilesResource) Schema(_ context.Context, _ resource.Schema
 						},
 					},
 					"block_unknown_cert": rsschema.BoolAttribute{
-						Description:         "The `block_unknown_cert` parameter.",
-						MarkdownDescription: "The `block_unknown_cert` parameter.",
+						Description:         "The `block_unknown_cert` parameter. Default: `false`.",
+						MarkdownDescription: "The `block_unknown_cert` parameter. Default: `false`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
@@ -1115,8 +1115,8 @@ func (r *decryptionProfilesResource) Schema(_ context.Context, _ resource.Schema
 						},
 					},
 					"block_unsupported_cipher": rsschema.BoolAttribute{
-						Description:         "The `block_unsupported_cipher` parameter.",
-						MarkdownDescription: "The `block_unsupported_cipher` parameter.",
+						Description:         "The `block_unsupported_cipher` parameter. Default: `false`.",
+						MarkdownDescription: "The `block_unsupported_cipher` parameter. Default: `false`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
@@ -1124,8 +1124,8 @@ func (r *decryptionProfilesResource) Schema(_ context.Context, _ resource.Schema
 						},
 					},
 					"block_unsupported_version": rsschema.BoolAttribute{
-						Description:         "The `block_unsupported_version` parameter.",
-						MarkdownDescription: "The `block_unsupported_version` parameter.",
+						Description:         "The `block_unsupported_version` parameter. Default: `false`.",
+						MarkdownDescription: "The `block_unsupported_version` parameter. Default: `false`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
@@ -1133,8 +1133,8 @@ func (r *decryptionProfilesResource) Schema(_ context.Context, _ resource.Schema
 						},
 					},
 					"block_untrusted_issuer": rsschema.BoolAttribute{
-						Description:         "The `block_untrusted_issuer` parameter.",
-						MarkdownDescription: "The `block_untrusted_issuer` parameter.",
+						Description:         "The `block_untrusted_issuer` parameter. Default: `false`.",
+						MarkdownDescription: "The `block_untrusted_issuer` parameter. Default: `false`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
@@ -1142,8 +1142,8 @@ func (r *decryptionProfilesResource) Schema(_ context.Context, _ resource.Schema
 						},
 					},
 					"restrict_cert_exts": rsschema.BoolAttribute{
-						Description:         "The `restrict_cert_exts` parameter.",
-						MarkdownDescription: "The `restrict_cert_exts` parameter.",
+						Description:         "The `restrict_cert_exts` parameter. Default: `false`.",
+						MarkdownDescription: "The `restrict_cert_exts` parameter. Default: `false`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
@@ -1151,8 +1151,8 @@ func (r *decryptionProfilesResource) Schema(_ context.Context, _ resource.Schema
 						},
 					},
 					"strip_alpn": rsschema.BoolAttribute{
-						Description:         "The `strip_alpn` parameter.",
-						MarkdownDescription: "The `strip_alpn` parameter.",
+						Description:         "The `strip_alpn` parameter. Default: `false`.",
+						MarkdownDescription: "The `strip_alpn` parameter. Default: `false`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
@@ -1167,8 +1167,8 @@ func (r *decryptionProfilesResource) Schema(_ context.Context, _ resource.Schema
 				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"block_if_hsm_unavailable": rsschema.BoolAttribute{
-						Description:         "The `block_if_hsm_unavailable` parameter.",
-						MarkdownDescription: "The `block_if_hsm_unavailable` parameter.",
+						Description:         "The `block_if_hsm_unavailable` parameter. Default: `false`.",
+						MarkdownDescription: "The `block_if_hsm_unavailable` parameter. Default: `false`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
@@ -1176,8 +1176,8 @@ func (r *decryptionProfilesResource) Schema(_ context.Context, _ resource.Schema
 						},
 					},
 					"block_if_no_resource": rsschema.BoolAttribute{
-						Description:         "The `block_if_no_resource` parameter.",
-						MarkdownDescription: "The `block_if_no_resource` parameter.",
+						Description:         "The `block_if_no_resource` parameter. Default: `false`.",
+						MarkdownDescription: "The `block_if_no_resource` parameter. Default: `false`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
@@ -1185,8 +1185,8 @@ func (r *decryptionProfilesResource) Schema(_ context.Context, _ resource.Schema
 						},
 					},
 					"block_unsupported_cipher": rsschema.BoolAttribute{
-						Description:         "The `block_unsupported_cipher` parameter.",
-						MarkdownDescription: "The `block_unsupported_cipher` parameter.",
+						Description:         "The `block_unsupported_cipher` parameter. Default: `false`.",
+						MarkdownDescription: "The `block_unsupported_cipher` parameter. Default: `false`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
@@ -1194,8 +1194,8 @@ func (r *decryptionProfilesResource) Schema(_ context.Context, _ resource.Schema
 						},
 					},
 					"block_unsupported_version": rsschema.BoolAttribute{
-						Description:         "The `block_unsupported_version` parameter.",
-						MarkdownDescription: "The `block_unsupported_version` parameter.",
+						Description:         "The `block_unsupported_version` parameter. Default: `false`.",
+						MarkdownDescription: "The `block_unsupported_version` parameter. Default: `false`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
@@ -1210,8 +1210,8 @@ func (r *decryptionProfilesResource) Schema(_ context.Context, _ resource.Schema
 				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"block_expired_certificate": rsschema.BoolAttribute{
-						Description:         "The `block_expired_certificate` parameter.",
-						MarkdownDescription: "The `block_expired_certificate` parameter.",
+						Description:         "The `block_expired_certificate` parameter. Default: `false`.",
+						MarkdownDescription: "The `block_expired_certificate` parameter. Default: `false`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
@@ -1219,8 +1219,8 @@ func (r *decryptionProfilesResource) Schema(_ context.Context, _ resource.Schema
 						},
 					},
 					"block_untrusted_issuer": rsschema.BoolAttribute{
-						Description:         "The `block_untrusted_issuer` parameter.",
-						MarkdownDescription: "The `block_untrusted_issuer` parameter.",
+						Description:         "The `block_untrusted_issuer` parameter. Default: `false`.",
+						MarkdownDescription: "The `block_untrusted_issuer` parameter. Default: `false`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
@@ -1235,8 +1235,8 @@ func (r *decryptionProfilesResource) Schema(_ context.Context, _ resource.Schema
 				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"auth_algo_md5": rsschema.BoolAttribute{
-						Description:         "The `auth_algo_md5` parameter.",
-						MarkdownDescription: "The `auth_algo_md5` parameter.",
+						Description:         "The `auth_algo_md5` parameter. Default: `true`.",
+						MarkdownDescription: "The `auth_algo_md5` parameter. Default: `true`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
@@ -1244,8 +1244,8 @@ func (r *decryptionProfilesResource) Schema(_ context.Context, _ resource.Schema
 						},
 					},
 					"auth_algo_sha1": rsschema.BoolAttribute{
-						Description:         "The `auth_algo_sha1` parameter.",
-						MarkdownDescription: "The `auth_algo_sha1` parameter.",
+						Description:         "The `auth_algo_sha1` parameter. Default: `true`.",
+						MarkdownDescription: "The `auth_algo_sha1` parameter. Default: `true`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
@@ -1253,8 +1253,8 @@ func (r *decryptionProfilesResource) Schema(_ context.Context, _ resource.Schema
 						},
 					},
 					"auth_algo_sha256": rsschema.BoolAttribute{
-						Description:         "The `auth_algo_sha256` parameter.",
-						MarkdownDescription: "The `auth_algo_sha256` parameter.",
+						Description:         "The `auth_algo_sha256` parameter. Default: `true`.",
+						MarkdownDescription: "The `auth_algo_sha256` parameter. Default: `true`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
@@ -1262,8 +1262,8 @@ func (r *decryptionProfilesResource) Schema(_ context.Context, _ resource.Schema
 						},
 					},
 					"auth_algo_sha384": rsschema.BoolAttribute{
-						Description:         "The `auth_algo_sha384` parameter.",
-						MarkdownDescription: "The `auth_algo_sha384` parameter.",
+						Description:         "The `auth_algo_sha384` parameter. Default: `true`.",
+						MarkdownDescription: "The `auth_algo_sha384` parameter. Default: `true`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
@@ -1271,8 +1271,8 @@ func (r *decryptionProfilesResource) Schema(_ context.Context, _ resource.Schema
 						},
 					},
 					"enc_algo3des": rsschema.BoolAttribute{
-						Description:         "The `enc_algo3des` parameter.",
-						MarkdownDescription: "The `enc_algo3des` parameter.",
+						Description:         "The `enc_algo3des` parameter. Default: `true`.",
+						MarkdownDescription: "The `enc_algo3des` parameter. Default: `true`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
@@ -1280,8 +1280,8 @@ func (r *decryptionProfilesResource) Schema(_ context.Context, _ resource.Schema
 						},
 					},
 					"enc_algo_aes128_cbc": rsschema.BoolAttribute{
-						Description:         "The `enc_algo_aes128_cbc` parameter.",
-						MarkdownDescription: "The `enc_algo_aes128_cbc` parameter.",
+						Description:         "The `enc_algo_aes128_cbc` parameter. Default: `true`.",
+						MarkdownDescription: "The `enc_algo_aes128_cbc` parameter. Default: `true`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
@@ -1289,8 +1289,8 @@ func (r *decryptionProfilesResource) Schema(_ context.Context, _ resource.Schema
 						},
 					},
 					"enc_algo_aes128_gcm": rsschema.BoolAttribute{
-						Description:         "The `enc_algo_aes128_gcm` parameter.",
-						MarkdownDescription: "The `enc_algo_aes128_gcm` parameter.",
+						Description:         "The `enc_algo_aes128_gcm` parameter. Default: `true`.",
+						MarkdownDescription: "The `enc_algo_aes128_gcm` parameter. Default: `true`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
@@ -1298,8 +1298,8 @@ func (r *decryptionProfilesResource) Schema(_ context.Context, _ resource.Schema
 						},
 					},
 					"enc_algo_aes256_cbc": rsschema.BoolAttribute{
-						Description:         "The `enc_algo_aes256_cbc` parameter.",
-						MarkdownDescription: "The `enc_algo_aes256_cbc` parameter.",
+						Description:         "The `enc_algo_aes256_cbc` parameter. Default: `true`.",
+						MarkdownDescription: "The `enc_algo_aes256_cbc` parameter. Default: `true`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
@@ -1307,8 +1307,8 @@ func (r *decryptionProfilesResource) Schema(_ context.Context, _ resource.Schema
 						},
 					},
 					"enc_algo_aes256_gcm": rsschema.BoolAttribute{
-						Description:         "The `enc_algo_aes256_gcm` parameter.",
-						MarkdownDescription: "The `enc_algo_aes256_gcm` parameter.",
+						Description:         "The `enc_algo_aes256_gcm` parameter. Default: `true`.",
+						MarkdownDescription: "The `enc_algo_aes256_gcm` parameter. Default: `true`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
@@ -1316,8 +1316,8 @@ func (r *decryptionProfilesResource) Schema(_ context.Context, _ resource.Schema
 						},
 					},
 					"enc_algo_chacha20_poly1305": rsschema.BoolAttribute{
-						Description:         "The `enc_algo_chacha20_poly1305` parameter.",
-						MarkdownDescription: "The `enc_algo_chacha20_poly1305` parameter.",
+						Description:         "The `enc_algo_chacha20_poly1305` parameter. Default: `true`.",
+						MarkdownDescription: "The `enc_algo_chacha20_poly1305` parameter. Default: `true`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
@@ -1325,8 +1325,8 @@ func (r *decryptionProfilesResource) Schema(_ context.Context, _ resource.Schema
 						},
 					},
 					"enc_algo_rc4": rsschema.BoolAttribute{
-						Description:         "The `enc_algo_rc4` parameter.",
-						MarkdownDescription: "The `enc_algo_rc4` parameter.",
+						Description:         "The `enc_algo_rc4` parameter. Default: `true`.",
+						MarkdownDescription: "The `enc_algo_rc4` parameter. Default: `true`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
@@ -1334,8 +1334,8 @@ func (r *decryptionProfilesResource) Schema(_ context.Context, _ resource.Schema
 						},
 					},
 					"keyxchg_algo_dhe": rsschema.BoolAttribute{
-						Description:         "The `keyxchg_algo_dhe` parameter.",
-						MarkdownDescription: "The `keyxchg_algo_dhe` parameter.",
+						Description:         "The `keyxchg_algo_dhe` parameter. Default: `true`.",
+						MarkdownDescription: "The `keyxchg_algo_dhe` parameter. Default: `true`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
@@ -1343,8 +1343,8 @@ func (r *decryptionProfilesResource) Schema(_ context.Context, _ resource.Schema
 						},
 					},
 					"keyxchg_algo_ecdhe": rsschema.BoolAttribute{
-						Description:         "The `keyxchg_algo_ecdhe` parameter.",
-						MarkdownDescription: "The `keyxchg_algo_ecdhe` parameter.",
+						Description:         "The `keyxchg_algo_ecdhe` parameter. Default: `true`.",
+						MarkdownDescription: "The `keyxchg_algo_ecdhe` parameter. Default: `true`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
@@ -1352,8 +1352,8 @@ func (r *decryptionProfilesResource) Schema(_ context.Context, _ resource.Schema
 						},
 					},
 					"keyxchg_algo_rsa": rsschema.BoolAttribute{
-						Description:         "The `keyxchg_algo_rsa` parameter.",
-						MarkdownDescription: "The `keyxchg_algo_rsa` parameter.",
+						Description:         "The `keyxchg_algo_rsa` parameter. Default: `true`.",
+						MarkdownDescription: "The `keyxchg_algo_rsa` parameter. Default: `true`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
@@ -1361,8 +1361,8 @@ func (r *decryptionProfilesResource) Schema(_ context.Context, _ resource.Schema
 						},
 					},
 					"max_version": rsschema.StringAttribute{
-						Description:         "The `max_version` parameter.",
-						MarkdownDescription: "The `max_version` parameter.",
+						Description:         "The `max_version` parameter. Default: `%!q(*string=0xc000f53070)`. Value must be one of: `\"sslv3\"`, `\"tls1-0\"`, `\"tls1-1\"`, `\"tls1-2\"`, `\"tls1-3\"`, `\"max\"`.",
+						MarkdownDescription: "The `max_version` parameter. Default: `%!q(*string=0xc000f53070)`. Value must be one of: `\"sslv3\"`, `\"tls1-0\"`, `\"tls1-1\"`, `\"tls1-2\"`, `\"tls1-3\"`, `\"max\"`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.String{
@@ -1373,8 +1373,8 @@ func (r *decryptionProfilesResource) Schema(_ context.Context, _ resource.Schema
 						},
 					},
 					"min_version": rsschema.StringAttribute{
-						Description:         "The `min_version` parameter.",
-						MarkdownDescription: "The `min_version` parameter.",
+						Description:         "The `min_version` parameter. Default: `%!q(*string=0xc000f53080)`. Value must be one of: `\"sslv3\"`, `\"tls1-0\"`, `\"tls1-1\"`, `\"tls1-2\"`, `\"tls1-3\"`.",
+						MarkdownDescription: "The `min_version` parameter. Default: `%!q(*string=0xc000f53080)`. Value must be one of: `\"sslv3\"`, `\"tls1-0\"`, `\"tls1-1\"`, `\"tls1-2\"`, `\"tls1-3\"`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.String{

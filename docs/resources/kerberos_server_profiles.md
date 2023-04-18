@@ -17,7 +17,7 @@ Retrieves config for a specific item.
 
 ### Required
 
-- `folder` (String) The folder of the entry
+- `folder` (String) The folder of the entry. Value must be one of: `"Shared"`, `"Mobile Users"`, `"Remote Networks"`, `"Service Connections"`, `"Mobile Users Container"`, `"Mobile Users Explicit Proxy"`.
 - `server` (Attributes List) The `server` parameter. (see [below for nested schema](#nestedatt--server))
 
 ### Read-Only
@@ -32,6 +32,6 @@ Optional:
 
 - `host` (String) The `host` parameter.
 - `name` (String) The `name` parameter.
-- `port` (Number) The `port` parameter.
+- `port` (Number) The `port` parameter. Value must be between 1 and 65535.
 
 

@@ -17,7 +17,7 @@ Retrieves config for a specific item.
 
 ### Required
 
-- `folder` (String) The folder of the entry
+- `folder` (String) The folder of the entry. Value must be one of: `"Shared"`, `"Mobile Users"`, `"Remote Networks"`, `"Service Connections"`, `"Mobile Users Container"`, `"Mobile Users Explicit Proxy"`.
 
 ### Optional
 
@@ -45,10 +45,10 @@ Optional:
 
 Optional:
 
-- `action` (String) The `action` parameter.
-- `log_level` (String) The `log_level` parameter.
+- `action` (String) The `action` parameter. Default: `%!q(*string=0xc000f53030)`. Value must be one of: `"default"`, `"allow"`, `"block"`, `"sinkhole"`.
+- `log_level` (String) The `log_level` parameter. Default: `%!q(*string=0xc000f53040)`. Value must be one of: `"default"`, `"none"`, `"low"`, `"informational"`, `"medium"`, `"high"`, `"critical"`.
 - `name` (String) The `name` parameter.
-- `packet_capture` (String) The `packet_capture` parameter.
+- `packet_capture` (String) The `packet_capture` parameter. Value must be one of: `"disable"`, `"single-packet"`, `"extended-capture"`.
 
 
 <a id="nestedatt--botnet_domains--lists"></a>
@@ -61,7 +61,7 @@ Required:
 Optional:
 
 - `action` (Attributes) The `action` parameter. (see [below for nested schema](#nestedatt--botnet_domains--lists--action))
-- `packet_capture` (String) The `packet_capture` parameter.
+- `packet_capture` (String) The `packet_capture` parameter. Value must be one of: `"disable"`, `"single-packet"`, `"extended-capture"`.
 
 <a id="nestedatt--botnet_domains--lists--action"></a>
 ### Nested Schema for `botnet_domains.lists.action`
@@ -80,8 +80,8 @@ Optional:
 
 Optional:
 
-- `ipv4_address` (String) The `ipv4_address` parameter.
-- `ipv6_address` (String) The `ipv6_address` parameter.
+- `ipv4_address` (String) The `ipv4_address` parameter. Value must be one of: `"127.0.0.1"`, `"pan-sinkhole-default-ip"`.
+- `ipv6_address` (String) The `ipv6_address` parameter. Value must be one of: `"::1"`.
 
 
 <a id="nestedatt--botnet_domains--whitelist"></a>

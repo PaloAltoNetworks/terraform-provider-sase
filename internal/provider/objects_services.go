@@ -108,25 +108,25 @@ func (d *objectsServicesListDataSource) Schema(_ context.Context, _ datasource.S
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description:         "The max count in result entry (count per page)",
-				MarkdownDescription: "The max count in result entry (count per page)",
+				Description:         "The max count in result entry (count per page).",
+				MarkdownDescription: "The max count in result entry (count per page).",
 				Optional:            true,
 				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description:         "The offset of the result entry",
-				MarkdownDescription: "The offset of the result entry",
+				Description:         "The offset of the result entry.",
+				MarkdownDescription: "The offset of the result entry.",
 				Optional:            true,
 				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description:         "The name of the entry",
-				MarkdownDescription: "The name of the entry",
+				Description:         "The name of the entry.",
+				MarkdownDescription: "The name of the entry.",
 				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -451,13 +451,13 @@ func (d *objectsServicesDataSource) Schema(_ context.Context, _ datasource.Schem
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description:         "The uuid of the resource",
-				MarkdownDescription: "The uuid of the resource",
+				Description:         "The uuid of the resource.",
+				MarkdownDescription: "The uuid of the resource.",
 				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -722,8 +722,8 @@ func (r *objectsServicesResource) Schema(_ context.Context, _ resource.SchemaReq
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -731,8 +731,8 @@ func (r *objectsServicesResource) Schema(_ context.Context, _ resource.SchemaReq
 			},
 
 			"description": rsschema.StringAttribute{
-				Description:         "The `description` parameter.",
-				MarkdownDescription: "The `description` parameter.",
+				Description:         "The `description` parameter. String length must be between 0 and 1023.",
+				MarkdownDescription: "The `description` parameter. String length must be between 0 and 1023.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.String{
@@ -751,8 +751,8 @@ func (r *objectsServicesResource) Schema(_ context.Context, _ resource.SchemaReq
 				},
 			},
 			"name": rsschema.StringAttribute{
-				Description:         "The `name` parameter.",
-				MarkdownDescription: "The `name` parameter.",
+				Description:         "The `name` parameter. String length must be at most 63.",
+				MarkdownDescription: "The `name` parameter. String length must be at most 63.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(63),
@@ -774,8 +774,8 @@ func (r *objectsServicesResource) Schema(_ context.Context, _ resource.SchemaReq
 								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"halfclose_timeout": rsschema.Int64Attribute{
-										Description:         "The `halfclose_timeout` parameter.",
-										MarkdownDescription: "The `halfclose_timeout` parameter.",
+										Description:         "The `halfclose_timeout` parameter. Default: `120`. Value must be between 1 and 604800.",
+										MarkdownDescription: "The `halfclose_timeout` parameter. Default: `120`. Value must be between 1 and 604800.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.Int64{
@@ -786,8 +786,8 @@ func (r *objectsServicesResource) Schema(_ context.Context, _ resource.SchemaReq
 										},
 									},
 									"timeout": rsschema.Int64Attribute{
-										Description:         "The `timeout` parameter.",
-										MarkdownDescription: "The `timeout` parameter.",
+										Description:         "The `timeout` parameter. Default: `3600`. Value must be between 1 and 604800.",
+										MarkdownDescription: "The `timeout` parameter. Default: `3600`. Value must be between 1 and 604800.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.Int64{
@@ -798,8 +798,8 @@ func (r *objectsServicesResource) Schema(_ context.Context, _ resource.SchemaReq
 										},
 									},
 									"timewait_timeout": rsschema.Int64Attribute{
-										Description:         "The `timewait_timeout` parameter.",
-										MarkdownDescription: "The `timewait_timeout` parameter.",
+										Description:         "The `timewait_timeout` parameter. Default: `15`. Value must be between 1 and 600.",
+										MarkdownDescription: "The `timewait_timeout` parameter. Default: `15`. Value must be between 1 and 600.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.Int64{
@@ -812,16 +812,16 @@ func (r *objectsServicesResource) Schema(_ context.Context, _ resource.SchemaReq
 								},
 							},
 							"port": rsschema.StringAttribute{
-								Description:         "The `port` parameter.",
-								MarkdownDescription: "The `port` parameter.",
+								Description:         "The `port` parameter. String length must be between 1 and 1023.",
+								MarkdownDescription: "The `port` parameter. String length must be between 1 and 1023.",
 								Required:            true,
 								Validators: []validator.String{
 									stringvalidator.LengthBetween(1, 1023),
 								},
 							},
 							"source_port": rsschema.StringAttribute{
-								Description:         "The `source_port` parameter.",
-								MarkdownDescription: "The `source_port` parameter.",
+								Description:         "The `source_port` parameter. String length must be between 1 and 1023.",
+								MarkdownDescription: "The `source_port` parameter. String length must be between 1 and 1023.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.String{
@@ -844,8 +844,8 @@ func (r *objectsServicesResource) Schema(_ context.Context, _ resource.SchemaReq
 								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"timeout": rsschema.Int64Attribute{
-										Description:         "The `timeout` parameter.",
-										MarkdownDescription: "The `timeout` parameter.",
+										Description:         "The `timeout` parameter. Default: `30`. Value must be between 1 and 604800.",
+										MarkdownDescription: "The `timeout` parameter. Default: `30`. Value must be between 1 and 604800.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.Int64{
@@ -858,16 +858,16 @@ func (r *objectsServicesResource) Schema(_ context.Context, _ resource.SchemaReq
 								},
 							},
 							"port": rsschema.StringAttribute{
-								Description:         "The `port` parameter.",
-								MarkdownDescription: "The `port` parameter.",
+								Description:         "The `port` parameter. String length must be between 1 and 1023.",
+								MarkdownDescription: "The `port` parameter. String length must be between 1 and 1023.",
 								Required:            true,
 								Validators: []validator.String{
 									stringvalidator.LengthBetween(1, 1023),
 								},
 							},
 							"source_port": rsschema.StringAttribute{
-								Description:         "The `source_port` parameter.",
-								MarkdownDescription: "The `source_port` parameter.",
+								Description:         "The `source_port` parameter. String length must be between 1 and 1023.",
+								MarkdownDescription: "The `source_port` parameter. String length must be between 1 and 1023.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.String{

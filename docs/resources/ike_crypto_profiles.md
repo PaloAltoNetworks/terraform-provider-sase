@@ -19,13 +19,13 @@ Retrieves config for a specific item.
 
 - `dh_group` (List of String) The `dh_group` parameter.
 - `encryption` (List of String) The `encryption` parameter.
-- `folder` (String) The folder of the entry
+- `folder` (String) The folder of the entry. Value must be one of: `"Shared"`, `"Mobile Users"`, `"Remote Networks"`, `"Service Connections"`, `"Mobile Users Container"`, `"Mobile Users Explicit Proxy"`.
 - `hash` (List of String) The `hash` parameter.
-- `name` (String) The `name` parameter.
+- `name` (String) The `name` parameter. String length must be at most 31.
 
 ### Optional
 
-- `authentication_multiple` (Number) The `authentication_multiple` parameter.
+- `authentication_multiple` (Number) The `authentication_multiple` parameter. Default: `0`. Value must be at most 50.
 - `lifetime` (Attributes) The `lifetime` parameter. (see [below for nested schema](#nestedatt--lifetime))
 
 ### Read-Only
@@ -38,9 +38,9 @@ Retrieves config for a specific item.
 
 Optional:
 
-- `days` (Number) The `days` parameter.
-- `hours` (Number) The `hours` parameter.
-- `minutes` (Number) The `minutes` parameter.
-- `seconds` (Number) The `seconds` parameter.
+- `days` (Number) The `days` parameter. Value must be between 1 and 365.
+- `hours` (Number) The `hours` parameter. Value must be between 1 and 65535.
+- `minutes` (Number) The `minutes` parameter. Value must be between 3 and 65535.
+- `seconds` (Number) The `seconds` parameter. Value must be between 180 and 65535.
 
 

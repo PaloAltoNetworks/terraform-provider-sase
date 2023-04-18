@@ -103,36 +103,36 @@ func (d *decryptionRulesListDataSource) Schema(_ context.Context, _ datasource.S
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description:         "The max count in result entry (count per page)",
-				MarkdownDescription: "The max count in result entry (count per page)",
+				Description:         "The max count in result entry (count per page).",
+				MarkdownDescription: "The max count in result entry (count per page).",
 				Optional:            true,
 				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description:         "The offset of the result entry",
-				MarkdownDescription: "The offset of the result entry",
+				Description:         "The offset of the result entry.",
+				MarkdownDescription: "The offset of the result entry.",
 				Optional:            true,
 				Computed:            true,
 			},
 			"position": dsschema.StringAttribute{
-				Description:         "The position of a security rule",
-				MarkdownDescription: "The position of a security rule",
+				Description:         "The position of a security rule. Value must be one of: `\"pre\"`, `\"post\"`.",
+				MarkdownDescription: "The position of a security rule. Value must be one of: `\"pre\"`, `\"post\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("pre", "post"),
 				},
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
 			},
 			"name": dsschema.StringAttribute{
-				Description:         "The name of the entry",
-				MarkdownDescription: "The name of the entry",
+				Description:         "The name of the entry.",
+				MarkdownDescription: "The name of the entry.",
 				Optional:            true,
 			},
 
@@ -485,13 +485,13 @@ func (d *decryptionRulesDataSource) Schema(_ context.Context, _ datasource.Schem
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description:         "The uuid of the resource",
-				MarkdownDescription: "The uuid of the resource",
+				Description:         "The uuid of the resource.",
+				MarkdownDescription: "The uuid of the resource.",
 				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -784,16 +784,16 @@ func (r *decryptionRulesResource) Schema(_ context.Context, _ resource.SchemaReq
 
 			// Input.
 			"position": rsschema.StringAttribute{
-				Description:         "The position of a security rule",
-				MarkdownDescription: "The position of a security rule",
+				Description:         "The position of a security rule. Value must be one of: `\"pre\"`, `\"post\"`.",
+				MarkdownDescription: "The position of a security rule. Value must be one of: `\"pre\"`, `\"post\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("pre", "post"),
 				},
 			},
 			"folder": rsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -801,8 +801,8 @@ func (r *decryptionRulesResource) Schema(_ context.Context, _ resource.SchemaReq
 			},
 
 			"action": rsschema.StringAttribute{
-				Description:         "The `action` parameter.",
-				MarkdownDescription: "The `action` parameter.",
+				Description:         "The `action` parameter. Value must be one of: `\"decrypt\"`, `\"no-decrypt\"`.",
+				MarkdownDescription: "The `action` parameter. Value must be one of: `\"decrypt\"`, `\"no-decrypt\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("decrypt", "no-decrypt"),
@@ -964,8 +964,8 @@ func (r *decryptionRulesResource) Schema(_ context.Context, _ resource.SchemaReq
 						Optional:            true,
 					},
 					"ssl_inbound_inspection": rsschema.StringAttribute{
-						Description:         "The `ssl_inbound_inspection` parameter.",
-						MarkdownDescription: "The `ssl_inbound_inspection` parameter.",
+						Description:         "The `ssl_inbound_inspection` parameter. Conflicts with: ``.",
+						MarkdownDescription: "The `ssl_inbound_inspection` parameter. Conflicts with: ``.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.String{

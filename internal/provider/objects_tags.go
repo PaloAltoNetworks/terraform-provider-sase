@@ -79,25 +79,25 @@ func (d *objectsTagsListDataSource) Schema(_ context.Context, _ datasource.Schem
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description:         "The max count in result entry (count per page)",
-				MarkdownDescription: "The max count in result entry (count per page)",
+				Description:         "The max count in result entry (count per page).",
+				MarkdownDescription: "The max count in result entry (count per page).",
 				Optional:            true,
 				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description:         "The offset of the result entry",
-				MarkdownDescription: "The offset of the result entry",
+				Description:         "The offset of the result entry.",
+				MarkdownDescription: "The offset of the result entry.",
 				Optional:            true,
 				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description:         "The name of the entry",
-				MarkdownDescription: "The name of the entry",
+				Description:         "The name of the entry.",
+				MarkdownDescription: "The name of the entry.",
 				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -288,13 +288,13 @@ func (d *objectsTagsDataSource) Schema(_ context.Context, _ datasource.SchemaReq
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description:         "The uuid of the resource",
-				MarkdownDescription: "The uuid of the resource",
+				Description:         "The uuid of the resource.",
+				MarkdownDescription: "The uuid of the resource.",
 				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -425,8 +425,8 @@ func (r *objectsTagsResource) Schema(_ context.Context, _ resource.SchemaRequest
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -434,8 +434,8 @@ func (r *objectsTagsResource) Schema(_ context.Context, _ resource.SchemaRequest
 			},
 
 			"color": rsschema.StringAttribute{
-				Description:         "The `color` parameter.",
-				MarkdownDescription: "The `color` parameter.",
+				Description:         "The `color` parameter. Value must be one of: `\"Red\"`, `\"Green\"`, `\"Blue\"`, `\"Yellow\"`, `\"Copper\"`, `\"Orange\"`, `\"Purple\"`, `\"Gray\"`, `\"Light Green\"`, `\"Cyan\"`, `\"Light Gray\"`, `\"Blue Gray\"`, `\"Lime\"`, `\"Black\"`, `\"Gold\"`, `\"Brown\"`, `\"Olive\"`, `\"Maroon\"`, `\"Red-Orange\"`, `\"Yellow-Orange\"`, `\"Forest Green\"`, `\"Turquoise Blue\"`, `\"Azure Blue\"`, `\"Cerulean Blue\"`, `\"Midnight Blue\"`, `\"Medium Blue\"`, `\"Cobalt Blue\"`, `\"Violet Blue\"`, `\"Blue Violet\"`, `\"Medium Violet\"`, `\"Medium Rose\"`, `\"Lavender\"`, `\"Orchid\"`, `\"Thistle\"`, `\"Peach\"`, `\"Salmon\"`, `\"Magenta\"`, `\"Red Violet\"`, `\"Mahogany\"`, `\"Burnt Sienna\"`, `\"Chestnut\"`.",
+				MarkdownDescription: "The `color` parameter. Value must be one of: `\"Red\"`, `\"Green\"`, `\"Blue\"`, `\"Yellow\"`, `\"Copper\"`, `\"Orange\"`, `\"Purple\"`, `\"Gray\"`, `\"Light Green\"`, `\"Cyan\"`, `\"Light Gray\"`, `\"Blue Gray\"`, `\"Lime\"`, `\"Black\"`, `\"Gold\"`, `\"Brown\"`, `\"Olive\"`, `\"Maroon\"`, `\"Red-Orange\"`, `\"Yellow-Orange\"`, `\"Forest Green\"`, `\"Turquoise Blue\"`, `\"Azure Blue\"`, `\"Cerulean Blue\"`, `\"Midnight Blue\"`, `\"Medium Blue\"`, `\"Cobalt Blue\"`, `\"Violet Blue\"`, `\"Blue Violet\"`, `\"Medium Violet\"`, `\"Medium Rose\"`, `\"Lavender\"`, `\"Orchid\"`, `\"Thistle\"`, `\"Peach\"`, `\"Salmon\"`, `\"Magenta\"`, `\"Red Violet\"`, `\"Mahogany\"`, `\"Burnt Sienna\"`, `\"Chestnut\"`.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.String{
@@ -446,8 +446,8 @@ func (r *objectsTagsResource) Schema(_ context.Context, _ resource.SchemaRequest
 				},
 			},
 			"comments": rsschema.StringAttribute{
-				Description:         "The `comments` parameter.",
-				MarkdownDescription: "The `comments` parameter.",
+				Description:         "The `comments` parameter. String length must be between 0 and 1023.",
+				MarkdownDescription: "The `comments` parameter. String length must be between 0 and 1023.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.String{
@@ -466,8 +466,8 @@ func (r *objectsTagsResource) Schema(_ context.Context, _ resource.SchemaRequest
 				},
 			},
 			"name": rsschema.StringAttribute{
-				Description:         "The `name` parameter.",
-				MarkdownDescription: "The `name` parameter.",
+				Description:         "The `name` parameter. String length must be at most 127.",
+				MarkdownDescription: "The `name` parameter. String length must be at most 127.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(127),

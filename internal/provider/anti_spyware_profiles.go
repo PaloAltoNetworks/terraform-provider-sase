@@ -128,25 +128,25 @@ func (d *antiSpywareProfilesListDataSource) Schema(_ context.Context, _ datasour
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description:         "The max count in result entry (count per page)",
-				MarkdownDescription: "The max count in result entry (count per page)",
+				Description:         "The max count in result entry (count per page).",
+				MarkdownDescription: "The max count in result entry (count per page).",
 				Optional:            true,
 				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description:         "The offset of the result entry",
-				MarkdownDescription: "The offset of the result entry",
+				Description:         "The offset of the result entry.",
+				MarkdownDescription: "The offset of the result entry.",
 				Optional:            true,
 				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description:         "The name of the entry",
-				MarkdownDescription: "The name of the entry",
+				Description:         "The name of the entry.",
+				MarkdownDescription: "The name of the entry.",
 				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -667,13 +667,13 @@ func (d *antiSpywareProfilesDataSource) Schema(_ context.Context, _ datasource.S
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description:         "The uuid of the resource",
-				MarkdownDescription: "The uuid of the resource",
+				Description:         "The uuid of the resource.",
+				MarkdownDescription: "The uuid of the resource.",
 				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -1134,8 +1134,8 @@ func (r *antiSpywareProfilesResource) Schema(_ context.Context, _ resource.Schem
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -1191,8 +1191,8 @@ func (r *antiSpywareProfilesResource) Schema(_ context.Context, _ resource.Schem
 									Optional:            true,
 									Attributes: map[string]rsschema.Attribute{
 										"duration": rsschema.Int64Attribute{
-											Description:         "The `duration` parameter.",
-											MarkdownDescription: "The `duration` parameter.",
+											Description:         "The `duration` parameter. Value must be between 1 and 3600.",
+											MarkdownDescription: "The `duration` parameter. Value must be between 1 and 3600.",
 											Optional:            true,
 											Computed:            true,
 											PlanModifiers: []planmodifier.Int64{
@@ -1203,8 +1203,8 @@ func (r *antiSpywareProfilesResource) Schema(_ context.Context, _ resource.Schem
 											},
 										},
 										"track_by": rsschema.StringAttribute{
-											Description:         "The `track_by` parameter.",
-											MarkdownDescription: "The `track_by` parameter.",
+											Description:         "The `track_by` parameter. Value must be one of: `\"source-and-destination\"`, `\"source\"`.",
+											MarkdownDescription: "The `track_by` parameter. Value must be one of: `\"source-and-destination\"`, `\"source\"`.",
 											Optional:            true,
 											Computed:            true,
 											PlanModifiers: []planmodifier.String{
@@ -1239,8 +1239,8 @@ func (r *antiSpywareProfilesResource) Schema(_ context.Context, _ resource.Schem
 							},
 						},
 						"category": rsschema.StringAttribute{
-							Description:         "The `category` parameter.",
-							MarkdownDescription: "The `category` parameter.",
+							Description:         "The `category` parameter. Value must be one of: `\"dns-proxy\"`, `\"backdoor\"`, `\"data-theft\"`, `\"autogen\"`, `\"spyware\"`, `\"dns-security\"`, `\"downloader\"`, `\"dns-phishing\"`, `\"phishing-kit\"`, `\"cryptominer\"`, `\"hacktool\"`, `\"dns-benign\"`, `\"dns-wildfire\"`, `\"botnet\"`, `\"dns-grayware\"`, `\"inline-cloud-c2\"`, `\"keylogger\"`, `\"p2p-communication\"`, `\"domain-edl\"`, `\"webshell\"`, `\"command-and-control\"`, `\"dns-ddns\"`, `\"net-worm\"`, `\"any\"`, `\"tls-fingerprint\"`, `\"dns-new-domain\"`, `\"dns\"`, `\"fraud\"`, `\"dns-c2\"`, `\"adware\"`, `\"post-exploitation\"`, `\"dns-malware\"`, `\"browser-hijack\"`, `\"dns-parked\"`.",
+							MarkdownDescription: "The `category` parameter. Value must be one of: `\"dns-proxy\"`, `\"backdoor\"`, `\"data-theft\"`, `\"autogen\"`, `\"spyware\"`, `\"dns-security\"`, `\"downloader\"`, `\"dns-phishing\"`, `\"phishing-kit\"`, `\"cryptominer\"`, `\"hacktool\"`, `\"dns-benign\"`, `\"dns-wildfire\"`, `\"botnet\"`, `\"dns-grayware\"`, `\"inline-cloud-c2\"`, `\"keylogger\"`, `\"p2p-communication\"`, `\"domain-edl\"`, `\"webshell\"`, `\"command-and-control\"`, `\"dns-ddns\"`, `\"net-worm\"`, `\"any\"`, `\"tls-fingerprint\"`, `\"dns-new-domain\"`, `\"dns\"`, `\"fraud\"`, `\"dns-c2\"`, `\"adware\"`, `\"post-exploitation\"`, `\"dns-malware\"`, `\"browser-hijack\"`, `\"dns-parked\"`.",
 							Optional:            true,
 							Computed:            true,
 							PlanModifiers: []planmodifier.String{
@@ -1260,8 +1260,8 @@ func (r *antiSpywareProfilesResource) Schema(_ context.Context, _ resource.Schem
 							},
 						},
 						"packet_capture": rsschema.StringAttribute{
-							Description:         "The `packet_capture` parameter.",
-							MarkdownDescription: "The `packet_capture` parameter.",
+							Description:         "The `packet_capture` parameter. Value must be one of: `\"disable\"`, `\"single-packet\"`, `\"extended-capture\"`.",
+							MarkdownDescription: "The `packet_capture` parameter. Value must be one of: `\"disable\"`, `\"single-packet\"`, `\"extended-capture\"`.",
 							Optional:            true,
 							Computed:            true,
 							PlanModifiers: []planmodifier.String{
@@ -1278,8 +1278,8 @@ func (r *antiSpywareProfilesResource) Schema(_ context.Context, _ resource.Schem
 							ElementType:         types.StringType,
 						},
 						"threat_name": rsschema.StringAttribute{
-							Description:         "The `threat_name` parameter.",
-							MarkdownDescription: "The `threat_name` parameter.",
+							Description:         "The `threat_name` parameter. String length must be at least 4.",
+							MarkdownDescription: "The `threat_name` parameter. String length must be at least 4.",
 							Optional:            true,
 							Computed:            true,
 							PlanModifiers: []planmodifier.String{
@@ -1319,8 +1319,8 @@ func (r *antiSpywareProfilesResource) Schema(_ context.Context, _ resource.Schem
 									Optional:            true,
 									Attributes: map[string]rsschema.Attribute{
 										"duration": rsschema.Int64Attribute{
-											Description:         "The `duration` parameter.",
-											MarkdownDescription: "The `duration` parameter.",
+											Description:         "The `duration` parameter. Value must be between 1 and 3600.",
+											MarkdownDescription: "The `duration` parameter. Value must be between 1 and 3600.",
 											Optional:            true,
 											Computed:            true,
 											PlanModifiers: []planmodifier.Int64{
@@ -1331,8 +1331,8 @@ func (r *antiSpywareProfilesResource) Schema(_ context.Context, _ resource.Schem
 											},
 										},
 										"track_by": rsschema.StringAttribute{
-											Description:         "The `track_by` parameter.",
-											MarkdownDescription: "The `track_by` parameter.",
+											Description:         "The `track_by` parameter. Value must be one of: `\"source-and-destination\"`, `\"source\"`.",
+											MarkdownDescription: "The `track_by` parameter. Value must be one of: `\"source-and-destination\"`, `\"source\"`.",
 											Optional:            true,
 											Computed:            true,
 											PlanModifiers: []planmodifier.String{
@@ -1404,8 +1404,8 @@ func (r *antiSpywareProfilesResource) Schema(_ context.Context, _ resource.Schem
 							},
 						},
 						"packet_capture": rsschema.StringAttribute{
-							Description:         "The `packet_capture` parameter.",
-							MarkdownDescription: "The `packet_capture` parameter.",
+							Description:         "The `packet_capture` parameter. Value must be one of: `\"disable\"`, `\"single-packet\"`, `\"extended-capture\"`.",
+							MarkdownDescription: "The `packet_capture` parameter. Value must be one of: `\"disable\"`, `\"single-packet\"`, `\"extended-capture\"`.",
 							Optional:            true,
 							Computed:            true,
 							PlanModifiers: []planmodifier.String{

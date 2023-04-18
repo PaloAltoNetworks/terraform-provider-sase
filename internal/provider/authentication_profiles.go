@@ -139,28 +139,28 @@ func (d *authenticationProfilesListDataSource) Schema(_ context.Context, _ datas
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description:         "The max count in result entry (count per page)",
-				MarkdownDescription: "The max count in result entry (count per page)",
+				Description:         "The max count in result entry (count per page).",
+				MarkdownDescription: "The max count in result entry (count per page).",
 				Optional:            true,
 				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description:         "The offset of the result entry",
-				MarkdownDescription: "The offset of the result entry",
+				Description:         "The offset of the result entry.",
+				MarkdownDescription: "The offset of the result entry.",
 				Optional:            true,
 				Computed:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
 			},
 			"name": dsschema.StringAttribute{
-				Description:         "The name of the entry",
-				MarkdownDescription: "The name of the entry",
+				Description:         "The name of the entry.",
+				MarkdownDescription: "The name of the entry.",
 				Optional:            true,
 			},
 
@@ -657,13 +657,13 @@ func (d *authenticationProfilesDataSource) Schema(_ context.Context, _ datasourc
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description:         "The uuid of the resource",
-				MarkdownDescription: "The uuid of the resource",
+				Description:         "The uuid of the resource.",
+				MarkdownDescription: "The uuid of the resource.",
 				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -1103,8 +1103,8 @@ func (r *authenticationProfilesResource) Schema(_ context.Context, _ resource.Sc
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -1131,8 +1131,8 @@ func (r *authenticationProfilesResource) Schema(_ context.Context, _ resource.Sc
 				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"failed_attempts": rsschema.Int64Attribute{
-						Description:         "The `failed_attempts` parameter.",
-						MarkdownDescription: "The `failed_attempts` parameter.",
+						Description:         "The `failed_attempts` parameter. Value must be between 0 and 10.",
+						MarkdownDescription: "The `failed_attempts` parameter. Value must be between 0 and 10.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Int64{
@@ -1143,8 +1143,8 @@ func (r *authenticationProfilesResource) Schema(_ context.Context, _ resource.Sc
 						},
 					},
 					"lockout_time": rsschema.Int64Attribute{
-						Description:         "The `lockout_time` parameter.",
-						MarkdownDescription: "The `lockout_time` parameter.",
+						Description:         "The `lockout_time` parameter. Value must be between 0 and 60.",
+						MarkdownDescription: "The `lockout_time` parameter. Value must be between 0 and 60.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Int64{
@@ -1256,8 +1256,8 @@ func (r *authenticationProfilesResource) Schema(_ context.Context, _ resource.Sc
 						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"attribute_name_usergroup": rsschema.StringAttribute{
-								Description:         "The `attribute_name_usergroup` parameter.",
-								MarkdownDescription: "The `attribute_name_usergroup` parameter.",
+								Description:         "The `attribute_name_usergroup` parameter. String length must be between 1 and 63.",
+								MarkdownDescription: "The `attribute_name_usergroup` parameter. String length must be between 1 and 63.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.String{
@@ -1268,8 +1268,8 @@ func (r *authenticationProfilesResource) Schema(_ context.Context, _ resource.Sc
 								},
 							},
 							"attribute_name_username": rsschema.StringAttribute{
-								Description:         "The `attribute_name_username` parameter.",
-								MarkdownDescription: "The `attribute_name_username` parameter.",
+								Description:         "The `attribute_name_username` parameter. String length must be between 1 and 63.",
+								MarkdownDescription: "The `attribute_name_username` parameter. String length must be between 1 and 63.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.String{
@@ -1280,8 +1280,8 @@ func (r *authenticationProfilesResource) Schema(_ context.Context, _ resource.Sc
 								},
 							},
 							"certificate_profile": rsschema.StringAttribute{
-								Description:         "The `certificate_profile` parameter.",
-								MarkdownDescription: "The `certificate_profile` parameter.",
+								Description:         "The `certificate_profile` parameter. String length must be at most 31.",
+								MarkdownDescription: "The `certificate_profile` parameter. String length must be at most 31.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.String{
@@ -1301,8 +1301,8 @@ func (r *authenticationProfilesResource) Schema(_ context.Context, _ resource.Sc
 								},
 							},
 							"request_signing_certificate": rsschema.StringAttribute{
-								Description:         "The `request_signing_certificate` parameter.",
-								MarkdownDescription: "The `request_signing_certificate` parameter.",
+								Description:         "The `request_signing_certificate` parameter. String length must be at most 64.",
+								MarkdownDescription: "The `request_signing_certificate` parameter. String length must be at most 64.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.String{
@@ -1313,8 +1313,8 @@ func (r *authenticationProfilesResource) Schema(_ context.Context, _ resource.Sc
 								},
 							},
 							"server_profile": rsschema.StringAttribute{
-								Description:         "The `server_profile` parameter.",
-								MarkdownDescription: "The `server_profile` parameter.",
+								Description:         "The `server_profile` parameter. String length must be at most 63.",
+								MarkdownDescription: "The `server_profile` parameter. String length must be at most 63.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.String{
@@ -1386,8 +1386,8 @@ func (r *authenticationProfilesResource) Schema(_ context.Context, _ resource.Sc
 				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"kerberos_keytab": rsschema.StringAttribute{
-						Description:         "The `kerberos_keytab` parameter.",
-						MarkdownDescription: "The `kerberos_keytab` parameter.",
+						Description:         "The `kerberos_keytab` parameter. String length must be at most 8192.",
+						MarkdownDescription: "The `kerberos_keytab` parameter. String length must be at most 8192.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.String{
@@ -1398,8 +1398,8 @@ func (r *authenticationProfilesResource) Schema(_ context.Context, _ resource.Sc
 						},
 					},
 					"realm": rsschema.StringAttribute{
-						Description:         "The `realm` parameter.",
-						MarkdownDescription: "The `realm` parameter.",
+						Description:         "The `realm` parameter. String length must be at most 127.",
+						MarkdownDescription: "The `realm` parameter. String length must be at most 127.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.String{
@@ -1412,8 +1412,8 @@ func (r *authenticationProfilesResource) Schema(_ context.Context, _ resource.Sc
 				},
 			},
 			"user_domain": rsschema.StringAttribute{
-				Description:         "The `user_domain` parameter.",
-				MarkdownDescription: "The `user_domain` parameter.",
+				Description:         "The `user_domain` parameter. String length must be at most 63.",
+				MarkdownDescription: "The `user_domain` parameter. String length must be at most 63.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.String{
@@ -1424,15 +1424,15 @@ func (r *authenticationProfilesResource) Schema(_ context.Context, _ resource.Sc
 				},
 			},
 			"username_modifier": rsschema.StringAttribute{
-				Description:         "The `username_modifier` parameter.",
-				MarkdownDescription: "The `username_modifier` parameter.",
+				Description:         "The `username_modifier` parameter. Value must be one of: `\"%USERINPUT%\"`, `\"%USERINPUT%@%USERDOMAIN%\"`, `\"%USERDOMAIN%\\\\\\\\%USERINPUT%\"`.",
+				MarkdownDescription: "The `username_modifier` parameter. Value must be one of: `\"%USERINPUT%\"`, `\"%USERINPUT%@%USERDOMAIN%\"`, `\"%USERDOMAIN%\\\\\\\\%USERINPUT%\"`.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					DefaultString(""),
 				},
 				Validators: []validator.String{
-					stringvalidator.OneOf("%USERINPUT%", "%USERINPUT%@%USERDOMAIN%", "%USERDOMAIN%\\%USERINPUT%"),
+					stringvalidator.OneOf("%USERINPUT%", "%USERINPUT%@%USERDOMAIN%", "%USERDOMAIN%\\\\%USERINPUT%"),
 				},
 			},
 		},

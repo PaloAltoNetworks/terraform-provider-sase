@@ -88,28 +88,28 @@ func (d *tacacsServerProfilesListDataSource) Schema(_ context.Context, _ datasou
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description:         "The max count in result entry (count per page)",
-				MarkdownDescription: "The max count in result entry (count per page)",
+				Description:         "The max count in result entry (count per page).",
+				MarkdownDescription: "The max count in result entry (count per page).",
 				Optional:            true,
 				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description:         "The offset of the result entry",
-				MarkdownDescription: "The offset of the result entry",
+				Description:         "The offset of the result entry.",
+				MarkdownDescription: "The offset of the result entry.",
 				Optional:            true,
 				Computed:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
 			},
 			"name": dsschema.StringAttribute{
-				Description:         "The name of the entry",
-				MarkdownDescription: "The name of the entry",
+				Description:         "The name of the entry.",
+				MarkdownDescription: "The name of the entry.",
 				Optional:            true,
 			},
 
@@ -348,13 +348,13 @@ func (d *tacacsServerProfilesDataSource) Schema(_ context.Context, _ datasource.
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description:         "The uuid of the resource",
-				MarkdownDescription: "The uuid of the resource",
+				Description:         "The uuid of the resource.",
+				MarkdownDescription: "The uuid of the resource.",
 				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -536,8 +536,8 @@ func (r *tacacsServerProfilesResource) Schema(_ context.Context, _ resource.Sche
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -553,8 +553,8 @@ func (r *tacacsServerProfilesResource) Schema(_ context.Context, _ resource.Sche
 				},
 			},
 			"protocol": rsschema.StringAttribute{
-				Description:         "The `protocol` parameter.",
-				MarkdownDescription: "The `protocol` parameter.",
+				Description:         "The `protocol` parameter. Value must be one of: `\"CHAP\"`, `\"PAP\"`.",
+				MarkdownDescription: "The `protocol` parameter. Value must be one of: `\"CHAP\"`, `\"PAP\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("CHAP", "PAP"),
@@ -585,8 +585,8 @@ func (r *tacacsServerProfilesResource) Schema(_ context.Context, _ resource.Sche
 							},
 						},
 						"port": rsschema.Int64Attribute{
-							Description:         "The `port` parameter.",
-							MarkdownDescription: "The `port` parameter.",
+							Description:         "The `port` parameter. Value must be between 1 and 65535.",
+							MarkdownDescription: "The `port` parameter. Value must be between 1 and 65535.",
 							Optional:            true,
 							Computed:            true,
 							PlanModifiers: []planmodifier.Int64{
@@ -597,8 +597,8 @@ func (r *tacacsServerProfilesResource) Schema(_ context.Context, _ resource.Sche
 							},
 						},
 						"secret": rsschema.StringAttribute{
-							Description:         "The `secret` parameter.",
-							MarkdownDescription: "The `secret` parameter.",
+							Description:         "The `secret` parameter. String length must be at most 64.",
+							MarkdownDescription: "The `secret` parameter. String length must be at most 64.",
 							Optional:            true,
 							Computed:            true,
 							PlanModifiers: []planmodifier.String{
@@ -612,8 +612,8 @@ func (r *tacacsServerProfilesResource) Schema(_ context.Context, _ resource.Sche
 				},
 			},
 			"timeout": rsschema.Int64Attribute{
-				Description:         "The `timeout` parameter.",
-				MarkdownDescription: "The `timeout` parameter.",
+				Description:         "The `timeout` parameter. Value must be between 1 and 30.",
+				MarkdownDescription: "The `timeout` parameter. Value must be between 1 and 30.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.Int64{

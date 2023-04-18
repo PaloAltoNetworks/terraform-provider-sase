@@ -17,7 +17,7 @@ Retrieves a listing of config items.
 
 ### Required
 
-- `folder` (String) The `folder` parameter.
+- `folder` (String) The `folder` parameter. Value must be one of: `"Mobile Users"`.
 
 ### Read-Only
 

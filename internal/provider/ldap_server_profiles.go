@@ -93,28 +93,28 @@ func (d *ldapServerProfilesListDataSource) Schema(_ context.Context, _ datasourc
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description:         "The max count in result entry (count per page)",
-				MarkdownDescription: "The max count in result entry (count per page)",
+				Description:         "The max count in result entry (count per page).",
+				MarkdownDescription: "The max count in result entry (count per page).",
 				Optional:            true,
 				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description:         "The offset of the result entry",
-				MarkdownDescription: "The offset of the result entry",
+				Description:         "The offset of the result entry.",
+				MarkdownDescription: "The offset of the result entry.",
 				Optional:            true,
 				Computed:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
 			},
 			"name": dsschema.StringAttribute{
-				Description:         "The name of the entry",
-				MarkdownDescription: "The name of the entry",
+				Description:         "The name of the entry.",
+				MarkdownDescription: "The name of the entry.",
 				Optional:            true,
 			},
 
@@ -388,13 +388,13 @@ func (d *ldapServerProfilesDataSource) Schema(_ context.Context, _ datasource.Sc
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description:         "The uuid of the resource",
-				MarkdownDescription: "The uuid of the resource",
+				Description:         "The uuid of the resource.",
+				MarkdownDescription: "The uuid of the resource.",
 				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -611,8 +611,8 @@ func (r *ldapServerProfilesResource) Schema(_ context.Context, _ resource.Schema
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -620,8 +620,8 @@ func (r *ldapServerProfilesResource) Schema(_ context.Context, _ resource.Schema
 			},
 
 			"base": rsschema.StringAttribute{
-				Description:         "The `base` parameter.",
-				MarkdownDescription: "The `base` parameter.",
+				Description:         "The `base` parameter. String length must be at most 255.",
+				MarkdownDescription: "The `base` parameter. String length must be at most 255.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.String{
@@ -632,8 +632,8 @@ func (r *ldapServerProfilesResource) Schema(_ context.Context, _ resource.Schema
 				},
 			},
 			"bind_dn": rsschema.StringAttribute{
-				Description:         "The `bind_dn` parameter.",
-				MarkdownDescription: "The `bind_dn` parameter.",
+				Description:         "The `bind_dn` parameter. String length must be at most 255.",
+				MarkdownDescription: "The `bind_dn` parameter. String length must be at most 255.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.String{
@@ -644,8 +644,8 @@ func (r *ldapServerProfilesResource) Schema(_ context.Context, _ resource.Schema
 				},
 			},
 			"bind_password": rsschema.StringAttribute{
-				Description:         "The `bind_password` parameter.",
-				MarkdownDescription: "The `bind_password` parameter.",
+				Description:         "The `bind_password` parameter. String length must be at most 121.",
+				MarkdownDescription: "The `bind_password` parameter. String length must be at most 121.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.String{
@@ -673,8 +673,8 @@ func (r *ldapServerProfilesResource) Schema(_ context.Context, _ resource.Schema
 				},
 			},
 			"ldap_type": rsschema.StringAttribute{
-				Description:         "The `ldap_type` parameter.",
-				MarkdownDescription: "The `ldap_type` parameter.",
+				Description:         "The `ldap_type` parameter. Value must be one of: `\"active-directory\"`, `\"e-directory\"`, `\"sun\"`, `\"other\"`.",
+				MarkdownDescription: "The `ldap_type` parameter. Value must be one of: `\"active-directory\"`, `\"e-directory\"`, `\"sun\"`, `\"other\"`.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.String{
@@ -718,8 +718,8 @@ func (r *ldapServerProfilesResource) Schema(_ context.Context, _ resource.Schema
 							},
 						},
 						"port": rsschema.Int64Attribute{
-							Description:         "The `port` parameter.",
-							MarkdownDescription: "The `port` parameter.",
+							Description:         "The `port` parameter. Value must be between 1 and 65535.",
+							MarkdownDescription: "The `port` parameter. Value must be between 1 and 65535.",
 							Optional:            true,
 							Computed:            true,
 							PlanModifiers: []planmodifier.Int64{

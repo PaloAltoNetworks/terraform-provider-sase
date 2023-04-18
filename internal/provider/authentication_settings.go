@@ -71,20 +71,20 @@ func (d *authenticationSettingsListDataSource) Schema(_ context.Context, _ datas
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description:         "The max count in result entry (count per page)",
-				MarkdownDescription: "The max count in result entry (count per page)",
+				Description:         "The max count in result entry (count per page).",
+				MarkdownDescription: "The max count in result entry (count per page).",
 				Optional:            true,
 				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description:         "The offset of the result entry",
-				MarkdownDescription: "The offset of the result entry",
+				Description:         "The offset of the result entry.",
+				MarkdownDescription: "The offset of the result entry.",
 				Optional:            true,
 				Computed:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The `folder` parameter.",
-				MarkdownDescription: "The `folder` parameter.",
+				Description:         "The `folder` parameter. Value must be one of: `\"Mobile Users\"`.",
+				MarkdownDescription: "The `folder` parameter. Value must be one of: `\"Mobile Users\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Mobile Users"),

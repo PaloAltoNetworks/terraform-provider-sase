@@ -17,16 +17,16 @@ Retrieves config for a specific item.
 
 ### Required
 
-- `folder` (String) The folder of the entry
-- `name` (String) The `name` parameter.
+- `folder` (String) The folder of the entry. Value must be one of: `"Shared"`, `"Mobile Users"`, `"Remote Networks"`, `"Service Connections"`, `"Mobile Users Container"`, `"Mobile Users Explicit Proxy"`.
+- `name` (String) The `name` parameter. String length must be at most 63.
 
 ### Optional
 
-- `description` (String) The `description` parameter.
-- `fqdn` (String) The `fqdn` parameter.
-- `ip_netmask` (String) The `ip_netmask` parameter.
-- `ip_range` (String) The `ip_range` parameter.
-- `ip_wildcard` (String) The `ip_wildcard` parameter.
+- `description` (String) The `description` parameter. String length must be between 0 and 1023.
+- `fqdn` (String) The `fqdn` parameter. String length must be between 1 and 255. Conflicts with: `ip_netmask`, `ip_range`, `ip_wildcard`.
+- `ip_netmask` (String) The `ip_netmask` parameter. Conflicts with: `fqdn`, `ip_range`, `ip_wildcard`.
+- `ip_range` (String) The `ip_range` parameter. Conflicts with: `fqdn`, `ip_netmask`, `ip_wildcard`.
+- `ip_wildcard` (String) The `ip_wildcard` parameter. Conflicts with: `fqdn`, `ip_netmask`, `ip_range`.
 - `tag` (List of String) The `tag` parameter.
 
 ### Read-Only

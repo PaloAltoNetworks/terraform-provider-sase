@@ -17,7 +17,7 @@ Retrieves config for a specific item.
 
 ### Required
 
-- `folder` (String) The folder of the entry
+- `folder` (String) The folder of the entry. Value must be one of: `"Shared"`, `"Mobile Users"`, `"Remote Networks"`, `"Service Connections"`, `"Mobile Users Container"`, `"Mobile Users Explicit Proxy"`.
 - `name` (String) The `name` parameter.
 
 ### Optional
@@ -27,14 +27,14 @@ Retrieves config for a specific item.
 - `block` (List of String) The `block` parameter.
 - `continue` (List of String) The `continue` parameter.
 - `credential_enforcement` (Attributes) The `credential_enforcement` parameter. (see [below for nested schema](#nestedatt--credential_enforcement))
-- `description` (String) The `description` parameter.
-- `log_container_page_only` (Boolean) The `log_container_page_only` parameter.
-- `log_http_hdr_referer` (Boolean) The `log_http_hdr_referer` parameter.
-- `log_http_hdr_user_agent` (Boolean) The `log_http_hdr_user_agent` parameter.
-- `log_http_hdr_xff` (Boolean) The `log_http_hdr_xff` parameter.
+- `description` (String) The `description` parameter. String length must be between 0 and 255.
+- `log_container_page_only` (Boolean) The `log_container_page_only` parameter. Default: `true`.
+- `log_http_hdr_referer` (Boolean) The `log_http_hdr_referer` parameter. Default: `false`.
+- `log_http_hdr_user_agent` (Boolean) The `log_http_hdr_user_agent` parameter. Default: `false`.
+- `log_http_hdr_xff` (Boolean) The `log_http_hdr_xff` parameter. Default: `false`.
 - `mlav_category_exception` (List of String) The `mlav_category_exception` parameter.
 - `mlav_engine_urlbased_enabled` (Attributes List) The `mlav_engine_urlbased_enabled` parameter. (see [below for nested schema](#nestedatt--mlav_engine_urlbased_enabled))
-- `safe_search_enforcement` (Boolean) The `safe_search_enforcement` parameter.
+- `safe_search_enforcement` (Boolean) The `safe_search_enforcement` parameter. Default: `false`.
 
 ### Read-Only
 
@@ -50,7 +50,7 @@ Optional:
 - `allow` (List of String) The `allow` parameter.
 - `block` (List of String) The `block` parameter.
 - `continue` (List of String) The `continue` parameter.
-- `log_severity` (String) The `log_severity` parameter.
+- `log_severity` (String) The `log_severity` parameter. Default: `%!q(*string=0xc000f53090)`.
 - `mode` (Attributes) The `mode` parameter. (see [below for nested schema](#nestedatt--credential_enforcement--mode))
 
 <a id="nestedatt--credential_enforcement--mode"></a>
@@ -70,7 +70,7 @@ Optional:
 
 Optional:
 
-- `mlav_policy_action` (String) The `mlav_policy_action` parameter.
+- `mlav_policy_action` (String) The `mlav_policy_action` parameter. Value must be one of: `"allow"`, `"alert"`, `"block"`.
 - `name` (String) The `name` parameter.
 
 

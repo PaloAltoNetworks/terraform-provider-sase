@@ -17,13 +17,13 @@ Retrieves config for a specific item.
 
 ### Required
 
-- `action` (String) The `action` parameter.
+- `action` (String) The `action` parameter. Value must be one of: `"decrypt"`, `"no-decrypt"`.
 - `category` (List of String) The `category` parameter.
 - `destination` (List of String) The `destination` parameter.
-- `folder` (String) The folder of the entry
+- `folder` (String) The folder of the entry. Value must be one of: `"Shared"`, `"Mobile Users"`, `"Remote Networks"`, `"Service Connections"`, `"Mobile Users Container"`, `"Mobile Users Explicit Proxy"`.
 - `from` (List of String) The `from` parameter.
 - `name` (String) The `name` parameter.
-- `position` (String) The position of a security rule
+- `position` (String) The position of a security rule. Value must be one of: `"pre"`, `"post"`.
 - `service` (List of String) The `service` parameter.
 - `source` (List of String) The `source` parameter.
 - `source_user` (List of String) The `source_user` parameter.
@@ -55,6 +55,6 @@ Retrieves config for a specific item.
 Optional:
 
 - `ssl_forward_proxy` (Boolean) The `ssl_forward_proxy` parameter.
-- `ssl_inbound_inspection` (String) The `ssl_inbound_inspection` parameter.
+- `ssl_inbound_inspection` (String) The `ssl_inbound_inspection` parameter. Conflicts with: ``.
 
 

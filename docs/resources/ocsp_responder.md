@@ -17,9 +17,9 @@ Retrieves config for a specific item.
 
 ### Required
 
-- `folder` (String) The folder of the entry
-- `host_name` (String) The `host_name` parameter.
-- `name` (String) The `name` parameter.
+- `folder` (String) The folder of the entry. Value must be one of: `"Shared"`, `"Mobile Users"`, `"Remote Networks"`, `"Service Connections"`, `"Mobile Users Container"`, `"Mobile Users Explicit Proxy"`.
+- `host_name` (String) The `host_name` parameter. String length must be between 1 and 255.
+- `name` (String) The `name` parameter. String length must be at most 63.
 
 ### Read-Only
 

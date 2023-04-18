@@ -17,8 +17,8 @@ Retrieves config for a specific item.
 
 ### Required
 
-- `folder` (String) The folder of the entry
-- `name` (String) The `name` parameter.
+- `folder` (String) The folder of the entry. Value must be one of: `"Shared"`, `"Mobile Users"`, `"Remote Networks"`, `"Service Connections"`, `"Mobile Users Container"`, `"Mobile Users Explicit Proxy"`.
+- `name` (String) The `name` parameter. String length must be at most 31.
 - `schedule_type` (Attributes) The `schedule_type` parameter. (see [below for nested schema](#nestedatt--schedule_type))
 
 ### Read-Only

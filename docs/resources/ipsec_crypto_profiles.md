@@ -17,14 +17,14 @@ Retrieves config for a specific item.
 
 ### Required
 
-- `folder` (String) The folder of the entry
+- `folder` (String) The folder of the entry. Value must be one of: `"Shared"`, `"Mobile Users"`, `"Remote Networks"`, `"Service Connections"`, `"Mobile Users Container"`, `"Mobile Users Explicit Proxy"`.
 - `lifetime` (Attributes) The `lifetime` parameter. (see [below for nested schema](#nestedatt--lifetime))
-- `name` (String) The `name` parameter.
+- `name` (String) The `name` parameter. String length must be at most 31.
 
 ### Optional
 
 - `ah` (Attributes) The `ah` parameter. (see [below for nested schema](#nestedatt--ah))
-- `dh_group` (String) The `dh_group` parameter.
+- `dh_group` (String) The `dh_group` parameter. Default: `%!q(*string=0xc000610170)`. Value must be one of: `"no-pfs"`, `"group1"`, `"group2"`, `"group5"`, `"group14"`, `"group19"`, `"group20"`.
 - `esp` (Attributes) The `esp` parameter. (see [below for nested schema](#nestedatt--esp))
 - `lifesize` (Attributes) The `lifesize` parameter. (see [below for nested schema](#nestedatt--lifesize))
 
@@ -38,10 +38,10 @@ Retrieves config for a specific item.
 
 Optional:
 
-- `days` (Number) The `days` parameter.
-- `hours` (Number) The `hours` parameter.
-- `minutes` (Number) The `minutes` parameter.
-- `seconds` (Number) The `seconds` parameter.
+- `days` (Number) The `days` parameter. Value must be between 1 and 365.
+- `hours` (Number) The `hours` parameter. Value must be between 1 and 65535.
+- `minutes` (Number) The `minutes` parameter. Value must be between 3 and 65535.
+- `seconds` (Number) The `seconds` parameter. Value must be between 180 and 65535.
 
 
 <a id="nestedatt--ah"></a>
@@ -66,9 +66,9 @@ Required:
 
 Optional:
 
-- `gb` (Number) The `gb` parameter.
-- `kb` (Number) The `kb` parameter.
-- `mb` (Number) The `mb` parameter.
-- `tb` (Number) The `tb` parameter.
+- `gb` (Number) The `gb` parameter. Value must be between 1 and 65535.
+- `kb` (Number) The `kb` parameter. Value must be between 1 and 65535.
+- `mb` (Number) The `mb` parameter. Value must be between 1 and 65535.
+- `tb` (Number) The `tb` parameter. Value must be between 1 and 65535.
 
 

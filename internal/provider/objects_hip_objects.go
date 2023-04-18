@@ -472,25 +472,25 @@ func (d *objectsHipObjectsListDataSource) Schema(_ context.Context, _ datasource
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description:         "The max count in result entry (count per page)",
-				MarkdownDescription: "The max count in result entry (count per page)",
+				Description:         "The max count in result entry (count per page).",
+				MarkdownDescription: "The max count in result entry (count per page).",
 				Optional:            true,
 				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description:         "The offset of the result entry",
-				MarkdownDescription: "The offset of the result entry",
+				Description:         "The offset of the result entry.",
+				MarkdownDescription: "The offset of the result entry.",
 				Optional:            true,
 				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description:         "The name of the entry",
-				MarkdownDescription: "The name of the entry",
+				Description:         "The name of the entry.",
+				MarkdownDescription: "The name of the entry.",
 				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -2882,13 +2882,13 @@ func (d *objectsHipObjectsDataSource) Schema(_ context.Context, _ datasource.Sch
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description:         "The uuid of the resource",
-				MarkdownDescription: "The uuid of the resource",
+				Description:         "The uuid of the resource.",
+				MarkdownDescription: "The uuid of the resource.",
 				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -5220,8 +5220,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -5239,8 +5239,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"is_installed": rsschema.BoolAttribute{
-								Description:         "The `is_installed` parameter.",
-								MarkdownDescription: "The `is_installed` parameter.",
+								Description:         "The `is_installed` parameter. Default: `true`.",
+								MarkdownDescription: "The `is_installed` parameter. Default: `true`.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.Bool{
@@ -5253,8 +5253,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"not_available": rsschema.BoolAttribute{
-										Description:         "The `not_available` parameter.",
-										MarkdownDescription: "The `not_available` parameter.",
+										Description:         "The `not_available` parameter. Conflicts with: `not_within`, `within`.",
+										MarkdownDescription: "The `not_available` parameter. Conflicts with: `not_within`, `within`.",
 										Optional:            true,
 										Validators: []validator.Bool{
 											boolvalidator.ConflictsWith(
@@ -5269,8 +5269,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"days": rsschema.Int64Attribute{
-												Description:         "The `days` parameter.",
-												MarkdownDescription: "The `days` parameter.",
+												Description:         "The `days` parameter. Default: `1`. Value must be between 1 and 65535.",
+												MarkdownDescription: "The `days` parameter. Default: `1`. Value must be between 1 and 65535.",
 												Optional:            true,
 												Computed:            true,
 												PlanModifiers: []planmodifier.Int64{
@@ -5281,8 +5281,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												},
 											},
 											"hours": rsschema.Int64Attribute{
-												Description:         "The `hours` parameter.",
-												MarkdownDescription: "The `hours` parameter.",
+												Description:         "The `hours` parameter. Default: `24`. Value must be between 1 and 65535.",
+												MarkdownDescription: "The `hours` parameter. Default: `24`. Value must be between 1 and 65535.",
 												Optional:            true,
 												Computed:            true,
 												PlanModifiers: []planmodifier.Int64{
@@ -5300,8 +5300,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"days": rsschema.Int64Attribute{
-												Description:         "The `days` parameter.",
-												MarkdownDescription: "The `days` parameter.",
+												Description:         "The `days` parameter. Default: `1`. Value must be between 1 and 65535.",
+												MarkdownDescription: "The `days` parameter. Default: `1`. Value must be between 1 and 65535.",
 												Optional:            true,
 												Computed:            true,
 												PlanModifiers: []planmodifier.Int64{
@@ -5312,8 +5312,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												},
 											},
 											"hours": rsschema.Int64Attribute{
-												Description:         "The `hours` parameter.",
-												MarkdownDescription: "The `hours` parameter.",
+												Description:         "The `hours` parameter. Default: `24`. Value must be between 1 and 65535.",
+												MarkdownDescription: "The `hours` parameter. Default: `24`. Value must be between 1 and 65535.",
 												Optional:            true,
 												Computed:            true,
 												PlanModifiers: []planmodifier.Int64{
@@ -5333,8 +5333,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"contains": rsschema.StringAttribute{
-										Description:         "The `contains` parameter.",
-										MarkdownDescription: "The `contains` parameter.",
+										Description:         "The `contains` parameter. String length must be between 0 and 255. Conflicts with: `greater_equal`, `greater_than`, `is`, `is_not`, `less_equal`, `less_than`, `not_within`, `within`.",
+										MarkdownDescription: "The `contains` parameter. String length must be between 0 and 255. Conflicts with: `greater_equal`, `greater_than`, `is`, `is_not`, `less_equal`, `less_than`, `not_within`, `within`.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.String{
@@ -5355,8 +5355,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"greater_equal": rsschema.StringAttribute{
-										Description:         "The `greater_equal` parameter.",
-										MarkdownDescription: "The `greater_equal` parameter.",
+										Description:         "The `greater_equal` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `greater_than`, `is`, `is_not`, `less_equal`, `less_than`, `not_within`, `within`.",
+										MarkdownDescription: "The `greater_equal` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `greater_than`, `is`, `is_not`, `less_equal`, `less_than`, `not_within`, `within`.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.String{
@@ -5377,8 +5377,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"greater_than": rsschema.StringAttribute{
-										Description:         "The `greater_than` parameter.",
-										MarkdownDescription: "The `greater_than` parameter.",
+										Description:         "The `greater_than` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `greater_equal`, `is`, `is_not`, `less_equal`, `less_than`, `not_within`, `within`.",
+										MarkdownDescription: "The `greater_than` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `greater_equal`, `is`, `is_not`, `less_equal`, `less_than`, `not_within`, `within`.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.String{
@@ -5399,8 +5399,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is": rsschema.StringAttribute{
-										Description:         "The `is` parameter.",
-										MarkdownDescription: "The `is` parameter.",
+										Description:         "The `is` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `greater_equal`, `greater_than`, `is_not`, `less_equal`, `less_than`, `not_within`, `within`.",
+										MarkdownDescription: "The `is` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `greater_equal`, `greater_than`, `is_not`, `less_equal`, `less_than`, `not_within`, `within`.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.String{
@@ -5421,8 +5421,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is_not": rsschema.StringAttribute{
-										Description:         "The `is_not` parameter.",
-										MarkdownDescription: "The `is_not` parameter.",
+										Description:         "The `is_not` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `greater_equal`, `greater_than`, `is`, `less_equal`, `less_than`, `not_within`, `within`.",
+										MarkdownDescription: "The `is_not` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `greater_equal`, `greater_than`, `is`, `less_equal`, `less_than`, `not_within`, `within`.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.String{
@@ -5443,8 +5443,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"less_equal": rsschema.StringAttribute{
-										Description:         "The `less_equal` parameter.",
-										MarkdownDescription: "The `less_equal` parameter.",
+										Description:         "The `less_equal` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `greater_equal`, `greater_than`, `is`, `is_not`, `less_than`, `not_within`, `within`.",
+										MarkdownDescription: "The `less_equal` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `greater_equal`, `greater_than`, `is`, `is_not`, `less_than`, `not_within`, `within`.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.String{
@@ -5465,8 +5465,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"less_than": rsschema.StringAttribute{
-										Description:         "The `less_than` parameter.",
-										MarkdownDescription: "The `less_than` parameter.",
+										Description:         "The `less_than` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `greater_equal`, `greater_than`, `is`, `is_not`, `less_equal`, `not_within`, `within`.",
+										MarkdownDescription: "The `less_than` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `greater_equal`, `greater_than`, `is`, `is_not`, `less_equal`, `not_within`, `within`.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.String{
@@ -5492,8 +5492,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"versions": rsschema.Int64Attribute{
-												Description:         "The `versions` parameter.",
-												MarkdownDescription: "The `versions` parameter.",
+												Description:         "The `versions` parameter. Value must be between 1 and 65535.",
+												MarkdownDescription: "The `versions` parameter. Value must be between 1 and 65535.",
 												Required:            true,
 												Validators: []validator.Int64{
 													int64validator.Between(1, 65535),
@@ -5507,8 +5507,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"versions": rsschema.Int64Attribute{
-												Description:         "The `versions` parameter.",
-												MarkdownDescription: "The `versions` parameter.",
+												Description:         "The `versions` parameter. Value must be between 1 and 65535.",
+												MarkdownDescription: "The `versions` parameter. Value must be between 1 and 65535.",
 												Required:            true,
 												Validators: []validator.Int64{
 													int64validator.Between(1, 65535),
@@ -5519,8 +5519,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								},
 							},
 							"real_time_protection": rsschema.StringAttribute{
-								Description:         "The `real_time_protection` parameter.",
-								MarkdownDescription: "The `real_time_protection` parameter.",
+								Description:         "The `real_time_protection` parameter. Value must be one of: `\"no\"`, `\"yes\"`, `\"not-available\"`.",
+								MarkdownDescription: "The `real_time_protection` parameter. Value must be one of: `\"no\"`, `\"yes\"`, `\"not-available\"`.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.String{
@@ -5541,8 +5541,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"days": rsschema.Int64Attribute{
-												Description:         "The `days` parameter.",
-												MarkdownDescription: "The `days` parameter.",
+												Description:         "The `days` parameter. Default: `1`. Value must be between 1 and 65535.",
+												MarkdownDescription: "The `days` parameter. Default: `1`. Value must be between 1 and 65535.",
 												Optional:            true,
 												Computed:            true,
 												PlanModifiers: []planmodifier.Int64{
@@ -5553,8 +5553,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												},
 											},
 											"versions": rsschema.Int64Attribute{
-												Description:         "The `versions` parameter.",
-												MarkdownDescription: "The `versions` parameter.",
+												Description:         "The `versions` parameter. Default: `1`. Value must be between 1 and 65535.",
+												MarkdownDescription: "The `versions` parameter. Default: `1`. Value must be between 1 and 65535.",
 												Optional:            true,
 												Computed:            true,
 												PlanModifiers: []planmodifier.Int64{
@@ -5572,8 +5572,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"days": rsschema.Int64Attribute{
-												Description:         "The `days` parameter.",
-												MarkdownDescription: "The `days` parameter.",
+												Description:         "The `days` parameter. Default: `1`. Value must be between 1 and 65535.",
+												MarkdownDescription: "The `days` parameter. Default: `1`. Value must be between 1 and 65535.",
 												Optional:            true,
 												Computed:            true,
 												PlanModifiers: []planmodifier.Int64{
@@ -5584,8 +5584,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												},
 											},
 											"versions": rsschema.Int64Attribute{
-												Description:         "The `versions` parameter.",
-												MarkdownDescription: "The `versions` parameter.",
+												Description:         "The `versions` parameter. Default: `1`. Value must be between 1 and 65535.",
+												MarkdownDescription: "The `versions` parameter. Default: `1`. Value must be between 1 and 65535.",
 												Optional:            true,
 												Computed:            true,
 												PlanModifiers: []planmodifier.Int64{
@@ -5602,8 +5602,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 						},
 					},
 					"exclude_vendor": rsschema.BoolAttribute{
-						Description:         "The `exclude_vendor` parameter.",
-						MarkdownDescription: "The `exclude_vendor` parameter.",
+						Description:         "The `exclude_vendor` parameter. Default: `false`.",
+						MarkdownDescription: "The `exclude_vendor` parameter. Default: `false`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
@@ -5617,8 +5617,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 						NestedObject: rsschema.NestedAttributeObject{
 							Attributes: map[string]rsschema.Attribute{
 								"name": rsschema.StringAttribute{
-									Description:         "The `name` parameter.",
-									MarkdownDescription: "The `name` parameter.",
+									Description:         "The `name` parameter. String length must be at most 103.",
+									MarkdownDescription: "The `name` parameter. String length must be at most 103.",
 									Required:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(103),
@@ -5657,8 +5657,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 											Required:            true,
 										},
 										"value": rsschema.StringAttribute{
-											Description:         "The `value` parameter.",
-											MarkdownDescription: "The `value` parameter.",
+											Description:         "The `value` parameter. String length must be at most 1024.",
+											MarkdownDescription: "The `value` parameter. String length must be at most 1024.",
 											Optional:            true,
 											Computed:            true,
 											PlanModifiers: []planmodifier.String{
@@ -5707,16 +5707,16 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 											NestedObject: rsschema.NestedAttributeObject{
 												Attributes: map[string]rsschema.Attribute{
 													"name": rsschema.StringAttribute{
-														Description:         "The `name` parameter.",
-														MarkdownDescription: "The `name` parameter.",
+														Description:         "The `name` parameter. String length must be at most 1023.",
+														MarkdownDescription: "The `name` parameter. String length must be at most 1023.",
 														Required:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthAtMost(1023),
 														},
 													},
 													"negate": rsschema.BoolAttribute{
-														Description:         "The `negate` parameter.",
-														MarkdownDescription: "The `negate` parameter.",
+														Description:         "The `negate` parameter. Default: `false`.",
+														MarkdownDescription: "The `negate` parameter. Default: `false`.",
 														Optional:            true,
 														Computed:            true,
 														PlanModifiers: []planmodifier.Bool{
@@ -5724,8 +5724,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 														},
 													},
 													"value": rsschema.StringAttribute{
-														Description:         "The `value` parameter.",
-														MarkdownDescription: "The `value` parameter.",
+														Description:         "The `value` parameter. String length must be at most 1024.",
+														MarkdownDescription: "The `value` parameter. String length must be at most 1024.",
 														Optional:            true,
 														Computed:            true,
 														PlanModifiers: []planmodifier.String{
@@ -5739,16 +5739,16 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 											},
 										},
 										"name": rsschema.StringAttribute{
-											Description:         "The `name` parameter.",
-											MarkdownDescription: "The `name` parameter.",
+											Description:         "The `name` parameter. String length must be at most 1023.",
+											MarkdownDescription: "The `name` parameter. String length must be at most 1023.",
 											Required:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(1023),
 											},
 										},
 										"negate": rsschema.BoolAttribute{
-											Description:         "The `negate` parameter.",
-											MarkdownDescription: "The `negate` parameter.",
+											Description:         "The `negate` parameter. Default: `false`.",
+											MarkdownDescription: "The `negate` parameter. Default: `false`.",
 											Optional:            true,
 											Computed:            true,
 											PlanModifiers: []planmodifier.Bool{
@@ -5765,16 +5765,16 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								NestedObject: rsschema.NestedAttributeObject{
 									Attributes: map[string]rsschema.Attribute{
 										"name": rsschema.StringAttribute{
-											Description:         "The `name` parameter.",
-											MarkdownDescription: "The `name` parameter.",
+											Description:         "The `name` parameter. String length must be at most 1023.",
+											MarkdownDescription: "The `name` parameter. String length must be at most 1023.",
 											Required:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(1023),
 											},
 										},
 										"running": rsschema.BoolAttribute{
-											Description:         "The `running` parameter.",
-											MarkdownDescription: "The `running` parameter.",
+											Description:         "The `running` parameter. Default: `true`.",
+											MarkdownDescription: "The `running` parameter. Default: `true`.",
 											Optional:            true,
 											Computed:            true,
 											PlanModifiers: []planmodifier.Bool{
@@ -5791,8 +5791,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								NestedObject: rsschema.NestedAttributeObject{
 									Attributes: map[string]rsschema.Attribute{
 										"default_value_data": rsschema.StringAttribute{
-											Description:         "The `default_value_data` parameter.",
-											MarkdownDescription: "The `default_value_data` parameter.",
+											Description:         "The `default_value_data` parameter. String length must be at most 1024.",
+											MarkdownDescription: "The `default_value_data` parameter. String length must be at most 1024.",
 											Optional:            true,
 											Computed:            true,
 											PlanModifiers: []planmodifier.String{
@@ -5803,16 +5803,16 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 											},
 										},
 										"name": rsschema.StringAttribute{
-											Description:         "The `name` parameter.",
-											MarkdownDescription: "The `name` parameter.",
+											Description:         "The `name` parameter. String length must be at most 1023.",
+											MarkdownDescription: "The `name` parameter. String length must be at most 1023.",
 											Required:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(1023),
 											},
 										},
 										"negate": rsschema.BoolAttribute{
-											Description:         "The `negate` parameter.",
-											MarkdownDescription: "The `negate` parameter.",
+											Description:         "The `negate` parameter. Default: `false`.",
+											MarkdownDescription: "The `negate` parameter. Default: `false`.",
 											Optional:            true,
 											Computed:            true,
 											PlanModifiers: []planmodifier.Bool{
@@ -5826,16 +5826,16 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 											NestedObject: rsschema.NestedAttributeObject{
 												Attributes: map[string]rsschema.Attribute{
 													"name": rsschema.StringAttribute{
-														Description:         "The `name` parameter.",
-														MarkdownDescription: "The `name` parameter.",
+														Description:         "The `name` parameter. String length must be at most 1023.",
+														MarkdownDescription: "The `name` parameter. String length must be at most 1023.",
 														Required:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthAtMost(1023),
 														},
 													},
 													"negate": rsschema.BoolAttribute{
-														Description:         "The `negate` parameter.",
-														MarkdownDescription: "The `negate` parameter.",
+														Description:         "The `negate` parameter. Default: `false`.",
+														MarkdownDescription: "The `negate` parameter. Default: `false`.",
 														Optional:            true,
 														Computed:            true,
 														PlanModifiers: []planmodifier.Bool{
@@ -5843,8 +5843,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 														},
 													},
 													"value_data": rsschema.StringAttribute{
-														Description:         "The `value_data` parameter.",
-														MarkdownDescription: "The `value_data` parameter.",
+														Description:         "The `value_data` parameter. String length must be at most 1024.",
+														MarkdownDescription: "The `value_data` parameter. String length must be at most 1024.",
 														Optional:            true,
 														Computed:            true,
 														PlanModifiers: []planmodifier.String{
@@ -5875,8 +5875,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"is_enabled": rsschema.StringAttribute{
-								Description:         "The `is_enabled` parameter.",
-								MarkdownDescription: "The `is_enabled` parameter.",
+								Description:         "The `is_enabled` parameter. Value must be one of: `\"no\"`, `\"yes\"`, `\"not-available\"`.",
+								MarkdownDescription: "The `is_enabled` parameter. Value must be one of: `\"no\"`, `\"yes\"`, `\"not-available\"`.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.String{
@@ -5887,8 +5887,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								},
 							},
 							"is_installed": rsschema.BoolAttribute{
-								Description:         "The `is_installed` parameter.",
-								MarkdownDescription: "The `is_installed` parameter.",
+								Description:         "The `is_installed` parameter. Default: `true`.",
+								MarkdownDescription: "The `is_installed` parameter. Default: `true`.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.Bool{
@@ -5898,8 +5898,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 						},
 					},
 					"exclude_vendor": rsschema.BoolAttribute{
-						Description:         "The `exclude_vendor` parameter.",
-						MarkdownDescription: "The `exclude_vendor` parameter.",
+						Description:         "The `exclude_vendor` parameter. Default: `false`.",
+						MarkdownDescription: "The `exclude_vendor` parameter. Default: `false`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
@@ -5913,8 +5913,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 						NestedObject: rsschema.NestedAttributeObject{
 							Attributes: map[string]rsschema.Attribute{
 								"name": rsschema.StringAttribute{
-									Description:         "The `name` parameter.",
-									MarkdownDescription: "The `name` parameter.",
+									Description:         "The `name` parameter. String length must be at most 103.",
+									MarkdownDescription: "The `name` parameter. String length must be at most 103.",
 									Required:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(103),
@@ -5932,8 +5932,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 				},
 			},
 			"description": rsschema.StringAttribute{
-				Description:         "The `description` parameter.",
-				MarkdownDescription: "The `description` parameter.",
+				Description:         "The `description` parameter. String length must be between 0 and 255.",
+				MarkdownDescription: "The `description` parameter. String length must be between 0 and 255.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.String{
@@ -5954,8 +5954,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"is_installed": rsschema.BoolAttribute{
-								Description:         "The `is_installed` parameter.",
-								MarkdownDescription: "The `is_installed` parameter.",
+								Description:         "The `is_installed` parameter. Default: `true`.",
+								MarkdownDescription: "The `is_installed` parameter. Default: `true`.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.Bool{
@@ -5968,8 +5968,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"not_available": rsschema.BoolAttribute{
-										Description:         "The `not_available` parameter.",
-										MarkdownDescription: "The `not_available` parameter.",
+										Description:         "The `not_available` parameter. Conflicts with: `not_within`, `within`.",
+										MarkdownDescription: "The `not_available` parameter. Conflicts with: `not_within`, `within`.",
 										Optional:            true,
 										Validators: []validator.Bool{
 											boolvalidator.ConflictsWith(
@@ -5984,8 +5984,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"days": rsschema.Int64Attribute{
-												Description:         "The `days` parameter.",
-												MarkdownDescription: "The `days` parameter.",
+												Description:         "The `days` parameter. Default: `1`. Value must be between 1 and 65535.",
+												MarkdownDescription: "The `days` parameter. Default: `1`. Value must be between 1 and 65535.",
 												Optional:            true,
 												Computed:            true,
 												PlanModifiers: []planmodifier.Int64{
@@ -5996,8 +5996,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												},
 											},
 											"hours": rsschema.Int64Attribute{
-												Description:         "The `hours` parameter.",
-												MarkdownDescription: "The `hours` parameter.",
+												Description:         "The `hours` parameter. Default: `24`. Value must be between 1 and 65535.",
+												MarkdownDescription: "The `hours` parameter. Default: `24`. Value must be between 1 and 65535.",
 												Optional:            true,
 												Computed:            true,
 												PlanModifiers: []planmodifier.Int64{
@@ -6015,8 +6015,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"days": rsschema.Int64Attribute{
-												Description:         "The `days` parameter.",
-												MarkdownDescription: "The `days` parameter.",
+												Description:         "The `days` parameter. Default: `1`. Value must be between 1 and 65535.",
+												MarkdownDescription: "The `days` parameter. Default: `1`. Value must be between 1 and 65535.",
 												Optional:            true,
 												Computed:            true,
 												PlanModifiers: []planmodifier.Int64{
@@ -6027,8 +6027,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												},
 											},
 											"hours": rsschema.Int64Attribute{
-												Description:         "The `hours` parameter.",
-												MarkdownDescription: "The `hours` parameter.",
+												Description:         "The `hours` parameter. Default: `24`. Value must be between 1 and 65535.",
+												MarkdownDescription: "The `hours` parameter. Default: `24`. Value must be between 1 and 65535.",
 												Optional:            true,
 												Computed:            true,
 												PlanModifiers: []planmodifier.Int64{
@@ -6045,8 +6045,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 						},
 					},
 					"exclude_vendor": rsschema.BoolAttribute{
-						Description:         "The `exclude_vendor` parameter.",
-						MarkdownDescription: "The `exclude_vendor` parameter.",
+						Description:         "The `exclude_vendor` parameter. Default: `false`.",
+						MarkdownDescription: "The `exclude_vendor` parameter. Default: `false`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
@@ -6060,8 +6060,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 						NestedObject: rsschema.NestedAttributeObject{
 							Attributes: map[string]rsschema.Attribute{
 								"name": rsschema.StringAttribute{
-									Description:         "The `name` parameter.",
-									MarkdownDescription: "The `name` parameter.",
+									Description:         "The `name` parameter. String length must be at most 103.",
+									MarkdownDescription: "The `name` parameter. String length must be at most 103.",
 									Required:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(103),
@@ -6100,8 +6100,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 											Optional:            true,
 											Attributes: map[string]rsschema.Attribute{
 												"is": rsschema.StringAttribute{
-													Description:         "The `is` parameter.",
-													MarkdownDescription: "The `is` parameter.",
+													Description:         "The `is` parameter. Default: `%!q(*string=0xc000f53420)`. Value must be one of: `\"encrypted\"`, `\"unencrypted\"`, `\"partial\"`, `\"unknown\"`.",
+													MarkdownDescription: "The `is` parameter. Default: `%!q(*string=0xc000f53420)`. Value must be one of: `\"encrypted\"`, `\"unencrypted\"`, `\"partial\"`, `\"unknown\"`.",
 													Optional:            true,
 													Computed:            true,
 													PlanModifiers: []planmodifier.String{
@@ -6112,8 +6112,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 													},
 												},
 												"is_not": rsschema.StringAttribute{
-													Description:         "The `is_not` parameter.",
-													MarkdownDescription: "The `is_not` parameter.",
+													Description:         "The `is_not` parameter. Default: `%!q(*string=0xc000f53430)`. Value must be one of: `\"encrypted\"`, `\"unencrypted\"`, `\"partial\"`, `\"unknown\"`.",
+													MarkdownDescription: "The `is_not` parameter. Default: `%!q(*string=0xc000f53430)`. Value must be one of: `\"encrypted\"`, `\"unencrypted\"`, `\"partial\"`, `\"unknown\"`.",
 													Optional:            true,
 													Computed:            true,
 													PlanModifiers: []planmodifier.String{
@@ -6126,8 +6126,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 											},
 										},
 										"name": rsschema.StringAttribute{
-											Description:         "The `name` parameter.",
-											MarkdownDescription: "The `name` parameter.",
+											Description:         "The `name` parameter. String length must be at most 1023.",
+											MarkdownDescription: "The `name` parameter. String length must be at most 1023.",
 											Required:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(1023),
@@ -6137,8 +6137,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								},
 							},
 							"is_installed": rsschema.BoolAttribute{
-								Description:         "The `is_installed` parameter.",
-								MarkdownDescription: "The `is_installed` parameter.",
+								Description:         "The `is_installed` parameter. Default: `true`.",
+								MarkdownDescription: "The `is_installed` parameter. Default: `true`.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.Bool{
@@ -6148,8 +6148,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 						},
 					},
 					"exclude_vendor": rsschema.BoolAttribute{
-						Description:         "The `exclude_vendor` parameter.",
-						MarkdownDescription: "The `exclude_vendor` parameter.",
+						Description:         "The `exclude_vendor` parameter. Default: `false`.",
+						MarkdownDescription: "The `exclude_vendor` parameter. Default: `false`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
@@ -6163,8 +6163,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 						NestedObject: rsschema.NestedAttributeObject{
 							Attributes: map[string]rsschema.Attribute{
 								"name": rsschema.StringAttribute{
-									Description:         "The `name` parameter.",
-									MarkdownDescription: "The `name` parameter.",
+									Description:         "The `name` parameter. String length must be at most 103.",
+									MarkdownDescription: "The `name` parameter. String length must be at most 103.",
 									Required:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(103),
@@ -6192,8 +6192,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"is_enabled": rsschema.StringAttribute{
-								Description:         "The `is_enabled` parameter.",
-								MarkdownDescription: "The `is_enabled` parameter.",
+								Description:         "The `is_enabled` parameter. Value must be one of: `\"no\"`, `\"yes\"`, `\"not-available\"`.",
+								MarkdownDescription: "The `is_enabled` parameter. Value must be one of: `\"no\"`, `\"yes\"`, `\"not-available\"`.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.String{
@@ -6204,8 +6204,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								},
 							},
 							"is_installed": rsschema.BoolAttribute{
-								Description:         "The `is_installed` parameter.",
-								MarkdownDescription: "The `is_installed` parameter.",
+								Description:         "The `is_installed` parameter. Default: `true`.",
+								MarkdownDescription: "The `is_installed` parameter. Default: `true`.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.Bool{
@@ -6215,8 +6215,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 						},
 					},
 					"exclude_vendor": rsschema.BoolAttribute{
-						Description:         "The `exclude_vendor` parameter.",
-						MarkdownDescription: "The `exclude_vendor` parameter.",
+						Description:         "The `exclude_vendor` parameter. Default: `false`.",
+						MarkdownDescription: "The `exclude_vendor` parameter. Default: `false`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
@@ -6230,8 +6230,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 						NestedObject: rsschema.NestedAttributeObject{
 							Attributes: map[string]rsschema.Attribute{
 								"name": rsschema.StringAttribute{
-									Description:         "The `name` parameter.",
-									MarkdownDescription: "The `name` parameter.",
+									Description:         "The `name` parameter. String length must be at most 103.",
+									MarkdownDescription: "The `name` parameter. String length must be at most 103.",
 									Required:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(103),
@@ -6264,8 +6264,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"contains": rsschema.StringAttribute{
-										Description:         "The `contains` parameter.",
-										MarkdownDescription: "The `contains` parameter.",
+										Description:         "The `contains` parameter. String length must be between 0 and 255. Conflicts with: `is`, `is_not`.",
+										MarkdownDescription: "The `contains` parameter. String length must be between 0 and 255. Conflicts with: `is`, `is_not`.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.String{
@@ -6280,8 +6280,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is": rsschema.StringAttribute{
-										Description:         "The `is` parameter.",
-										MarkdownDescription: "The `is` parameter.",
+										Description:         "The `is` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is_not`.",
+										MarkdownDescription: "The `is` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is_not`.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.String{
@@ -6296,8 +6296,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is_not": rsschema.StringAttribute{
-										Description:         "The `is_not` parameter.",
-										MarkdownDescription: "The `is_not` parameter.",
+										Description:         "The `is_not` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is`.",
+										MarkdownDescription: "The `is_not` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is`.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.String{
@@ -6319,8 +6319,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"contains": rsschema.StringAttribute{
-										Description:         "The `contains` parameter.",
-										MarkdownDescription: "The `contains` parameter.",
+										Description:         "The `contains` parameter. String length must be between 0 and 255. Conflicts with: `is`, `is_not`.",
+										MarkdownDescription: "The `contains` parameter. String length must be between 0 and 255. Conflicts with: `is`, `is_not`.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.String{
@@ -6335,8 +6335,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is": rsschema.StringAttribute{
-										Description:         "The `is` parameter.",
-										MarkdownDescription: "The `is` parameter.",
+										Description:         "The `is` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is_not`.",
+										MarkdownDescription: "The `is` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is_not`.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.String{
@@ -6351,8 +6351,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is_not": rsschema.StringAttribute{
-										Description:         "The `is_not` parameter.",
-										MarkdownDescription: "The `is_not` parameter.",
+										Description:         "The `is_not` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is`.",
+										MarkdownDescription: "The `is_not` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is`.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.String{
@@ -6374,8 +6374,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"contains": rsschema.StringAttribute{
-										Description:         "The `contains` parameter.",
-										MarkdownDescription: "The `contains` parameter.",
+										Description:         "The `contains` parameter. String length must be between 0 and 255. Conflicts with: `is`, `is_not`.",
+										MarkdownDescription: "The `contains` parameter. String length must be between 0 and 255. Conflicts with: `is`, `is_not`.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.String{
@@ -6390,8 +6390,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is": rsschema.StringAttribute{
-										Description:         "The `is` parameter.",
-										MarkdownDescription: "The `is` parameter.",
+										Description:         "The `is` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is_not`.",
+										MarkdownDescription: "The `is` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is_not`.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.String{
@@ -6406,8 +6406,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is_not": rsschema.StringAttribute{
-										Description:         "The `is_not` parameter.",
-										MarkdownDescription: "The `is_not` parameter.",
+										Description:         "The `is_not` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is`.",
+										MarkdownDescription: "The `is_not` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is`.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.String{
@@ -6429,8 +6429,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"contains": rsschema.StringAttribute{
-										Description:         "The `contains` parameter.",
-										MarkdownDescription: "The `contains` parameter.",
+										Description:         "The `contains` parameter. String length must be between 0 and 255. Conflicts with: `is`, `is_not`.",
+										MarkdownDescription: "The `contains` parameter. String length must be between 0 and 255. Conflicts with: `is`, `is_not`.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.String{
@@ -6445,8 +6445,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is": rsschema.StringAttribute{
-										Description:         "The `is` parameter.",
-										MarkdownDescription: "The `is` parameter.",
+										Description:         "The `is` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is_not`.",
+										MarkdownDescription: "The `is` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is_not`.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.String{
@@ -6461,8 +6461,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is_not": rsschema.StringAttribute{
-										Description:         "The `is_not` parameter.",
-										MarkdownDescription: "The `is_not` parameter.",
+										Description:         "The `is_not` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is`.",
+										MarkdownDescription: "The `is_not` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is`.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.String{
@@ -6498,8 +6498,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"apple": rsschema.StringAttribute{
-												Description:         "The `apple` parameter.",
-												MarkdownDescription: "The `apple` parameter.",
+												Description:         "The `apple` parameter. Default: `%!q(*string=0xc000f53460)`. String length must be between 0 and 255. Conflicts with: `Google`, `Linux`, `Microsoft`, `Other`.",
+												MarkdownDescription: "The `apple` parameter. Default: `%!q(*string=0xc000f53460)`. String length must be between 0 and 255. Conflicts with: `Google`, `Linux`, `Microsoft`, `Other`.",
 												Optional:            true,
 												Computed:            true,
 												PlanModifiers: []planmodifier.String{
@@ -6516,8 +6516,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												},
 											},
 											"google": rsschema.StringAttribute{
-												Description:         "The `google` parameter.",
-												MarkdownDescription: "The `google` parameter.",
+												Description:         "The `google` parameter. Default: `%!q(*string=0xc000f53470)`. String length must be between 0 and 255. Conflicts with: `Apple`, `Linux`, `Microsoft`, `Other`.",
+												MarkdownDescription: "The `google` parameter. Default: `%!q(*string=0xc000f53470)`. String length must be between 0 and 255. Conflicts with: `Apple`, `Linux`, `Microsoft`, `Other`.",
 												Optional:            true,
 												Computed:            true,
 												PlanModifiers: []planmodifier.String{
@@ -6534,8 +6534,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												},
 											},
 											"linux": rsschema.StringAttribute{
-												Description:         "The `linux` parameter.",
-												MarkdownDescription: "The `linux` parameter.",
+												Description:         "The `linux` parameter. Default: `%!q(*string=0xc000f53480)`. String length must be between 0 and 255. Conflicts with: `Apple`, `Google`, `Microsoft`, `Other`.",
+												MarkdownDescription: "The `linux` parameter. Default: `%!q(*string=0xc000f53480)`. String length must be between 0 and 255. Conflicts with: `Apple`, `Google`, `Microsoft`, `Other`.",
 												Optional:            true,
 												Computed:            true,
 												PlanModifiers: []planmodifier.String{
@@ -6552,8 +6552,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												},
 											},
 											"microsoft": rsschema.StringAttribute{
-												Description:         "The `microsoft` parameter.",
-												MarkdownDescription: "The `microsoft` parameter.",
+												Description:         "The `microsoft` parameter. Default: `%!q(*string=0xc000f53450)`. String length must be between 0 and 255. Conflicts with: `Apple`, `Google`, `Linux`, `Other`.",
+												MarkdownDescription: "The `microsoft` parameter. Default: `%!q(*string=0xc000f53450)`. String length must be between 0 and 255. Conflicts with: `Apple`, `Google`, `Linux`, `Other`.",
 												Optional:            true,
 												Computed:            true,
 												PlanModifiers: []planmodifier.String{
@@ -6570,8 +6570,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												},
 											},
 											"other": rsschema.StringAttribute{
-												Description:         "The `other` parameter.",
-												MarkdownDescription: "The `other` parameter.",
+												Description:         "The `other` parameter. String length must be between 0 and 255. Conflicts with: `Apple`, `Google`, `Linux`, `Microsoft`.",
+												MarkdownDescription: "The `other` parameter. String length must be between 0 and 255. Conflicts with: `Apple`, `Google`, `Linux`, `Microsoft`.",
 												Optional:            true,
 												Computed:            true,
 												PlanModifiers: []planmodifier.String{
@@ -6597,8 +6597,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"contains": rsschema.StringAttribute{
-										Description:         "The `contains` parameter.",
-										MarkdownDescription: "The `contains` parameter.",
+										Description:         "The `contains` parameter. String length must be between 0 and 255. Conflicts with: `is`, `is_not`.",
+										MarkdownDescription: "The `contains` parameter. String length must be between 0 and 255. Conflicts with: `is`, `is_not`.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.String{
@@ -6613,8 +6613,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is": rsschema.StringAttribute{
-										Description:         "The `is` parameter.",
-										MarkdownDescription: "The `is` parameter.",
+										Description:         "The `is` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is_not`.",
+										MarkdownDescription: "The `is` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is_not`.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.String{
@@ -6629,8 +6629,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is_not": rsschema.StringAttribute{
-										Description:         "The `is_not` parameter.",
-										MarkdownDescription: "The `is_not` parameter.",
+										Description:         "The `is_not` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is`.",
+										MarkdownDescription: "The `is_not` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is`.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.String{
@@ -6695,8 +6695,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 														NestedObject: rsschema.NestedAttributeObject{
 															Attributes: map[string]rsschema.Attribute{
 																"hash": rsschema.StringAttribute{
-																	Description:         "The `hash` parameter.",
-																	MarkdownDescription: "The `hash` parameter.",
+																	Description:         "The `hash` parameter. String length must be at most 1024.",
+																	MarkdownDescription: "The `hash` parameter. String length must be at most 1024.",
 																	Optional:            true,
 																	Computed:            true,
 																	PlanModifiers: []planmodifier.String{
@@ -6707,16 +6707,16 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 																	},
 																},
 																"name": rsschema.StringAttribute{
-																	Description:         "The `name` parameter.",
-																	MarkdownDescription: "The `name` parameter.",
+																	Description:         "The `name` parameter. String length must be at most 31.",
+																	MarkdownDescription: "The `name` parameter. String length must be at most 31.",
 																	Required:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthAtMost(31),
 																	},
 																},
 																"package": rsschema.StringAttribute{
-																	Description:         "The `package` parameter.",
-																	MarkdownDescription: "The `package` parameter.",
+																	Description:         "The `package` parameter. String length must be at most 1024.",
+																	MarkdownDescription: "The `package` parameter. String length must be at most 1024.",
 																	Optional:            true,
 																	Computed:            true,
 																	PlanModifiers: []planmodifier.String{
@@ -6749,8 +6749,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										NestedObject: rsschema.NestedAttributeObject{
 											Attributes: map[string]rsschema.Attribute{
 												"hash": rsschema.StringAttribute{
-													Description:         "The `hash` parameter.",
-													MarkdownDescription: "The `hash` parameter.",
+													Description:         "The `hash` parameter. String length must be at most 1024.",
+													MarkdownDescription: "The `hash` parameter. String length must be at most 1024.",
 													Optional:            true,
 													Computed:            true,
 													PlanModifiers: []planmodifier.String{
@@ -6761,16 +6761,16 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 													},
 												},
 												"name": rsschema.StringAttribute{
-													Description:         "The `name` parameter.",
-													MarkdownDescription: "The `name` parameter.",
+													Description:         "The `name` parameter. String length must be at most 31.",
+													MarkdownDescription: "The `name` parameter. String length must be at most 31.",
 													Required:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(31),
 													},
 												},
 												"package": rsschema.StringAttribute{
-													Description:         "The `package` parameter.",
-													MarkdownDescription: "The `package` parameter.",
+													Description:         "The `package` parameter. String length must be at most 1024.",
+													MarkdownDescription: "The `package` parameter. String length must be at most 1024.",
 													Optional:            true,
 													Computed:            true,
 													PlanModifiers: []planmodifier.String{
@@ -6800,8 +6800,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"contains": rsschema.StringAttribute{
-										Description:         "The `contains` parameter.",
-										MarkdownDescription: "The `contains` parameter.",
+										Description:         "The `contains` parameter. String length must be between 0 and 255. Conflicts with: `is`, `is_not`.",
+										MarkdownDescription: "The `contains` parameter. String length must be between 0 and 255. Conflicts with: `is`, `is_not`.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.String{
@@ -6816,8 +6816,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is": rsschema.StringAttribute{
-										Description:         "The `is` parameter.",
-										MarkdownDescription: "The `is` parameter.",
+										Description:         "The `is` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is_not`.",
+										MarkdownDescription: "The `is` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is_not`.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.String{
@@ -6832,8 +6832,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is_not": rsschema.StringAttribute{
-										Description:         "The `is_not` parameter.",
-										MarkdownDescription: "The `is_not` parameter.",
+										Description:         "The `is_not` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is`.",
+										MarkdownDescription: "The `is_not` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is`.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.String{
@@ -6869,8 +6869,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"days": rsschema.Int64Attribute{
-												Description:         "The `days` parameter.",
-												MarkdownDescription: "The `days` parameter.",
+												Description:         "The `days` parameter. Value must be between 1 and 365.",
+												MarkdownDescription: "The `days` parameter. Value must be between 1 and 365.",
 												Required:            true,
 												Validators: []validator.Int64{
 													int64validator.Between(1, 365),
@@ -6884,8 +6884,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"days": rsschema.Int64Attribute{
-												Description:         "The `days` parameter.",
-												MarkdownDescription: "The `days` parameter.",
+												Description:         "The `days` parameter. Value must be between 1 and 365.",
+												MarkdownDescription: "The `days` parameter. Value must be between 1 and 365.",
 												Required:            true,
 												Validators: []validator.Int64{
 													int64validator.Between(1, 365),
@@ -6901,8 +6901,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"contains": rsschema.StringAttribute{
-										Description:         "The `contains` parameter.",
-										MarkdownDescription: "The `contains` parameter.",
+										Description:         "The `contains` parameter. String length must be between 0 and 255. Conflicts with: `is`, `is_not`.",
+										MarkdownDescription: "The `contains` parameter. String length must be between 0 and 255. Conflicts with: `is`, `is_not`.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.String{
@@ -6917,8 +6917,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is": rsschema.StringAttribute{
-										Description:         "The `is` parameter.",
-										MarkdownDescription: "The `is` parameter.",
+										Description:         "The `is` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is_not`.",
+										MarkdownDescription: "The `is` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is_not`.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.String{
@@ -6933,8 +6933,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is_not": rsschema.StringAttribute{
-										Description:         "The `is_not` parameter.",
-										MarkdownDescription: "The `is_not` parameter.",
+										Description:         "The `is_not` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is`.",
+										MarkdownDescription: "The `is_not` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is`.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.String{
@@ -6965,8 +6965,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"contains": rsschema.StringAttribute{
-										Description:         "The `contains` parameter.",
-										MarkdownDescription: "The `contains` parameter.",
+										Description:         "The `contains` parameter. String length must be between 0 and 255. Conflicts with: `is`, `is_not`.",
+										MarkdownDescription: "The `contains` parameter. String length must be between 0 and 255. Conflicts with: `is`, `is_not`.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.String{
@@ -6981,8 +6981,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is": rsschema.StringAttribute{
-										Description:         "The `is` parameter.",
-										MarkdownDescription: "The `is` parameter.",
+										Description:         "The `is` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is_not`.",
+										MarkdownDescription: "The `is` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is_not`.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.String{
@@ -6997,8 +6997,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is_not": rsschema.StringAttribute{
-										Description:         "The `is_not` parameter.",
-										MarkdownDescription: "The `is_not` parameter.",
+										Description:         "The `is_not` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is`.",
+										MarkdownDescription: "The `is_not` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is`.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.String{
@@ -7020,8 +7020,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"contains": rsschema.StringAttribute{
-										Description:         "The `contains` parameter.",
-										MarkdownDescription: "The `contains` parameter.",
+										Description:         "The `contains` parameter. String length must be between 0 and 255. Conflicts with: `is`, `is_not`.",
+										MarkdownDescription: "The `contains` parameter. String length must be between 0 and 255. Conflicts with: `is`, `is_not`.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.String{
@@ -7036,8 +7036,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is": rsschema.StringAttribute{
-										Description:         "The `is` parameter.",
-										MarkdownDescription: "The `is` parameter.",
+										Description:         "The `is` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is_not`.",
+										MarkdownDescription: "The `is` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is_not`.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.String{
@@ -7052,8 +7052,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										},
 									},
 									"is_not": rsschema.StringAttribute{
-										Description:         "The `is_not` parameter.",
-										MarkdownDescription: "The `is_not` parameter.",
+										Description:         "The `is_not` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is`.",
+										MarkdownDescription: "The `is_not` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is`.",
 										Optional:            true,
 										Computed:            true,
 										PlanModifiers: []planmodifier.String{
@@ -7074,8 +7074,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 				},
 			},
 			"name": rsschema.StringAttribute{
-				Description:         "The `name` parameter.",
-				MarkdownDescription: "The `name` parameter.",
+				Description:         "The `name` parameter. String length must be at most 31.",
+				MarkdownDescription: "The `name` parameter. String length must be at most 31.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(31),
@@ -7107,8 +7107,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												Optional:            true,
 												Attributes: map[string]rsschema.Attribute{
 													"carrier": rsschema.StringAttribute{
-														Description:         "The `carrier` parameter.",
-														MarkdownDescription: "The `carrier` parameter.",
+														Description:         "The `carrier` parameter. String length must be at most 1023.",
+														MarkdownDescription: "The `carrier` parameter. String length must be at most 1023.",
 														Optional:            true,
 														Computed:            true,
 														PlanModifiers: []planmodifier.String{
@@ -7131,8 +7131,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												Optional:            true,
 												Attributes: map[string]rsschema.Attribute{
 													"ssid": rsschema.StringAttribute{
-														Description:         "The `ssid` parameter.",
-														MarkdownDescription: "The `ssid` parameter.",
+														Description:         "The `ssid` parameter. String length must be at most 1023.",
+														MarkdownDescription: "The `ssid` parameter. String length must be at most 1023.",
 														Optional:            true,
 														Computed:            true,
 														PlanModifiers: []planmodifier.String{
@@ -7162,8 +7162,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												Optional:            true,
 												Attributes: map[string]rsschema.Attribute{
 													"carrier": rsschema.StringAttribute{
-														Description:         "The `carrier` parameter.",
-														MarkdownDescription: "The `carrier` parameter.",
+														Description:         "The `carrier` parameter. String length must be at most 1023.",
+														MarkdownDescription: "The `carrier` parameter. String length must be at most 1023.",
 														Optional:            true,
 														Computed:            true,
 														PlanModifiers: []planmodifier.String{
@@ -7186,8 +7186,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												Optional:            true,
 												Attributes: map[string]rsschema.Attribute{
 													"ssid": rsschema.StringAttribute{
-														Description:         "The `ssid` parameter.",
-														MarkdownDescription: "The `ssid` parameter.",
+														Description:         "The `ssid` parameter. String length must be at most 1023.",
+														MarkdownDescription: "The `ssid` parameter. String length must be at most 1023.",
 														Optional:            true,
 														Computed:            true,
 														PlanModifiers: []planmodifier.String{
@@ -7218,8 +7218,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"is_enabled": rsschema.StringAttribute{
-								Description:         "The `is_enabled` parameter.",
-								MarkdownDescription: "The `is_enabled` parameter.",
+								Description:         "The `is_enabled` parameter. Value must be one of: `\"no\"`, `\"yes\"`, `\"not-available\"`.",
+								MarkdownDescription: "The `is_enabled` parameter. Value must be one of: `\"no\"`, `\"yes\"`, `\"not-available\"`.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.String{
@@ -7230,8 +7230,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								},
 							},
 							"is_installed": rsschema.BoolAttribute{
-								Description:         "The `is_installed` parameter.",
-								MarkdownDescription: "The `is_installed` parameter.",
+								Description:         "The `is_installed` parameter. Default: `true`.",
+								MarkdownDescription: "The `is_installed` parameter. Default: `true`.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.Bool{
@@ -7244,8 +7244,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"check": rsschema.StringAttribute{
-										Description:         "The `check` parameter.",
-										MarkdownDescription: "The `check` parameter.",
+										Description:         "The `check` parameter. Value must be one of: `\"has-any\"`, `\"has-none\"`, `\"has-all\"`.",
+										MarkdownDescription: "The `check` parameter. Value must be one of: `\"has-any\"`, `\"has-none\"`, `\"has-all\"`.",
 										Required:            true,
 										Validators: []validator.String{
 											stringvalidator.OneOf("has-any", "has-none", "has-all"),
@@ -7263,8 +7263,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"greater_equal": rsschema.Int64Attribute{
-												Description:         "The `greater_equal` parameter.",
-												MarkdownDescription: "The `greater_equal` parameter.",
+												Description:         "The `greater_equal` parameter. Value must be between 0 and 100000. Conflicts with: `greater_than`, `is`, `is_not`, `less_equal`, `less_than`.",
+												MarkdownDescription: "The `greater_equal` parameter. Value must be between 0 and 100000. Conflicts with: `greater_than`, `is`, `is_not`, `less_equal`, `less_than`.",
 												Optional:            true,
 												Computed:            true,
 												PlanModifiers: []planmodifier.Int64{
@@ -7282,8 +7282,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												},
 											},
 											"greater_than": rsschema.Int64Attribute{
-												Description:         "The `greater_than` parameter.",
-												MarkdownDescription: "The `greater_than` parameter.",
+												Description:         "The `greater_than` parameter. Value must be between 0 and 100000. Conflicts with: `greater_equal`, `is`, `is_not`, `less_equal`, `less_than`.",
+												MarkdownDescription: "The `greater_than` parameter. Value must be between 0 and 100000. Conflicts with: `greater_equal`, `is`, `is_not`, `less_equal`, `less_than`.",
 												Optional:            true,
 												Computed:            true,
 												PlanModifiers: []planmodifier.Int64{
@@ -7301,8 +7301,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												},
 											},
 											"is": rsschema.Int64Attribute{
-												Description:         "The `is` parameter.",
-												MarkdownDescription: "The `is` parameter.",
+												Description:         "The `is` parameter. Value must be between 0 and 100000. Conflicts with: `greater_equal`, `greater_than`, `is_not`, `less_equal`, `less_than`.",
+												MarkdownDescription: "The `is` parameter. Value must be between 0 and 100000. Conflicts with: `greater_equal`, `greater_than`, `is_not`, `less_equal`, `less_than`.",
 												Optional:            true,
 												Computed:            true,
 												PlanModifiers: []planmodifier.Int64{
@@ -7320,8 +7320,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												},
 											},
 											"is_not": rsschema.Int64Attribute{
-												Description:         "The `is_not` parameter.",
-												MarkdownDescription: "The `is_not` parameter.",
+												Description:         "The `is_not` parameter. Value must be between 0 and 100000. Conflicts with: `greater_equal`, `greater_than`, `is`, `less_equal`, `less_than`.",
+												MarkdownDescription: "The `is_not` parameter. Value must be between 0 and 100000. Conflicts with: `greater_equal`, `greater_than`, `is`, `less_equal`, `less_than`.",
 												Optional:            true,
 												Computed:            true,
 												PlanModifiers: []planmodifier.Int64{
@@ -7339,8 +7339,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												},
 											},
 											"less_equal": rsschema.Int64Attribute{
-												Description:         "The `less_equal` parameter.",
-												MarkdownDescription: "The `less_equal` parameter.",
+												Description:         "The `less_equal` parameter. Value must be between 0 and 100000. Conflicts with: `greater_equal`, `greater_than`, `is`, `is_not`, `less_than`.",
+												MarkdownDescription: "The `less_equal` parameter. Value must be between 0 and 100000. Conflicts with: `greater_equal`, `greater_than`, `is`, `is_not`, `less_than`.",
 												Optional:            true,
 												Computed:            true,
 												PlanModifiers: []planmodifier.Int64{
@@ -7358,8 +7358,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												},
 											},
 											"less_than": rsschema.Int64Attribute{
-												Description:         "The `less_than` parameter.",
-												MarkdownDescription: "The `less_than` parameter.",
+												Description:         "The `less_than` parameter. Value must be between 0 and 100000. Conflicts with: `greater_equal`, `greater_than`, `is`, `is_not`, `less_equal`.",
+												MarkdownDescription: "The `less_than` parameter. Value must be between 0 and 100000. Conflicts with: `greater_equal`, `greater_than`, `is`, `is_not`, `less_equal`.",
 												Optional:            true,
 												Computed:            true,
 												PlanModifiers: []planmodifier.Int64{
@@ -7383,8 +7383,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 						},
 					},
 					"exclude_vendor": rsschema.BoolAttribute{
-						Description:         "The `exclude_vendor` parameter.",
-						MarkdownDescription: "The `exclude_vendor` parameter.",
+						Description:         "The `exclude_vendor` parameter. Default: `false`.",
+						MarkdownDescription: "The `exclude_vendor` parameter. Default: `false`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Bool{
@@ -7398,8 +7398,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 						NestedObject: rsschema.NestedAttributeObject{
 							Attributes: map[string]rsschema.Attribute{
 								"name": rsschema.StringAttribute{
-									Description:         "The `name` parameter.",
-									MarkdownDescription: "The `name` parameter.",
+									Description:         "The `name` parameter. String length must be at most 103.",
+									MarkdownDescription: "The `name` parameter. String length must be at most 103.",
 									Required:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(103),

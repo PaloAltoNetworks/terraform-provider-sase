@@ -66,8 +66,8 @@ func (d *candidateConfigVersionsDataSource) Schema(_ context.Context, _ datasour
 
 			// Input.
 			"version": dsschema.StringAttribute{
-				Description:         "The version of the running config",
-				MarkdownDescription: "The version of the running config",
+				Description:         "The version of the running config.",
+				MarkdownDescription: "The version of the running config.",
 				Required:            true,
 			},
 

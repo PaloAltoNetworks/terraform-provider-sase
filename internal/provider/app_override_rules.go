@@ -92,36 +92,36 @@ func (d *appOverrideRulesListDataSource) Schema(_ context.Context, _ datasource.
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description:         "The max count in result entry (count per page)",
-				MarkdownDescription: "The max count in result entry (count per page)",
+				Description:         "The max count in result entry (count per page).",
+				MarkdownDescription: "The max count in result entry (count per page).",
 				Optional:            true,
 				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description:         "The offset of the result entry",
-				MarkdownDescription: "The offset of the result entry",
+				Description:         "The offset of the result entry.",
+				MarkdownDescription: "The offset of the result entry.",
 				Optional:            true,
 				Computed:            true,
 			},
 			"position": dsschema.StringAttribute{
-				Description:         "The position of a security rule",
-				MarkdownDescription: "The position of a security rule",
+				Description:         "The position of a security rule. Value must be one of: `\"pre\"`, `\"post\"`.",
+				MarkdownDescription: "The position of a security rule. Value must be one of: `\"pre\"`, `\"post\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("pre", "post"),
 				},
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
 			},
 			"name": dsschema.StringAttribute{
-				Description:         "The name of the entry",
-				MarkdownDescription: "The name of the entry",
+				Description:         "The name of the entry.",
+				MarkdownDescription: "The name of the entry.",
 				Optional:            true,
 			},
 
@@ -395,13 +395,13 @@ func (d *appOverrideRulesDataSource) Schema(_ context.Context, _ datasource.Sche
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description:         "The uuid of the resource",
-				MarkdownDescription: "The uuid of the resource",
+				Description:         "The uuid of the resource.",
+				MarkdownDescription: "The uuid of the resource.",
 				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -615,16 +615,16 @@ func (r *appOverrideRulesResource) Schema(_ context.Context, _ resource.SchemaRe
 
 			// Input.
 			"position": rsschema.StringAttribute{
-				Description:         "The position of a security rule",
-				MarkdownDescription: "The position of a security rule",
+				Description:         "The position of a security rule. Value must be one of: `\"pre\"`, `\"post\"`.",
+				MarkdownDescription: "The position of a security rule. Value must be one of: `\"pre\"`, `\"post\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("pre", "post"),
 				},
 			},
 			"folder": rsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -637,8 +637,8 @@ func (r *appOverrideRulesResource) Schema(_ context.Context, _ resource.SchemaRe
 				Required:            true,
 			},
 			"description": rsschema.StringAttribute{
-				Description:         "The `description` parameter.",
-				MarkdownDescription: "The `description` parameter.",
+				Description:         "The `description` parameter. String length must be at most 1024.",
+				MarkdownDescription: "The `description` parameter. String length must be at most 1024.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.String{
@@ -655,8 +655,8 @@ func (r *appOverrideRulesResource) Schema(_ context.Context, _ resource.SchemaRe
 				ElementType:         types.StringType,
 			},
 			"disabled": rsschema.BoolAttribute{
-				Description:         "The `disabled` parameter.",
-				MarkdownDescription: "The `disabled` parameter.",
+				Description:         "The `disabled` parameter. Default: `false`.",
+				MarkdownDescription: "The `disabled` parameter. Default: `false`.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.Bool{
@@ -687,16 +687,16 @@ func (r *appOverrideRulesResource) Schema(_ context.Context, _ resource.SchemaRe
 				},
 			},
 			"name": rsschema.StringAttribute{
-				Description:         "The `name` parameter.",
-				MarkdownDescription: "The `name` parameter.",
+				Description:         "The `name` parameter. String length must be at most 63.",
+				MarkdownDescription: "The `name` parameter. String length must be at most 63.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(63),
 				},
 			},
 			"negate_destination": rsschema.BoolAttribute{
-				Description:         "The `negate_destination` parameter.",
-				MarkdownDescription: "The `negate_destination` parameter.",
+				Description:         "The `negate_destination` parameter. Default: `false`.",
+				MarkdownDescription: "The `negate_destination` parameter. Default: `false`.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.Bool{
@@ -704,8 +704,8 @@ func (r *appOverrideRulesResource) Schema(_ context.Context, _ resource.SchemaRe
 				},
 			},
 			"negate_source": rsschema.BoolAttribute{
-				Description:         "The `negate_source` parameter.",
-				MarkdownDescription: "The `negate_source` parameter.",
+				Description:         "The `negate_source` parameter. Default: `false`.",
+				MarkdownDescription: "The `negate_source` parameter. Default: `false`.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.Bool{
@@ -713,16 +713,16 @@ func (r *appOverrideRulesResource) Schema(_ context.Context, _ resource.SchemaRe
 				},
 			},
 			"port": rsschema.Int64Attribute{
-				Description:         "The `port` parameter.",
-				MarkdownDescription: "The `port` parameter.",
+				Description:         "The `port` parameter. Value must be between 0 and 65535.",
+				MarkdownDescription: "The `port` parameter. Value must be between 0 and 65535.",
 				Required:            true,
 				Validators: []validator.Int64{
 					int64validator.Between(0, 65535),
 				},
 			},
 			"protocol": rsschema.StringAttribute{
-				Description:         "The `protocol` parameter.",
-				MarkdownDescription: "The `protocol` parameter.",
+				Description:         "The `protocol` parameter. Value must be one of: `\"tcp\"`, `\"udp\"`.",
+				MarkdownDescription: "The `protocol` parameter. Value must be one of: `\"tcp\"`, `\"udp\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("tcp", "udp"),

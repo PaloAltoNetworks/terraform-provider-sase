@@ -17,7 +17,7 @@ Retrieves config for a specific item.
 
 ### Required
 
-- `version` (String) The version of the running config
+- `version` (String) The version of the running config.
 
 ### Read-Only
 

@@ -18,35 +18,35 @@ Retrieves config for a specific item.
 ### Required
 
 - `category` (String) The `category` parameter.
-- `folder` (String) The folder of the entry
-- `name` (String) The `name` parameter.
-- `risk` (Number) The `risk` parameter.
-- `subcategory` (String) The `subcategory` parameter.
-- `technology` (String) The `technology` parameter.
+- `folder` (String) The folder of the entry. Value must be one of: `"Shared"`, `"Mobile Users"`, `"Remote Networks"`, `"Service Connections"`, `"Mobile Users Container"`, `"Mobile Users Explicit Proxy"`.
+- `name` (String) The `name` parameter. String length must be at most 31.
+- `risk` (Number) The `risk` parameter. Value must be between 1 and 5.
+- `subcategory` (String) The `subcategory` parameter. String length must be at most 63.
+- `technology` (String) The `technology` parameter. String length must be at most 63.
 
 ### Optional
 
 - `able_to_transfer_file` (Boolean) The `able_to_transfer_file` parameter.
-- `alg_disable_capability` (String) The `alg_disable_capability` parameter.
+- `alg_disable_capability` (String) The `alg_disable_capability` parameter. String length must be at most 127.
 - `consume_big_bandwidth` (Boolean) The `consume_big_bandwidth` parameter.
 - `data_ident` (Boolean) The `data_ident` parameter.
 - `default` (Attributes) The `default` parameter. (see [below for nested schema](#nestedatt--default))
-- `description` (String) The `description` parameter.
+- `description` (String) The `description` parameter. String length must be between 0 and 1023.
 - `evasive_behavior` (Boolean) The `evasive_behavior` parameter.
 - `file_type_ident` (Boolean) The `file_type_ident` parameter.
 - `has_known_vulnerability` (Boolean) The `has_known_vulnerability` parameter.
 - `no_appid_caching` (Boolean) The `no_appid_caching` parameter.
-- `parent_app` (String) The `parent_app` parameter.
+- `parent_app` (String) The `parent_app` parameter. String length must be at most 127.
 - `pervasive_use` (Boolean) The `pervasive_use` parameter.
 - `prone_to_misuse` (Boolean) The `prone_to_misuse` parameter.
 - `signature` (Attributes List) The `signature` parameter. (see [below for nested schema](#nestedatt--signature))
-- `tcp_half_closed_timeout` (Number) The `tcp_half_closed_timeout` parameter.
-- `tcp_time_wait_timeout` (Number) The `tcp_time_wait_timeout` parameter.
-- `tcp_timeout` (Number) The `tcp_timeout` parameter.
-- `timeout` (Number) The `timeout` parameter.
+- `tcp_half_closed_timeout` (Number) The `tcp_half_closed_timeout` parameter. Value must be between 1 and 604800.
+- `tcp_time_wait_timeout` (Number) The `tcp_time_wait_timeout` parameter. Value must be between 1 and 600.
+- `tcp_timeout` (Number) The `tcp_timeout` parameter. Value must be between 0 and 604800.
+- `timeout` (Number) The `timeout` parameter. Value must be between 0 and 604800.
 - `tunnel_applications` (Boolean) The `tunnel_applications` parameter.
 - `tunnel_other_application` (Boolean) The `tunnel_other_application` parameter.
-- `udp_timeout` (Number) The `udp_timeout` parameter.
+- `udp_timeout` (Number) The `udp_timeout` parameter. Value must be between 0 and 604800.
 - `used_by_malware` (Boolean) The `used_by_malware` parameter.
 - `virus_ident` (Boolean) The `virus_ident` parameter.
 
@@ -95,21 +95,21 @@ Optional:
 
 Required:
 
-- `name` (String) The `name` parameter.
+- `name` (String) The `name` parameter. String length must be at most 31.
 
 Optional:
 
 - `and_condition` (Attributes List) The `and_condition` parameter. (see [below for nested schema](#nestedatt--signature--and_condition))
-- `comment` (String) The `comment` parameter.
-- `order_free` (Boolean) The `order_free` parameter.
-- `scope` (String) The `scope` parameter.
+- `comment` (String) The `comment` parameter. String length must be between 0 and 256.
+- `order_free` (Boolean) The `order_free` parameter. Default: `false`.
+- `scope` (String) The `scope` parameter. Default: `%!q(*string=0xc000f53390)`. Value must be one of: `"protocol-data-unit"`, `"session"`.
 
 <a id="nestedatt--signature--and_condition"></a>
 ### Nested Schema for `signature.and_condition`
 
 Required:
 
-- `name` (String) The `name` parameter.
+- `name` (String) The `name` parameter. String length must be at most 31.
 
 Optional:
 
@@ -120,7 +120,7 @@ Optional:
 
 Required:
 
-- `name` (String) The `name` parameter.
+- `name` (String) The `name` parameter. String length must be at most 31.
 - `operator` (Attributes) The `operator` parameter. (see [below for nested schema](#nestedatt--signature--and_condition--or_condition--operator))
 
 <a id="nestedatt--signature--and_condition--or_condition--operator"></a>
@@ -139,12 +139,12 @@ Optional:
 Required:
 
 - `context` (String) The `context` parameter.
-- `value` (String) The `value` parameter.
+- `value` (String) The `value` parameter. String length must be at most 10.
 
 Optional:
 
-- `mask` (String) The `mask` parameter.
-- `position` (String) The `position` parameter.
+- `mask` (String) The `mask` parameter. String length must be at most 10.
+- `position` (String) The `position` parameter. String length must be at most 127.
 
 
 <a id="nestedatt--signature--and_condition--or_condition--operator--greater_than"></a>
@@ -152,8 +152,8 @@ Optional:
 
 Required:
 
-- `context` (String) The `context` parameter.
-- `value` (Number) The `value` parameter.
+- `context` (String) The `context` parameter. String length must be at most 127.
+- `value` (Number) The `value` parameter. Value must be between 0 and 4294967295.
 
 Optional:
 
@@ -164,7 +164,7 @@ Optional:
 
 Required:
 
-- `name` (String) The `name` parameter.
+- `name` (String) The `name` parameter. String length must be at most 31.
 - `value` (String) The `value` parameter.
 
 
@@ -174,8 +174,8 @@ Required:
 
 Required:
 
-- `context` (String) The `context` parameter.
-- `value` (Number) The `value` parameter.
+- `context` (String) The `context` parameter. String length must be at most 127.
+- `value` (Number) The `value` parameter. Value must be between 0 and 4294967295.
 
 Optional:
 
@@ -186,7 +186,7 @@ Optional:
 
 Required:
 
-- `name` (String) The `name` parameter.
+- `name` (String) The `name` parameter. String length must be at most 31.
 - `value` (String) The `value` parameter.
 
 
@@ -196,8 +196,8 @@ Required:
 
 Required:
 
-- `context` (String) The `context` parameter.
-- `pattern` (String) The `pattern` parameter.
+- `context` (String) The `context` parameter. String length must be at most 127.
+- `pattern` (String) The `pattern` parameter. String length must be at most 127.
 
 Optional:
 
@@ -208,7 +208,7 @@ Optional:
 
 Required:
 
-- `name` (String) The `name` parameter.
+- `name` (String) The `name` parameter. String length must be at most 31.
 - `value` (String) The `value` parameter.
 
 

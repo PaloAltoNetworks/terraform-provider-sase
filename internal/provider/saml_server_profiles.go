@@ -85,28 +85,28 @@ func (d *samlServerProfilesListDataSource) Schema(_ context.Context, _ datasourc
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description:         "The max count in result entry (count per page)",
-				MarkdownDescription: "The max count in result entry (count per page)",
+				Description:         "The max count in result entry (count per page).",
+				MarkdownDescription: "The max count in result entry (count per page).",
 				Optional:            true,
 				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description:         "The offset of the result entry",
-				MarkdownDescription: "The offset of the result entry",
+				Description:         "The offset of the result entry.",
+				MarkdownDescription: "The offset of the result entry.",
 				Optional:            true,
 				Computed:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
 				},
 			},
 			"name": dsschema.StringAttribute{
-				Description:         "The name of the entry",
-				MarkdownDescription: "The name of the entry",
+				Description:         "The name of the entry.",
+				MarkdownDescription: "The name of the entry.",
 				Optional:            true,
 			},
 
@@ -329,13 +329,13 @@ func (d *samlServerProfilesDataSource) Schema(_ context.Context, _ datasource.Sc
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description:         "The uuid of the resource",
-				MarkdownDescription: "The uuid of the resource",
+				Description:         "The uuid of the resource.",
+				MarkdownDescription: "The uuid of the resource.",
 				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -501,8 +501,8 @@ func (r *samlServerProfilesResource) Schema(_ context.Context, _ resource.Schema
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -510,16 +510,16 @@ func (r *samlServerProfilesResource) Schema(_ context.Context, _ resource.Schema
 			},
 
 			"certificate": rsschema.StringAttribute{
-				Description:         "The `certificate` parameter.",
-				MarkdownDescription: "The `certificate` parameter.",
+				Description:         "The `certificate` parameter. String length must be at most 63.",
+				MarkdownDescription: "The `certificate` parameter. String length must be at most 63.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(63),
 				},
 			},
 			"entity_id": rsschema.StringAttribute{
-				Description:         "The `entity_id` parameter.",
-				MarkdownDescription: "The `entity_id` parameter.",
+				Description:         "The `entity_id` parameter. String length must be between 1 and 1024.",
+				MarkdownDescription: "The `entity_id` parameter. String length must be between 1 and 1024.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.String{
@@ -538,8 +538,8 @@ func (r *samlServerProfilesResource) Schema(_ context.Context, _ resource.Schema
 				},
 			},
 			"max_clock_skew": rsschema.Int64Attribute{
-				Description:         "The `max_clock_skew` parameter.",
-				MarkdownDescription: "The `max_clock_skew` parameter.",
+				Description:         "The `max_clock_skew` parameter. Value must be between 1 and 900.",
+				MarkdownDescription: "The `max_clock_skew` parameter. Value must be between 1 and 900.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.Int64{
@@ -550,8 +550,8 @@ func (r *samlServerProfilesResource) Schema(_ context.Context, _ resource.Schema
 				},
 			},
 			"slo_bindings": rsschema.StringAttribute{
-				Description:         "The `slo_bindings` parameter.",
-				MarkdownDescription: "The `slo_bindings` parameter.",
+				Description:         "The `slo_bindings` parameter. Value must be one of: `\"post\"`, `\"redirect\"`.",
+				MarkdownDescription: "The `slo_bindings` parameter. Value must be one of: `\"post\"`, `\"redirect\"`.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.String{
@@ -562,8 +562,8 @@ func (r *samlServerProfilesResource) Schema(_ context.Context, _ resource.Schema
 				},
 			},
 			"sso_bindings": rsschema.StringAttribute{
-				Description:         "The `sso_bindings` parameter.",
-				MarkdownDescription: "The `sso_bindings` parameter.",
+				Description:         "The `sso_bindings` parameter. Value must be one of: `\"post\"`, `\"redirect\"`.",
+				MarkdownDescription: "The `sso_bindings` parameter. Value must be one of: `\"post\"`, `\"redirect\"`.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.String{
@@ -574,8 +574,8 @@ func (r *samlServerProfilesResource) Schema(_ context.Context, _ resource.Schema
 				},
 			},
 			"sso_url": rsschema.StringAttribute{
-				Description:         "The `sso_url` parameter.",
-				MarkdownDescription: "The `sso_url` parameter.",
+				Description:         "The `sso_url` parameter. String length must be between 1 and 255.",
+				MarkdownDescription: "The `sso_url` parameter. String length must be between 1 and 255.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.String{

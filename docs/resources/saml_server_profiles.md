@@ -17,16 +17,16 @@ Retrieves config for a specific item.
 
 ### Required
 
-- `certificate` (String) The `certificate` parameter.
-- `folder` (String) The folder of the entry
+- `certificate` (String) The `certificate` parameter. String length must be at most 63.
+- `folder` (String) The folder of the entry. Value must be one of: `"Shared"`, `"Mobile Users"`, `"Remote Networks"`, `"Service Connections"`, `"Mobile Users Container"`, `"Mobile Users Explicit Proxy"`.
 
 ### Optional
 
-- `entity_id` (String) The `entity_id` parameter.
-- `max_clock_skew` (Number) The `max_clock_skew` parameter.
-- `slo_bindings` (String) The `slo_bindings` parameter.
-- `sso_bindings` (String) The `sso_bindings` parameter.
-- `sso_url` (String) The `sso_url` parameter.
+- `entity_id` (String) The `entity_id` parameter. String length must be between 1 and 1024.
+- `max_clock_skew` (Number) The `max_clock_skew` parameter. Value must be between 1 and 900.
+- `slo_bindings` (String) The `slo_bindings` parameter. Value must be one of: `"post"`, `"redirect"`.
+- `sso_bindings` (String) The `sso_bindings` parameter. Value must be one of: `"post"`, `"redirect"`.
+- `sso_url` (String) The `sso_url` parameter. String length must be between 1 and 255.
 - `validate_idp_certificate` (Boolean) The `validate_idp_certificate` parameter.
 - `want_auth_requests_signed` (Boolean) The `want_auth_requests_signed` parameter.
 

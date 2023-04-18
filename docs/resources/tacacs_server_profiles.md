@@ -17,13 +17,13 @@ Retrieves config for a specific item.
 
 ### Required
 
-- `folder` (String) The folder of the entry
-- `protocol` (String) The `protocol` parameter.
+- `folder` (String) The folder of the entry. Value must be one of: `"Shared"`, `"Mobile Users"`, `"Remote Networks"`, `"Service Connections"`, `"Mobile Users Container"`, `"Mobile Users Explicit Proxy"`.
+- `protocol` (String) The `protocol` parameter. Value must be one of: `"CHAP"`, `"PAP"`.
 - `server` (Attributes List) The `server` parameter. (see [below for nested schema](#nestedatt--server))
 
 ### Optional
 
-- `timeout` (Number) The `timeout` parameter.
+- `timeout` (Number) The `timeout` parameter. Value must be between 1 and 30.
 - `use_single_connection` (Boolean) The `use_single_connection` parameter.
 
 ### Read-Only
@@ -38,7 +38,7 @@ Optional:
 
 - `address` (String) The `address` parameter.
 - `name` (String) The `name` parameter.
-- `port` (Number) The `port` parameter.
-- `secret` (String) The `secret` parameter.
+- `port` (Number) The `port` parameter. Value must be between 1 and 65535.
+- `secret` (String) The `secret` parameter. String length must be at most 64.
 
 

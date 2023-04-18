@@ -17,16 +17,16 @@ Retrieves config for a specific item.
 
 ### Required
 
-- `folder` (String) The folder of the entry
+- `folder` (String) The folder of the entry. Value must be one of: `"Shared"`, `"Mobile Users"`, `"Remote Networks"`, `"Service Connections"`, `"Mobile Users Container"`, `"Mobile Users Explicit Proxy"`.
 - `server` (Attributes List) The `server` parameter. (see [below for nested schema](#nestedatt--server))
 
 ### Optional
 
-- `base` (String) The `base` parameter.
-- `bind_dn` (String) The `bind_dn` parameter.
-- `bind_password` (String) The `bind_password` parameter.
+- `base` (String) The `base` parameter. String length must be at most 255.
+- `bind_dn` (String) The `bind_dn` parameter. String length must be at most 255.
+- `bind_password` (String) The `bind_password` parameter. String length must be at most 121.
 - `bind_timelimit` (String) The `bind_timelimit` parameter.
-- `ldap_type` (String) The `ldap_type` parameter.
+- `ldap_type` (String) The `ldap_type` parameter. Value must be one of: `"active-directory"`, `"e-directory"`, `"sun"`, `"other"`.
 - `retry_interval` (Number) The `retry_interval` parameter.
 - `ssl` (Boolean) The `ssl` parameter.
 - `timelimit` (Number) The `timelimit` parameter.
@@ -44,6 +44,6 @@ Optional:
 
 - `address` (String) The `address` parameter.
 - `name` (String) The `name` parameter.
-- `port` (Number) The `port` parameter.
+- `port` (Number) The `port` parameter. Value must be between 1 and 65535.
 
 

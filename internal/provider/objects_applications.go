@@ -177,25 +177,25 @@ func (d *objectsApplicationsListDataSource) Schema(_ context.Context, _ datasour
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description:         "The max count in result entry (count per page)",
-				MarkdownDescription: "The max count in result entry (count per page)",
+				Description:         "The max count in result entry (count per page).",
+				MarkdownDescription: "The max count in result entry (count per page).",
 				Optional:            true,
 				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description:         "The offset of the result entry",
-				MarkdownDescription: "The offset of the result entry",
+				Description:         "The offset of the result entry.",
+				MarkdownDescription: "The offset of the result entry.",
 				Optional:            true,
 				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description:         "The name of the entry",
-				MarkdownDescription: "The name of the entry",
+				Description:         "The name of the entry.",
+				MarkdownDescription: "The name of the entry.",
 				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -997,13 +997,13 @@ func (d *objectsApplicationsDataSource) Schema(_ context.Context, _ datasource.S
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description:         "The uuid of the resource",
-				MarkdownDescription: "The uuid of the resource",
+				Description:         "The uuid of the resource.",
+				MarkdownDescription: "The uuid of the resource.",
 				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -1745,8 +1745,8 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -1763,8 +1763,8 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 				},
 			},
 			"alg_disable_capability": rsschema.StringAttribute{
-				Description:         "The `alg_disable_capability` parameter.",
-				MarkdownDescription: "The `alg_disable_capability` parameter.",
+				Description:         "The `alg_disable_capability` parameter. String length must be at most 127.",
+				MarkdownDescription: "The `alg_disable_capability` parameter. String length must be at most 127.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.String{
@@ -1862,8 +1862,8 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 				},
 			},
 			"description": rsschema.StringAttribute{
-				Description:         "The `description` parameter.",
-				MarkdownDescription: "The `description` parameter.",
+				Description:         "The `description` parameter. String length must be between 0 and 1023.",
+				MarkdownDescription: "The `description` parameter. String length must be between 0 and 1023.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.String{
@@ -1909,8 +1909,8 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 				},
 			},
 			"name": rsschema.StringAttribute{
-				Description:         "The `name` parameter.",
-				MarkdownDescription: "The `name` parameter.",
+				Description:         "The `name` parameter. String length must be at most 31.",
+				MarkdownDescription: "The `name` parameter. String length must be at most 31.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(31),
@@ -1926,8 +1926,8 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 				},
 			},
 			"parent_app": rsschema.StringAttribute{
-				Description:         "The `parent_app` parameter.",
-				MarkdownDescription: "The `parent_app` parameter.",
+				Description:         "The `parent_app` parameter. String length must be at most 127.",
+				MarkdownDescription: "The `parent_app` parameter. String length must be at most 127.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.String{
@@ -1956,8 +1956,8 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 				},
 			},
 			"risk": rsschema.Int64Attribute{
-				Description:         "The `risk` parameter.",
-				MarkdownDescription: "The `risk` parameter.",
+				Description:         "The `risk` parameter. Value must be between 1 and 5.",
+				MarkdownDescription: "The `risk` parameter. Value must be between 1 and 5.",
 				Required:            true,
 				Validators: []validator.Int64{
 					int64validator.Between(1, 5),
@@ -1976,8 +1976,8 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 							NestedObject: rsschema.NestedAttributeObject{
 								Attributes: map[string]rsschema.Attribute{
 									"name": rsschema.StringAttribute{
-										Description:         "The `name` parameter.",
-										MarkdownDescription: "The `name` parameter.",
+										Description:         "The `name` parameter. String length must be at most 31.",
+										MarkdownDescription: "The `name` parameter. String length must be at most 31.",
 										Required:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthAtMost(31),
@@ -1990,8 +1990,8 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 										NestedObject: rsschema.NestedAttributeObject{
 											Attributes: map[string]rsschema.Attribute{
 												"name": rsschema.StringAttribute{
-													Description:         "The `name` parameter.",
-													MarkdownDescription: "The `name` parameter.",
+													Description:         "The `name` parameter. String length must be at most 31.",
+													MarkdownDescription: "The `name` parameter. String length must be at most 31.",
 													Required:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(31),
@@ -2013,8 +2013,8 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 																	Required:            true,
 																},
 																"mask": rsschema.StringAttribute{
-																	Description:         "The `mask` parameter.",
-																	MarkdownDescription: "The `mask` parameter.",
+																	Description:         "The `mask` parameter. String length must be at most 10.",
+																	MarkdownDescription: "The `mask` parameter. String length must be at most 10.",
 																	Optional:            true,
 																	Computed:            true,
 																	PlanModifiers: []planmodifier.String{
@@ -2025,8 +2025,8 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 																	},
 																},
 																"position": rsschema.StringAttribute{
-																	Description:         "The `position` parameter.",
-																	MarkdownDescription: "The `position` parameter.",
+																	Description:         "The `position` parameter. String length must be at most 127.",
+																	MarkdownDescription: "The `position` parameter. String length must be at most 127.",
 																	Optional:            true,
 																	Computed:            true,
 																	PlanModifiers: []planmodifier.String{
@@ -2037,8 +2037,8 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 																	},
 																},
 																"value": rsschema.StringAttribute{
-																	Description:         "The `value` parameter.",
-																	MarkdownDescription: "The `value` parameter.",
+																	Description:         "The `value` parameter. String length must be at most 10.",
+																	MarkdownDescription: "The `value` parameter. String length must be at most 10.",
 																	Required:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthAtMost(10),
@@ -2052,8 +2052,8 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 															Optional:            true,
 															Attributes: map[string]rsschema.Attribute{
 																"context": rsschema.StringAttribute{
-																	Description:         "The `context` parameter.",
-																	MarkdownDescription: "The `context` parameter.",
+																	Description:         "The `context` parameter. String length must be at most 127.",
+																	MarkdownDescription: "The `context` parameter. String length must be at most 127.",
 																	Required:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthAtMost(127),
@@ -2066,8 +2066,8 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 																	NestedObject: rsschema.NestedAttributeObject{
 																		Attributes: map[string]rsschema.Attribute{
 																			"name": rsschema.StringAttribute{
-																				Description:         "The `name` parameter.",
-																				MarkdownDescription: "The `name` parameter.",
+																				Description:         "The `name` parameter. String length must be at most 31.",
+																				MarkdownDescription: "The `name` parameter. String length must be at most 31.",
 																				Required:            true,
 																				Validators: []validator.String{
 																					stringvalidator.LengthAtMost(31),
@@ -2082,8 +2082,8 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 																	},
 																},
 																"value": rsschema.Int64Attribute{
-																	Description:         "The `value` parameter.",
-																	MarkdownDescription: "The `value` parameter.",
+																	Description:         "The `value` parameter. Value must be between 0 and 4294967295.",
+																	MarkdownDescription: "The `value` parameter. Value must be between 0 and 4294967295.",
 																	Required:            true,
 																	Validators: []validator.Int64{
 																		int64validator.Between(0, 4294967295),
@@ -2097,8 +2097,8 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 															Optional:            true,
 															Attributes: map[string]rsschema.Attribute{
 																"context": rsschema.StringAttribute{
-																	Description:         "The `context` parameter.",
-																	MarkdownDescription: "The `context` parameter.",
+																	Description:         "The `context` parameter. String length must be at most 127.",
+																	MarkdownDescription: "The `context` parameter. String length must be at most 127.",
 																	Required:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthAtMost(127),
@@ -2111,8 +2111,8 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 																	NestedObject: rsschema.NestedAttributeObject{
 																		Attributes: map[string]rsschema.Attribute{
 																			"name": rsschema.StringAttribute{
-																				Description:         "The `name` parameter.",
-																				MarkdownDescription: "The `name` parameter.",
+																				Description:         "The `name` parameter. String length must be at most 31.",
+																				MarkdownDescription: "The `name` parameter. String length must be at most 31.",
 																				Required:            true,
 																				Validators: []validator.String{
 																					stringvalidator.LengthAtMost(31),
@@ -2127,8 +2127,8 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 																	},
 																},
 																"value": rsschema.Int64Attribute{
-																	Description:         "The `value` parameter.",
-																	MarkdownDescription: "The `value` parameter.",
+																	Description:         "The `value` parameter. Value must be between 0 and 4294967295.",
+																	MarkdownDescription: "The `value` parameter. Value must be between 0 and 4294967295.",
 																	Required:            true,
 																	Validators: []validator.Int64{
 																		int64validator.Between(0, 4294967295),
@@ -2142,16 +2142,16 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 															Optional:            true,
 															Attributes: map[string]rsschema.Attribute{
 																"context": rsschema.StringAttribute{
-																	Description:         "The `context` parameter.",
-																	MarkdownDescription: "The `context` parameter.",
+																	Description:         "The `context` parameter. String length must be at most 127.",
+																	MarkdownDescription: "The `context` parameter. String length must be at most 127.",
 																	Required:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthAtMost(127),
 																	},
 																},
 																"pattern": rsschema.StringAttribute{
-																	Description:         "The `pattern` parameter.",
-																	MarkdownDescription: "The `pattern` parameter.",
+																	Description:         "The `pattern` parameter. String length must be at most 127.",
+																	MarkdownDescription: "The `pattern` parameter. String length must be at most 127.",
 																	Required:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthAtMost(127),
@@ -2164,8 +2164,8 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 																	NestedObject: rsschema.NestedAttributeObject{
 																		Attributes: map[string]rsschema.Attribute{
 																			"name": rsschema.StringAttribute{
-																				Description:         "The `name` parameter.",
-																				MarkdownDescription: "The `name` parameter.",
+																				Description:         "The `name` parameter. String length must be at most 31.",
+																				MarkdownDescription: "The `name` parameter. String length must be at most 31.",
 																				Required:            true,
 																				Validators: []validator.String{
 																					stringvalidator.LengthAtMost(31),
@@ -2190,8 +2190,8 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 							},
 						},
 						"comment": rsschema.StringAttribute{
-							Description:         "The `comment` parameter.",
-							MarkdownDescription: "The `comment` parameter.",
+							Description:         "The `comment` parameter. String length must be between 0 and 256.",
+							MarkdownDescription: "The `comment` parameter. String length must be between 0 and 256.",
 							Optional:            true,
 							Computed:            true,
 							PlanModifiers: []planmodifier.String{
@@ -2202,16 +2202,16 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 							},
 						},
 						"name": rsschema.StringAttribute{
-							Description:         "The `name` parameter.",
-							MarkdownDescription: "The `name` parameter.",
+							Description:         "The `name` parameter. String length must be at most 31.",
+							MarkdownDescription: "The `name` parameter. String length must be at most 31.",
 							Required:            true,
 							Validators: []validator.String{
 								stringvalidator.LengthAtMost(31),
 							},
 						},
 						"order_free": rsschema.BoolAttribute{
-							Description:         "The `order_free` parameter.",
-							MarkdownDescription: "The `order_free` parameter.",
+							Description:         "The `order_free` parameter. Default: `false`.",
+							MarkdownDescription: "The `order_free` parameter. Default: `false`.",
 							Optional:            true,
 							Computed:            true,
 							PlanModifiers: []planmodifier.Bool{
@@ -2219,8 +2219,8 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 							},
 						},
 						"scope": rsschema.StringAttribute{
-							Description:         "The `scope` parameter.",
-							MarkdownDescription: "The `scope` parameter.",
+							Description:         "The `scope` parameter. Default: `%!q(*string=0xc000f53390)`. Value must be one of: `\"protocol-data-unit\"`, `\"session\"`.",
+							MarkdownDescription: "The `scope` parameter. Default: `%!q(*string=0xc000f53390)`. Value must be one of: `\"protocol-data-unit\"`, `\"session\"`.",
 							Optional:            true,
 							Computed:            true,
 							PlanModifiers: []planmodifier.String{
@@ -2234,16 +2234,16 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 				},
 			},
 			"subcategory": rsschema.StringAttribute{
-				Description:         "The `subcategory` parameter.",
-				MarkdownDescription: "The `subcategory` parameter.",
+				Description:         "The `subcategory` parameter. String length must be at most 63.",
+				MarkdownDescription: "The `subcategory` parameter. String length must be at most 63.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(63),
 				},
 			},
 			"tcp_half_closed_timeout": rsschema.Int64Attribute{
-				Description:         "The `tcp_half_closed_timeout` parameter.",
-				MarkdownDescription: "The `tcp_half_closed_timeout` parameter.",
+				Description:         "The `tcp_half_closed_timeout` parameter. Value must be between 1 and 604800.",
+				MarkdownDescription: "The `tcp_half_closed_timeout` parameter. Value must be between 1 and 604800.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.Int64{
@@ -2254,8 +2254,8 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 				},
 			},
 			"tcp_time_wait_timeout": rsschema.Int64Attribute{
-				Description:         "The `tcp_time_wait_timeout` parameter.",
-				MarkdownDescription: "The `tcp_time_wait_timeout` parameter.",
+				Description:         "The `tcp_time_wait_timeout` parameter. Value must be between 1 and 600.",
+				MarkdownDescription: "The `tcp_time_wait_timeout` parameter. Value must be between 1 and 600.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.Int64{
@@ -2266,8 +2266,8 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 				},
 			},
 			"tcp_timeout": rsschema.Int64Attribute{
-				Description:         "The `tcp_timeout` parameter.",
-				MarkdownDescription: "The `tcp_timeout` parameter.",
+				Description:         "The `tcp_timeout` parameter. Value must be between 0 and 604800.",
+				MarkdownDescription: "The `tcp_timeout` parameter. Value must be between 0 and 604800.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.Int64{
@@ -2278,16 +2278,16 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 				},
 			},
 			"technology": rsschema.StringAttribute{
-				Description:         "The `technology` parameter.",
-				MarkdownDescription: "The `technology` parameter.",
+				Description:         "The `technology` parameter. String length must be at most 63.",
+				MarkdownDescription: "The `technology` parameter. String length must be at most 63.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(63),
 				},
 			},
 			"timeout": rsschema.Int64Attribute{
-				Description:         "The `timeout` parameter.",
-				MarkdownDescription: "The `timeout` parameter.",
+				Description:         "The `timeout` parameter. Value must be between 0 and 604800.",
+				MarkdownDescription: "The `timeout` parameter. Value must be between 0 and 604800.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.Int64{
@@ -2316,8 +2316,8 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 				},
 			},
 			"udp_timeout": rsschema.Int64Attribute{
-				Description:         "The `udp_timeout` parameter.",
-				MarkdownDescription: "The `udp_timeout` parameter.",
+				Description:         "The `udp_timeout` parameter. Value must be between 0 and 604800.",
+				MarkdownDescription: "The `udp_timeout` parameter. Value must be between 0 and 604800.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.Int64{

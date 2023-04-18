@@ -17,7 +17,7 @@ Retrieves config for a specific item.
 
 ### Required
 
-- `folder` (String) The folder of the entry
+- `folder` (String) The folder of the entry. Value must be one of: `"Shared"`, `"Mobile Users"`, `"Remote Networks"`, `"Service Connections"`, `"Mobile Users Container"`, `"Mobile Users Explicit Proxy"`.
 - `name` (String) The `name` parameter.
 
 ### Optional
@@ -27,8 +27,8 @@ Retrieves config for a specific item.
 - `method` (Attributes) The `method` parameter. (see [below for nested schema](#nestedatt--method))
 - `multi_factor_auth` (Attributes) The `multi_factor_auth` parameter. (see [below for nested schema](#nestedatt--multi_factor_auth))
 - `single_sign_on` (Attributes) The `single_sign_on` parameter. (see [below for nested schema](#nestedatt--single_sign_on))
-- `user_domain` (String) The `user_domain` parameter.
-- `username_modifier` (String) The `username_modifier` parameter.
+- `user_domain` (String) The `user_domain` parameter. String length must be at most 63.
+- `username_modifier` (String) The `username_modifier` parameter. Value must be one of: `"%USERINPUT%"`, `"%USERINPUT%@%USERDOMAIN%"`, `"%USERDOMAIN%\\\\%USERINPUT%"`.
 
 ### Read-Only
 
@@ -40,8 +40,8 @@ Retrieves config for a specific item.
 
 Optional:
 
-- `failed_attempts` (Number) The `failed_attempts` parameter.
-- `lockout_time` (Number) The `lockout_time` parameter.
+- `failed_attempts` (Number) The `failed_attempts` parameter. Value must be between 0 and 10.
+- `lockout_time` (Number) The `lockout_time` parameter. Value must be between 0 and 60.
 
 
 <a id="nestedatt--method"></a>
@@ -89,12 +89,12 @@ Optional:
 
 Optional:
 
-- `attribute_name_usergroup` (String) The `attribute_name_usergroup` parameter.
-- `attribute_name_username` (String) The `attribute_name_username` parameter.
-- `certificate_profile` (String) The `certificate_profile` parameter.
+- `attribute_name_usergroup` (String) The `attribute_name_usergroup` parameter. String length must be between 1 and 63.
+- `attribute_name_username` (String) The `attribute_name_username` parameter. String length must be between 1 and 63.
+- `certificate_profile` (String) The `certificate_profile` parameter. String length must be at most 31.
 - `enable_single_logout` (Boolean) The `enable_single_logout` parameter.
-- `request_signing_certificate` (String) The `request_signing_certificate` parameter.
-- `server_profile` (String) The `server_profile` parameter.
+- `request_signing_certificate` (String) The `request_signing_certificate` parameter. String length must be at most 64.
+- `server_profile` (String) The `server_profile` parameter. String length must be at most 63.
 
 
 <a id="nestedatt--method--tacplus"></a>
@@ -121,7 +121,7 @@ Optional:
 
 Optional:
 
-- `kerberos_keytab` (String) The `kerberos_keytab` parameter.
-- `realm` (String) The `realm` parameter.
+- `kerberos_keytab` (String) The `kerberos_keytab` parameter. String length must be at most 8192.
+- `realm` (String) The `realm` parameter. String length must be at most 127.
 
 

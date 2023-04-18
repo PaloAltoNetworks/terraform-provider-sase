@@ -17,14 +17,14 @@ Retrieves config for a specific item.
 
 ### Required
 
-- `folder` (String) The folder of the entry
+- `folder` (String) The folder of the entry. Value must be one of: `"Shared"`, `"Mobile Users"`, `"Remote Networks"`, `"Service Connections"`, `"Mobile Users Container"`, `"Mobile Users Explicit Proxy"`.
 - `server` (Attributes List) The `server` parameter. (see [below for nested schema](#nestedatt--server))
 
 ### Optional
 
 - `protocol` (Attributes) The `protocol` parameter. (see [below for nested schema](#nestedatt--protocol))
-- `retries` (Number) The `retries` parameter.
-- `timeout` (Number) The `timeout` parameter.
+- `retries` (Number) The `retries` parameter. Value must be between 1 and 5.
+- `timeout` (Number) The `timeout` parameter. Value must be between 1 and 120.
 
 ### Read-Only
 
@@ -38,8 +38,8 @@ Optional:
 
 - `ip_address` (String) The `ip_address` parameter.
 - `name` (String) The `name` parameter.
-- `port` (Number) The `port` parameter.
-- `secret` (String) The `secret` parameter.
+- `port` (Number) The `port` parameter. Value must be between 1 and 65535.
+- `secret` (String) The `secret` parameter. String length must be at most 64.
 
 
 <a id="nestedatt--protocol"></a>

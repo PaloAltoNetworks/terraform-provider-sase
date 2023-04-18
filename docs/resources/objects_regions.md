@@ -17,8 +17,8 @@ Retrieves config for a specific item.
 
 ### Required
 
-- `folder` (String) The folder of the entry
-- `name` (String) The `name` parameter.
+- `folder` (String) The folder of the entry. Value must be one of: `"Shared"`, `"Mobile Users"`, `"Remote Networks"`, `"Service Connections"`, `"Mobile Users Container"`, `"Mobile Users Explicit Proxy"`.
+- `name` (String) The `name` parameter. String length must be at most 31.
 
 ### Optional
 
@@ -35,7 +35,7 @@ Retrieves config for a specific item.
 
 Required:
 
-- `latitude` (Number) The `latitude` parameter.
-- `longitude` (Number) The `longitude` parameter.
+- `latitude` (Number) The `latitude` parameter. Value must be between -90 and 90.
+- `longitude` (Number) The `longitude` parameter. Value must be between -180 and 180.
 
 

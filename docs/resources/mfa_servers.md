@@ -17,10 +17,10 @@ Retrieves config for a specific item.
 
 ### Required
 
-- `folder` (String) The folder of the entry
+- `folder` (String) The folder of the entry. Value must be one of: `"Shared"`, `"Mobile Users"`, `"Remote Networks"`, `"Service Connections"`, `"Mobile Users Container"`, `"Mobile Users Explicit Proxy"`.
 - `mfa_cert_profile` (String) The `mfa_cert_profile` parameter.
 - `name` (String) The `name` parameter.
-- `position` (String) The position of a security rule
+- `position` (String) The position of a security rule. Value must be one of: `"pre"`, `"post"`.
 
 ### Optional
 

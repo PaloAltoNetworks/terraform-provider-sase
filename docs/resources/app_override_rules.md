@@ -19,22 +19,22 @@ Retrieves config for a specific item.
 
 - `application` (String) The `application` parameter.
 - `destination` (List of String) The `destination` parameter.
-- `folder` (String) The folder of the entry
+- `folder` (String) The folder of the entry. Value must be one of: `"Shared"`, `"Mobile Users"`, `"Remote Networks"`, `"Service Connections"`, `"Mobile Users Container"`, `"Mobile Users Explicit Proxy"`.
 - `from` (List of String) The `from` parameter.
-- `name` (String) The `name` parameter.
-- `port` (Number) The `port` parameter.
-- `position` (String) The position of a security rule
-- `protocol` (String) The `protocol` parameter.
+- `name` (String) The `name` parameter. String length must be at most 63.
+- `port` (Number) The `port` parameter. Value must be between 0 and 65535.
+- `position` (String) The position of a security rule. Value must be one of: `"pre"`, `"post"`.
+- `protocol` (String) The `protocol` parameter. Value must be one of: `"tcp"`, `"udp"`.
 - `source` (List of String) The `source` parameter.
 - `to` (List of String) The `to` parameter.
 
 ### Optional
 
-- `description` (String) The `description` parameter.
-- `disabled` (Boolean) The `disabled` parameter.
+- `description` (String) The `description` parameter. String length must be at most 1024.
+- `disabled` (Boolean) The `disabled` parameter. Default: `false`.
 - `group_tag` (String) The `group_tag` parameter.
-- `negate_destination` (Boolean) The `negate_destination` parameter.
-- `negate_source` (Boolean) The `negate_source` parameter.
+- `negate_destination` (Boolean) The `negate_destination` parameter. Default: `false`.
+- `negate_source` (Boolean) The `negate_source` parameter. Default: `false`.
 - `tag` (List of String) The `tag` parameter.
 
 ### Read-Only

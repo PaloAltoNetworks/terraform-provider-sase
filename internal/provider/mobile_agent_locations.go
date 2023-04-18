@@ -70,8 +70,8 @@ func (d *mobileAgentLocationsListDataSource) Schema(_ context.Context, _ datasou
 
 			// Input.
 			"folder": dsschema.StringAttribute{
-				Description:         "The `folder` parameter.",
-				MarkdownDescription: "The `folder` parameter.",
+				Description:         "The `folder` parameter. Value must be one of: `\"Mobile Users\"`.",
+				MarkdownDescription: "The `folder` parameter. Value must be one of: `\"Mobile Users\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Mobile Users"),

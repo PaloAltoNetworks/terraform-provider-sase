@@ -17,13 +17,13 @@ Retrieves config for a specific item.
 
 ### Required
 
-- `folder` (String) The folder of the entry
-- `name` (String) The `name` parameter.
+- `folder` (String) The folder of the entry. Value must be one of: `"Shared"`, `"Mobile Users"`, `"Remote Networks"`, `"Service Connections"`, `"Mobile Users Container"`, `"Mobile Users Explicit Proxy"`.
+- `name` (String) The `name` parameter. String length must be at most 63.
 - `protocol` (Attributes) The `protocol` parameter. (see [below for nested schema](#nestedatt--protocol))
 
 ### Optional
 
-- `description` (String) The `description` parameter.
+- `description` (String) The `description` parameter. String length must be between 0 and 1023.
 - `tag` (List of String) The `tag` parameter.
 
 ### Read-Only
@@ -44,21 +44,21 @@ Optional:
 
 Required:
 
-- `port` (String) The `port` parameter.
+- `port` (String) The `port` parameter. String length must be between 1 and 1023.
 
 Optional:
 
 - `override` (Attributes) The `override` parameter. (see [below for nested schema](#nestedatt--protocol--tcp--override))
-- `source_port` (String) The `source_port` parameter.
+- `source_port` (String) The `source_port` parameter. String length must be between 1 and 1023.
 
 <a id="nestedatt--protocol--tcp--override"></a>
 ### Nested Schema for `protocol.tcp.override`
 
 Optional:
 
-- `halfclose_timeout` (Number) The `halfclose_timeout` parameter.
-- `timeout` (Number) The `timeout` parameter.
-- `timewait_timeout` (Number) The `timewait_timeout` parameter.
+- `halfclose_timeout` (Number) The `halfclose_timeout` parameter. Default: `120`. Value must be between 1 and 604800.
+- `timeout` (Number) The `timeout` parameter. Default: `3600`. Value must be between 1 and 604800.
+- `timewait_timeout` (Number) The `timewait_timeout` parameter. Default: `15`. Value must be between 1 and 600.
 
 
 
@@ -67,18 +67,18 @@ Optional:
 
 Required:
 
-- `port` (String) The `port` parameter.
+- `port` (String) The `port` parameter. String length must be between 1 and 1023.
 
 Optional:
 
 - `override` (Attributes) The `override` parameter. (see [below for nested schema](#nestedatt--protocol--udp--override))
-- `source_port` (String) The `source_port` parameter.
+- `source_port` (String) The `source_port` parameter. String length must be between 1 and 1023.
 
 <a id="nestedatt--protocol--udp--override"></a>
 ### Nested Schema for `protocol.udp.override`
 
 Optional:
 
-- `timeout` (Number) The `timeout` parameter.
+- `timeout` (Number) The `timeout` parameter. Default: `30`. Value must be between 1 and 604800.
 
 

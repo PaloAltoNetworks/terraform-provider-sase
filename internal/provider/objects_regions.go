@@ -85,25 +85,25 @@ func (d *objectsRegionsListDataSource) Schema(_ context.Context, _ datasource.Sc
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description:         "The max count in result entry (count per page)",
-				MarkdownDescription: "The max count in result entry (count per page)",
+				Description:         "The max count in result entry (count per page).",
+				MarkdownDescription: "The max count in result entry (count per page).",
 				Optional:            true,
 				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description:         "The offset of the result entry",
-				MarkdownDescription: "The offset of the result entry",
+				Description:         "The offset of the result entry.",
+				MarkdownDescription: "The offset of the result entry.",
 				Optional:            true,
 				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description:         "The name of the entry",
-				MarkdownDescription: "The name of the entry",
+				Description:         "The name of the entry.",
+				MarkdownDescription: "The name of the entry.",
 				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -317,8 +317,8 @@ func (d *objectsRegionsDataSource) Schema(_ context.Context, _ datasource.Schema
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description:         "The uuid of the resource",
-				MarkdownDescription: "The uuid of the resource",
+				Description:         "The uuid of the resource.",
+				MarkdownDescription: "The uuid of the resource.",
 				Required:            true,
 			},
 
@@ -466,8 +466,8 @@ func (r *objectsRegionsResource) Schema(_ context.Context, _ resource.SchemaRequ
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -486,16 +486,16 @@ func (r *objectsRegionsResource) Schema(_ context.Context, _ resource.SchemaRequ
 				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"latitude": rsschema.Float64Attribute{
-						Description:         "The `latitude` parameter.",
-						MarkdownDescription: "The `latitude` parameter.",
+						Description:         "The `latitude` parameter. Value must be between -90 and 90.",
+						MarkdownDescription: "The `latitude` parameter. Value must be between -90 and 90.",
 						Required:            true,
 						Validators: []validator.Float64{
 							float64validator.Between(-90.000000, 90.000000),
 						},
 					},
 					"longitude": rsschema.Float64Attribute{
-						Description:         "The `longitude` parameter.",
-						MarkdownDescription: "The `longitude` parameter.",
+						Description:         "The `longitude` parameter. Value must be between -180 and 180.",
+						MarkdownDescription: "The `longitude` parameter. Value must be between -180 and 180.",
 						Required:            true,
 						Validators: []validator.Float64{
 							float64validator.Between(-180.000000, 180.000000),
@@ -512,8 +512,8 @@ func (r *objectsRegionsResource) Schema(_ context.Context, _ resource.SchemaRequ
 				},
 			},
 			"name": rsschema.StringAttribute{
-				Description:         "The `name` parameter.",
-				MarkdownDescription: "The `name` parameter.",
+				Description:         "The `name` parameter. String length must be at most 31.",
+				MarkdownDescription: "The `name` parameter. String length must be at most 31.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(31),

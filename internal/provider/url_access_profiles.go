@@ -111,25 +111,25 @@ func (d *urlAccessProfilesListDataSource) Schema(_ context.Context, _ datasource
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description:         "The max count in result entry (count per page)",
-				MarkdownDescription: "The max count in result entry (count per page)",
+				Description:         "The max count in result entry (count per page).",
+				MarkdownDescription: "The max count in result entry (count per page).",
 				Optional:            true,
 				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description:         "The offset of the result entry",
-				MarkdownDescription: "The offset of the result entry",
+				Description:         "The offset of the result entry.",
+				MarkdownDescription: "The offset of the result entry.",
 				Optional:            true,
 				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description:         "The name of the entry",
-				MarkdownDescription: "The name of the entry",
+				Description:         "The name of the entry.",
+				MarkdownDescription: "The name of the entry.",
 				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -530,13 +530,13 @@ func (d *urlAccessProfilesDataSource) Schema(_ context.Context, _ datasource.Sch
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description:         "The uuid of the resource",
-				MarkdownDescription: "The uuid of the resource",
+				Description:         "The uuid of the resource.",
+				MarkdownDescription: "The uuid of the resource.",
 				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -877,8 +877,8 @@ func (r *urlAccessProfilesResource) Schema(_ context.Context, _ resource.SchemaR
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -939,8 +939,8 @@ func (r *urlAccessProfilesResource) Schema(_ context.Context, _ resource.SchemaR
 						ElementType:         types.StringType,
 					},
 					"log_severity": rsschema.StringAttribute{
-						Description:         "The `log_severity` parameter.",
-						MarkdownDescription: "The `log_severity` parameter.",
+						Description:         "The `log_severity` parameter. Default: `%!q(*string=0xc000f53090)`.",
+						MarkdownDescription: "The `log_severity` parameter. Default: `%!q(*string=0xc000f53090)`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.String{
@@ -981,8 +981,8 @@ func (r *urlAccessProfilesResource) Schema(_ context.Context, _ resource.SchemaR
 				},
 			},
 			"description": rsschema.StringAttribute{
-				Description:         "The `description` parameter.",
-				MarkdownDescription: "The `description` parameter.",
+				Description:         "The `description` parameter. String length must be between 0 and 255.",
+				MarkdownDescription: "The `description` parameter. String length must be between 0 and 255.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.String{
@@ -1001,8 +1001,8 @@ func (r *urlAccessProfilesResource) Schema(_ context.Context, _ resource.SchemaR
 				},
 			},
 			"log_container_page_only": rsschema.BoolAttribute{
-				Description:         "The `log_container_page_only` parameter.",
-				MarkdownDescription: "The `log_container_page_only` parameter.",
+				Description:         "The `log_container_page_only` parameter. Default: `true`.",
+				MarkdownDescription: "The `log_container_page_only` parameter. Default: `true`.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.Bool{
@@ -1010,8 +1010,8 @@ func (r *urlAccessProfilesResource) Schema(_ context.Context, _ resource.SchemaR
 				},
 			},
 			"log_http_hdr_referer": rsschema.BoolAttribute{
-				Description:         "The `log_http_hdr_referer` parameter.",
-				MarkdownDescription: "The `log_http_hdr_referer` parameter.",
+				Description:         "The `log_http_hdr_referer` parameter. Default: `false`.",
+				MarkdownDescription: "The `log_http_hdr_referer` parameter. Default: `false`.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.Bool{
@@ -1019,8 +1019,8 @@ func (r *urlAccessProfilesResource) Schema(_ context.Context, _ resource.SchemaR
 				},
 			},
 			"log_http_hdr_user_agent": rsschema.BoolAttribute{
-				Description:         "The `log_http_hdr_user_agent` parameter.",
-				MarkdownDescription: "The `log_http_hdr_user_agent` parameter.",
+				Description:         "The `log_http_hdr_user_agent` parameter. Default: `false`.",
+				MarkdownDescription: "The `log_http_hdr_user_agent` parameter. Default: `false`.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.Bool{
@@ -1028,8 +1028,8 @@ func (r *urlAccessProfilesResource) Schema(_ context.Context, _ resource.SchemaR
 				},
 			},
 			"log_http_hdr_xff": rsschema.BoolAttribute{
-				Description:         "The `log_http_hdr_xff` parameter.",
-				MarkdownDescription: "The `log_http_hdr_xff` parameter.",
+				Description:         "The `log_http_hdr_xff` parameter. Default: `false`.",
+				MarkdownDescription: "The `log_http_hdr_xff` parameter. Default: `false`.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.Bool{
@@ -1049,8 +1049,8 @@ func (r *urlAccessProfilesResource) Schema(_ context.Context, _ resource.SchemaR
 				NestedObject: rsschema.NestedAttributeObject{
 					Attributes: map[string]rsschema.Attribute{
 						"mlav_policy_action": rsschema.StringAttribute{
-							Description:         "The `mlav_policy_action` parameter.",
-							MarkdownDescription: "The `mlav_policy_action` parameter.",
+							Description:         "The `mlav_policy_action` parameter. Value must be one of: `\"allow\"`, `\"alert\"`, `\"block\"`.",
+							MarkdownDescription: "The `mlav_policy_action` parameter. Value must be one of: `\"allow\"`, `\"alert\"`, `\"block\"`.",
 							Optional:            true,
 							Computed:            true,
 							PlanModifiers: []planmodifier.String{
@@ -1078,8 +1078,8 @@ func (r *urlAccessProfilesResource) Schema(_ context.Context, _ resource.SchemaR
 				Required:            true,
 			},
 			"safe_search_enforcement": rsschema.BoolAttribute{
-				Description:         "The `safe_search_enforcement` parameter.",
-				MarkdownDescription: "The `safe_search_enforcement` parameter.",
+				Description:         "The `safe_search_enforcement` parameter. Default: `false`.",
+				MarkdownDescription: "The `safe_search_enforcement` parameter. Default: `false`.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.Bool{

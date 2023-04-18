@@ -17,7 +17,7 @@ Retrieves config for a specific item.
 
 ### Required
 
-- `folder` (String) The folder of the entry
+- `folder` (String) The folder of the entry. Value must be one of: `"Shared"`, `"Mobile Users"`, `"Remote Networks"`, `"Service Connections"`, `"Mobile Users Container"`, `"Mobile Users Explicit Proxy"`.
 - `name` (String) The `name` parameter.
 
 ### Optional
@@ -37,17 +37,17 @@ Retrieves config for a specific item.
 
 Optional:
 
-- `auto_include_altname` (Boolean) The `auto_include_altname` parameter.
-- `block_client_cert` (Boolean) The `block_client_cert` parameter.
-- `block_expired_certificate` (Boolean) The `block_expired_certificate` parameter.
-- `block_timeout_cert` (Boolean) The `block_timeout_cert` parameter.
-- `block_tls13_downgrade_no_resource` (Boolean) The `block_tls13_downgrade_no_resource` parameter.
-- `block_unknown_cert` (Boolean) The `block_unknown_cert` parameter.
-- `block_unsupported_cipher` (Boolean) The `block_unsupported_cipher` parameter.
-- `block_unsupported_version` (Boolean) The `block_unsupported_version` parameter.
-- `block_untrusted_issuer` (Boolean) The `block_untrusted_issuer` parameter.
-- `restrict_cert_exts` (Boolean) The `restrict_cert_exts` parameter.
-- `strip_alpn` (Boolean) The `strip_alpn` parameter.
+- `auto_include_altname` (Boolean) The `auto_include_altname` parameter. Default: `false`.
+- `block_client_cert` (Boolean) The `block_client_cert` parameter. Default: `false`.
+- `block_expired_certificate` (Boolean) The `block_expired_certificate` parameter. Default: `false`.
+- `block_timeout_cert` (Boolean) The `block_timeout_cert` parameter. Default: `false`.
+- `block_tls13_downgrade_no_resource` (Boolean) The `block_tls13_downgrade_no_resource` parameter. Default: `false`.
+- `block_unknown_cert` (Boolean) The `block_unknown_cert` parameter. Default: `false`.
+- `block_unsupported_cipher` (Boolean) The `block_unsupported_cipher` parameter. Default: `false`.
+- `block_unsupported_version` (Boolean) The `block_unsupported_version` parameter. Default: `false`.
+- `block_untrusted_issuer` (Boolean) The `block_untrusted_issuer` parameter. Default: `false`.
+- `restrict_cert_exts` (Boolean) The `restrict_cert_exts` parameter. Default: `false`.
+- `strip_alpn` (Boolean) The `strip_alpn` parameter. Default: `false`.
 
 
 <a id="nestedatt--ssl_inbound_proxy"></a>
@@ -55,10 +55,10 @@ Optional:
 
 Optional:
 
-- `block_if_hsm_unavailable` (Boolean) The `block_if_hsm_unavailable` parameter.
-- `block_if_no_resource` (Boolean) The `block_if_no_resource` parameter.
-- `block_unsupported_cipher` (Boolean) The `block_unsupported_cipher` parameter.
-- `block_unsupported_version` (Boolean) The `block_unsupported_version` parameter.
+- `block_if_hsm_unavailable` (Boolean) The `block_if_hsm_unavailable` parameter. Default: `false`.
+- `block_if_no_resource` (Boolean) The `block_if_no_resource` parameter. Default: `false`.
+- `block_unsupported_cipher` (Boolean) The `block_unsupported_cipher` parameter. Default: `false`.
+- `block_unsupported_version` (Boolean) The `block_unsupported_version` parameter. Default: `false`.
 
 
 <a id="nestedatt--ssl_no_proxy"></a>
@@ -66,8 +66,8 @@ Optional:
 
 Optional:
 
-- `block_expired_certificate` (Boolean) The `block_expired_certificate` parameter.
-- `block_untrusted_issuer` (Boolean) The `block_untrusted_issuer` parameter.
+- `block_expired_certificate` (Boolean) The `block_expired_certificate` parameter. Default: `false`.
+- `block_untrusted_issuer` (Boolean) The `block_untrusted_issuer` parameter. Default: `false`.
 
 
 <a id="nestedatt--ssl_protocol_settings"></a>
@@ -75,21 +75,21 @@ Optional:
 
 Optional:
 
-- `auth_algo_md5` (Boolean) The `auth_algo_md5` parameter.
-- `auth_algo_sha1` (Boolean) The `auth_algo_sha1` parameter.
-- `auth_algo_sha256` (Boolean) The `auth_algo_sha256` parameter.
-- `auth_algo_sha384` (Boolean) The `auth_algo_sha384` parameter.
-- `enc_algo3des` (Boolean) The `enc_algo3des` parameter.
-- `enc_algo_aes128_cbc` (Boolean) The `enc_algo_aes128_cbc` parameter.
-- `enc_algo_aes128_gcm` (Boolean) The `enc_algo_aes128_gcm` parameter.
-- `enc_algo_aes256_cbc` (Boolean) The `enc_algo_aes256_cbc` parameter.
-- `enc_algo_aes256_gcm` (Boolean) The `enc_algo_aes256_gcm` parameter.
-- `enc_algo_chacha20_poly1305` (Boolean) The `enc_algo_chacha20_poly1305` parameter.
-- `enc_algo_rc4` (Boolean) The `enc_algo_rc4` parameter.
-- `keyxchg_algo_dhe` (Boolean) The `keyxchg_algo_dhe` parameter.
-- `keyxchg_algo_ecdhe` (Boolean) The `keyxchg_algo_ecdhe` parameter.
-- `keyxchg_algo_rsa` (Boolean) The `keyxchg_algo_rsa` parameter.
-- `max_version` (String) The `max_version` parameter.
-- `min_version` (String) The `min_version` parameter.
+- `auth_algo_md5` (Boolean) The `auth_algo_md5` parameter. Default: `true`.
+- `auth_algo_sha1` (Boolean) The `auth_algo_sha1` parameter. Default: `true`.
+- `auth_algo_sha256` (Boolean) The `auth_algo_sha256` parameter. Default: `true`.
+- `auth_algo_sha384` (Boolean) The `auth_algo_sha384` parameter. Default: `true`.
+- `enc_algo3des` (Boolean) The `enc_algo3des` parameter. Default: `true`.
+- `enc_algo_aes128_cbc` (Boolean) The `enc_algo_aes128_cbc` parameter. Default: `true`.
+- `enc_algo_aes128_gcm` (Boolean) The `enc_algo_aes128_gcm` parameter. Default: `true`.
+- `enc_algo_aes256_cbc` (Boolean) The `enc_algo_aes256_cbc` parameter. Default: `true`.
+- `enc_algo_aes256_gcm` (Boolean) The `enc_algo_aes256_gcm` parameter. Default: `true`.
+- `enc_algo_chacha20_poly1305` (Boolean) The `enc_algo_chacha20_poly1305` parameter. Default: `true`.
+- `enc_algo_rc4` (Boolean) The `enc_algo_rc4` parameter. Default: `true`.
+- `keyxchg_algo_dhe` (Boolean) The `keyxchg_algo_dhe` parameter. Default: `true`.
+- `keyxchg_algo_ecdhe` (Boolean) The `keyxchg_algo_ecdhe` parameter. Default: `true`.
+- `keyxchg_algo_rsa` (Boolean) The `keyxchg_algo_rsa` parameter. Default: `true`.
+- `max_version` (String) The `max_version` parameter. Default: `%!q(*string=0xc000f53070)`. Value must be one of: `"sslv3"`, `"tls1-0"`, `"tls1-1"`, `"tls1-2"`, `"tls1-3"`, `"max"`.
+- `min_version` (String) The `min_version` parameter. Default: `%!q(*string=0xc000f53080)`. Value must be one of: `"sslv3"`, `"tls1-0"`, `"tls1-1"`, `"tls1-2"`, `"tls1-3"`.
 
 

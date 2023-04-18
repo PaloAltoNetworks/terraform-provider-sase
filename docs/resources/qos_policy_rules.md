@@ -18,9 +18,9 @@ Retrieves config for a specific item.
 ### Required
 
 - `action` (Attributes) The `action` parameter. (see [below for nested schema](#nestedatt--action))
-- `folder` (String) The folder of the entry
+- `folder` (String) The folder of the entry. Value must be one of: `"Shared"`, `"Mobile Users"`, `"Remote Networks"`, `"Service Connections"`, `"Mobile Users Container"`, `"Mobile Users Explicit Proxy"`.
 - `name` (String) The `name` parameter.
-- `position` (String) The position of a security rule
+- `position` (String) The position of a security rule. Value must be one of: `"pre"`, `"post"`.
 
 ### Optional
 

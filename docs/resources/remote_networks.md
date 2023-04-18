@@ -17,14 +17,14 @@ Retrieves config for a specific item.
 
 ### Required
 
-- `folder` (String) The folder of the entry
-- `license_type` (String) The `license_type` parameter.
-- `name` (String) The `name` parameter.
-- `region` (String) The `region` parameter.
+- `folder` (String) The folder of the entry. Value must be one of: `"Shared"`, `"Mobile Users"`, `"Remote Networks"`, `"Service Connections"`, `"Mobile Users Container"`, `"Mobile Users Explicit Proxy"`.
+- `license_type` (String) The `license_type` parameter. String length must be at least 1.
+- `name` (String) The `name` parameter. String length must be at most 63.
+- `region` (String) The `region` parameter. String length must be at least 1.
 
 ### Optional
 
-- `ecmp_load_balancing` (String) The `ecmp_load_balancing` parameter.
+- `ecmp_load_balancing` (String) The `ecmp_load_balancing` parameter. Default: `%!q(*string=0xc0006100d0)`. Value must be one of: `"enable"`, `"disable"`.
 - `ecmp_tunnels` (Attributes List) The `ecmp_tunnels` parameter. (see [below for nested schema](#nestedatt--ecmp_tunnels))
 - `ipsec_tunnel` (String) The `ipsec_tunnel` parameter.
 - `protocol` (Attributes) The `protocol` parameter. (see [below for nested schema](#nestedatt--protocol))
@@ -52,7 +52,7 @@ Optional:
 - `originate_default_route` (Boolean) The `originate_default_route` parameter.
 - `peer_as` (String) The `peer_as` parameter.
 - `peer_ip_address` (String) The `peer_ip_address` parameter.
-- `peering_type` (String) The `peering_type` parameter.
+- `peering_type` (String) The `peering_type` parameter. Value must be one of: `"exchange-v4-over-v4"`, `"exchange-v4-v6-over-v4"`, `"exchange-v4-over-v4-v6-over-v6"`, `"exchange-v6-over-v6"`.
 - `secret` (String) The `secret` parameter.
 - `summarize_mobile_user_routes` (Boolean) The `summarize_mobile_user_routes` parameter.
 
@@ -76,7 +76,7 @@ Optional:
 - `originate_default_route` (Boolean) The `originate_default_route` parameter.
 - `peer_as` (String) The `peer_as` parameter.
 - `peer_ip_address` (String) The `peer_ip_address` parameter.
-- `peering_type` (String) The `peering_type` parameter.
+- `peering_type` (String) The `peering_type` parameter. Value must be one of: `"exchange-v4-over-v4"`, `"exchange-v4-v6-over-v4"`, `"exchange-v4-over-v4-v6-over-v6"`, `"exchange-v6-over-v6"`.
 - `secret` (String) The `secret` parameter.
 - `summarize_mobile_user_routes` (Boolean) The `summarize_mobile_user_routes` parameter.
 

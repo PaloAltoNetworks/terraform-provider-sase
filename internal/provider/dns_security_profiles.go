@@ -116,25 +116,25 @@ func (d *dnsSecurityProfilesListDataSource) Schema(_ context.Context, _ datasour
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description:         "The max count in result entry (count per page)",
-				MarkdownDescription: "The max count in result entry (count per page)",
+				Description:         "The max count in result entry (count per page).",
+				MarkdownDescription: "The max count in result entry (count per page).",
 				Optional:            true,
 				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description:         "The offset of the result entry",
-				MarkdownDescription: "The offset of the result entry",
+				Description:         "The offset of the result entry.",
+				MarkdownDescription: "The offset of the result entry.",
 				Optional:            true,
 				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description:         "The name of the entry",
-				MarkdownDescription: "The name of the entry",
+				Description:         "The name of the entry.",
+				MarkdownDescription: "The name of the entry.",
 				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -541,13 +541,13 @@ func (d *dnsSecurityProfilesDataSource) Schema(_ context.Context, _ datasource.S
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description:         "The uuid of the resource",
-				MarkdownDescription: "The uuid of the resource",
+				Description:         "The uuid of the resource.",
+				MarkdownDescription: "The uuid of the resource.",
 				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -894,8 +894,8 @@ func (r *dnsSecurityProfilesResource) Schema(_ context.Context, _ resource.Schem
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -914,8 +914,8 @@ func (r *dnsSecurityProfilesResource) Schema(_ context.Context, _ resource.Schem
 						NestedObject: rsschema.NestedAttributeObject{
 							Attributes: map[string]rsschema.Attribute{
 								"action": rsschema.StringAttribute{
-									Description:         "The `action` parameter.",
-									MarkdownDescription: "The `action` parameter.",
+									Description:         "The `action` parameter. Default: `%!q(*string=0xc000f53030)`. Value must be one of: `\"default\"`, `\"allow\"`, `\"block\"`, `\"sinkhole\"`.",
+									MarkdownDescription: "The `action` parameter. Default: `%!q(*string=0xc000f53030)`. Value must be one of: `\"default\"`, `\"allow\"`, `\"block\"`, `\"sinkhole\"`.",
 									Optional:            true,
 									Computed:            true,
 									PlanModifiers: []planmodifier.String{
@@ -926,8 +926,8 @@ func (r *dnsSecurityProfilesResource) Schema(_ context.Context, _ resource.Schem
 									},
 								},
 								"log_level": rsschema.StringAttribute{
-									Description:         "The `log_level` parameter.",
-									MarkdownDescription: "The `log_level` parameter.",
+									Description:         "The `log_level` parameter. Default: `%!q(*string=0xc000f53040)`. Value must be one of: `\"default\"`, `\"none\"`, `\"low\"`, `\"informational\"`, `\"medium\"`, `\"high\"`, `\"critical\"`.",
+									MarkdownDescription: "The `log_level` parameter. Default: `%!q(*string=0xc000f53040)`. Value must be one of: `\"default\"`, `\"none\"`, `\"low\"`, `\"informational\"`, `\"medium\"`, `\"high\"`, `\"critical\"`.",
 									Optional:            true,
 									Computed:            true,
 									PlanModifiers: []planmodifier.String{
@@ -947,8 +947,8 @@ func (r *dnsSecurityProfilesResource) Schema(_ context.Context, _ resource.Schem
 									},
 								},
 								"packet_capture": rsschema.StringAttribute{
-									Description:         "The `packet_capture` parameter.",
-									MarkdownDescription: "The `packet_capture` parameter.",
+									Description:         "The `packet_capture` parameter. Value must be one of: `\"disable\"`, `\"single-packet\"`, `\"extended-capture\"`.",
+									MarkdownDescription: "The `packet_capture` parameter. Value must be one of: `\"disable\"`, `\"single-packet\"`, `\"extended-capture\"`.",
 									Optional:            true,
 									Computed:            true,
 									PlanModifiers: []planmodifier.String{
@@ -1000,8 +1000,8 @@ func (r *dnsSecurityProfilesResource) Schema(_ context.Context, _ resource.Schem
 									Required:            true,
 								},
 								"packet_capture": rsschema.StringAttribute{
-									Description:         "The `packet_capture` parameter.",
-									MarkdownDescription: "The `packet_capture` parameter.",
+									Description:         "The `packet_capture` parameter. Value must be one of: `\"disable\"`, `\"single-packet\"`, `\"extended-capture\"`.",
+									MarkdownDescription: "The `packet_capture` parameter. Value must be one of: `\"disable\"`, `\"single-packet\"`, `\"extended-capture\"`.",
 									Optional:            true,
 									Computed:            true,
 									PlanModifiers: []planmodifier.String{
@@ -1020,8 +1020,8 @@ func (r *dnsSecurityProfilesResource) Schema(_ context.Context, _ resource.Schem
 						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"ipv4_address": rsschema.StringAttribute{
-								Description:         "The `ipv4_address` parameter.",
-								MarkdownDescription: "The `ipv4_address` parameter.",
+								Description:         "The `ipv4_address` parameter. Value must be one of: `\"127.0.0.1\"`, `\"pan-sinkhole-default-ip\"`.",
+								MarkdownDescription: "The `ipv4_address` parameter. Value must be one of: `\"127.0.0.1\"`, `\"pan-sinkhole-default-ip\"`.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.String{
@@ -1032,8 +1032,8 @@ func (r *dnsSecurityProfilesResource) Schema(_ context.Context, _ resource.Schem
 								},
 							},
 							"ipv6_address": rsschema.StringAttribute{
-								Description:         "The `ipv6_address` parameter.",
-								MarkdownDescription: "The `ipv6_address` parameter.",
+								Description:         "The `ipv6_address` parameter. Value must be one of: `\"::1\"`.",
+								MarkdownDescription: "The `ipv6_address` parameter. Value must be one of: `\"::1\"`.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.String{

@@ -17,9 +17,9 @@ Retrieves config for a specific item.
 
 ### Required
 
-- `certificate` (String) The `certificate` parameter.
-- `folder` (String) The folder of the entry
-- `name` (String) The `name` parameter.
+- `certificate` (String) The `certificate` parameter. String length must be at most 255.
+- `folder` (String) The folder of the entry. Value must be one of: `"Shared"`, `"Mobile Users"`, `"Remote Networks"`, `"Service Connections"`, `"Mobile Users Container"`, `"Mobile Users Explicit Proxy"`.
+- `name` (String) The `name` parameter. String length must be at most 127.
 - `protocol_settings` (Attributes) The `protocol_settings` parameter. (see [below for nested schema](#nestedatt--protocol_settings))
 
 ### Read-Only
@@ -44,7 +44,7 @@ Optional:
 - `keyxchg_algo_dhe` (Boolean) The `keyxchg_algo_dhe` parameter.
 - `keyxchg_algo_ecdhe` (Boolean) The `keyxchg_algo_ecdhe` parameter.
 - `keyxchg_algo_rsa` (Boolean) The `keyxchg_algo_rsa` parameter.
-- `max_version` (String) The `max_version` parameter.
-- `min_version` (String) The `min_version` parameter.
+- `max_version` (String) The `max_version` parameter. Default: `%!q(*string=0xc000f530e0)`. Value must be one of: `"tls1-0"`, `"tls1-1"`, `"tls1-2"`, `"tls1-3"`, `"max"`.
+- `min_version` (String) The `min_version` parameter. Default: `%!q(*string=0xc000f530d0)`. Value must be one of: `"tls1-0"`, `"tls1-1"`, `"tls1-2"`.
 
 

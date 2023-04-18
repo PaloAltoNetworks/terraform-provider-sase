@@ -122,25 +122,25 @@ func (d *remoteNetworksListDataSource) Schema(_ context.Context, _ datasource.Sc
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description:         "The max count in result entry (count per page)",
-				MarkdownDescription: "The max count in result entry (count per page)",
+				Description:         "The max count in result entry (count per page).",
+				MarkdownDescription: "The max count in result entry (count per page).",
 				Optional:            true,
 				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description:         "The offset of the result entry",
-				MarkdownDescription: "The offset of the result entry",
+				Description:         "The offset of the result entry.",
+				MarkdownDescription: "The offset of the result entry.",
 				Optional:            true,
 				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description:         "The name of the entry",
-				MarkdownDescription: "The name of the entry",
+				Description:         "The name of the entry.",
+				MarkdownDescription: "The name of the entry.",
 				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -592,13 +592,13 @@ func (d *remoteNetworksDataSource) Schema(_ context.Context, _ datasource.Schema
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description:         "The uuid of the resource",
-				MarkdownDescription: "The uuid of the resource",
+				Description:         "The uuid of the resource.",
+				MarkdownDescription: "The uuid of the resource.",
 				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -990,8 +990,8 @@ func (r *remoteNetworksResource) Schema(_ context.Context, _ resource.SchemaRequ
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -999,8 +999,8 @@ func (r *remoteNetworksResource) Schema(_ context.Context, _ resource.SchemaRequ
 			},
 
 			"ecmp_load_balancing": rsschema.StringAttribute{
-				Description:         "The `ecmp_load_balancing` parameter.",
-				MarkdownDescription: "The `ecmp_load_balancing` parameter.",
+				Description:         "The `ecmp_load_balancing` parameter. Default: `%!q(*string=0xc0006100d0)`. Value must be one of: `\"enable\"`, `\"disable\"`.",
+				MarkdownDescription: "The `ecmp_load_balancing` parameter. Default: `%!q(*string=0xc0006100d0)`. Value must be one of: `\"enable\"`, `\"disable\"`.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.String{
@@ -1072,8 +1072,8 @@ func (r *remoteNetworksResource) Schema(_ context.Context, _ resource.SchemaRequ
 							},
 						},
 						"peering_type": rsschema.StringAttribute{
-							Description:         "The `peering_type` parameter.",
-							MarkdownDescription: "The `peering_type` parameter.",
+							Description:         "The `peering_type` parameter. Value must be one of: `\"exchange-v4-over-v4\"`, `\"exchange-v4-v6-over-v4\"`, `\"exchange-v4-over-v4-v6-over-v6\"`, `\"exchange-v6-over-v6\"`.",
+							MarkdownDescription: "The `peering_type` parameter. Value must be one of: `\"exchange-v4-over-v4\"`, `\"exchange-v4-v6-over-v4\"`, `\"exchange-v4-over-v4-v6-over-v6\"`, `\"exchange-v6-over-v6\"`.",
 							Optional:            true,
 							Computed:            true,
 							PlanModifiers: []planmodifier.String{
@@ -1122,16 +1122,16 @@ func (r *remoteNetworksResource) Schema(_ context.Context, _ resource.SchemaRequ
 				},
 			},
 			"license_type": rsschema.StringAttribute{
-				Description:         "The `license_type` parameter.",
-				MarkdownDescription: "The `license_type` parameter.",
+				Description:         "The `license_type` parameter. String length must be at least 1.",
+				MarkdownDescription: "The `license_type` parameter. String length must be at least 1.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtLeast(1),
 				},
 			},
 			"name": rsschema.StringAttribute{
-				Description:         "The `name` parameter.",
-				MarkdownDescription: "The `name` parameter.",
+				Description:         "The `name` parameter. String length must be at most 63.",
+				MarkdownDescription: "The `name` parameter. String length must be at most 63.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(63),
@@ -1202,8 +1202,8 @@ func (r *remoteNetworksResource) Schema(_ context.Context, _ resource.SchemaRequ
 								},
 							},
 							"peering_type": rsschema.StringAttribute{
-								Description:         "The `peering_type` parameter.",
-								MarkdownDescription: "The `peering_type` parameter.",
+								Description:         "The `peering_type` parameter. Value must be one of: `\"exchange-v4-over-v4\"`, `\"exchange-v4-v6-over-v4\"`, `\"exchange-v4-over-v4-v6-over-v6\"`, `\"exchange-v6-over-v6\"`.",
+								MarkdownDescription: "The `peering_type` parameter. Value must be one of: `\"exchange-v4-over-v4\"`, `\"exchange-v4-v6-over-v4\"`, `\"exchange-v4-over-v4-v6-over-v6\"`, `\"exchange-v6-over-v6\"`.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.String{
@@ -1270,8 +1270,8 @@ func (r *remoteNetworksResource) Schema(_ context.Context, _ resource.SchemaRequ
 				},
 			},
 			"region": rsschema.StringAttribute{
-				Description:         "The `region` parameter.",
-				MarkdownDescription: "The `region` parameter.",
+				Description:         "The `region` parameter. String length must be at least 1.",
+				MarkdownDescription: "The `region` parameter. String length must be at least 1.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtLeast(1),
@@ -1590,14 +1590,12 @@ func (r *remoteNetworksResource) Update(ctx context.Context, req resource.Update
 		"terraform_provider_function": "Update",
 		"resource_name":               "sase_remote_networks",
 		"object_id":                   state.ObjectId.ValueString(),
-		"folder":                      state.Folder.ValueString(),
 	})
 
 	// Prepare to create the config.
 	svc := xsuBWMo.NewClient(r.client)
 	input := xsuBWMo.UpdateInput{
 		ObjectId: state.ObjectId.ValueString(),
-		Folder:   state.Folder.ValueString(),
 	}
 	var var0 jhtSIUK.Config
 	var0.EcmpLoadBalancing = plan.EcmpLoadBalancing.ValueString()
@@ -1751,7 +1749,6 @@ func (r *remoteNetworksResource) Delete(ctx context.Context, req resource.Delete
 	svc := xsuBWMo.NewClient(r.client)
 	input := xsuBWMo.DeleteInput{
 		ObjectId: tokens[1],
-		Folder:   tokens[0],
 	}
 
 	// Perform the operation.

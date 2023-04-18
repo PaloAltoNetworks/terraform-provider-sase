@@ -150,25 +150,25 @@ func (d *ikeGatewaysListDataSource) Schema(_ context.Context, _ datasource.Schem
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description:         "The max count in result entry (count per page)",
-				MarkdownDescription: "The max count in result entry (count per page)",
+				Description:         "The max count in result entry (count per page).",
+				MarkdownDescription: "The max count in result entry (count per page).",
 				Optional:            true,
 				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description:         "The offset of the result entry",
-				MarkdownDescription: "The offset of the result entry",
+				Description:         "The offset of the result entry.",
+				MarkdownDescription: "The offset of the result entry.",
 				Optional:            true,
 				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description:         "The name of the entry",
-				MarkdownDescription: "The name of the entry",
+				Description:         "The name of the entry.",
+				MarkdownDescription: "The name of the entry.",
 				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -705,13 +705,13 @@ func (d *ikeGatewaysDataSource) Schema(_ context.Context, _ datasource.SchemaReq
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description:         "The uuid of the resource",
-				MarkdownDescription: "The uuid of the resource",
+				Description:         "The uuid of the resource.",
+				MarkdownDescription: "The uuid of the resource.",
 				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -1188,8 +1188,8 @@ func (r *ikeGatewaysResource) Schema(_ context.Context, _ resource.SchemaRequest
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -1285,8 +1285,8 @@ func (r *ikeGatewaysResource) Schema(_ context.Context, _ resource.SchemaRequest
 				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"object_id": rsschema.StringAttribute{
-						Description:         "The `object_id` parameter.",
-						MarkdownDescription: "The `object_id` parameter.",
+						Description:         "The `object_id` parameter. String length must be between 1 and 1024.",
+						MarkdownDescription: "The `object_id` parameter. String length must be between 1 and 1024.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.String{
@@ -1308,8 +1308,8 @@ func (r *ikeGatewaysResource) Schema(_ context.Context, _ resource.SchemaRequest
 				},
 			},
 			"name": rsschema.StringAttribute{
-				Description:         "The `name` parameter.",
-				MarkdownDescription: "The `name` parameter.",
+				Description:         "The `name` parameter. String length must be at most 63.",
+				MarkdownDescription: "The `name` parameter. String length must be at most 63.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(63),
@@ -1326,8 +1326,8 @@ func (r *ikeGatewaysResource) Schema(_ context.Context, _ resource.SchemaRequest
 						Optional:            true,
 					},
 					"fqdn": rsschema.StringAttribute{
-						Description:         "The `fqdn` parameter.",
-						MarkdownDescription: "The `fqdn` parameter.",
+						Description:         "The `fqdn` parameter. String length must be at most 255.",
+						MarkdownDescription: "The `fqdn` parameter. String length must be at most 255.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.String{
@@ -1354,8 +1354,8 @@ func (r *ikeGatewaysResource) Schema(_ context.Context, _ resource.SchemaRequest
 				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"object_id": rsschema.StringAttribute{
-						Description:         "The `object_id` parameter.",
-						MarkdownDescription: "The `object_id` parameter.",
+						Description:         "The `object_id` parameter. String length must be between 1 and 1024.",
+						MarkdownDescription: "The `object_id` parameter. String length must be between 1 and 1024.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.String{
@@ -1366,8 +1366,8 @@ func (r *ikeGatewaysResource) Schema(_ context.Context, _ resource.SchemaRequest
 						},
 					},
 					"type": rsschema.StringAttribute{
-						Description:         "The `type` parameter.",
-						MarkdownDescription: "The `type` parameter.",
+						Description:         "The `type` parameter. Value must be one of: `\"ipaddr\"`, `\"keyid\"`, `\"fqdn\"`, `\"ufqdn\"`.",
+						MarkdownDescription: "The `type` parameter. Value must be one of: `\"ipaddr\"`, `\"keyid\"`, `\"fqdn\"`, `\"ufqdn\"`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.String{
@@ -1449,8 +1449,8 @@ func (r *ikeGatewaysResource) Schema(_ context.Context, _ resource.SchemaRequest
 						},
 					},
 					"version": rsschema.StringAttribute{
-						Description:         "The `version` parameter.",
-						MarkdownDescription: "The `version` parameter.",
+						Description:         "The `version` parameter. Default: `%!q(*string=0xc000f52fe0)`. Value must be one of: `\"ikev2-preferred\"`, `\"ikev1\"`, `\"ikev2\"`.",
+						MarkdownDescription: "The `version` parameter. Default: `%!q(*string=0xc000f52fe0)`. Value must be one of: `\"ikev2-preferred\"`, `\"ikev1\"`, `\"ikev2\"`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.String{
@@ -1473,8 +1473,8 @@ func (r *ikeGatewaysResource) Schema(_ context.Context, _ resource.SchemaRequest
 						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"enable": rsschema.BoolAttribute{
-								Description:         "The `enable` parameter.",
-								MarkdownDescription: "The `enable` parameter.",
+								Description:         "The `enable` parameter. Default: `false`.",
+								MarkdownDescription: "The `enable` parameter. Default: `false`.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.Bool{

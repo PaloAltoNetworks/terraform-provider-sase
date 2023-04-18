@@ -90,25 +90,25 @@ func (d *ikeCryptoProfilesListDataSource) Schema(_ context.Context, _ datasource
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description:         "The max count in result entry (count per page)",
-				MarkdownDescription: "The max count in result entry (count per page)",
+				Description:         "The max count in result entry (count per page).",
+				MarkdownDescription: "The max count in result entry (count per page).",
 				Optional:            true,
 				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description:         "The offset of the result entry",
-				MarkdownDescription: "The offset of the result entry",
+				Description:         "The offset of the result entry.",
+				MarkdownDescription: "The offset of the result entry.",
 				Optional:            true,
 				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description:         "The name of the entry",
-				MarkdownDescription: "The name of the entry",
+				Description:         "The name of the entry.",
+				MarkdownDescription: "The name of the entry.",
 				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -360,13 +360,13 @@ func (d *ikeCryptoProfilesDataSource) Schema(_ context.Context, _ datasource.Sch
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description:         "The uuid of the resource",
-				MarkdownDescription: "The uuid of the resource",
+				Description:         "The uuid of the resource.",
+				MarkdownDescription: "The uuid of the resource.",
 				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -558,8 +558,8 @@ func (r *ikeCryptoProfilesResource) Schema(_ context.Context, _ resource.SchemaR
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -567,8 +567,8 @@ func (r *ikeCryptoProfilesResource) Schema(_ context.Context, _ resource.SchemaR
 			},
 
 			"authentication_multiple": rsschema.Int64Attribute{
-				Description:         "The `authentication_multiple` parameter.",
-				MarkdownDescription: "The `authentication_multiple` parameter.",
+				Description:         "The `authentication_multiple` parameter. Default: `0`. Value must be at most 50.",
+				MarkdownDescription: "The `authentication_multiple` parameter. Default: `0`. Value must be at most 50.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.Int64{
@@ -610,8 +610,8 @@ func (r *ikeCryptoProfilesResource) Schema(_ context.Context, _ resource.SchemaR
 				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"days": rsschema.Int64Attribute{
-						Description:         "The `days` parameter.",
-						MarkdownDescription: "The `days` parameter.",
+						Description:         "The `days` parameter. Value must be between 1 and 365.",
+						MarkdownDescription: "The `days` parameter. Value must be between 1 and 365.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Int64{
@@ -622,8 +622,8 @@ func (r *ikeCryptoProfilesResource) Schema(_ context.Context, _ resource.SchemaR
 						},
 					},
 					"hours": rsschema.Int64Attribute{
-						Description:         "The `hours` parameter.",
-						MarkdownDescription: "The `hours` parameter.",
+						Description:         "The `hours` parameter. Value must be between 1 and 65535.",
+						MarkdownDescription: "The `hours` parameter. Value must be between 1 and 65535.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Int64{
@@ -634,8 +634,8 @@ func (r *ikeCryptoProfilesResource) Schema(_ context.Context, _ resource.SchemaR
 						},
 					},
 					"minutes": rsschema.Int64Attribute{
-						Description:         "The `minutes` parameter.",
-						MarkdownDescription: "The `minutes` parameter.",
+						Description:         "The `minutes` parameter. Value must be between 3 and 65535.",
+						MarkdownDescription: "The `minutes` parameter. Value must be between 3 and 65535.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Int64{
@@ -646,8 +646,8 @@ func (r *ikeCryptoProfilesResource) Schema(_ context.Context, _ resource.SchemaR
 						},
 					},
 					"seconds": rsschema.Int64Attribute{
-						Description:         "The `seconds` parameter.",
-						MarkdownDescription: "The `seconds` parameter.",
+						Description:         "The `seconds` parameter. Value must be between 180 and 65535.",
+						MarkdownDescription: "The `seconds` parameter. Value must be between 180 and 65535.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Int64{
@@ -660,8 +660,8 @@ func (r *ikeCryptoProfilesResource) Schema(_ context.Context, _ resource.SchemaR
 				},
 			},
 			"name": rsschema.StringAttribute{
-				Description:         "The `name` parameter.",
-				MarkdownDescription: "The `name` parameter.",
+				Description:         "The `name` parameter. String length must be at most 31.",
+				MarkdownDescription: "The `name` parameter. String length must be at most 31.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(31),

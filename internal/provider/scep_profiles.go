@@ -115,25 +115,25 @@ func (d *scepProfilesListDataSource) Schema(_ context.Context, _ datasource.Sche
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description:         "The max count in result entry (count per page)",
-				MarkdownDescription: "The max count in result entry (count per page)",
+				Description:         "The max count in result entry (count per page).",
+				MarkdownDescription: "The max count in result entry (count per page).",
 				Optional:            true,
 				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description:         "The offset of the result entry",
-				MarkdownDescription: "The offset of the result entry",
+				Description:         "The offset of the result entry.",
+				MarkdownDescription: "The offset of the result entry.",
 				Optional:            true,
 				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description:         "The name of the entry",
-				MarkdownDescription: "The name of the entry",
+				Description:         "The name of the entry.",
+				MarkdownDescription: "The name of the entry.",
 				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -515,8 +515,8 @@ func (d *scepProfilesDataSource) Schema(_ context.Context, _ datasource.SchemaRe
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description:         "The uuid of the resource",
-				MarkdownDescription: "The uuid of the resource",
+				Description:         "The uuid of the resource.",
+				MarkdownDescription: "The uuid of the resource.",
 				Required:            true,
 			},
 
@@ -832,8 +832,8 @@ func (r *scepProfilesResource) Schema(_ context.Context, _ resource.SchemaReques
 
 			// Input.
 			"type": rsschema.StringAttribute{
-				Description:         "The type of the schema node",
-				MarkdownDescription: "The type of the schema node",
+				Description:         "The type of the schema node. Value must be one of: `\"cloud\"`, `\"container\"`.",
+				MarkdownDescription: "The type of the schema node. Value must be one of: `\"cloud\"`, `\"container\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("cloud", "container"),
@@ -925,8 +925,8 @@ func (r *scepProfilesResource) Schema(_ context.Context, _ resource.SchemaReques
 				},
 			},
 			"name": rsschema.StringAttribute{
-				Description:         "The `name` parameter.",
-				MarkdownDescription: "The `name` parameter.",
+				Description:         "The `name` parameter. String length must be at most 31.",
+				MarkdownDescription: "The `name` parameter. String length must be at most 31.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(31),
@@ -952,8 +952,8 @@ func (r *scepProfilesResource) Schema(_ context.Context, _ resource.SchemaReques
 						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"otp_server_url": rsschema.StringAttribute{
-								Description:         "The `otp_server_url` parameter.",
-								MarkdownDescription: "The `otp_server_url` parameter.",
+								Description:         "The `otp_server_url` parameter. String length must be between 0 and 255.",
+								MarkdownDescription: "The `otp_server_url` parameter. String length must be between 0 and 255.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.String{
@@ -964,8 +964,8 @@ func (r *scepProfilesResource) Schema(_ context.Context, _ resource.SchemaReques
 								},
 							},
 							"password": rsschema.StringAttribute{
-								Description:         "The `password` parameter.",
-								MarkdownDescription: "The `password` parameter.",
+								Description:         "The `password` parameter. String length must be between 0 and 255.",
+								MarkdownDescription: "The `password` parameter. String length must be between 0 and 255.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.String{
@@ -976,8 +976,8 @@ func (r *scepProfilesResource) Schema(_ context.Context, _ resource.SchemaReques
 								},
 							},
 							"username": rsschema.StringAttribute{
-								Description:         "The `username` parameter.",
-								MarkdownDescription: "The `username` parameter.",
+								Description:         "The `username` parameter. String length must be between 0 and 255.",
+								MarkdownDescription: "The `username` parameter. String length must be between 0 and 255.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.String{
@@ -990,8 +990,8 @@ func (r *scepProfilesResource) Schema(_ context.Context, _ resource.SchemaReques
 						},
 					},
 					"fixed": rsschema.StringAttribute{
-						Description:         "The `fixed` parameter.",
-						MarkdownDescription: "The `fixed` parameter.",
+						Description:         "The `fixed` parameter. String length must be between 0 and 1024.",
+						MarkdownDescription: "The `fixed` parameter. String length must be between 0 and 1024.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.String{
@@ -1002,8 +1002,8 @@ func (r *scepProfilesResource) Schema(_ context.Context, _ resource.SchemaReques
 						},
 					},
 					"none": rsschema.StringAttribute{
-						Description:         "The `none` parameter.",
-						MarkdownDescription: "The `none` parameter.",
+						Description:         "The `none` parameter. Default: `%!q(*string=0xc000f53160)`. Value must be one of: `\"\"`.",
+						MarkdownDescription: "The `none` parameter. Default: `%!q(*string=0xc000f53160)`. Value must be one of: `\"\"`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.String{

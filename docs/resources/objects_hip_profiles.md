@@ -17,13 +17,13 @@ Retrieves config for a specific item.
 
 ### Required
 
-- `folder` (String) The folder of the entry
-- `match` (String) The `match` parameter.
-- `name` (String) The `name` parameter.
+- `folder` (String) The folder of the entry. Value must be one of: `"Shared"`, `"Mobile Users"`, `"Remote Networks"`, `"Service Connections"`, `"Mobile Users Container"`, `"Mobile Users Explicit Proxy"`.
+- `match` (String) The `match` parameter. String length must be at most 2048.
+- `name` (String) The `name` parameter. String length must be at most 31.
 
 ### Optional
 
-- `description` (String) The `description` parameter.
+- `description` (String) The `description` parameter. String length must be between 0 and 255.
 
 ### Read-Only
 

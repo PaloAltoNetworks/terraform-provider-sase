@@ -19,9 +19,9 @@ Retrieves config for a specific item.
 
 - `ca_identity_name` (String) The `ca_identity_name` parameter.
 - `digest` (String) The `digest` parameter.
-- `name` (String) The `name` parameter.
+- `name` (String) The `name` parameter. String length must be at most 31.
 - `scep_url` (String) The `scep_url` parameter.
-- `type` (String) The type of the schema node
+- `type` (String) The type of the schema node. Value must be one of: `"cloud"`, `"container"`.
 
 ### Optional
 
@@ -72,16 +72,16 @@ Optional:
 Optional:
 
 - `dynamic_value` (Attributes) The `dynamic_value` parameter. (see [below for nested schema](#nestedatt--scep_challenge--dynamic_value))
-- `fixed` (String) The `fixed` parameter.
-- `none` (String) The `none` parameter.
+- `fixed` (String) The `fixed` parameter. String length must be between 0 and 1024.
+- `none` (String) The `none` parameter. Default: `%!q(*string=0xc000f53160)`. Value must be one of: `""`.
 
 <a id="nestedatt--scep_challenge--dynamic_value"></a>
 ### Nested Schema for `scep_challenge.dynamic_value`
 
 Optional:
 
-- `otp_server_url` (String) The `otp_server_url` parameter.
-- `password` (String) The `password` parameter.
-- `username` (String) The `username` parameter.
+- `otp_server_url` (String) The `otp_server_url` parameter. String length must be between 0 and 255.
+- `password` (String) The `password` parameter. String length must be between 0 and 255.
+- `username` (String) The `username` parameter. String length must be between 0 and 255.
 
 

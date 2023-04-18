@@ -18,8 +18,8 @@ Retrieves config for a specific item.
 ### Required
 
 - `authentication` (Attributes) The `authentication` parameter. (see [below for nested schema](#nestedatt--authentication))
-- `folder` (String) The folder of the entry
-- `name` (String) The `name` parameter.
+- `folder` (String) The folder of the entry. Value must be one of: `"Shared"`, `"Mobile Users"`, `"Remote Networks"`, `"Service Connections"`, `"Mobile Users Container"`, `"Mobile Users Explicit Proxy"`.
+- `name` (String) The `name` parameter. String length must be at most 63.
 - `peer_address` (Attributes) The `peer_address` parameter. (see [below for nested schema](#nestedatt--peer_address))
 - `protocol` (Attributes) The `protocol` parameter. (see [below for nested schema](#nestedatt--protocol))
 
@@ -69,7 +69,7 @@ Optional:
 Optional:
 
 - `dynamic_value` (Boolean) The `dynamic_value` parameter.
-- `fqdn` (String) The `fqdn` parameter.
+- `fqdn` (String) The `fqdn` parameter. String length must be at most 255.
 - `ip` (String) The `ip` parameter.
 
 
@@ -80,7 +80,7 @@ Optional:
 
 - `ikev1` (Attributes) The `ikev1` parameter. (see [below for nested schema](#nestedatt--protocol--ikev1))
 - `ikev2` (Attributes) The `ikev2` parameter. (see [below for nested schema](#nestedatt--protocol--ikev2))
-- `version` (String) The `version` parameter.
+- `version` (String) The `version` parameter. Default: `%!q(*string=0xc000f52fe0)`. Value must be one of: `"ikev2-preferred"`, `"ikev1"`, `"ikev2"`.
 
 <a id="nestedatt--protocol--ikev1"></a>
 ### Nested Schema for `protocol.ikev1`
@@ -122,7 +122,7 @@ Optional:
 
 Optional:
 
-- `object_id` (String) The `object_id` parameter.
+- `object_id` (String) The `object_id` parameter. String length must be between 1 and 1024.
 - `type` (String) The `type` parameter.
 
 
@@ -131,8 +131,8 @@ Optional:
 
 Optional:
 
-- `object_id` (String) The `object_id` parameter.
-- `type` (String) The `type` parameter.
+- `object_id` (String) The `object_id` parameter. String length must be between 1 and 1024.
+- `type` (String) The `type` parameter. Value must be one of: `"ipaddr"`, `"keyid"`, `"fqdn"`, `"ufqdn"`.
 
 
 <a id="nestedatt--protocol_common"></a>
@@ -149,7 +149,7 @@ Optional:
 
 Optional:
 
-- `enable` (Boolean) The `enable` parameter.
+- `enable` (Boolean) The `enable` parameter. Default: `false`.
 
 
 <a id="nestedatt--protocol_common--nat_traversal"></a>

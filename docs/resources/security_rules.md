@@ -21,10 +21,10 @@ Retrieves config for a specific item.
 - `application` (List of String) The `application` parameter.
 - `category` (List of String) The `category` parameter.
 - `destination` (List of String) The `destination` parameter.
-- `folder` (String) The folder of the entry
+- `folder` (String) The folder of the entry. Value must be one of: `"Shared"`, `"Mobile Users"`, `"Remote Networks"`, `"Service Connections"`, `"Mobile Users Container"`, `"Mobile Users Explicit Proxy"`.
 - `from` (List of String) The `from` parameter.
 - `name` (String) The `name` parameter.
-- `position` (String) The position of a security rule
+- `position` (String) The position of a security rule. Value must be one of: `"pre"`, `"post"`.
 - `service` (List of String) The `service` parameter.
 - `source` (List of String) The `source` parameter.
 - `source_user` (List of String) The `source_user` parameter.

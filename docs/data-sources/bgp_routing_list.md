@@ -17,12 +17,12 @@ Retrieves a listing of config items.
 
 ### Required
 
-- `folder` (String) The folder of the entry
+- `folder` (String) The folder of the entry. Value must be one of: `"Shared"`, `"Mobile Users"`, `"Remote Networks"`, `"Service Connections"`, `"Mobile Users Container"`, `"Mobile Users Explicit Proxy"`.
 
 ### Optional
 
-- `limit` (Number) The max count in result entry (count per page)
-- `offset` (Number) The offset of the result entry
+- `limit` (Number) The max count in result entry (count per page).
+- `offset` (Number) The offset of the result entry.
 
 ### Read-Only
 

@@ -18,14 +18,14 @@ Retrieves config for a specific item.
 ### Required
 
 - `auto_key` (Attributes) The `auto_key` parameter. (see [below for nested schema](#nestedatt--auto_key))
-- `folder` (String) The folder of the entry
-- `name` (String) The `name` parameter.
+- `folder` (String) The folder of the entry. Value must be one of: `"Shared"`, `"Mobile Users"`, `"Remote Networks"`, `"Service Connections"`, `"Mobile Users Container"`, `"Mobile Users Explicit Proxy"`.
+- `name` (String) The `name` parameter. String length must be at most 63.
 
 ### Optional
 
 - `anti_replay` (Boolean) The `anti_replay` parameter.
-- `copy_tos` (Boolean) The `copy_tos` parameter.
-- `enable_gre_encapsulation` (Boolean) The `enable_gre_encapsulation` parameter.
+- `copy_tos` (Boolean) The `copy_tos` parameter. Default: `false`.
+- `enable_gre_encapsulation` (Boolean) The `enable_gre_encapsulation` parameter. Default: `false`.
 - `tunnel_monitor` (Attributes) The `tunnel_monitor` parameter. (see [below for nested schema](#nestedatt--tunnel_monitor))
 
 ### Read-Only
@@ -71,7 +71,7 @@ Optional:
 
 Optional:
 
-- `number` (Number) The `number` parameter.
+- `number` (Number) The `number` parameter. Value must be between 1 and 254.
 - `tcp` (Attributes) The `tcp` parameter. (see [below for nested schema](#nestedatt--auto_key--proxy_id--protocol--tcp))
 - `udp` (Attributes) The `udp` parameter. (see [below for nested schema](#nestedatt--auto_key--proxy_id--protocol--udp))
 
@@ -80,8 +80,8 @@ Optional:
 
 Optional:
 
-- `local_port` (Number) The `local_port` parameter.
-- `remote_port` (Number) The `remote_port` parameter.
+- `local_port` (Number) The `local_port` parameter. Default: `0`. Value must be between 0 and 65535.
+- `remote_port` (Number) The `remote_port` parameter. Default: `0`. Value must be between 0 and 65535.
 
 
 <a id="nestedatt--auto_key--proxy_id--protocol--udp"></a>
@@ -89,8 +89,8 @@ Optional:
 
 Optional:
 
-- `local_port` (Number) The `local_port` parameter.
-- `remote_port` (Number) The `remote_port` parameter.
+- `local_port` (Number) The `local_port` parameter. Default: `0`. Value must be between 0 and 65535.
+- `remote_port` (Number) The `remote_port` parameter. Default: `0`. Value must be between 0 and 65535.
 
 
 
@@ -105,7 +105,7 @@ Required:
 
 Optional:
 
-- `enable` (Boolean) The `enable` parameter.
+- `enable` (Boolean) The `enable` parameter. Default: `true`.
 - `proxy_id` (String) The `proxy_id` parameter.
 
 

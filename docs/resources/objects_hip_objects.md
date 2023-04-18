@@ -17,8 +17,8 @@ Retrieves config for a specific item.
 
 ### Required
 
-- `folder` (String) The folder of the entry
-- `name` (String) The `name` parameter.
+- `folder` (String) The folder of the entry. Value must be one of: `"Shared"`, `"Mobile Users"`, `"Remote Networks"`, `"Service Connections"`, `"Mobile Users Container"`, `"Mobile Users Explicit Proxy"`.
+- `name` (String) The `name` parameter. String length must be at most 31.
 
 ### Optional
 
@@ -26,7 +26,7 @@ Retrieves config for a specific item.
 - `certificate` (Attributes) The `certificate` parameter. (see [below for nested schema](#nestedatt--certificate))
 - `custom_checks` (Attributes) The `custom_checks` parameter. (see [below for nested schema](#nestedatt--custom_checks))
 - `data_loss_prevention` (Attributes) The `data_loss_prevention` parameter. (see [below for nested schema](#nestedatt--data_loss_prevention))
-- `description` (String) The `description` parameter.
+- `description` (String) The `description` parameter. String length must be between 0 and 255.
 - `disk_backup` (Attributes) The `disk_backup` parameter. (see [below for nested schema](#nestedatt--disk_backup))
 - `disk_encryption` (Attributes) The `disk_encryption` parameter. (see [below for nested schema](#nestedatt--disk_encryption))
 - `firewall` (Attributes) The `firewall` parameter. (see [below for nested schema](#nestedatt--firewall))
@@ -46,7 +46,7 @@ Retrieves config for a specific item.
 Optional:
 
 - `criteria` (Attributes) The `criteria` parameter. (see [below for nested schema](#nestedatt--anti_malware--criteria))
-- `exclude_vendor` (Boolean) The `exclude_vendor` parameter.
+- `exclude_vendor` (Boolean) The `exclude_vendor` parameter. Default: `false`.
 - `vendor` (Attributes List) The `vendor` parameter. (see [below for nested schema](#nestedatt--anti_malware--vendor))
 
 <a id="nestedatt--anti_malware--criteria"></a>
@@ -54,10 +54,10 @@ Optional:
 
 Optional:
 
-- `is_installed` (Boolean) The `is_installed` parameter.
+- `is_installed` (Boolean) The `is_installed` parameter. Default: `true`.
 - `last_scan_time` (Attributes) The `last_scan_time` parameter. (see [below for nested schema](#nestedatt--anti_malware--criteria--last_scan_time))
 - `product_version` (Attributes) The `product_version` parameter. (see [below for nested schema](#nestedatt--anti_malware--criteria--product_version))
-- `real_time_protection` (String) The `real_time_protection` parameter.
+- `real_time_protection` (String) The `real_time_protection` parameter. Value must be one of: `"no"`, `"yes"`, `"not-available"`.
 - `virdef_version` (Attributes) The `virdef_version` parameter. (see [below for nested schema](#nestedatt--anti_malware--criteria--virdef_version))
 
 <a id="nestedatt--anti_malware--criteria--last_scan_time"></a>
@@ -65,7 +65,7 @@ Optional:
 
 Optional:
 
-- `not_available` (Boolean) The `not_available` parameter.
+- `not_available` (Boolean) The `not_available` parameter. Conflicts with: `not_within`, `within`.
 - `not_within` (Attributes) The `not_within` parameter. (see [below for nested schema](#nestedatt--anti_malware--criteria--last_scan_time--not_within))
 - `within` (Attributes) The `within` parameter. (see [below for nested schema](#nestedatt--anti_malware--criteria--last_scan_time--within))
 
@@ -74,8 +74,8 @@ Optional:
 
 Optional:
 
-- `days` (Number) The `days` parameter.
-- `hours` (Number) The `hours` parameter.
+- `days` (Number) The `days` parameter. Default: `1`. Value must be between 1 and 65535.
+- `hours` (Number) The `hours` parameter. Default: `24`. Value must be between 1 and 65535.
 
 
 <a id="nestedatt--anti_malware--criteria--last_scan_time--within"></a>
@@ -83,8 +83,8 @@ Optional:
 
 Optional:
 
-- `days` (Number) The `days` parameter.
-- `hours` (Number) The `hours` parameter.
+- `days` (Number) The `days` parameter. Default: `1`. Value must be between 1 and 65535.
+- `hours` (Number) The `hours` parameter. Default: `24`. Value must be between 1 and 65535.
 
 
 
@@ -93,13 +93,13 @@ Optional:
 
 Optional:
 
-- `contains` (String) The `contains` parameter.
-- `greater_equal` (String) The `greater_equal` parameter.
-- `greater_than` (String) The `greater_than` parameter.
-- `is` (String) The `is` parameter.
-- `is_not` (String) The `is_not` parameter.
-- `less_equal` (String) The `less_equal` parameter.
-- `less_than` (String) The `less_than` parameter.
+- `contains` (String) The `contains` parameter. String length must be between 0 and 255. Conflicts with: `greater_equal`, `greater_than`, `is`, `is_not`, `less_equal`, `less_than`, `not_within`, `within`.
+- `greater_equal` (String) The `greater_equal` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `greater_than`, `is`, `is_not`, `less_equal`, `less_than`, `not_within`, `within`.
+- `greater_than` (String) The `greater_than` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `greater_equal`, `is`, `is_not`, `less_equal`, `less_than`, `not_within`, `within`.
+- `is` (String) The `is` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `greater_equal`, `greater_than`, `is_not`, `less_equal`, `less_than`, `not_within`, `within`.
+- `is_not` (String) The `is_not` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `greater_equal`, `greater_than`, `is`, `less_equal`, `less_than`, `not_within`, `within`.
+- `less_equal` (String) The `less_equal` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `greater_equal`, `greater_than`, `is`, `is_not`, `less_than`, `not_within`, `within`.
+- `less_than` (String) The `less_than` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `greater_equal`, `greater_than`, `is`, `is_not`, `less_equal`, `not_within`, `within`.
 - `not_within` (Attributes) The `not_within` parameter. (see [below for nested schema](#nestedatt--anti_malware--criteria--product_version--not_within))
 - `within` (Attributes) The `within` parameter. (see [below for nested schema](#nestedatt--anti_malware--criteria--product_version--within))
 
@@ -108,7 +108,7 @@ Optional:
 
 Required:
 
-- `versions` (Number) The `versions` parameter.
+- `versions` (Number) The `versions` parameter. Value must be between 1 and 65535.
 
 
 <a id="nestedatt--anti_malware--criteria--product_version--within"></a>
@@ -116,7 +116,7 @@ Required:
 
 Required:
 
-- `versions` (Number) The `versions` parameter.
+- `versions` (Number) The `versions` parameter. Value must be between 1 and 65535.
 
 
 
@@ -133,8 +133,8 @@ Optional:
 
 Optional:
 
-- `days` (Number) The `days` parameter.
-- `versions` (Number) The `versions` parameter.
+- `days` (Number) The `days` parameter. Default: `1`. Value must be between 1 and 65535.
+- `versions` (Number) The `versions` parameter. Default: `1`. Value must be between 1 and 65535.
 
 
 <a id="nestedatt--anti_malware--criteria--virdef_version--within"></a>
@@ -142,8 +142,8 @@ Optional:
 
 Optional:
 
-- `days` (Number) The `days` parameter.
-- `versions` (Number) The `versions` parameter.
+- `days` (Number) The `days` parameter. Default: `1`. Value must be between 1 and 65535.
+- `versions` (Number) The `versions` parameter. Default: `1`. Value must be between 1 and 65535.
 
 
 
@@ -153,7 +153,7 @@ Optional:
 
 Required:
 
-- `name` (String) The `name` parameter.
+- `name` (String) The `name` parameter. String length must be at most 103.
 
 Optional:
 
@@ -185,7 +185,7 @@ Required:
 
 Optional:
 
-- `value` (String) The `value` parameter.
+- `value` (String) The `value` parameter. String length must be at most 1024.
 
 
 
@@ -211,24 +211,24 @@ Optional:
 
 Required:
 
-- `name` (String) The `name` parameter.
+- `name` (String) The `name` parameter. String length must be at most 1023.
 
 Optional:
 
 - `key` (Attributes List) The `key` parameter. (see [below for nested schema](#nestedatt--custom_checks--criteria--plist--key))
-- `negate` (Boolean) The `negate` parameter.
+- `negate` (Boolean) The `negate` parameter. Default: `false`.
 
 <a id="nestedatt--custom_checks--criteria--plist--key"></a>
 ### Nested Schema for `custom_checks.criteria.plist.negate`
 
 Required:
 
-- `name` (String) The `name` parameter.
+- `name` (String) The `name` parameter. String length must be at most 1023.
 
 Optional:
 
-- `negate` (Boolean) The `negate` parameter.
-- `value` (String) The `value` parameter.
+- `negate` (Boolean) The `negate` parameter. Default: `false`.
+- `value` (String) The `value` parameter. String length must be at most 1024.
 
 
 
@@ -237,11 +237,11 @@ Optional:
 
 Required:
 
-- `name` (String) The `name` parameter.
+- `name` (String) The `name` parameter. String length must be at most 1023.
 
 Optional:
 
-- `running` (Boolean) The `running` parameter.
+- `running` (Boolean) The `running` parameter. Default: `true`.
 
 
 <a id="nestedatt--custom_checks--criteria--registry_key"></a>
@@ -249,12 +249,12 @@ Optional:
 
 Required:
 
-- `name` (String) The `name` parameter.
+- `name` (String) The `name` parameter. String length must be at most 1023.
 
 Optional:
 
-- `default_value_data` (String) The `default_value_data` parameter.
-- `negate` (Boolean) The `negate` parameter.
+- `default_value_data` (String) The `default_value_data` parameter. String length must be at most 1024.
+- `negate` (Boolean) The `negate` parameter. Default: `false`.
 - `registry_value` (Attributes List) The `registry_value` parameter. (see [below for nested schema](#nestedatt--custom_checks--criteria--registry_key--registry_value))
 
 <a id="nestedatt--custom_checks--criteria--registry_key--registry_value"></a>
@@ -262,12 +262,12 @@ Optional:
 
 Required:
 
-- `name` (String) The `name` parameter.
+- `name` (String) The `name` parameter. String length must be at most 1023.
 
 Optional:
 
-- `negate` (Boolean) The `negate` parameter.
-- `value_data` (String) The `value_data` parameter.
+- `negate` (Boolean) The `negate` parameter. Default: `false`.
+- `value_data` (String) The `value_data` parameter. String length must be at most 1024.
 
 
 
@@ -279,7 +279,7 @@ Optional:
 Optional:
 
 - `criteria` (Attributes) The `criteria` parameter. (see [below for nested schema](#nestedatt--data_loss_prevention--criteria))
-- `exclude_vendor` (Boolean) The `exclude_vendor` parameter.
+- `exclude_vendor` (Boolean) The `exclude_vendor` parameter. Default: `false`.
 - `vendor` (Attributes List) The `vendor` parameter. (see [below for nested schema](#nestedatt--data_loss_prevention--vendor))
 
 <a id="nestedatt--data_loss_prevention--criteria"></a>
@@ -287,8 +287,8 @@ Optional:
 
 Optional:
 
-- `is_enabled` (String) The `is_enabled` parameter.
-- `is_installed` (Boolean) The `is_installed` parameter.
+- `is_enabled` (String) The `is_enabled` parameter. Value must be one of: `"no"`, `"yes"`, `"not-available"`.
+- `is_installed` (Boolean) The `is_installed` parameter. Default: `true`.
 
 
 <a id="nestedatt--data_loss_prevention--vendor"></a>
@@ -296,7 +296,7 @@ Optional:
 
 Required:
 
-- `name` (String) The `name` parameter.
+- `name` (String) The `name` parameter. String length must be at most 103.
 
 Optional:
 
@@ -310,7 +310,7 @@ Optional:
 Optional:
 
 - `criteria` (Attributes) The `criteria` parameter. (see [below for nested schema](#nestedatt--disk_backup--criteria))
-- `exclude_vendor` (Boolean) The `exclude_vendor` parameter.
+- `exclude_vendor` (Boolean) The `exclude_vendor` parameter. Default: `false`.
 - `vendor` (Attributes List) The `vendor` parameter. (see [below for nested schema](#nestedatt--disk_backup--vendor))
 
 <a id="nestedatt--disk_backup--criteria"></a>
@@ -318,7 +318,7 @@ Optional:
 
 Optional:
 
-- `is_installed` (Boolean) The `is_installed` parameter.
+- `is_installed` (Boolean) The `is_installed` parameter. Default: `true`.
 - `last_backup_time` (Attributes) The `last_backup_time` parameter. (see [below for nested schema](#nestedatt--disk_backup--criteria--last_backup_time))
 
 <a id="nestedatt--disk_backup--criteria--last_backup_time"></a>
@@ -326,7 +326,7 @@ Optional:
 
 Optional:
 
-- `not_available` (Boolean) The `not_available` parameter.
+- `not_available` (Boolean) The `not_available` parameter. Conflicts with: `not_within`, `within`.
 - `not_within` (Attributes) The `not_within` parameter. (see [below for nested schema](#nestedatt--disk_backup--criteria--last_backup_time--not_within))
 - `within` (Attributes) The `within` parameter. (see [below for nested schema](#nestedatt--disk_backup--criteria--last_backup_time--within))
 
@@ -335,8 +335,8 @@ Optional:
 
 Optional:
 
-- `days` (Number) The `days` parameter.
-- `hours` (Number) The `hours` parameter.
+- `days` (Number) The `days` parameter. Default: `1`. Value must be between 1 and 65535.
+- `hours` (Number) The `hours` parameter. Default: `24`. Value must be between 1 and 65535.
 
 
 <a id="nestedatt--disk_backup--criteria--last_backup_time--within"></a>
@@ -344,8 +344,8 @@ Optional:
 
 Optional:
 
-- `days` (Number) The `days` parameter.
-- `hours` (Number) The `hours` parameter.
+- `days` (Number) The `days` parameter. Default: `1`. Value must be between 1 and 65535.
+- `hours` (Number) The `hours` parameter. Default: `24`. Value must be between 1 and 65535.
 
 
 
@@ -355,7 +355,7 @@ Optional:
 
 Required:
 
-- `name` (String) The `name` parameter.
+- `name` (String) The `name` parameter. String length must be at most 103.
 
 Optional:
 
@@ -369,7 +369,7 @@ Optional:
 Optional:
 
 - `criteria` (Attributes) The `criteria` parameter. (see [below for nested schema](#nestedatt--disk_encryption--criteria))
-- `exclude_vendor` (Boolean) The `exclude_vendor` parameter.
+- `exclude_vendor` (Boolean) The `exclude_vendor` parameter. Default: `false`.
 - `vendor` (Attributes List) The `vendor` parameter. (see [below for nested schema](#nestedatt--disk_encryption--vendor))
 
 <a id="nestedatt--disk_encryption--criteria"></a>
@@ -378,14 +378,14 @@ Optional:
 Optional:
 
 - `encrypted_locations` (Attributes List) The `encrypted_locations` parameter. (see [below for nested schema](#nestedatt--disk_encryption--criteria--encrypted_locations))
-- `is_installed` (Boolean) The `is_installed` parameter.
+- `is_installed` (Boolean) The `is_installed` parameter. Default: `true`.
 
 <a id="nestedatt--disk_encryption--criteria--encrypted_locations"></a>
 ### Nested Schema for `disk_encryption.criteria.encrypted_locations`
 
 Required:
 
-- `name` (String) The `name` parameter.
+- `name` (String) The `name` parameter. String length must be at most 1023.
 
 Optional:
 
@@ -396,8 +396,8 @@ Optional:
 
 Optional:
 
-- `is` (String) The `is` parameter.
-- `is_not` (String) The `is_not` parameter.
+- `is` (String) The `is` parameter. Default: `%!q(*string=0xc000f53420)`. Value must be one of: `"encrypted"`, `"unencrypted"`, `"partial"`, `"unknown"`.
+- `is_not` (String) The `is_not` parameter. Default: `%!q(*string=0xc000f53430)`. Value must be one of: `"encrypted"`, `"unencrypted"`, `"partial"`, `"unknown"`.
 
 
 
@@ -407,7 +407,7 @@ Optional:
 
 Required:
 
-- `name` (String) The `name` parameter.
+- `name` (String) The `name` parameter. String length must be at most 103.
 
 Optional:
 
@@ -421,7 +421,7 @@ Optional:
 Optional:
 
 - `criteria` (Attributes) The `criteria` parameter. (see [below for nested schema](#nestedatt--firewall--criteria))
-- `exclude_vendor` (Boolean) The `exclude_vendor` parameter.
+- `exclude_vendor` (Boolean) The `exclude_vendor` parameter. Default: `false`.
 - `vendor` (Attributes List) The `vendor` parameter. (see [below for nested schema](#nestedatt--firewall--vendor))
 
 <a id="nestedatt--firewall--criteria"></a>
@@ -429,8 +429,8 @@ Optional:
 
 Optional:
 
-- `is_enabled` (String) The `is_enabled` parameter.
-- `is_installed` (Boolean) The `is_installed` parameter.
+- `is_enabled` (String) The `is_enabled` parameter. Value must be one of: `"no"`, `"yes"`, `"not-available"`.
+- `is_installed` (Boolean) The `is_installed` parameter. Default: `true`.
 
 
 <a id="nestedatt--firewall--vendor"></a>
@@ -438,7 +438,7 @@ Optional:
 
 Required:
 
-- `name` (String) The `name` parameter.
+- `name` (String) The `name` parameter. String length must be at most 103.
 
 Optional:
 
@@ -471,9 +471,9 @@ Optional:
 
 Optional:
 
-- `contains` (String) The `contains` parameter.
-- `is` (String) The `is` parameter.
-- `is_not` (String) The `is_not` parameter.
+- `contains` (String) The `contains` parameter. String length must be between 0 and 255. Conflicts with: `is`, `is_not`.
+- `is` (String) The `is` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is_not`.
+- `is_not` (String) The `is_not` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is`.
 
 
 <a id="nestedatt--host_info--criteria--domain"></a>
@@ -481,9 +481,9 @@ Optional:
 
 Optional:
 
-- `contains` (String) The `contains` parameter.
-- `is` (String) The `is` parameter.
-- `is_not` (String) The `is_not` parameter.
+- `contains` (String) The `contains` parameter. String length must be between 0 and 255. Conflicts with: `is`, `is_not`.
+- `is` (String) The `is` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is_not`.
+- `is_not` (String) The `is_not` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is`.
 
 
 <a id="nestedatt--host_info--criteria--host_id"></a>
@@ -491,9 +491,9 @@ Optional:
 
 Optional:
 
-- `contains` (String) The `contains` parameter.
-- `is` (String) The `is` parameter.
-- `is_not` (String) The `is_not` parameter.
+- `contains` (String) The `contains` parameter. String length must be between 0 and 255. Conflicts with: `is`, `is_not`.
+- `is` (String) The `is` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is_not`.
+- `is_not` (String) The `is_not` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is`.
 
 
 <a id="nestedatt--host_info--criteria--host_name"></a>
@@ -501,9 +501,9 @@ Optional:
 
 Optional:
 
-- `contains` (String) The `contains` parameter.
-- `is` (String) The `is` parameter.
-- `is_not` (String) The `is_not` parameter.
+- `contains` (String) The `contains` parameter. String length must be between 0 and 255. Conflicts with: `is`, `is_not`.
+- `is` (String) The `is` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is_not`.
+- `is_not` (String) The `is_not` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is`.
 
 
 <a id="nestedatt--host_info--criteria--os"></a>
@@ -518,11 +518,11 @@ Optional:
 
 Optional:
 
-- `apple` (String) The `apple` parameter.
-- `google` (String) The `google` parameter.
-- `linux` (String) The `linux` parameter.
-- `microsoft` (String) The `microsoft` parameter.
-- `other` (String) The `other` parameter.
+- `apple` (String) The `apple` parameter. Default: `%!q(*string=0xc000f53460)`. String length must be between 0 and 255. Conflicts with: `Google`, `Linux`, `Microsoft`, `Other`.
+- `google` (String) The `google` parameter. Default: `%!q(*string=0xc000f53470)`. String length must be between 0 and 255. Conflicts with: `Apple`, `Linux`, `Microsoft`, `Other`.
+- `linux` (String) The `linux` parameter. Default: `%!q(*string=0xc000f53480)`. String length must be between 0 and 255. Conflicts with: `Apple`, `Google`, `Microsoft`, `Other`.
+- `microsoft` (String) The `microsoft` parameter. Default: `%!q(*string=0xc000f53450)`. String length must be between 0 and 255. Conflicts with: `Apple`, `Google`, `Linux`, `Other`.
+- `other` (String) The `other` parameter. String length must be between 0 and 255. Conflicts with: `Apple`, `Google`, `Linux`, `Microsoft`.
 
 
 
@@ -531,9 +531,9 @@ Optional:
 
 Optional:
 
-- `contains` (String) The `contains` parameter.
-- `is` (String) The `is` parameter.
-- `is_not` (String) The `is_not` parameter.
+- `contains` (String) The `contains` parameter. String length must be between 0 and 255. Conflicts with: `is`, `is_not`.
+- `is` (String) The `is` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is_not`.
+- `is_not` (String) The `is_not` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is`.
 
 
 
@@ -589,12 +589,12 @@ Optional:
 
 Required:
 
-- `name` (String) The `name` parameter.
+- `name` (String) The `name` parameter. String length must be at most 31.
 
 Optional:
 
-- `hash` (String) The `hash` parameter.
-- `package` (String) The `package` parameter.
+- `hash` (String) The `hash` parameter. String length must be at most 1024.
+- `package` (String) The `package` parameter. String length must be at most 1024.
 
 
 
@@ -604,12 +604,12 @@ Optional:
 
 Required:
 
-- `name` (String) The `name` parameter.
+- `name` (String) The `name` parameter. String length must be at most 31.
 
 Optional:
 
-- `hash` (String) The `hash` parameter.
-- `package` (String) The `package` parameter.
+- `hash` (String) The `hash` parameter. String length must be at most 1024.
+- `package` (String) The `package` parameter. String length must be at most 1024.
 
 
 
@@ -618,9 +618,9 @@ Optional:
 
 Optional:
 
-- `contains` (String) The `contains` parameter.
-- `is` (String) The `is` parameter.
-- `is_not` (String) The `is_not` parameter.
+- `contains` (String) The `contains` parameter. String length must be between 0 and 255. Conflicts with: `is`, `is_not`.
+- `is` (String) The `is` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is_not`.
+- `is_not` (String) The `is_not` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is`.
 
 
 <a id="nestedatt--mobile_device--criteria--last_checkin_time"></a>
@@ -636,7 +636,7 @@ Optional:
 
 Required:
 
-- `days` (Number) The `days` parameter.
+- `days` (Number) The `days` parameter. Value must be between 1 and 365.
 
 
 <a id="nestedatt--mobile_device--criteria--last_checkin_time--within"></a>
@@ -644,7 +644,7 @@ Required:
 
 Required:
 
-- `days` (Number) The `days` parameter.
+- `days` (Number) The `days` parameter. Value must be between 1 and 365.
 
 
 
@@ -653,9 +653,9 @@ Required:
 
 Optional:
 
-- `contains` (String) The `contains` parameter.
-- `is` (String) The `is` parameter.
-- `is_not` (String) The `is_not` parameter.
+- `contains` (String) The `contains` parameter. String length must be between 0 and 255. Conflicts with: `is`, `is_not`.
+- `is` (String) The `is` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is_not`.
+- `is_not` (String) The `is_not` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is`.
 
 
 <a id="nestedatt--mobile_device--criteria--phone_number"></a>
@@ -663,9 +663,9 @@ Optional:
 
 Optional:
 
-- `contains` (String) The `contains` parameter.
-- `is` (String) The `is` parameter.
-- `is_not` (String) The `is_not` parameter.
+- `contains` (String) The `contains` parameter. String length must be between 0 and 255. Conflicts with: `is`, `is_not`.
+- `is` (String) The `is` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is_not`.
+- `is_not` (String) The `is_not` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is`.
 
 
 <a id="nestedatt--mobile_device--criteria--tag"></a>
@@ -673,9 +673,9 @@ Optional:
 
 Optional:
 
-- `contains` (String) The `contains` parameter.
-- `is` (String) The `is` parameter.
-- `is_not` (String) The `is_not` parameter.
+- `contains` (String) The `contains` parameter. String length must be between 0 and 255. Conflicts with: `is`, `is_not`.
+- `is` (String) The `is` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is_not`.
+- `is_not` (String) The `is_not` parameter. String length must be between 0 and 255. Conflicts with: `contains`, `is`.
 
 
 
@@ -716,7 +716,7 @@ Optional:
 
 Optional:
 
-- `carrier` (String) The `carrier` parameter.
+- `carrier` (String) The `carrier` parameter. String length must be at most 1023.
 
 
 <a id="nestedatt--network_info--criteria--network--is_not--wifi"></a>
@@ -724,7 +724,7 @@ Optional:
 
 Optional:
 
-- `ssid` (String) The `ssid` parameter.
+- `ssid` (String) The `ssid` parameter. String length must be at most 1023.
 
 
 
@@ -743,7 +743,7 @@ Optional:
 
 Optional:
 
-- `carrier` (String) The `carrier` parameter.
+- `carrier` (String) The `carrier` parameter. String length must be at most 1023.
 
 
 <a id="nestedatt--network_info--criteria--network--is_not--wifi"></a>
@@ -751,7 +751,7 @@ Optional:
 
 Optional:
 
-- `ssid` (String) The `ssid` parameter.
+- `ssid` (String) The `ssid` parameter. String length must be at most 1023.
 
 
 
@@ -764,7 +764,7 @@ Optional:
 Optional:
 
 - `criteria` (Attributes) The `criteria` parameter. (see [below for nested schema](#nestedatt--patch_management--criteria))
-- `exclude_vendor` (Boolean) The `exclude_vendor` parameter.
+- `exclude_vendor` (Boolean) The `exclude_vendor` parameter. Default: `false`.
 - `vendor` (Attributes List) The `vendor` parameter. (see [below for nested schema](#nestedatt--patch_management--vendor))
 
 <a id="nestedatt--patch_management--criteria"></a>
@@ -772,8 +772,8 @@ Optional:
 
 Optional:
 
-- `is_enabled` (String) The `is_enabled` parameter.
-- `is_installed` (Boolean) The `is_installed` parameter.
+- `is_enabled` (String) The `is_enabled` parameter. Value must be one of: `"no"`, `"yes"`, `"not-available"`.
+- `is_installed` (Boolean) The `is_installed` parameter. Default: `true`.
 - `missing_patches` (Attributes) The `missing_patches` parameter. (see [below for nested schema](#nestedatt--patch_management--criteria--missing_patches))
 
 <a id="nestedatt--patch_management--criteria--missing_patches"></a>
@@ -781,7 +781,7 @@ Optional:
 
 Required:
 
-- `check` (String) The `check` parameter.
+- `check` (String) The `check` parameter. Value must be one of: `"has-any"`, `"has-none"`, `"has-all"`.
 
 Optional:
 
@@ -793,12 +793,12 @@ Optional:
 
 Optional:
 
-- `greater_equal` (Number) The `greater_equal` parameter.
-- `greater_than` (Number) The `greater_than` parameter.
-- `is` (Number) The `is` parameter.
-- `is_not` (Number) The `is_not` parameter.
-- `less_equal` (Number) The `less_equal` parameter.
-- `less_than` (Number) The `less_than` parameter.
+- `greater_equal` (Number) The `greater_equal` parameter. Value must be between 0 and 100000. Conflicts with: `greater_than`, `is`, `is_not`, `less_equal`, `less_than`.
+- `greater_than` (Number) The `greater_than` parameter. Value must be between 0 and 100000. Conflicts with: `greater_equal`, `is`, `is_not`, `less_equal`, `less_than`.
+- `is` (Number) The `is` parameter. Value must be between 0 and 100000. Conflicts with: `greater_equal`, `greater_than`, `is_not`, `less_equal`, `less_than`.
+- `is_not` (Number) The `is_not` parameter. Value must be between 0 and 100000. Conflicts with: `greater_equal`, `greater_than`, `is`, `less_equal`, `less_than`.
+- `less_equal` (Number) The `less_equal` parameter. Value must be between 0 and 100000. Conflicts with: `greater_equal`, `greater_than`, `is`, `is_not`, `less_than`.
+- `less_than` (Number) The `less_than` parameter. Value must be between 0 and 100000. Conflicts with: `greater_equal`, `greater_than`, `is`, `is_not`, `less_equal`.
 
 
 
@@ -808,7 +808,7 @@ Optional:
 
 Required:
 
-- `name` (String) The `name` parameter.
+- `name` (String) The `name` parameter. String length must be at most 103.
 
 Optional:
 

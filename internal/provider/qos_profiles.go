@@ -109,25 +109,25 @@ func (d *qosProfilesListDataSource) Schema(_ context.Context, _ datasource.Schem
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description:         "The max count in result entry (count per page)",
-				MarkdownDescription: "The max count in result entry (count per page)",
+				Description:         "The max count in result entry (count per page).",
+				MarkdownDescription: "The max count in result entry (count per page).",
 				Optional:            true,
 				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description:         "The offset of the result entry",
-				MarkdownDescription: "The offset of the result entry",
+				Description:         "The offset of the result entry.",
+				MarkdownDescription: "The offset of the result entry.",
 				Optional:            true,
 				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description:         "The name of the entry",
-				MarkdownDescription: "The name of the entry",
+				Description:         "The name of the entry.",
+				MarkdownDescription: "The name of the entry.",
 				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -505,13 +505,13 @@ func (d *qosProfilesDataSource) Schema(_ context.Context, _ datasource.SchemaReq
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description:         "The uuid of the resource",
-				MarkdownDescription: "The uuid of the resource",
+				Description:         "The uuid of the resource.",
+				MarkdownDescription: "The uuid of the resource.",
 				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -829,8 +829,8 @@ func (r *qosProfilesResource) Schema(_ context.Context, _ resource.SchemaRequest
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -843,8 +843,8 @@ func (r *qosProfilesResource) Schema(_ context.Context, _ resource.SchemaRequest
 				Optional:            true,
 				Attributes: map[string]rsschema.Attribute{
 					"egress_guaranteed": rsschema.Int64Attribute{
-						Description:         "The `egress_guaranteed` parameter.",
-						MarkdownDescription: "The `egress_guaranteed` parameter.",
+						Description:         "The `egress_guaranteed` parameter. Value must be between 0 and 16000.",
+						MarkdownDescription: "The `egress_guaranteed` parameter. Value must be between 0 and 16000.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Int64{
@@ -855,8 +855,8 @@ func (r *qosProfilesResource) Schema(_ context.Context, _ resource.SchemaRequest
 						},
 					},
 					"egress_max": rsschema.Int64Attribute{
-						Description:         "The `egress_max` parameter.",
-						MarkdownDescription: "The `egress_max` parameter.",
+						Description:         "The `egress_max` parameter. Value must be between 0 and 60000.",
+						MarkdownDescription: "The `egress_max` parameter. Value must be between 0 and 60000.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Int64{
@@ -890,8 +890,8 @@ func (r *qosProfilesResource) Schema(_ context.Context, _ resource.SchemaRequest
 											Optional:            true,
 											Attributes: map[string]rsschema.Attribute{
 												"egress_guaranteed": rsschema.Int64Attribute{
-													Description:         "The `egress_guaranteed` parameter.",
-													MarkdownDescription: "The `egress_guaranteed` parameter.",
+													Description:         "The `egress_guaranteed` parameter. Value must be between 0 and 60000.",
+													MarkdownDescription: "The `egress_guaranteed` parameter. Value must be between 0 and 60000.",
 													Optional:            true,
 													Computed:            true,
 													PlanModifiers: []planmodifier.Int64{
@@ -902,8 +902,8 @@ func (r *qosProfilesResource) Schema(_ context.Context, _ resource.SchemaRequest
 													},
 												},
 												"egress_max": rsschema.Int64Attribute{
-													Description:         "The `egress_max` parameter.",
-													MarkdownDescription: "The `egress_max` parameter.",
+													Description:         "The `egress_max` parameter. Value must be between 0 and 60000.",
+													MarkdownDescription: "The `egress_max` parameter. Value must be between 0 and 60000.",
 													Optional:            true,
 													Computed:            true,
 													PlanModifiers: []planmodifier.Int64{
@@ -916,8 +916,8 @@ func (r *qosProfilesResource) Schema(_ context.Context, _ resource.SchemaRequest
 											},
 										},
 										"name": rsschema.StringAttribute{
-											Description:         "The `name` parameter.",
-											MarkdownDescription: "The `name` parameter.",
+											Description:         "The `name` parameter. String length must be at most 31.",
+											MarkdownDescription: "The `name` parameter. String length must be at most 31.",
 											Optional:            true,
 											Computed:            true,
 											PlanModifiers: []planmodifier.String{
@@ -928,8 +928,8 @@ func (r *qosProfilesResource) Schema(_ context.Context, _ resource.SchemaRequest
 											},
 										},
 										"priority": rsschema.StringAttribute{
-											Description:         "The `priority` parameter.",
-											MarkdownDescription: "The `priority` parameter.",
+											Description:         "The `priority` parameter. Default: `%!q(*string=0xc000b9a010)`. Value must be one of: `\"real-time\"`, `\"high\"`, `\"medium\"`, `\"low\"`.",
+											MarkdownDescription: "The `priority` parameter. Default: `%!q(*string=0xc000b9a010)`. Value must be one of: `\"real-time\"`, `\"high\"`, `\"medium\"`, `\"low\"`.",
 											Optional:            true,
 											Computed:            true,
 											PlanModifiers: []planmodifier.String{
@@ -961,8 +961,8 @@ func (r *qosProfilesResource) Schema(_ context.Context, _ resource.SchemaRequest
 											Optional:            true,
 											Attributes: map[string]rsschema.Attribute{
 												"egress_guaranteed": rsschema.Int64Attribute{
-													Description:         "The `egress_guaranteed` parameter.",
-													MarkdownDescription: "The `egress_guaranteed` parameter.",
+													Description:         "The `egress_guaranteed` parameter. Value must be between 0 and 60000.",
+													MarkdownDescription: "The `egress_guaranteed` parameter. Value must be between 0 and 60000.",
 													Optional:            true,
 													Computed:            true,
 													PlanModifiers: []planmodifier.Int64{
@@ -973,8 +973,8 @@ func (r *qosProfilesResource) Schema(_ context.Context, _ resource.SchemaRequest
 													},
 												},
 												"egress_max": rsschema.Int64Attribute{
-													Description:         "The `egress_max` parameter.",
-													MarkdownDescription: "The `egress_max` parameter.",
+													Description:         "The `egress_max` parameter. Value must be between 0 and 60000.",
+													MarkdownDescription: "The `egress_max` parameter. Value must be between 0 and 60000.",
 													Optional:            true,
 													Computed:            true,
 													PlanModifiers: []planmodifier.Int64{
@@ -987,8 +987,8 @@ func (r *qosProfilesResource) Schema(_ context.Context, _ resource.SchemaRequest
 											},
 										},
 										"name": rsschema.StringAttribute{
-											Description:         "The `name` parameter.",
-											MarkdownDescription: "The `name` parameter.",
+											Description:         "The `name` parameter. String length must be at most 31.",
+											MarkdownDescription: "The `name` parameter. String length must be at most 31.",
 											Optional:            true,
 											Computed:            true,
 											PlanModifiers: []planmodifier.String{
@@ -999,8 +999,8 @@ func (r *qosProfilesResource) Schema(_ context.Context, _ resource.SchemaRequest
 											},
 										},
 										"priority": rsschema.StringAttribute{
-											Description:         "The `priority` parameter.",
-											MarkdownDescription: "The `priority` parameter.",
+											Description:         "The `priority` parameter. Default: `%!q(*string=0xc000b9a010)`. Value must be one of: `\"real-time\"`, `\"high\"`, `\"medium\"`, `\"low\"`.",
+											MarkdownDescription: "The `priority` parameter. Default: `%!q(*string=0xc000b9a010)`. Value must be one of: `\"real-time\"`, `\"high\"`, `\"medium\"`, `\"low\"`.",
 											Optional:            true,
 											Computed:            true,
 											PlanModifiers: []planmodifier.String{
@@ -1026,8 +1026,8 @@ func (r *qosProfilesResource) Schema(_ context.Context, _ resource.SchemaRequest
 				},
 			},
 			"name": rsschema.StringAttribute{
-				Description:         "The `name` parameter.",
-				MarkdownDescription: "The `name` parameter.",
+				Description:         "The `name` parameter. String length must be at most 31.",
+				MarkdownDescription: "The `name` parameter. String length must be at most 31.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(31),

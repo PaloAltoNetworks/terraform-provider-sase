@@ -17,7 +17,7 @@ Retrieves config for a specific item.
 
 ### Required
 
-- `folder` (String) The folder of the entry
+- `folder` (String) The folder of the entry. Value must be one of: `"Shared"`, `"Mobile Users"`, `"Remote Networks"`, `"Service Connections"`, `"Mobile Users Container"`, `"Mobile Users Explicit Proxy"`.
 - `name` (String) The `name` parameter.
 
 ### Optional
@@ -37,11 +37,11 @@ Retrieves config for a specific item.
 Optional:
 
 - `action` (Attributes) The `action` parameter. (see [below for nested schema](#nestedatt--rules--action))
-- `category` (String) The `category` parameter.
+- `category` (String) The `category` parameter. Value must be one of: `"dns-proxy"`, `"backdoor"`, `"data-theft"`, `"autogen"`, `"spyware"`, `"dns-security"`, `"downloader"`, `"dns-phishing"`, `"phishing-kit"`, `"cryptominer"`, `"hacktool"`, `"dns-benign"`, `"dns-wildfire"`, `"botnet"`, `"dns-grayware"`, `"inline-cloud-c2"`, `"keylogger"`, `"p2p-communication"`, `"domain-edl"`, `"webshell"`, `"command-and-control"`, `"dns-ddns"`, `"net-worm"`, `"any"`, `"tls-fingerprint"`, `"dns-new-domain"`, `"dns"`, `"fraud"`, `"dns-c2"`, `"adware"`, `"post-exploitation"`, `"dns-malware"`, `"browser-hijack"`, `"dns-parked"`.
 - `name` (String) The `name` parameter.
-- `packet_capture` (String) The `packet_capture` parameter.
+- `packet_capture` (String) The `packet_capture` parameter. Value must be one of: `"disable"`, `"single-packet"`, `"extended-capture"`.
 - `severity` (List of String) The `severity` parameter.
-- `threat_name` (String) The `threat_name` parameter.
+- `threat_name` (String) The `threat_name` parameter. String length must be at least 4.
 
 <a id="nestedatt--rules--action"></a>
 ### Nested Schema for `rules.action`
@@ -61,8 +61,8 @@ Optional:
 
 Optional:
 
-- `duration` (Number) The `duration` parameter.
-- `track_by` (String) The `track_by` parameter.
+- `duration` (Number) The `duration` parameter. Value must be between 1 and 3600.
+- `track_by` (String) The `track_by` parameter. Value must be one of: `"source-and-destination"`, `"source"`.
 
 
 
@@ -76,7 +76,7 @@ Optional:
 - `exempt_ip` (Attributes List) The `exempt_ip` parameter. (see [below for nested schema](#nestedatt--threat_exception--exempt_ip))
 - `name` (String) The `name` parameter.
 - `notes` (String) The `notes` parameter.
-- `packet_capture` (String) The `packet_capture` parameter.
+- `packet_capture` (String) The `packet_capture` parameter. Value must be one of: `"disable"`, `"single-packet"`, `"extended-capture"`.
 
 <a id="nestedatt--threat_exception--action"></a>
 ### Nested Schema for `threat_exception.action`
@@ -97,8 +97,8 @@ Optional:
 
 Optional:
 
-- `duration` (Number) The `duration` parameter.
-- `track_by` (String) The `track_by` parameter.
+- `duration` (Number) The `duration` parameter. Value must be between 1 and 3600.
+- `track_by` (String) The `track_by` parameter. Value must be one of: `"source-and-destination"`, `"source"`.
 
 
 

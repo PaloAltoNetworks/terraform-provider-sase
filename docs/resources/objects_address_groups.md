@@ -17,12 +17,12 @@ Retrieves config for a specific item.
 
 ### Required
 
-- `folder` (String) The folder of the entry
-- `name` (String) The `name` parameter.
+- `folder` (String) The folder of the entry. Value must be one of: `"Shared"`, `"Mobile Users"`, `"Remote Networks"`, `"Service Connections"`, `"Mobile Users Container"`, `"Mobile Users Explicit Proxy"`.
+- `name` (String) The `name` parameter. String length must be at most 63.
 
 ### Optional
 
-- `description` (String) The `description` parameter.
+- `description` (String) The `description` parameter. String length must be between 0 and 1023.
 - `dynamic_value` (Attributes) The `dynamic_value` parameter. (see [below for nested schema](#nestedatt--dynamic_value))
 - `static` (List of String) The `static` parameter.
 - `tag` (List of String) The `tag` parameter.
@@ -37,6 +37,6 @@ Retrieves config for a specific item.
 
 Required:
 
-- `filter` (String) The `filter` parameter.
+- `filter` (String) The `filter` parameter. String length must be at most 2047.
 
 

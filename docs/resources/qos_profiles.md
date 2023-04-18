@@ -17,8 +17,8 @@ Retrieves config for a specific item.
 
 ### Required
 
-- `folder` (String) The folder of the entry
-- `name` (String) The `name` parameter.
+- `folder` (String) The folder of the entry. Value must be one of: `"Shared"`, `"Mobile Users"`, `"Remote Networks"`, `"Service Connections"`, `"Mobile Users Container"`, `"Mobile Users Explicit Proxy"`.
+- `name` (String) The `name` parameter. String length must be at most 31.
 
 ### Optional
 
@@ -35,8 +35,8 @@ Retrieves config for a specific item.
 
 Optional:
 
-- `egress_guaranteed` (Number) The `egress_guaranteed` parameter.
-- `egress_max` (Number) The `egress_max` parameter.
+- `egress_guaranteed` (Number) The `egress_guaranteed` parameter. Value must be between 0 and 16000.
+- `egress_max` (Number) The `egress_max` parameter. Value must be between 0 and 60000.
 
 
 <a id="nestedatt--class_bandwidth_type"></a>
@@ -60,16 +60,16 @@ Optional:
 Optional:
 
 - `class_bandwidth` (Attributes) The `class_bandwidth` parameter. (see [below for nested schema](#nestedatt--class_bandwidth_type--mbps--class--class_bandwidth))
-- `name` (String) The `name` parameter.
-- `priority` (String) The `priority` parameter.
+- `name` (String) The `name` parameter. String length must be at most 31.
+- `priority` (String) The `priority` parameter. Default: `%!q(*string=0xc000b9a010)`. Value must be one of: `"real-time"`, `"high"`, `"medium"`, `"low"`.
 
 <a id="nestedatt--class_bandwidth_type--mbps--class--class_bandwidth"></a>
 ### Nested Schema for `class_bandwidth_type.mbps.class.priority`
 
 Optional:
 
-- `egress_guaranteed` (Number) The `egress_guaranteed` parameter.
-- `egress_max` (Number) The `egress_max` parameter.
+- `egress_guaranteed` (Number) The `egress_guaranteed` parameter. Value must be between 0 and 60000.
+- `egress_max` (Number) The `egress_max` parameter. Value must be between 0 and 60000.
 
 
 
@@ -87,15 +87,15 @@ Optional:
 Optional:
 
 - `class_bandwidth` (Attributes) The `class_bandwidth` parameter. (see [below for nested schema](#nestedatt--class_bandwidth_type--percentage--class--class_bandwidth))
-- `name` (String) The `name` parameter.
-- `priority` (String) The `priority` parameter.
+- `name` (String) The `name` parameter. String length must be at most 31.
+- `priority` (String) The `priority` parameter. Default: `%!q(*string=0xc000b9a010)`. Value must be one of: `"real-time"`, `"high"`, `"medium"`, `"low"`.
 
 <a id="nestedatt--class_bandwidth_type--percentage--class--class_bandwidth"></a>
 ### Nested Schema for `class_bandwidth_type.percentage.class.priority`
 
 Optional:
 
-- `egress_guaranteed` (Number) The `egress_guaranteed` parameter.
-- `egress_max` (Number) The `egress_max` parameter.
+- `egress_guaranteed` (Number) The `egress_guaranteed` parameter. Value must be between 0 and 60000.
+- `egress_max` (Number) The `egress_max` parameter. Value must be between 0 and 60000.
 
 

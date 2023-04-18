@@ -175,25 +175,25 @@ func (d *objectsExternalDynamicListsListDataSource) Schema(_ context.Context, _ 
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description:         "The max count in result entry (count per page)",
-				MarkdownDescription: "The max count in result entry (count per page)",
+				Description:         "The max count in result entry (count per page).",
+				MarkdownDescription: "The max count in result entry (count per page).",
 				Optional:            true,
 				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description:         "The offset of the result entry",
-				MarkdownDescription: "The offset of the result entry",
+				Description:         "The offset of the result entry.",
+				MarkdownDescription: "The offset of the result entry.",
 				Optional:            true,
 				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description:         "The name of the entry",
-				MarkdownDescription: "The name of the entry",
+				Description:         "The name of the entry.",
+				MarkdownDescription: "The name of the entry.",
 				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -1303,13 +1303,13 @@ func (d *objectsExternalDynamicListsDataSource) Schema(_ context.Context, _ data
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description:         "The uuid of the resource",
-				MarkdownDescription: "The uuid of the resource",
+				Description:         "The uuid of the resource.",
+				MarkdownDescription: "The uuid of the resource.",
 				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -2359,8 +2359,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -2376,8 +2376,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 				},
 			},
 			"name": rsschema.StringAttribute{
-				Description:         "The `name` parameter.",
-				MarkdownDescription: "The `name` parameter.",
+				Description:         "The `name` parameter. String length must be at most 63.",
+				MarkdownDescription: "The `name` parameter. String length must be at most 63.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(63),
@@ -2399,16 +2399,16 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"password": rsschema.StringAttribute{
-										Description:         "The `password` parameter.",
-										MarkdownDescription: "The `password` parameter.",
+										Description:         "The `password` parameter. String length must be at most 255.",
+										MarkdownDescription: "The `password` parameter. String length must be at most 255.",
 										Required:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthAtMost(255),
 										},
 									},
 									"username": rsschema.StringAttribute{
-										Description:         "The `username` parameter.",
-										MarkdownDescription: "The `username` parameter.",
+										Description:         "The `username` parameter. String length must be between 1 and 255.",
+										MarkdownDescription: "The `username` parameter. String length must be between 1 and 255.",
 										Required:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(1, 255),
@@ -2417,8 +2417,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								},
 							},
 							"certificate_profile": rsschema.StringAttribute{
-								Description:         "The `certificate_profile` parameter.",
-								MarkdownDescription: "The `certificate_profile` parameter.",
+								Description:         "The `certificate_profile` parameter. Default: `%!q(*string=0xc000f53230)`.",
+								MarkdownDescription: "The `certificate_profile` parameter. Default: `%!q(*string=0xc000f53230)`.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.String{
@@ -2426,8 +2426,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								},
 							},
 							"description": rsschema.StringAttribute{
-								Description:         "The `description` parameter.",
-								MarkdownDescription: "The `description` parameter.",
+								Description:         "The `description` parameter. String length must be between 0 and 255.",
+								MarkdownDescription: "The `description` parameter. String length must be between 0 and 255.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.String{
@@ -2444,8 +2444,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								ElementType:         types.StringType,
 							},
 							"expand_domain": rsschema.BoolAttribute{
-								Description:         "The `expand_domain` parameter.",
-								MarkdownDescription: "The `expand_domain` parameter.",
+								Description:         "The `expand_domain` parameter. Default: `false`.",
+								MarkdownDescription: "The `expand_domain` parameter. Default: `false`.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.Bool{
@@ -2463,8 +2463,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"at": rsschema.StringAttribute{
-												Description:         "The `at` parameter.",
-												MarkdownDescription: "The `at` parameter.",
+												Description:         "The `at` parameter. String length must be between 2 and 2.",
+												MarkdownDescription: "The `at` parameter. String length must be between 2 and 2.",
 												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
@@ -2473,8 +2473,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										},
 									},
 									"five_minute": rsschema.BoolAttribute{
-										Description:         "The `five_minute` parameter.",
-										MarkdownDescription: "The `five_minute` parameter.",
+										Description:         "The `five_minute` parameter. Conflicts with: `daily`, `hourly`, `monthly`, `weekly`.",
+										MarkdownDescription: "The `five_minute` parameter. Conflicts with: `daily`, `hourly`, `monthly`, `weekly`.",
 										Optional:            true,
 										Validators: []validator.Bool{
 											boolvalidator.ConflictsWith(
@@ -2486,8 +2486,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										},
 									},
 									"hourly": rsschema.BoolAttribute{
-										Description:         "The `hourly` parameter.",
-										MarkdownDescription: "The `hourly` parameter.",
+										Description:         "The `hourly` parameter. Conflicts with: `daily`, `five_minute`, `monthly`, `weekly`.",
+										MarkdownDescription: "The `hourly` parameter. Conflicts with: `daily`, `five_minute`, `monthly`, `weekly`.",
 										Optional:            true,
 										Validators: []validator.Bool{
 											boolvalidator.ConflictsWith(
@@ -2504,16 +2504,16 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"at": rsschema.StringAttribute{
-												Description:         "The `at` parameter.",
-												MarkdownDescription: "The `at` parameter.",
+												Description:         "The `at` parameter. String length must be between 2 and 2.",
+												MarkdownDescription: "The `at` parameter. String length must be between 2 and 2.",
 												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
 											},
 											"day_of_month": rsschema.Int64Attribute{
-												Description:         "The `day_of_month` parameter.",
-												MarkdownDescription: "The `day_of_month` parameter.",
+												Description:         "The `day_of_month` parameter. Value must be between 1 and 31.",
+												MarkdownDescription: "The `day_of_month` parameter. Value must be between 1 and 31.",
 												Required:            true,
 												Validators: []validator.Int64{
 													int64validator.Between(1, 31),
@@ -2527,16 +2527,16 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"at": rsschema.StringAttribute{
-												Description:         "The `at` parameter.",
-												MarkdownDescription: "The `at` parameter.",
+												Description:         "The `at` parameter. String length must be between 2 and 2.",
+												MarkdownDescription: "The `at` parameter. String length must be between 2 and 2.",
 												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
 											},
 											"day_of_week": rsschema.StringAttribute{
-												Description:         "The `day_of_week` parameter.",
-												MarkdownDescription: "The `day_of_week` parameter.",
+												Description:         "The `day_of_week` parameter. Value must be one of: `\"sunday\"`, `\"monday\"`, `\"tuesday\"`, `\"wednesday\"`, `\"thursday\"`, `\"friday\"`, `\"saturday\"`.",
+												MarkdownDescription: "The `day_of_week` parameter. Value must be one of: `\"sunday\"`, `\"monday\"`, `\"tuesday\"`, `\"wednesday\"`, `\"thursday\"`, `\"friday\"`, `\"saturday\"`.",
 												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.OneOf("sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"),
@@ -2547,8 +2547,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								},
 							},
 							"url": rsschema.StringAttribute{
-								Description:         "The `url` parameter.",
-								MarkdownDescription: "The `url` parameter.",
+								Description:         "The `url` parameter. String length must be between 0 and 255.",
+								MarkdownDescription: "The `url` parameter. String length must be between 0 and 255.",
 								Required:            true,
 								Validators: []validator.String{
 									stringvalidator.LengthBetween(0, 255),
@@ -2567,16 +2567,16 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"password": rsschema.StringAttribute{
-										Description:         "The `password` parameter.",
-										MarkdownDescription: "The `password` parameter.",
+										Description:         "The `password` parameter. String length must be at most 255.",
+										MarkdownDescription: "The `password` parameter. String length must be at most 255.",
 										Required:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthAtMost(255),
 										},
 									},
 									"username": rsschema.StringAttribute{
-										Description:         "The `username` parameter.",
-										MarkdownDescription: "The `username` parameter.",
+										Description:         "The `username` parameter. String length must be between 1 and 255.",
+										MarkdownDescription: "The `username` parameter. String length must be between 1 and 255.",
 										Required:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(1, 255),
@@ -2585,8 +2585,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								},
 							},
 							"certificate_profile": rsschema.StringAttribute{
-								Description:         "The `certificate_profile` parameter.",
-								MarkdownDescription: "The `certificate_profile` parameter.",
+								Description:         "The `certificate_profile` parameter. Default: `%!q(*string=0xc000f53320)`.",
+								MarkdownDescription: "The `certificate_profile` parameter. Default: `%!q(*string=0xc000f53320)`.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.String{
@@ -2594,8 +2594,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								},
 							},
 							"description": rsschema.StringAttribute{
-								Description:         "The `description` parameter.",
-								MarkdownDescription: "The `description` parameter.",
+								Description:         "The `description` parameter. String length must be between 0 and 255.",
+								MarkdownDescription: "The `description` parameter. String length must be between 0 and 255.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.String{
@@ -2622,8 +2622,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"at": rsschema.StringAttribute{
-												Description:         "The `at` parameter.",
-												MarkdownDescription: "The `at` parameter.",
+												Description:         "The `at` parameter. String length must be between 2 and 2.",
+												MarkdownDescription: "The `at` parameter. String length must be between 2 and 2.",
 												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
@@ -2632,8 +2632,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										},
 									},
 									"five_minute": rsschema.BoolAttribute{
-										Description:         "The `five_minute` parameter.",
-										MarkdownDescription: "The `five_minute` parameter.",
+										Description:         "The `five_minute` parameter. Conflicts with: `daily`, `hourly`, `monthly`, `weekly`.",
+										MarkdownDescription: "The `five_minute` parameter. Conflicts with: `daily`, `hourly`, `monthly`, `weekly`.",
 										Optional:            true,
 										Validators: []validator.Bool{
 											boolvalidator.ConflictsWith(
@@ -2645,8 +2645,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										},
 									},
 									"hourly": rsschema.BoolAttribute{
-										Description:         "The `hourly` parameter.",
-										MarkdownDescription: "The `hourly` parameter.",
+										Description:         "The `hourly` parameter. Conflicts with: `daily`, `five_minute`, `monthly`, `weekly`.",
+										MarkdownDescription: "The `hourly` parameter. Conflicts with: `daily`, `five_minute`, `monthly`, `weekly`.",
 										Optional:            true,
 										Validators: []validator.Bool{
 											boolvalidator.ConflictsWith(
@@ -2663,16 +2663,16 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"at": rsschema.StringAttribute{
-												Description:         "The `at` parameter.",
-												MarkdownDescription: "The `at` parameter.",
+												Description:         "The `at` parameter. String length must be between 2 and 2.",
+												MarkdownDescription: "The `at` parameter. String length must be between 2 and 2.",
 												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
 											},
 											"day_of_month": rsschema.Int64Attribute{
-												Description:         "The `day_of_month` parameter.",
-												MarkdownDescription: "The `day_of_month` parameter.",
+												Description:         "The `day_of_month` parameter. Value must be between 1 and 31.",
+												MarkdownDescription: "The `day_of_month` parameter. Value must be between 1 and 31.",
 												Required:            true,
 												Validators: []validator.Int64{
 													int64validator.Between(1, 31),
@@ -2686,16 +2686,16 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"at": rsschema.StringAttribute{
-												Description:         "The `at` parameter.",
-												MarkdownDescription: "The `at` parameter.",
+												Description:         "The `at` parameter. String length must be between 2 and 2.",
+												MarkdownDescription: "The `at` parameter. String length must be between 2 and 2.",
 												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
 											},
 											"day_of_week": rsschema.StringAttribute{
-												Description:         "The `day_of_week` parameter.",
-												MarkdownDescription: "The `day_of_week` parameter.",
+												Description:         "The `day_of_week` parameter. Value must be one of: `\"sunday\"`, `\"monday\"`, `\"tuesday\"`, `\"wednesday\"`, `\"thursday\"`, `\"friday\"`, `\"saturday\"`.",
+												MarkdownDescription: "The `day_of_week` parameter. Value must be one of: `\"sunday\"`, `\"monday\"`, `\"tuesday\"`, `\"wednesday\"`, `\"thursday\"`, `\"friday\"`, `\"saturday\"`.",
 												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.OneOf("sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"),
@@ -2706,8 +2706,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								},
 							},
 							"url": rsschema.StringAttribute{
-								Description:         "The `url` parameter.",
-								MarkdownDescription: "The `url` parameter.",
+								Description:         "The `url` parameter. String length must be between 0 and 255.",
+								MarkdownDescription: "The `url` parameter. String length must be between 0 and 255.",
 								Required:            true,
 								Validators: []validator.String{
 									stringvalidator.LengthBetween(0, 255),
@@ -2726,16 +2726,16 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"password": rsschema.StringAttribute{
-										Description:         "The `password` parameter.",
-										MarkdownDescription: "The `password` parameter.",
+										Description:         "The `password` parameter. String length must be at most 255.",
+										MarkdownDescription: "The `password` parameter. String length must be at most 255.",
 										Required:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthAtMost(255),
 										},
 									},
 									"username": rsschema.StringAttribute{
-										Description:         "The `username` parameter.",
-										MarkdownDescription: "The `username` parameter.",
+										Description:         "The `username` parameter. String length must be between 1 and 255.",
+										MarkdownDescription: "The `username` parameter. String length must be between 1 and 255.",
 										Required:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(1, 255),
@@ -2744,8 +2744,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								},
 							},
 							"certificate_profile": rsschema.StringAttribute{
-								Description:         "The `certificate_profile` parameter.",
-								MarkdownDescription: "The `certificate_profile` parameter.",
+								Description:         "The `certificate_profile` parameter. Default: `%!q(*string=0xc000f532d0)`.",
+								MarkdownDescription: "The `certificate_profile` parameter. Default: `%!q(*string=0xc000f532d0)`.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.String{
@@ -2753,8 +2753,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								},
 							},
 							"description": rsschema.StringAttribute{
-								Description:         "The `description` parameter.",
-								MarkdownDescription: "The `description` parameter.",
+								Description:         "The `description` parameter. String length must be between 0 and 255.",
+								MarkdownDescription: "The `description` parameter. String length must be between 0 and 255.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.String{
@@ -2781,8 +2781,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"at": rsschema.StringAttribute{
-												Description:         "The `at` parameter.",
-												MarkdownDescription: "The `at` parameter.",
+												Description:         "The `at` parameter. String length must be between 2 and 2.",
+												MarkdownDescription: "The `at` parameter. String length must be between 2 and 2.",
 												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
@@ -2791,8 +2791,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										},
 									},
 									"five_minute": rsschema.BoolAttribute{
-										Description:         "The `five_minute` parameter.",
-										MarkdownDescription: "The `five_minute` parameter.",
+										Description:         "The `five_minute` parameter. Conflicts with: `daily`, `hourly`, `monthly`, `weekly`.",
+										MarkdownDescription: "The `five_minute` parameter. Conflicts with: `daily`, `hourly`, `monthly`, `weekly`.",
 										Optional:            true,
 										Validators: []validator.Bool{
 											boolvalidator.ConflictsWith(
@@ -2804,8 +2804,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										},
 									},
 									"hourly": rsschema.BoolAttribute{
-										Description:         "The `hourly` parameter.",
-										MarkdownDescription: "The `hourly` parameter.",
+										Description:         "The `hourly` parameter. Conflicts with: `daily`, `five_minute`, `monthly`, `weekly`.",
+										MarkdownDescription: "The `hourly` parameter. Conflicts with: `daily`, `five_minute`, `monthly`, `weekly`.",
 										Optional:            true,
 										Validators: []validator.Bool{
 											boolvalidator.ConflictsWith(
@@ -2822,16 +2822,16 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"at": rsschema.StringAttribute{
-												Description:         "The `at` parameter.",
-												MarkdownDescription: "The `at` parameter.",
+												Description:         "The `at` parameter. String length must be between 2 and 2.",
+												MarkdownDescription: "The `at` parameter. String length must be between 2 and 2.",
 												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
 											},
 											"day_of_month": rsschema.Int64Attribute{
-												Description:         "The `day_of_month` parameter.",
-												MarkdownDescription: "The `day_of_month` parameter.",
+												Description:         "The `day_of_month` parameter. Value must be between 1 and 31.",
+												MarkdownDescription: "The `day_of_month` parameter. Value must be between 1 and 31.",
 												Required:            true,
 												Validators: []validator.Int64{
 													int64validator.Between(1, 31),
@@ -2845,16 +2845,16 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"at": rsschema.StringAttribute{
-												Description:         "The `at` parameter.",
-												MarkdownDescription: "The `at` parameter.",
+												Description:         "The `at` parameter. String length must be between 2 and 2.",
+												MarkdownDescription: "The `at` parameter. String length must be between 2 and 2.",
 												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
 											},
 											"day_of_week": rsschema.StringAttribute{
-												Description:         "The `day_of_week` parameter.",
-												MarkdownDescription: "The `day_of_week` parameter.",
+												Description:         "The `day_of_week` parameter. Value must be one of: `\"sunday\"`, `\"monday\"`, `\"tuesday\"`, `\"wednesday\"`, `\"thursday\"`, `\"friday\"`, `\"saturday\"`.",
+												MarkdownDescription: "The `day_of_week` parameter. Value must be one of: `\"sunday\"`, `\"monday\"`, `\"tuesday\"`, `\"wednesday\"`, `\"thursday\"`, `\"friday\"`, `\"saturday\"`.",
 												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.OneOf("sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"),
@@ -2865,8 +2865,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								},
 							},
 							"url": rsschema.StringAttribute{
-								Description:         "The `url` parameter.",
-								MarkdownDescription: "The `url` parameter.",
+								Description:         "The `url` parameter. String length must be between 0 and 255.",
+								MarkdownDescription: "The `url` parameter. String length must be between 0 and 255.",
 								Required:            true,
 								Validators: []validator.String{
 									stringvalidator.LengthBetween(0, 255),
@@ -2885,16 +2885,16 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"password": rsschema.StringAttribute{
-										Description:         "The `password` parameter.",
-										MarkdownDescription: "The `password` parameter.",
+										Description:         "The `password` parameter. String length must be at most 255.",
+										MarkdownDescription: "The `password` parameter. String length must be at most 255.",
 										Required:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthAtMost(255),
 										},
 									},
 									"username": rsschema.StringAttribute{
-										Description:         "The `username` parameter.",
-										MarkdownDescription: "The `username` parameter.",
+										Description:         "The `username` parameter. String length must be between 1 and 255.",
+										MarkdownDescription: "The `username` parameter. String length must be between 1 and 255.",
 										Required:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(1, 255),
@@ -2903,8 +2903,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								},
 							},
 							"certificate_profile": rsschema.StringAttribute{
-								Description:         "The `certificate_profile` parameter.",
-								MarkdownDescription: "The `certificate_profile` parameter.",
+								Description:         "The `certificate_profile` parameter. Default: `%!q(*string=0xc000f531e0)`.",
+								MarkdownDescription: "The `certificate_profile` parameter. Default: `%!q(*string=0xc000f531e0)`.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.String{
@@ -2912,8 +2912,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								},
 							},
 							"description": rsschema.StringAttribute{
-								Description:         "The `description` parameter.",
-								MarkdownDescription: "The `description` parameter.",
+								Description:         "The `description` parameter. String length must be between 0 and 255.",
+								MarkdownDescription: "The `description` parameter. String length must be between 0 and 255.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.String{
@@ -2940,8 +2940,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"at": rsschema.StringAttribute{
-												Description:         "The `at` parameter.",
-												MarkdownDescription: "The `at` parameter.",
+												Description:         "The `at` parameter. String length must be between 2 and 2.",
+												MarkdownDescription: "The `at` parameter. String length must be between 2 and 2.",
 												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
@@ -2950,8 +2950,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										},
 									},
 									"five_minute": rsschema.BoolAttribute{
-										Description:         "The `five_minute` parameter.",
-										MarkdownDescription: "The `five_minute` parameter.",
+										Description:         "The `five_minute` parameter. Conflicts with: `daily`, `hourly`, `monthly`, `weekly`.",
+										MarkdownDescription: "The `five_minute` parameter. Conflicts with: `daily`, `hourly`, `monthly`, `weekly`.",
 										Optional:            true,
 										Validators: []validator.Bool{
 											boolvalidator.ConflictsWith(
@@ -2963,8 +2963,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										},
 									},
 									"hourly": rsschema.BoolAttribute{
-										Description:         "The `hourly` parameter.",
-										MarkdownDescription: "The `hourly` parameter.",
+										Description:         "The `hourly` parameter. Conflicts with: `daily`, `five_minute`, `monthly`, `weekly`.",
+										MarkdownDescription: "The `hourly` parameter. Conflicts with: `daily`, `five_minute`, `monthly`, `weekly`.",
 										Optional:            true,
 										Validators: []validator.Bool{
 											boolvalidator.ConflictsWith(
@@ -2981,16 +2981,16 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"at": rsschema.StringAttribute{
-												Description:         "The `at` parameter.",
-												MarkdownDescription: "The `at` parameter.",
+												Description:         "The `at` parameter. String length must be between 2 and 2.",
+												MarkdownDescription: "The `at` parameter. String length must be between 2 and 2.",
 												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
 											},
 											"day_of_month": rsschema.Int64Attribute{
-												Description:         "The `day_of_month` parameter.",
-												MarkdownDescription: "The `day_of_month` parameter.",
+												Description:         "The `day_of_month` parameter. Value must be between 1 and 31.",
+												MarkdownDescription: "The `day_of_month` parameter. Value must be between 1 and 31.",
 												Required:            true,
 												Validators: []validator.Int64{
 													int64validator.Between(1, 31),
@@ -3004,16 +3004,16 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"at": rsschema.StringAttribute{
-												Description:         "The `at` parameter.",
-												MarkdownDescription: "The `at` parameter.",
+												Description:         "The `at` parameter. String length must be between 2 and 2.",
+												MarkdownDescription: "The `at` parameter. String length must be between 2 and 2.",
 												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
 											},
 											"day_of_week": rsschema.StringAttribute{
-												Description:         "The `day_of_week` parameter.",
-												MarkdownDescription: "The `day_of_week` parameter.",
+												Description:         "The `day_of_week` parameter. Value must be one of: `\"sunday\"`, `\"monday\"`, `\"tuesday\"`, `\"wednesday\"`, `\"thursday\"`, `\"friday\"`, `\"saturday\"`.",
+												MarkdownDescription: "The `day_of_week` parameter. Value must be one of: `\"sunday\"`, `\"monday\"`, `\"tuesday\"`, `\"wednesday\"`, `\"thursday\"`, `\"friday\"`, `\"saturday\"`.",
 												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.OneOf("sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"),
@@ -3024,8 +3024,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								},
 							},
 							"url": rsschema.StringAttribute{
-								Description:         "The `url` parameter.",
-								MarkdownDescription: "The `url` parameter.",
+								Description:         "The `url` parameter. String length must be between 0 and 255.",
+								MarkdownDescription: "The `url` parameter. String length must be between 0 and 255.",
 								Required:            true,
 								Validators: []validator.String{
 									stringvalidator.LengthBetween(0, 255),
@@ -3039,8 +3039,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"description": rsschema.StringAttribute{
-								Description:         "The `description` parameter.",
-								MarkdownDescription: "The `description` parameter.",
+								Description:         "The `description` parameter. String length must be between 0 and 255.",
+								MarkdownDescription: "The `description` parameter. String length must be between 0 and 255.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.String{
@@ -3069,8 +3069,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 						Optional:            true,
 						Attributes: map[string]rsschema.Attribute{
 							"description": rsschema.StringAttribute{
-								Description:         "The `description` parameter.",
-								MarkdownDescription: "The `description` parameter.",
+								Description:         "The `description` parameter. String length must be between 0 and 255.",
+								MarkdownDescription: "The `description` parameter. String length must be between 0 and 255.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.String{
@@ -3104,16 +3104,16 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								Optional:            true,
 								Attributes: map[string]rsschema.Attribute{
 									"password": rsschema.StringAttribute{
-										Description:         "The `password` parameter.",
-										MarkdownDescription: "The `password` parameter.",
+										Description:         "The `password` parameter. String length must be at most 255.",
+										MarkdownDescription: "The `password` parameter. String length must be at most 255.",
 										Required:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthAtMost(255),
 										},
 									},
 									"username": rsschema.StringAttribute{
-										Description:         "The `username` parameter.",
-										MarkdownDescription: "The `username` parameter.",
+										Description:         "The `username` parameter. String length must be between 1 and 255.",
+										MarkdownDescription: "The `username` parameter. String length must be between 1 and 255.",
 										Required:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(1, 255),
@@ -3122,8 +3122,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								},
 							},
 							"certificate_profile": rsschema.StringAttribute{
-								Description:         "The `certificate_profile` parameter.",
-								MarkdownDescription: "The `certificate_profile` parameter.",
+								Description:         "The `certificate_profile` parameter. Default: `%!q(*string=0xc000f532b0)`.",
+								MarkdownDescription: "The `certificate_profile` parameter. Default: `%!q(*string=0xc000f532b0)`.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.String{
@@ -3131,8 +3131,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								},
 							},
 							"description": rsschema.StringAttribute{
-								Description:         "The `description` parameter.",
-								MarkdownDescription: "The `description` parameter.",
+								Description:         "The `description` parameter. String length must be between 0 and 255.",
+								MarkdownDescription: "The `description` parameter. String length must be between 0 and 255.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.String{
@@ -3159,8 +3159,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"at": rsschema.StringAttribute{
-												Description:         "The `at` parameter.",
-												MarkdownDescription: "The `at` parameter.",
+												Description:         "The `at` parameter. String length must be between 2 and 2.",
+												MarkdownDescription: "The `at` parameter. String length must be between 2 and 2.",
 												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
@@ -3169,8 +3169,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										},
 									},
 									"five_minute": rsschema.BoolAttribute{
-										Description:         "The `five_minute` parameter.",
-										MarkdownDescription: "The `five_minute` parameter.",
+										Description:         "The `five_minute` parameter. Conflicts with: `daily`, `hourly`, `monthly`, `weekly`.",
+										MarkdownDescription: "The `five_minute` parameter. Conflicts with: `daily`, `hourly`, `monthly`, `weekly`.",
 										Optional:            true,
 										Validators: []validator.Bool{
 											boolvalidator.ConflictsWith(
@@ -3182,8 +3182,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										},
 									},
 									"hourly": rsschema.BoolAttribute{
-										Description:         "The `hourly` parameter.",
-										MarkdownDescription: "The `hourly` parameter.",
+										Description:         "The `hourly` parameter. Conflicts with: `daily`, `five_minute`, `monthly`, `weekly`.",
+										MarkdownDescription: "The `hourly` parameter. Conflicts with: `daily`, `five_minute`, `monthly`, `weekly`.",
 										Optional:            true,
 										Validators: []validator.Bool{
 											boolvalidator.ConflictsWith(
@@ -3200,16 +3200,16 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"at": rsschema.StringAttribute{
-												Description:         "The `at` parameter.",
-												MarkdownDescription: "The `at` parameter.",
+												Description:         "The `at` parameter. String length must be between 2 and 2.",
+												MarkdownDescription: "The `at` parameter. String length must be between 2 and 2.",
 												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
 											},
 											"day_of_month": rsschema.Int64Attribute{
-												Description:         "The `day_of_month` parameter.",
-												MarkdownDescription: "The `day_of_month` parameter.",
+												Description:         "The `day_of_month` parameter. Value must be between 1 and 31.",
+												MarkdownDescription: "The `day_of_month` parameter. Value must be between 1 and 31.",
 												Required:            true,
 												Validators: []validator.Int64{
 													int64validator.Between(1, 31),
@@ -3223,16 +3223,16 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"at": rsschema.StringAttribute{
-												Description:         "The `at` parameter.",
-												MarkdownDescription: "The `at` parameter.",
+												Description:         "The `at` parameter. String length must be between 2 and 2.",
+												MarkdownDescription: "The `at` parameter. String length must be between 2 and 2.",
 												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(2, 2),
 												},
 											},
 											"day_of_week": rsschema.StringAttribute{
-												Description:         "The `day_of_week` parameter.",
-												MarkdownDescription: "The `day_of_week` parameter.",
+												Description:         "The `day_of_week` parameter. Value must be one of: `\"sunday\"`, `\"monday\"`, `\"tuesday\"`, `\"wednesday\"`, `\"thursday\"`, `\"friday\"`, `\"saturday\"`.",
+												MarkdownDescription: "The `day_of_week` parameter. Value must be one of: `\"sunday\"`, `\"monday\"`, `\"tuesday\"`, `\"wednesday\"`, `\"thursday\"`, `\"friday\"`, `\"saturday\"`.",
 												Required:            true,
 												Validators: []validator.String{
 													stringvalidator.OneOf("sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"),
@@ -3243,8 +3243,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								},
 							},
 							"url": rsschema.StringAttribute{
-								Description:         "The `url` parameter.",
-								MarkdownDescription: "The `url` parameter.",
+								Description:         "The `url` parameter. String length must be between 0 and 255.",
+								MarkdownDescription: "The `url` parameter. String length must be between 0 and 255.",
 								Required:            true,
 								Validators: []validator.String{
 									stringvalidator.LengthBetween(0, 255),

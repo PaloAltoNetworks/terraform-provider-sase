@@ -17,7 +17,7 @@ Retrieves config for a specific item.
 
 ### Required
 
-- `job_id` (String) The id of the job
+- `job_id` (String) The id of the job.
 
 ### Read-Only
 

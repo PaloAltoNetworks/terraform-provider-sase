@@ -96,25 +96,25 @@ func (d *tlsServiceProfilesListDataSource) Schema(_ context.Context, _ datasourc
 
 			// Input.
 			"limit": dsschema.Int64Attribute{
-				Description:         "The max count in result entry (count per page)",
-				MarkdownDescription: "The max count in result entry (count per page)",
+				Description:         "The max count in result entry (count per page).",
+				MarkdownDescription: "The max count in result entry (count per page).",
 				Optional:            true,
 				Computed:            true,
 			},
 			"offset": dsschema.Int64Attribute{
-				Description:         "The offset of the result entry",
-				MarkdownDescription: "The offset of the result entry",
+				Description:         "The offset of the result entry.",
+				MarkdownDescription: "The offset of the result entry.",
 				Optional:            true,
 				Computed:            true,
 			},
 			"name": dsschema.StringAttribute{
-				Description:         "The name of the entry",
-				MarkdownDescription: "The name of the entry",
+				Description:         "The name of the entry.",
+				MarkdownDescription: "The name of the entry.",
 				Optional:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -409,13 +409,13 @@ func (d *tlsServiceProfilesDataSource) Schema(_ context.Context, _ datasource.Sc
 
 			// Input.
 			"object_id": dsschema.StringAttribute{
-				Description:         "The uuid of the resource",
-				MarkdownDescription: "The uuid of the resource",
+				Description:         "The uuid of the resource.",
+				MarkdownDescription: "The uuid of the resource.",
 				Required:            true,
 			},
 			"folder": dsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -650,8 +650,8 @@ func (r *tlsServiceProfilesResource) Schema(_ context.Context, _ resource.Schema
 
 			// Input.
 			"folder": rsschema.StringAttribute{
-				Description:         "The folder of the entry",
-				MarkdownDescription: "The folder of the entry",
+				Description:         "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
+				MarkdownDescription: "The folder of the entry. Value must be one of: `\"Shared\"`, `\"Mobile Users\"`, `\"Remote Networks\"`, `\"Service Connections\"`, `\"Mobile Users Container\"`, `\"Mobile Users Explicit Proxy\"`.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.OneOf("Shared", "Mobile Users", "Remote Networks", "Service Connections", "Mobile Users Container", "Mobile Users Explicit Proxy"),
@@ -659,8 +659,8 @@ func (r *tlsServiceProfilesResource) Schema(_ context.Context, _ resource.Schema
 			},
 
 			"certificate": rsschema.StringAttribute{
-				Description:         "The `certificate` parameter.",
-				MarkdownDescription: "The `certificate` parameter.",
+				Description:         "The `certificate` parameter. String length must be at most 255.",
+				MarkdownDescription: "The `certificate` parameter. String length must be at most 255.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(255),
@@ -675,8 +675,8 @@ func (r *tlsServiceProfilesResource) Schema(_ context.Context, _ resource.Schema
 				},
 			},
 			"name": rsschema.StringAttribute{
-				Description:         "The `name` parameter.",
-				MarkdownDescription: "The `name` parameter.",
+				Description:         "The `name` parameter. String length must be at most 127.",
+				MarkdownDescription: "The `name` parameter. String length must be at most 127.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(127),
@@ -796,8 +796,8 @@ func (r *tlsServiceProfilesResource) Schema(_ context.Context, _ resource.Schema
 						},
 					},
 					"max_version": rsschema.StringAttribute{
-						Description:         "The `max_version` parameter.",
-						MarkdownDescription: "The `max_version` parameter.",
+						Description:         "The `max_version` parameter. Default: `%!q(*string=0xc000f530e0)`. Value must be one of: `\"tls1-0\"`, `\"tls1-1\"`, `\"tls1-2\"`, `\"tls1-3\"`, `\"max\"`.",
+						MarkdownDescription: "The `max_version` parameter. Default: `%!q(*string=0xc000f530e0)`. Value must be one of: `\"tls1-0\"`, `\"tls1-1\"`, `\"tls1-2\"`, `\"tls1-3\"`, `\"max\"`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.String{
@@ -808,8 +808,8 @@ func (r *tlsServiceProfilesResource) Schema(_ context.Context, _ resource.Schema
 						},
 					},
 					"min_version": rsschema.StringAttribute{
-						Description:         "The `min_version` parameter.",
-						MarkdownDescription: "The `min_version` parameter.",
+						Description:         "The `min_version` parameter. Default: `%!q(*string=0xc000f530d0)`. Value must be one of: `\"tls1-0\"`, `\"tls1-1\"`, `\"tls1-2\"`.",
+						MarkdownDescription: "The `min_version` parameter. Default: `%!q(*string=0xc000f530d0)`. Value must be one of: `\"tls1-0\"`, `\"tls1-1\"`, `\"tls1-2\"`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.String{

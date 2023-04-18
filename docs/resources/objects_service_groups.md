@@ -17,9 +17,9 @@ Retrieves config for a specific item.
 
 ### Required
 
-- `folder` (String) The folder of the entry
+- `folder` (String) The folder of the entry. Value must be one of: `"Shared"`, `"Mobile Users"`, `"Remote Networks"`, `"Service Connections"`, `"Mobile Users Container"`, `"Mobile Users Explicit Proxy"`.
 - `members` (List of String) The `members` parameter.
-- `name` (String) The `name` parameter.
+- `name` (String) The `name` parameter. String length must be at most 63.
 
 ### Optional
 

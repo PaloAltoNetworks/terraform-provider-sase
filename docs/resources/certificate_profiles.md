@@ -18,8 +18,8 @@ Retrieves config for a specific item.
 ### Required
 
 - `ca_certificates` (Attributes List) The `ca_certificates` parameter. (see [below for nested schema](#nestedatt--ca_certificates))
-- `folder` (String) The folder of the entry
-- `name` (String) The `name` parameter.
+- `folder` (String) The folder of the entry. Value must be one of: `"Shared"`, `"Mobile Users"`, `"Remote Networks"`, `"Service Connections"`, `"Mobile Users Container"`, `"Mobile Users Explicit Proxy"`.
+- `name` (String) The `name` parameter. String length must be at most 63.
 
 ### Optional
 
@@ -56,7 +56,7 @@ Optional:
 
 Optional:
 
-- `subject` (String) The `subject` parameter.
-- `subject_alt` (String) The `subject_alt` parameter.
+- `subject` (String) The `subject` parameter. Value must be one of: `"common-name"`.
+- `subject_alt` (String) The `subject_alt` parameter. Value must be one of: `"email"`.
 
 

@@ -368,8 +368,8 @@ func (d *jobsDataSource) Schema(_ context.Context, _ datasource.SchemaRequest, r
 
 			// Input.
 			"job_id": dsschema.StringAttribute{
-				Description:         "The id of the job",
-				MarkdownDescription: "The id of the job",
+				Description:         "The id of the job.",
+				MarkdownDescription: "The id of the job.",
 				Required:            true,
 			},
 
