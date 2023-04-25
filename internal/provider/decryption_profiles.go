@@ -1361,8 +1361,8 @@ func (r *decryptionProfilesResource) Schema(_ context.Context, _ resource.Schema
 						},
 					},
 					"max_version": rsschema.StringAttribute{
-						Description:         "The `max_version` parameter. Default: `%!q(*string=0xc000f53070)`. Value must be one of: `\"sslv3\"`, `\"tls1-0\"`, `\"tls1-1\"`, `\"tls1-2\"`, `\"tls1-3\"`, `\"max\"`.",
-						MarkdownDescription: "The `max_version` parameter. Default: `%!q(*string=0xc000f53070)`. Value must be one of: `\"sslv3\"`, `\"tls1-0\"`, `\"tls1-1\"`, `\"tls1-2\"`, `\"tls1-3\"`, `\"max\"`.",
+						Description:         "The `max_version` parameter. Default: `\"tls1-2\"`. Value must be one of: `\"sslv3\"`, `\"tls1-0\"`, `\"tls1-1\"`, `\"tls1-2\"`, `\"tls1-3\"`, `\"max\"`.",
+						MarkdownDescription: "The `max_version` parameter. Default: `\"tls1-2\"`. Value must be one of: `\"sslv3\"`, `\"tls1-0\"`, `\"tls1-1\"`, `\"tls1-2\"`, `\"tls1-3\"`, `\"max\"`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.String{
@@ -1373,8 +1373,8 @@ func (r *decryptionProfilesResource) Schema(_ context.Context, _ resource.Schema
 						},
 					},
 					"min_version": rsschema.StringAttribute{
-						Description:         "The `min_version` parameter. Default: `%!q(*string=0xc000f53080)`. Value must be one of: `\"sslv3\"`, `\"tls1-0\"`, `\"tls1-1\"`, `\"tls1-2\"`, `\"tls1-3\"`.",
-						MarkdownDescription: "The `min_version` parameter. Default: `%!q(*string=0xc000f53080)`. Value must be one of: `\"sslv3\"`, `\"tls1-0\"`, `\"tls1-1\"`, `\"tls1-2\"`, `\"tls1-3\"`.",
+						Description:         "The `min_version` parameter. Default: `\"tls1-0\"`. Value must be one of: `\"sslv3\"`, `\"tls1-0\"`, `\"tls1-1\"`, `\"tls1-2\"`, `\"tls1-3\"`.",
+						MarkdownDescription: "The `min_version` parameter. Default: `\"tls1-0\"`. Value must be one of: `\"sslv3\"`, `\"tls1-0\"`, `\"tls1-1\"`, `\"tls1-2\"`, `\"tls1-3\"`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.String{

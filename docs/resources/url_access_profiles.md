@@ -50,7 +50,7 @@ Optional:
 - `allow` (List of String) The `allow` parameter.
 - `block` (List of String) The `block` parameter.
 - `continue` (List of String) The `continue` parameter.
-- `log_severity` (String) The `log_severity` parameter. Default: `%!q(*string=0xc000f53090)`.
+- `log_severity` (String) The `log_severity` parameter. Default: `"medium"`.
 - `mode` (Attributes) The `mode` parameter. (see [below for nested schema](#nestedatt--credential_enforcement--mode))
 
 <a id="nestedatt--credential_enforcement--mode"></a>

@@ -45,8 +45,8 @@ Optional:
 
 Optional:
 
-- `action` (String) The `action` parameter. Default: `%!q(*string=0xc000f53030)`. Value must be one of: `"default"`, `"allow"`, `"block"`, `"sinkhole"`.
-- `log_level` (String) The `log_level` parameter. Default: `%!q(*string=0xc000f53040)`. Value must be one of: `"default"`, `"none"`, `"low"`, `"informational"`, `"medium"`, `"high"`, `"critical"`.
+- `action` (String) The `action` parameter. Default: `"default"`. Value must be one of: `"default"`, `"allow"`, `"block"`, `"sinkhole"`.
+- `log_level` (String) The `log_level` parameter. Default: `"default"`. Value must be one of: `"default"`, `"none"`, `"low"`, `"informational"`, `"medium"`, `"high"`, `"critical"`.
 - `name` (String) The `name` parameter.
 - `packet_capture` (String) The `packet_capture` parameter. Value must be one of: `"disable"`, `"single-packet"`, `"extended-capture"`.
 

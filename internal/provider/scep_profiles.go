@@ -1002,8 +1002,8 @@ func (r *scepProfilesResource) Schema(_ context.Context, _ resource.SchemaReques
 						},
 					},
 					"none": rsschema.StringAttribute{
-						Description:         "The `none` parameter. Default: `%!q(*string=0xc000f53160)`. Value must be one of: `\"\"`.",
-						MarkdownDescription: "The `none` parameter. Default: `%!q(*string=0xc000f53160)`. Value must be one of: `\"\"`.",
+						Description:         "The `none` parameter. Default: `\"\"`. Value must be one of: `\"\"`.",
+						MarkdownDescription: "The `none` parameter. Default: `\"\"`. Value must be one of: `\"\"`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.String{

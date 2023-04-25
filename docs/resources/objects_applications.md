@@ -102,7 +102,7 @@ Optional:
 - `and_condition` (Attributes List) The `and_condition` parameter. (see [below for nested schema](#nestedatt--signature--and_condition))
 - `comment` (String) The `comment` parameter. String length must be between 0 and 256.
 - `order_free` (Boolean) The `order_free` parameter. Default: `false`.
-- `scope` (String) The `scope` parameter. Default: `%!q(*string=0xc000f53390)`. Value must be one of: `"protocol-data-unit"`, `"session"`.
+- `scope` (String) The `scope` parameter. Default: `"protocol-data-unit"`. Value must be one of: `"protocol-data-unit"`, `"session"`.
 
 <a id="nestedatt--signature--and_condition"></a>
 ### Nested Schema for `signature.and_condition`

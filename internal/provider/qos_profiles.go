@@ -928,8 +928,8 @@ func (r *qosProfilesResource) Schema(_ context.Context, _ resource.SchemaRequest
 											},
 										},
 										"priority": rsschema.StringAttribute{
-											Description:         "The `priority` parameter. Default: `%!q(*string=0xc000b9a010)`. Value must be one of: `\"real-time\"`, `\"high\"`, `\"medium\"`, `\"low\"`.",
-											MarkdownDescription: "The `priority` parameter. Default: `%!q(*string=0xc000b9a010)`. Value must be one of: `\"real-time\"`, `\"high\"`, `\"medium\"`, `\"low\"`.",
+											Description:         "The `priority` parameter. Default: `\"medium\"`. Value must be one of: `\"real-time\"`, `\"high\"`, `\"medium\"`, `\"low\"`.",
+											MarkdownDescription: "The `priority` parameter. Default: `\"medium\"`. Value must be one of: `\"real-time\"`, `\"high\"`, `\"medium\"`, `\"low\"`.",
 											Optional:            true,
 											Computed:            true,
 											PlanModifiers: []planmodifier.String{
@@ -999,8 +999,8 @@ func (r *qosProfilesResource) Schema(_ context.Context, _ resource.SchemaRequest
 											},
 										},
 										"priority": rsschema.StringAttribute{
-											Description:         "The `priority` parameter. Default: `%!q(*string=0xc000b9a010)`. Value must be one of: `\"real-time\"`, `\"high\"`, `\"medium\"`, `\"low\"`.",
-											MarkdownDescription: "The `priority` parameter. Default: `%!q(*string=0xc000b9a010)`. Value must be one of: `\"real-time\"`, `\"high\"`, `\"medium\"`, `\"low\"`.",
+											Description:         "The `priority` parameter. Default: `\"medium\"`. Value must be one of: `\"real-time\"`, `\"high\"`, `\"medium\"`, `\"low\"`.",
+											MarkdownDescription: "The `priority` parameter. Default: `\"medium\"`. Value must be one of: `\"real-time\"`, `\"high\"`, `\"medium\"`, `\"low\"`.",
 											Optional:            true,
 											Computed:            true,
 											PlanModifiers: []planmodifier.String{

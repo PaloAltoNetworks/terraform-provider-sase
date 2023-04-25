@@ -939,8 +939,8 @@ func (r *urlAccessProfilesResource) Schema(_ context.Context, _ resource.SchemaR
 						ElementType:         types.StringType,
 					},
 					"log_severity": rsschema.StringAttribute{
-						Description:         "The `log_severity` parameter. Default: `%!q(*string=0xc000f53090)`.",
-						MarkdownDescription: "The `log_severity` parameter. Default: `%!q(*string=0xc000f53090)`.",
+						Description:         "The `log_severity` parameter. Default: `\"medium\"`.",
+						MarkdownDescription: "The `log_severity` parameter. Default: `\"medium\"`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.String{

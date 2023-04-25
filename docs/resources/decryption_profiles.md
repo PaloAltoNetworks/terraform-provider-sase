@@ -89,7 +89,7 @@ Optional:
 - `keyxchg_algo_dhe` (Boolean) The `keyxchg_algo_dhe` parameter. Default: `true`.
 - `keyxchg_algo_ecdhe` (Boolean) The `keyxchg_algo_ecdhe` parameter. Default: `true`.
 - `keyxchg_algo_rsa` (Boolean) The `keyxchg_algo_rsa` parameter. Default: `true`.
-- `max_version` (String) The `max_version` parameter. Default: `%!q(*string=0xc000f53070)`. Value must be one of: `"sslv3"`, `"tls1-0"`, `"tls1-1"`, `"tls1-2"`, `"tls1-3"`, `"max"`.
-- `min_version` (String) The `min_version` parameter. Default: `%!q(*string=0xc000f53080)`. Value must be one of: `"sslv3"`, `"tls1-0"`, `"tls1-1"`, `"tls1-2"`, `"tls1-3"`.
+- `max_version` (String) The `max_version` parameter. Default: `"tls1-2"`. Value must be one of: `"sslv3"`, `"tls1-0"`, `"tls1-1"`, `"tls1-2"`, `"tls1-3"`, `"max"`.
+- `min_version` (String) The `min_version` parameter. Default: `"tls1-0"`. Value must be one of: `"sslv3"`, `"tls1-0"`, `"tls1-1"`, `"tls1-2"`, `"tls1-3"`.
 
 

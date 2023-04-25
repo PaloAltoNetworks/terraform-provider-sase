@@ -796,8 +796,8 @@ func (r *tlsServiceProfilesResource) Schema(_ context.Context, _ resource.Schema
 						},
 					},
 					"max_version": rsschema.StringAttribute{
-						Description:         "The `max_version` parameter. Default: `%!q(*string=0xc000f530e0)`. Value must be one of: `\"tls1-0\"`, `\"tls1-1\"`, `\"tls1-2\"`, `\"tls1-3\"`, `\"max\"`.",
-						MarkdownDescription: "The `max_version` parameter. Default: `%!q(*string=0xc000f530e0)`. Value must be one of: `\"tls1-0\"`, `\"tls1-1\"`, `\"tls1-2\"`, `\"tls1-3\"`, `\"max\"`.",
+						Description:         "The `max_version` parameter. Default: `\"max\"`. Value must be one of: `\"tls1-0\"`, `\"tls1-1\"`, `\"tls1-2\"`, `\"tls1-3\"`, `\"max\"`.",
+						MarkdownDescription: "The `max_version` parameter. Default: `\"max\"`. Value must be one of: `\"tls1-0\"`, `\"tls1-1\"`, `\"tls1-2\"`, `\"tls1-3\"`, `\"max\"`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.String{
@@ -808,8 +808,8 @@ func (r *tlsServiceProfilesResource) Schema(_ context.Context, _ resource.Schema
 						},
 					},
 					"min_version": rsschema.StringAttribute{
-						Description:         "The `min_version` parameter. Default: `%!q(*string=0xc000f530d0)`. Value must be one of: `\"tls1-0\"`, `\"tls1-1\"`, `\"tls1-2\"`.",
-						MarkdownDescription: "The `min_version` parameter. Default: `%!q(*string=0xc000f530d0)`. Value must be one of: `\"tls1-0\"`, `\"tls1-1\"`, `\"tls1-2\"`.",
+						Description:         "The `min_version` parameter. Default: `\"tls1-0\"`. Value must be one of: `\"tls1-0\"`, `\"tls1-1\"`, `\"tls1-2\"`.",
+						MarkdownDescription: "The `min_version` parameter. Default: `\"tls1-0\"`. Value must be one of: `\"tls1-0\"`, `\"tls1-1\"`, `\"tls1-2\"`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.String{

@@ -2417,8 +2417,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								},
 							},
 							"certificate_profile": rsschema.StringAttribute{
-								Description:         "The `certificate_profile` parameter. Default: `%!q(*string=0xc000f53230)`.",
-								MarkdownDescription: "The `certificate_profile` parameter. Default: `%!q(*string=0xc000f53230)`.",
+								Description:         "The `certificate_profile` parameter. Default: `\"None\"`.",
+								MarkdownDescription: "The `certificate_profile` parameter. Default: `\"None\"`.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.String{
@@ -2585,8 +2585,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								},
 							},
 							"certificate_profile": rsschema.StringAttribute{
-								Description:         "The `certificate_profile` parameter. Default: `%!q(*string=0xc000f53320)`.",
-								MarkdownDescription: "The `certificate_profile` parameter. Default: `%!q(*string=0xc000f53320)`.",
+								Description:         "The `certificate_profile` parameter. Default: `\"None\"`.",
+								MarkdownDescription: "The `certificate_profile` parameter. Default: `\"None\"`.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.String{
@@ -2744,8 +2744,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								},
 							},
 							"certificate_profile": rsschema.StringAttribute{
-								Description:         "The `certificate_profile` parameter. Default: `%!q(*string=0xc000f532d0)`.",
-								MarkdownDescription: "The `certificate_profile` parameter. Default: `%!q(*string=0xc000f532d0)`.",
+								Description:         "The `certificate_profile` parameter. Default: `\"None\"`.",
+								MarkdownDescription: "The `certificate_profile` parameter. Default: `\"None\"`.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.String{
@@ -2903,8 +2903,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								},
 							},
 							"certificate_profile": rsschema.StringAttribute{
-								Description:         "The `certificate_profile` parameter. Default: `%!q(*string=0xc000f531e0)`.",
-								MarkdownDescription: "The `certificate_profile` parameter. Default: `%!q(*string=0xc000f531e0)`.",
+								Description:         "The `certificate_profile` parameter. Default: `\"None\"`.",
+								MarkdownDescription: "The `certificate_profile` parameter. Default: `\"None\"`.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.String{
@@ -3122,8 +3122,8 @@ func (r *objectsExternalDynamicListsResource) Schema(_ context.Context, _ resour
 								},
 							},
 							"certificate_profile": rsschema.StringAttribute{
-								Description:         "The `certificate_profile` parameter. Default: `%!q(*string=0xc000f532b0)`.",
-								MarkdownDescription: "The `certificate_profile` parameter. Default: `%!q(*string=0xc000f532b0)`.",
+								Description:         "The `certificate_profile` parameter. Default: `\"None\"`.",
+								MarkdownDescription: "The `certificate_profile` parameter. Default: `\"None\"`.",
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.String{

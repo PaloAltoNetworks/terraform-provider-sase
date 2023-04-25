@@ -999,8 +999,8 @@ func (r *remoteNetworksResource) Schema(_ context.Context, _ resource.SchemaRequ
 			},
 
 			"ecmp_load_balancing": rsschema.StringAttribute{
-				Description:         "The `ecmp_load_balancing` parameter. Default: `%!q(*string=0xc0006100d0)`. Value must be one of: `\"enable\"`, `\"disable\"`.",
-				MarkdownDescription: "The `ecmp_load_balancing` parameter. Default: `%!q(*string=0xc0006100d0)`. Value must be one of: `\"enable\"`, `\"disable\"`.",
+				Description:         "The `ecmp_load_balancing` parameter. Default: `\"disable\"`. Value must be one of: `\"enable\"`, `\"disable\"`.",
+				MarkdownDescription: "The `ecmp_load_balancing` parameter. Default: `\"disable\"`. Value must be one of: `\"enable\"`, `\"disable\"`.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.String{

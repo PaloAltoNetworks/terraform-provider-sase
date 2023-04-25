@@ -80,7 +80,7 @@ Optional:
 
 - `ikev1` (Attributes) The `ikev1` parameter. (see [below for nested schema](#nestedatt--protocol--ikev1))
 - `ikev2` (Attributes) The `ikev2` parameter. (see [below for nested schema](#nestedatt--protocol--ikev2))
-- `version` (String) The `version` parameter. Default: `%!q(*string=0xc000f52fe0)`. Value must be one of: `"ikev2-preferred"`, `"ikev1"`, `"ikev2"`.
+- `version` (String) The `version` parameter. Default: `"ikev2-preferred"`. Value must be one of: `"ikev2-preferred"`, `"ikev1"`, `"ikev2"`.
 
 <a id="nestedatt--protocol--ikev1"></a>
 ### Nested Schema for `protocol.ikev1`

@@ -2219,8 +2219,8 @@ func (r *objectsApplicationsResource) Schema(_ context.Context, _ resource.Schem
 							},
 						},
 						"scope": rsschema.StringAttribute{
-							Description:         "The `scope` parameter. Default: `%!q(*string=0xc000f53390)`. Value must be one of: `\"protocol-data-unit\"`, `\"session\"`.",
-							MarkdownDescription: "The `scope` parameter. Default: `%!q(*string=0xc000f53390)`. Value must be one of: `\"protocol-data-unit\"`, `\"session\"`.",
+							Description:         "The `scope` parameter. Default: `\"protocol-data-unit\"`. Value must be one of: `\"protocol-data-unit\"`, `\"session\"`.",
+							MarkdownDescription: "The `scope` parameter. Default: `\"protocol-data-unit\"`. Value must be one of: `\"protocol-data-unit\"`, `\"session\"`.",
 							Optional:            true,
 							Computed:            true,
 							PlanModifiers: []planmodifier.String{

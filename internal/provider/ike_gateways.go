@@ -1449,8 +1449,8 @@ func (r *ikeGatewaysResource) Schema(_ context.Context, _ resource.SchemaRequest
 						},
 					},
 					"version": rsschema.StringAttribute{
-						Description:         "The `version` parameter. Default: `%!q(*string=0xc000f52fe0)`. Value must be one of: `\"ikev2-preferred\"`, `\"ikev1\"`, `\"ikev2\"`.",
-						MarkdownDescription: "The `version` parameter. Default: `%!q(*string=0xc000f52fe0)`. Value must be one of: `\"ikev2-preferred\"`, `\"ikev1\"`, `\"ikev2\"`.",
+						Description:         "The `version` parameter. Default: `\"ikev2-preferred\"`. Value must be one of: `\"ikev2-preferred\"`, `\"ikev1\"`, `\"ikev2\"`.",
+						MarkdownDescription: "The `version` parameter. Default: `\"ikev2-preferred\"`. Value must be one of: `\"ikev2-preferred\"`, `\"ikev1\"`, `\"ikev2\"`.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.String{

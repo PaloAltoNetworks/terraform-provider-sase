@@ -24,7 +24,7 @@ Retrieves config for a specific item.
 ### Optional
 
 - `ah` (Attributes) The `ah` parameter. (see [below for nested schema](#nestedatt--ah))
-- `dh_group` (String) The `dh_group` parameter. Default: `%!q(*string=0xc000610170)`. Value must be one of: `"no-pfs"`, `"group1"`, `"group2"`, `"group5"`, `"group14"`, `"group19"`, `"group20"`.
+- `dh_group` (String) The `dh_group` parameter. Default: `"group2"`. Value must be one of: `"no-pfs"`, `"group1"`, `"group2"`, `"group5"`, `"group14"`, `"group19"`, `"group20"`.
 - `esp` (Attributes) The `esp` parameter. (see [below for nested schema](#nestedatt--esp))
 - `lifesize` (Attributes) The `lifesize` parameter. (see [below for nested schema](#nestedatt--lifesize))
 

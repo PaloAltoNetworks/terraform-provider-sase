@@ -24,7 +24,7 @@ Retrieves config for a specific item.
 
 ### Optional
 
-- `ecmp_load_balancing` (String) The `ecmp_load_balancing` parameter. Default: `%!q(*string=0xc0006100d0)`. Value must be one of: `"enable"`, `"disable"`.
+- `ecmp_load_balancing` (String) The `ecmp_load_balancing` parameter. Default: `"disable"`. Value must be one of: `"enable"`, `"disable"`.
 - `ecmp_tunnels` (Attributes List) The `ecmp_tunnels` parameter. (see [below for nested schema](#nestedatt--ecmp_tunnels))
 - `ipsec_tunnel` (String) The `ipsec_tunnel` parameter.
 - `protocol` (Attributes) The `protocol` parameter. (see [below for nested schema](#nestedatt--protocol))

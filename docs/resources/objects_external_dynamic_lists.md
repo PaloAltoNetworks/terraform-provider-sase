@@ -50,7 +50,7 @@ Required:
 Optional:
 
 - `auth` (Attributes) The `auth` parameter. (see [below for nested schema](#nestedatt--type--domain--auth))
-- `certificate_profile` (String) The `certificate_profile` parameter. Default: `%!q(*string=0xc000f53230)`.
+- `certificate_profile` (String) The `certificate_profile` parameter. Default: `"None"`.
 - `description` (String) The `description` parameter. String length must be between 0 and 255.
 - `exception_list` (List of String) The `exception_list` parameter.
 - `expand_domain` (Boolean) The `expand_domain` parameter. Default: `false`.
@@ -114,7 +114,7 @@ Required:
 Optional:
 
 - `auth` (Attributes) The `auth` parameter. (see [below for nested schema](#nestedatt--type--imei--auth))
-- `certificate_profile` (String) The `certificate_profile` parameter. Default: `%!q(*string=0xc000f53320)`.
+- `certificate_profile` (String) The `certificate_profile` parameter. Default: `"None"`.
 - `description` (String) The `description` parameter. String length must be between 0 and 255.
 - `exception_list` (List of String) The `exception_list` parameter.
 
@@ -177,7 +177,7 @@ Required:
 Optional:
 
 - `auth` (Attributes) The `auth` parameter. (see [below for nested schema](#nestedatt--type--imsi--auth))
-- `certificate_profile` (String) The `certificate_profile` parameter. Default: `%!q(*string=0xc000f532d0)`.
+- `certificate_profile` (String) The `certificate_profile` parameter. Default: `"None"`.
 - `description` (String) The `description` parameter. String length must be between 0 and 255.
 - `exception_list` (List of String) The `exception_list` parameter.
 
@@ -240,7 +240,7 @@ Required:
 Optional:
 
 - `auth` (Attributes) The `auth` parameter. (see [below for nested schema](#nestedatt--type--ip--auth))
-- `certificate_profile` (String) The `certificate_profile` parameter. Default: `%!q(*string=0xc000f531e0)`.
+- `certificate_profile` (String) The `certificate_profile` parameter. Default: `"None"`.
 - `description` (String) The `description` parameter. String length must be between 0 and 255.
 - `exception_list` (List of String) The `exception_list` parameter.
 
@@ -329,7 +329,7 @@ Required:
 Optional:
 
 - `auth` (Attributes) The `auth` parameter. (see [below for nested schema](#nestedatt--type--url--auth))
-- `certificate_profile` (String) The `certificate_profile` parameter. Default: `%!q(*string=0xc000f532b0)`.
+- `certificate_profile` (String) The `certificate_profile` parameter. Default: `"None"`.
 - `description` (String) The `description` parameter. String length must be between 0 and 255.
 - `exception_list` (List of String) The `exception_list` parameter.
 

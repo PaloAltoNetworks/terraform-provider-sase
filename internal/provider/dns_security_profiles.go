@@ -914,8 +914,8 @@ func (r *dnsSecurityProfilesResource) Schema(_ context.Context, _ resource.Schem
 						NestedObject: rsschema.NestedAttributeObject{
 							Attributes: map[string]rsschema.Attribute{
 								"action": rsschema.StringAttribute{
-									Description:         "The `action` parameter. Default: `%!q(*string=0xc000f53030)`. Value must be one of: `\"default\"`, `\"allow\"`, `\"block\"`, `\"sinkhole\"`.",
-									MarkdownDescription: "The `action` parameter. Default: `%!q(*string=0xc000f53030)`. Value must be one of: `\"default\"`, `\"allow\"`, `\"block\"`, `\"sinkhole\"`.",
+									Description:         "The `action` parameter. Default: `\"default\"`. Value must be one of: `\"default\"`, `\"allow\"`, `\"block\"`, `\"sinkhole\"`.",
+									MarkdownDescription: "The `action` parameter. Default: `\"default\"`. Value must be one of: `\"default\"`, `\"allow\"`, `\"block\"`, `\"sinkhole\"`.",
 									Optional:            true,
 									Computed:            true,
 									PlanModifiers: []planmodifier.String{
@@ -926,8 +926,8 @@ func (r *dnsSecurityProfilesResource) Schema(_ context.Context, _ resource.Schem
 									},
 								},
 								"log_level": rsschema.StringAttribute{
-									Description:         "The `log_level` parameter. Default: `%!q(*string=0xc000f53040)`. Value must be one of: `\"default\"`, `\"none\"`, `\"low\"`, `\"informational\"`, `\"medium\"`, `\"high\"`, `\"critical\"`.",
-									MarkdownDescription: "The `log_level` parameter. Default: `%!q(*string=0xc000f53040)`. Value must be one of: `\"default\"`, `\"none\"`, `\"low\"`, `\"informational\"`, `\"medium\"`, `\"high\"`, `\"critical\"`.",
+									Description:         "The `log_level` parameter. Default: `\"default\"`. Value must be one of: `\"default\"`, `\"none\"`, `\"low\"`, `\"informational\"`, `\"medium\"`, `\"high\"`, `\"critical\"`.",
+									MarkdownDescription: "The `log_level` parameter. Default: `\"default\"`. Value must be one of: `\"default\"`, `\"none\"`, `\"low\"`, `\"informational\"`, `\"medium\"`, `\"high\"`, `\"critical\"`.",
 									Optional:            true,
 									Computed:            true,
 									PlanModifiers: []planmodifier.String{

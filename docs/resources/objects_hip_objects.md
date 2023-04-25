@@ -396,8 +396,8 @@ Optional:
 
 Optional:
 
-- `is` (String) The `is` parameter. Default: `%!q(*string=0xc000f53420)`. Value must be one of: `"encrypted"`, `"unencrypted"`, `"partial"`, `"unknown"`.
-- `is_not` (String) The `is_not` parameter. Default: `%!q(*string=0xc000f53430)`. Value must be one of: `"encrypted"`, `"unencrypted"`, `"partial"`, `"unknown"`.
+- `is` (String) The `is` parameter. Default: `"encrypted"`. Value must be one of: `"encrypted"`, `"unencrypted"`, `"partial"`, `"unknown"`.
+- `is_not` (String) The `is_not` parameter. Default: `"encrypted"`. Value must be one of: `"encrypted"`, `"unencrypted"`, `"partial"`, `"unknown"`.
 
 
 
@@ -518,10 +518,10 @@ Optional:
 
 Optional:
 
-- `apple` (String) The `apple` parameter. Default: `%!q(*string=0xc000f53460)`. String length must be between 0 and 255. Conflicts with: `Google`, `Linux`, `Microsoft`, `Other`.
-- `google` (String) The `google` parameter. Default: `%!q(*string=0xc000f53470)`. String length must be between 0 and 255. Conflicts with: `Apple`, `Linux`, `Microsoft`, `Other`.
-- `linux` (String) The `linux` parameter. Default: `%!q(*string=0xc000f53480)`. String length must be between 0 and 255. Conflicts with: `Apple`, `Google`, `Microsoft`, `Other`.
-- `microsoft` (String) The `microsoft` parameter. Default: `%!q(*string=0xc000f53450)`. String length must be between 0 and 255. Conflicts with: `Apple`, `Google`, `Linux`, `Other`.
+- `apple` (String) The `apple` parameter. Default: `"All"`. String length must be between 0 and 255. Conflicts with: `Google`, `Linux`, `Microsoft`, `Other`.
+- `google` (String) The `google` parameter. Default: `"All"`. String length must be between 0 and 255. Conflicts with: `Apple`, `Linux`, `Microsoft`, `Other`.
+- `linux` (String) The `linux` parameter. Default: `"All"`. String length must be between 0 and 255. Conflicts with: `Apple`, `Google`, `Microsoft`, `Other`.
+- `microsoft` (String) The `microsoft` parameter. Default: `"All"`. String length must be between 0 and 255. Conflicts with: `Apple`, `Google`, `Linux`, `Other`.
 - `other` (String) The `other` parameter. String length must be between 0 and 255. Conflicts with: `Apple`, `Google`, `Linux`, `Microsoft`.
 
 

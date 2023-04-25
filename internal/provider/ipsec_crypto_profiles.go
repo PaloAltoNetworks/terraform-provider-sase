@@ -742,8 +742,8 @@ func (r *ipsecCryptoProfilesResource) Schema(_ context.Context, _ resource.Schem
 				},
 			},
 			"dh_group": rsschema.StringAttribute{
-				Description:         "The `dh_group` parameter. Default: `%!q(*string=0xc000610170)`. Value must be one of: `\"no-pfs\"`, `\"group1\"`, `\"group2\"`, `\"group5\"`, `\"group14\"`, `\"group19\"`, `\"group20\"`.",
-				MarkdownDescription: "The `dh_group` parameter. Default: `%!q(*string=0xc000610170)`. Value must be one of: `\"no-pfs\"`, `\"group1\"`, `\"group2\"`, `\"group5\"`, `\"group14\"`, `\"group19\"`, `\"group20\"`.",
+				Description:         "The `dh_group` parameter. Default: `\"group2\"`. Value must be one of: `\"no-pfs\"`, `\"group1\"`, `\"group2\"`, `\"group5\"`, `\"group14\"`, `\"group19\"`, `\"group20\"`.",
+				MarkdownDescription: "The `dh_group` parameter. Default: `\"group2\"`. Value must be one of: `\"no-pfs\"`, `\"group1\"`, `\"group2\"`, `\"group5\"`, `\"group14\"`, `\"group19\"`, `\"group20\"`.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.String{

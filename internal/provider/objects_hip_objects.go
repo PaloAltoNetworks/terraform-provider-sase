@@ -6100,8 +6100,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 											Optional:            true,
 											Attributes: map[string]rsschema.Attribute{
 												"is": rsschema.StringAttribute{
-													Description:         "The `is` parameter. Default: `%!q(*string=0xc000f53420)`. Value must be one of: `\"encrypted\"`, `\"unencrypted\"`, `\"partial\"`, `\"unknown\"`.",
-													MarkdownDescription: "The `is` parameter. Default: `%!q(*string=0xc000f53420)`. Value must be one of: `\"encrypted\"`, `\"unencrypted\"`, `\"partial\"`, `\"unknown\"`.",
+													Description:         "The `is` parameter. Default: `\"encrypted\"`. Value must be one of: `\"encrypted\"`, `\"unencrypted\"`, `\"partial\"`, `\"unknown\"`.",
+													MarkdownDescription: "The `is` parameter. Default: `\"encrypted\"`. Value must be one of: `\"encrypted\"`, `\"unencrypted\"`, `\"partial\"`, `\"unknown\"`.",
 													Optional:            true,
 													Computed:            true,
 													PlanModifiers: []planmodifier.String{
@@ -6112,8 +6112,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 													},
 												},
 												"is_not": rsschema.StringAttribute{
-													Description:         "The `is_not` parameter. Default: `%!q(*string=0xc000f53430)`. Value must be one of: `\"encrypted\"`, `\"unencrypted\"`, `\"partial\"`, `\"unknown\"`.",
-													MarkdownDescription: "The `is_not` parameter. Default: `%!q(*string=0xc000f53430)`. Value must be one of: `\"encrypted\"`, `\"unencrypted\"`, `\"partial\"`, `\"unknown\"`.",
+													Description:         "The `is_not` parameter. Default: `\"encrypted\"`. Value must be one of: `\"encrypted\"`, `\"unencrypted\"`, `\"partial\"`, `\"unknown\"`.",
+													MarkdownDescription: "The `is_not` parameter. Default: `\"encrypted\"`. Value must be one of: `\"encrypted\"`, `\"unencrypted\"`, `\"partial\"`, `\"unknown\"`.",
 													Optional:            true,
 													Computed:            true,
 													PlanModifiers: []planmodifier.String{
@@ -6498,8 +6498,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 										Optional:            true,
 										Attributes: map[string]rsschema.Attribute{
 											"apple": rsschema.StringAttribute{
-												Description:         "The `apple` parameter. Default: `%!q(*string=0xc000f53460)`. String length must be between 0 and 255. Conflicts with: `Google`, `Linux`, `Microsoft`, `Other`.",
-												MarkdownDescription: "The `apple` parameter. Default: `%!q(*string=0xc000f53460)`. String length must be between 0 and 255. Conflicts with: `Google`, `Linux`, `Microsoft`, `Other`.",
+												Description:         "The `apple` parameter. Default: `\"All\"`. String length must be between 0 and 255. Conflicts with: `Google`, `Linux`, `Microsoft`, `Other`.",
+												MarkdownDescription: "The `apple` parameter. Default: `\"All\"`. String length must be between 0 and 255. Conflicts with: `Google`, `Linux`, `Microsoft`, `Other`.",
 												Optional:            true,
 												Computed:            true,
 												PlanModifiers: []planmodifier.String{
@@ -6516,8 +6516,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												},
 											},
 											"google": rsschema.StringAttribute{
-												Description:         "The `google` parameter. Default: `%!q(*string=0xc000f53470)`. String length must be between 0 and 255. Conflicts with: `Apple`, `Linux`, `Microsoft`, `Other`.",
-												MarkdownDescription: "The `google` parameter. Default: `%!q(*string=0xc000f53470)`. String length must be between 0 and 255. Conflicts with: `Apple`, `Linux`, `Microsoft`, `Other`.",
+												Description:         "The `google` parameter. Default: `\"All\"`. String length must be between 0 and 255. Conflicts with: `Apple`, `Linux`, `Microsoft`, `Other`.",
+												MarkdownDescription: "The `google` parameter. Default: `\"All\"`. String length must be between 0 and 255. Conflicts with: `Apple`, `Linux`, `Microsoft`, `Other`.",
 												Optional:            true,
 												Computed:            true,
 												PlanModifiers: []planmodifier.String{
@@ -6534,8 +6534,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												},
 											},
 											"linux": rsschema.StringAttribute{
-												Description:         "The `linux` parameter. Default: `%!q(*string=0xc000f53480)`. String length must be between 0 and 255. Conflicts with: `Apple`, `Google`, `Microsoft`, `Other`.",
-												MarkdownDescription: "The `linux` parameter. Default: `%!q(*string=0xc000f53480)`. String length must be between 0 and 255. Conflicts with: `Apple`, `Google`, `Microsoft`, `Other`.",
+												Description:         "The `linux` parameter. Default: `\"All\"`. String length must be between 0 and 255. Conflicts with: `Apple`, `Google`, `Microsoft`, `Other`.",
+												MarkdownDescription: "The `linux` parameter. Default: `\"All\"`. String length must be between 0 and 255. Conflicts with: `Apple`, `Google`, `Microsoft`, `Other`.",
 												Optional:            true,
 												Computed:            true,
 												PlanModifiers: []planmodifier.String{
@@ -6552,8 +6552,8 @@ func (r *objectsHipObjectsResource) Schema(_ context.Context, _ resource.SchemaR
 												},
 											},
 											"microsoft": rsschema.StringAttribute{
-												Description:         "The `microsoft` parameter. Default: `%!q(*string=0xc000f53450)`. String length must be between 0 and 255. Conflicts with: `Apple`, `Google`, `Linux`, `Other`.",
-												MarkdownDescription: "The `microsoft` parameter. Default: `%!q(*string=0xc000f53450)`. String length must be between 0 and 255. Conflicts with: `Apple`, `Google`, `Linux`, `Other`.",
+												Description:         "The `microsoft` parameter. Default: `\"All\"`. String length must be between 0 and 255. Conflicts with: `Apple`, `Google`, `Linux`, `Other`.",
+												MarkdownDescription: "The `microsoft` parameter. Default: `\"All\"`. String length must be between 0 and 255. Conflicts with: `Apple`, `Google`, `Linux`, `Other`.",
 												Optional:            true,
 												Computed:            true,
 												PlanModifiers: []planmodifier.String{

@@ -61,7 +61,7 @@ Optional:
 
 - `class_bandwidth` (Attributes) The `class_bandwidth` parameter. (see [below for nested schema](#nestedatt--class_bandwidth_type--mbps--class--class_bandwidth))
 - `name` (String) The `name` parameter. String length must be at most 31.
-- `priority` (String) The `priority` parameter. Default: `%!q(*string=0xc000b9a010)`. Value must be one of: `"real-time"`, `"high"`, `"medium"`, `"low"`.
+- `priority` (String) The `priority` parameter. Default: `"medium"`. Value must be one of: `"real-time"`, `"high"`, `"medium"`, `"low"`.
 
 <a id="nestedatt--class_bandwidth_type--mbps--class--class_bandwidth"></a>
 ### Nested Schema for `class_bandwidth_type.mbps.class.priority`
@@ -88,7 +88,7 @@ Optional:
 
 - `class_bandwidth` (Attributes) The `class_bandwidth` parameter. (see [below for nested schema](#nestedatt--class_bandwidth_type--percentage--class--class_bandwidth))
 - `name` (String) The `name` parameter. String length must be at most 31.
-- `priority` (String) The `priority` parameter. Default: `%!q(*string=0xc000b9a010)`. Value must be one of: `"real-time"`, `"high"`, `"medium"`, `"low"`.
+- `priority` (String) The `priority` parameter. Default: `"medium"`. Value must be one of: `"real-time"`, `"high"`, `"medium"`, `"low"`.
 
 <a id="nestedatt--class_bandwidth_type--percentage--class--class_bandwidth"></a>
 ### Nested Schema for `class_bandwidth_type.percentage.class.priority`
