@@ -1,7 +1,7 @@
 Terraform Provider for Palo Alto Networks SASE API
 ==================================================
 
-**NOTE**:  This provider will eventually be entirely auto-generated.
+**NOTE**:  Please use the new [paloaltonetworks/terraform-provider-scm](https://github.com/paloaltonetworks/terraform-provider-scm) provider instead.
 
 
 Requirements
